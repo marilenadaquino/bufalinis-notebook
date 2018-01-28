@@ -1,0 +1,43 @@
+$def with (content)
+
+<html>
+	<head>
+	    <title>Il quaderno di Paolo Bufalini</title>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	    <link rel="icon" href="/static/favicon.ico" />
+	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	    
+	    <script type="text/javascript" src=$content.get('mainjs','static/script/notebook.js')></script>
+	    <script type="text/javascript" src=$content.get('imgResizer','static/script/imageMapResizer.min.js')></script>
+	    <script type="text/javascript" src=$content.get('mapifyjs','static/script/jquery.mapify.js')></script>
+	    <script type="text/javascript" src=$content.get('fontawesome','static/script/fontawesome-all.js')></script>
+	    <script type="text/javascript" src=$content.get('i18n','static/script/jquery.i18n.properties.js')></script>
+	    <script type="text/javascript" src=$content.get('cookies','static/script/cookies.js')></script>
+	    <link rel="stylesheet" type="text/css" href=$content.get('maincss','./static/css/notebook.css')>
+	    <link rel="stylesheet" type="text/css" href=$content.get('yasguicss','./static/css/yasgui.css')>
+	    <link rel="stylesheet" type="text/css" href=$content.get('mapifycss','./static/css/jquery.mapify.css')>
+	    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700" rel="stylesheet">
+	</head>
+	<body class="container-fluid">
+		<div class="se-pre-con"></div>
+		<header class="row" id="title">
+			<h1><a href="./" id="i_title">Il quaderno di Paolo Bufalini</a></h1>
+			<nav>
+				<a href="/introduction" id="nav_intro">introduzione</a>
+				<a href="/viewer" id="nav_viewer">edizione</a>
+				<a href="/library" id="nav_library">biblioteca</a>
+				<a href="/indexes" id="nav_indexes">indici</a>
+				<a href="/bibliography" id="nav_biblio">bibliografia</a>
+				<a href="/sparql">endpoint</a>
+				<span id="lang"><a href="#it">it</a>|<a href="#en">en</a></span>
+			</nav>
+			
+		</header>
+		<section class="col-md-12 main_content">
+			$:content
+		</section>
+		
+	</body>
+</html>
