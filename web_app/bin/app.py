@@ -1,5 +1,6 @@
-import web , rdflib , os , json , re , urlparse, requests
-from rdflib import URIRef , XSD, Namespace , Literal 
+import web , rdflib , os , json , re , requests
+from urllib.parse import urlparse ,  parse_qs
+from rdflib import URIRef , XSD, Namespace , Literal
 from rdflib.namespace import OWL, DC , RDF , RDFS
 from rdflib.plugins.sparql import prepareQuery
 from SPARQLWrapper import SPARQLWrapper, JSON
@@ -12,7 +13,7 @@ CITO = Namespace("http://purl.org/spar/cito/")
 
 # TO BE CHANGED
 # SPARQL endpoint
-# endpoint = 'http://51.15.52.21:9999/blazegraph/sparql' 
+# endpoint = 'http://51.15.52.21:9999/blazegraph/sparql'
 endpoint = 'http://localhost:9999/blazegraph/sparql'
 dbpediaEndpoint = 'http://it.dbpedia.org/sparql'
 
@@ -27,16 +28,16 @@ allExcerptsQuery = """
 	PREFIX prism: <http://prismstandard.org/namespaces/1.2/basic/>
 	SELECT *
 	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE { 			
+	WHERE {
 
 			?source a oa:Annotation ; oa:hasBody ?body .
       		?body rdf:value ?text ; prism:startingPage ?page . ?page rdfs:label ?pageLabel .
-      		OPTIONAL {?body rdfs:label ?biblRef .} 
+      		OPTIONAL {?body rdfs:label ?biblRef .}
       		OPTIONAL {?source oa:motivatedBy ?motivationURI . ?motivationURI rdfs:label ?motivation .}
 			OPTIONAL {?body dcterms:references ?entity . ?entity rdfs:label ?entityLabel . }
-			OPTIONAL {?body frbr:partOf+ ?exp . ?exp frbr:realizationOf ?work . ?work dcterms:creator ?creatorURI ; rdfs:label ?workLabel . ?creatorURI rdfs:label ?creator . } . 
+			OPTIONAL {?body frbr:partOf+ ?exp . ?exp frbr:realizationOf ?work . ?work dcterms:creator ?creatorURI ; rdfs:label ?workLabel . ?creatorURI rdfs:label ?creator . } .
 			OPTIONAL {?body frbr:translationOf ?original ; frbr:realizer ?translatorURI . ?translatorURI rdfs:label ?translator .
-                     OPTIONAL {?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel.  } 
+                     OPTIONAL {?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel.  }
                      OPTIONAL {?originalBody frbr:partOf+ ?originalExp . ?originalExp frbr:realizationOf ?originalWork . ?originalWork rdfs:label ?originalWorkLabel ; dcterms:creator ?originalCreatorURI . ?originalCreatorURI rdfs:label ?originalCreator}
                      }
             OPTIONAL {?body dcterms:relation ?relatedExcerpt . ?relatedExcerpt oa:hasBody ?relatedBody . }
@@ -52,11 +53,11 @@ allWorksQueryQuotation = """
 	PREFIX frbr: <http://purl.org/vocab/frbr/core#>
 	PREFIX fabio: <http://purl.org/spar/fabio/>
 	PREFIX dcterms: <http://purl.org/dc/terms/>
-	SELECT ?work ?workLabel (COUNT(?excerpt) AS ?count) 
+	SELECT ?work ?workLabel (COUNT(?excerpt) AS ?count)
 	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE { 
-		{ ?work a fabio:WorkCollection} UNION 
-		{ ?work a fabio:Work } UNION 
+	WHERE {
+		{ ?work a fabio:WorkCollection} UNION
+		{ ?work a fabio:Work } UNION
 		{ ?work a fabio:Play } UNION
 		{ ?work a fabio:Poem } UNION
 		{ ?work a fabio:Novel }
@@ -64,11 +65,11 @@ allWorksQueryQuotation = """
 		FILTER NOT EXISTS {?work frbr:partOf ?anotherWork }
 		OPTIONAL {?excerpt a fabio:Excerpt ; frbr:partOf+ ?expr. ?expr frbr:realizationOf ?work .}
 	}
-	GROUP BY ?work ?workLabel ?creator 
+	GROUP BY ?work ?workLabel ?creator
 	ORDER BY DESC(?count) ?workLabel
 """
 
-allSameAsQuery = """ 
+allSameAsQuery = """
 	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 	PREFIX oa: <http://www.w3.org/ns/oa#>
 	PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -90,9 +91,9 @@ singleExcerptQuery = """
 	FROM <https://w3id.org/bufalinis-notebook/edition/>
 	WHERE { ?source a oa:Annotation ; oa:hasBody ?body . ?body rdf:value ?text .
 			OPTIONAL {?body dcterms:references ?entity . ?entity rdfs:label ?entityLabel . }
-			OPTIONAL {?source oa:hasBody ?traslatedBody ; oa:motivatedBy ?motivationURI . ?motivationURI rdfs:label ?motivation . ?traslatedBody frbr:translationOf ?original ; frbr:realizer ?translatorURI . 
-					?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel. ?translatorURI rdfs:label ?translator . 
-					?originalBody frbr:partOf+ ?originalExp . ?originalExp frbr:realizationOf ?originalWork . ?originalWork dcterms:creator ?originalCreatorURI . ?originalCreatorURI rdfs:label ?originalCreator } 
+			OPTIONAL {?source oa:hasBody ?traslatedBody ; oa:motivatedBy ?motivationURI . ?motivationURI rdfs:label ?motivation . ?traslatedBody frbr:translationOf ?original ; frbr:realizer ?translatorURI .
+					?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel. ?translatorURI rdfs:label ?translator .
+					?originalBody frbr:partOf+ ?originalExp . ?originalExp frbr:realizationOf ?originalWork . ?originalWork dcterms:creator ?originalCreatorURI . ?originalCreatorURI rdfs:label ?originalCreator }
 			OPTIONAL {?body dcterms:relation ?relatedExcerpt . ?relatedExcerpt oa:hasBody ?relatedBody . }
 			OPTIONAL {?body dcterms:complementOf ?otherExcerpt . ?otherExcerpt oa:hasBody ?otherBody . }
 	}"""
@@ -111,7 +112,7 @@ citedPeopleQuery = """
 			?s a foaf:Person ; rdfs:label ?person ; owl:sameAs ?externalURI .
 	  		?excerpt dcterms:references ?s . ?body oa:hasBody ?excerpt .
 	  		OPTIONAL {?excerpt frbr:partOf+ ?exp . ?exp frbr:realizationOf ?work . ?work dcterms:creator ?author . ?author rdfs:label ?authorLabel .}
-	  		OPTIONAL {?excerpt frbr:realizer ?realizer . ?realizer rdfs:label ?realizerLabel . } 
+	  		OPTIONAL {?excerpt frbr:realizer ?realizer . ?realizer rdfs:label ?realizerLabel . }
 	}
 	ORDER BY ?person
 	"""
@@ -124,22 +125,22 @@ allPeopleRelationsQuery = """
 	SELECT *
 	WHERE {
 			graph ?influenceGraph {
-              ?passive prov:qualifiedInfluence ?influence . 
+              ?passive prov:qualifiedInfluence ?influence .
               ?influence prov:agent ?active ; rdfs:label ?influenceLabel .
               ?active ?relation ?passive .
-            } 
-            
+            }
+
             ?influenceGraph prov:wasGeneratedBy ?intAct .
       		?intAct prov:wasAssociatedWith ?interpreter ; hico:isExtractedFrom ?excerpt .
       		OPTIONAL {?intAct cito:citesAsAuthority ?author .}
-      
+
       		?active rdfs:label ?activeLabel .
       		?passive rdfs:label ?passiveLabel .
 	}
 """
 
 
-# add author of translated text; add entities cited in translations ; 
+# add author of translated text; add entities cited in translations ;
 
 # run queries against the SPARQL endpoint before the homepage loads
 try:
@@ -166,7 +167,7 @@ try:
 		if "biblRef" in result.keys() and "creator" in result.keys():
 			if "entityLabel" in result.keys():
 				entities = "<p>"+result["entityLabel"]["value"]+"</p>"
-			else: 
+			else:
 				entities = '<p>-</p>'
 			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation+"<h4>Testo citato</h4><i>"+result["biblRef"]["value"]+"</i><p>"+result["creator"]["value"]+"</p><h4>entit&#224; citate</h4>"+entities
 		# comments
@@ -180,9 +181,9 @@ try:
 		# translations
 		if "biblRef" not in result.keys() and "creator" not in result.keys() and "translator" in result.keys() and "translatedText" in result.keys():
 			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation+"<h4>Traduzione dall'originale</h4><p>"+result["translatedText"]["value"]+"</p><i>"+result['originalLabel']['value']+"</i><p>"+originalCreator+"</p><h4>Traduttore</h4><p>"+result["translator"]["value"]+"</p>"
-		
+
 except:
-	print 'oooops, something went wrong with allExcerptsQuery'
+	print('oooops, something went wrong with allExcerptsQuery')
 
 try:
 	sparql = SPARQLWrapper(endpoint)
@@ -191,7 +192,7 @@ try:
 	sparql.setReturnFormat(JSON)
 	quotsResults = sparql.query().convert()
 except:
-	print 'oooops something went wrong with allWorksQueryQuotation'
+	print('oooops something went wrong with allWorksQueryQuotation')
 
 try:
 	sparql = SPARQLWrapper(endpoint)
@@ -200,7 +201,7 @@ try:
 	sparql.setReturnFormat(JSON)
 	sameAsResults = sparql.query().convert()
 except:
-	print 'oooops something went wrong with allSameAsQuery'
+	print('oooops something went wrong with allSameAsQuery')
 
 try:
 	sparql = SPARQLWrapper(endpoint)
@@ -209,7 +210,7 @@ try:
 	sparql.setReturnFormat(JSON)
 	citedPeopleResults = sparql.query().convert()
 except:
-	print 'oooops something went wrong with citedPeopleQuery'
+	print('oooops something went wrong with citedPeopleQuery')
 
 try:
 	sparql = SPARQLWrapper(endpoint)
@@ -218,7 +219,7 @@ try:
 	sparql.setReturnFormat(JSON)
 	relationsResults = sparql.query().convert()
 except:
-	print 'oooops something went wrong with allPeopleRelationsQuery'
+	print('oooops something went wrong with allPeopleRelationsQuery')
 
 # WEB APP
 # routing
@@ -260,10 +261,10 @@ class resource(object):
 			sparql.setQuery(describeEntityQuery)
 			sparql.setReturnFormat(JSON)
 			describeResults = sparql.query().convert()
-			print describeEntityQuery
-			print describeResults
+			print(describeEntityQuery)
+			print(describeResults)
 		except:
-			print 'oooops something went wrong with describeEntityQuery'
+			print('oooops something went wrong with describeEntityQuery')
 		return renderRDF.resource(data=describeResults, entity=entityTBD)
 
 
@@ -291,13 +292,13 @@ class index_page(object):
 # indici
 class indexes(object):
 	def GET(self):
-		
+
 		return render.indexes(citedPeopleList=citedPeopleResults, relationsList=relationsResults)
 
 # biblioteca
 class library(object):
 	def GET(self):
-		# dict for citations tab		
+		# dict for citations tab
 		excerptsDict = defaultdict(list)
 		authorsList = defaultdict(list)
 		authorsQuots = defaultdict(list)
@@ -317,11 +318,11 @@ class library(object):
 				creatorURI = ''
 				creatorText = '-'
 			# excerptsDict - work : {excerptID , biblRef}
-			if 'work' in result.keys() and result['work']['value'] in excerptsDict:	
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})			
+			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
+				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
 			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
 				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
-		
+
 			# authorsList TO BE REVISED - IT TAKES TOO LONG
 			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsList:
 				authorsList[result["creatorURI"]["value"]] = [{'name': result["creator"]["value"]}]
@@ -356,8 +357,8 @@ class library(object):
 				authorsQuots[result["creatorURI"]["value"]] = [(result["source"]["value"].rsplit('/',1)[-1] , biblRefText)]
 			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsQuots:
 				authorsQuots[result["creatorURI"]["value"]].append( (result["source"]["value"].rsplit('/',1)[-1] , biblRefText) )
-		
-		authorsListInfo = sorted(authorsList.iteritems(),key=lambda (k,v): (v[0]))
+
+		authorsListInfo = sorted(authorsList.iteritems(),key= lambda k,v: (v[0]))
 		return render.library(quots=quotsResults, citations=excerptsDict, authors=authorsListInfo, authorAndQuots=authorsQuots)
 
 # bibliografia
@@ -395,15 +396,15 @@ class excerpt(object):
 
 			if result["source"]["value"].rsplit('/',1)[-1] == idQuote:
 				return render.excerpt(	source=result["source"]["value"],
-										motivation=result["motivation"]["value"], 
-										text=result["text"]["value"], 
+										motivation=result["motivation"]["value"],
+										text=result["text"]["value"],
 										work=workURI,
 										workLabel=workLabel,
-										biblRef=biblRefText, 
+										biblRef=biblRefText,
 										creatorID=creatorURI,
-										creator=creatorText , 
+										creator=creatorText ,
 										translatorID=translatorURI,
-										translator=translatorText, 
+										translator=translatorText,
 										page=result["pageLabel"]["value"],
 										sameAs=sameAsResults
 										)
@@ -442,7 +443,7 @@ class sparql:
             web.header('Access-Control-Allow-Origin', '*')
             web.header('Access-Control-Allow-Credentials', 'true')
             web.header('Content-Type', req.headers["content-type"])
-       
+
             return req.text
         else:
             raise web.HTTPError(
@@ -450,9 +451,9 @@ class sparql:
 
     def __run_query_string(self, active, query_string, is_post=False,
                            content_type="application/x-www-form-urlencoded"):
-        parsed_query = urlparse.parse_qs(query_string)
+        parsed_query = parse_qs(query_string)#parsed_query = urlparse.parse_qs(query_string)
         if query_string is None or query_string.strip() == "":
-      
+
             return render.sparql(active)
         if re.search("updates?", query_string, re.IGNORECASE) is None:
             if "query" in parsed_query:
