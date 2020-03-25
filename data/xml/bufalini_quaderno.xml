@@ -37,7 +37,7 @@
           <bibl xml:id="carmina-2-14" resp="#CSPC">
             <author ref="#QOF"/>
             <title type="WorkCollection" subtype="Book" level="m" sameAs="http://viaf.org/viaf/305230137 http://worldcat.org/entity/work/id/1812994603">Carmina</title>
-            <biblScope unit="volume" sameAs="http://viaf.org/viaf/182198011">2</biblScope>
+            <biblScope unit="book" sameAs="http://viaf.org/viaf/182198011">2</biblScope>
             <title type="Poem" level="a" subtype="Expression">14</title>
             <citedRange xml:id="bibl001" unit="verse" from="17" to="18">17–18</citedRange>
           </bibl>
@@ -75,7 +75,7 @@
           <bibl xml:id="de-rerum-natura-1" resp="#CSPC">
             <author ref="#TLC"/>
             <title type="Poem" subtype="Book" level="m" sameAs="http://viaf.org/viaf/176199512 http://worldcat.org/entity/work/id/2218766837">De Rerum Natura</title>
-            <biblScope unit="volume">1</biblScope>
+            <biblScope unit="book">1</biblScope>
             <citedRange xml:id="bibl006" unit="verse" from="38" to="40">38–40</citedRange><!-- cit incompleta stessa bibl -->
             <citedRange xml:id="bibl006a" unit="verse" from="38" to="40">38–40</citedRange>
             <citedRange xml:id="bibl145" unit="verse" n="40">40</citedRange>
@@ -121,20 +121,20 @@
           <bibl xml:id="satire-1-10" resp="#CSPC">
             <author ref="#QOF"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/177408390 http://worldcat.org/entity/work/id/2908440680">Satire</title>
-            <biblScope unit="volume" sameAs="http://viaf.org/viaf/174880978">1</biblScope>
+            <biblScope unit="book" sameAs="http://viaf.org/viaf/174880978">1</biblScope>
             <title level="a" type="Poem" subtype="Expression">10</title>
             <citedRange xml:id="bibl014" unit="verse" from="9" to="10">9–10</citedRange>
           </bibl>
           <bibl xml:id="eneide-2" resp="#CSPC">
             <author ref="#PVM"/>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
-            <biblScope unit="volume" sameAs="http://viaf.org/viaf/272667038">2</biblScope>
+            <biblScope unit="book" sameAs="http://viaf.org/viaf/272667038">2</biblScope>
             <citedRange xml:id="bibl015" unit="verse" from="8" to="9">8–9</citedRange>
           </bibl>
           <bibl xml:id="eneide-7" resp="#CSPC">
             <author ref="#PVM"/>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
-            <biblScope unit="volume" sameAs="http://viaf.org/viaf/176577261">7</biblScope>
+            <biblScope unit="book" sameAs="http://viaf.org/viaf/176577261">7</biblScope>
             <citedRange xml:id="bibl016" unit="verse" from="5" to="9">5–9</citedRange>
             <citedRange xml:id="bibl016a" unit="verse" from="5" to="9">5–9</citedRange>
             <citedRange xml:id="bibl028" unit="verse" from="8" to="9">8–9</citedRange><!-- 'a capo' incorretti lasciare? -->
@@ -159,7 +159,7 @@
           <bibl xml:id="de-rerum-natura-6" resp="#CSPC">
             <author ref="#TLC"/>
             <title type="Poem" subtype="Book" level="m" sameAs="http://viaf.org/viaf/176199512 http://worldcat.org/entity/work/id/2218766837">De Rerum Natura</title>
-            <biblScope unit="volume">6</biblScope>
+            <biblScope unit="book">6</biblScope>
             <citedRange xml:id="bibl025" unit="verse" n="357">357</citedRange>
           </bibl>
           <bibl xml:id="ars-poetica" resp="#CSPC">
@@ -170,16 +170,16 @@
             <citedRange xml:id="bibl131b" unit="verse" from="41" to="43">41–43</citedRange>
             <citedRange xml:id="bibl131c" unit="verse" from="47" to="48">47–48</citedRange>
           </bibl>
-          <bibl xml:id="palliatae" resp="#CSPC"><!--Palliatae, Agitatoria, Fr. 5-6 -->
+          <bibl xml:id="palliatae" resp="#CSPC"><!--Palliatae, Agitatoria, Fr. 3 -->
             <author ref="#GN"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://worldcat.org/entity/work/id/18202937">Palliatae</title>
             <title level="a" type="Play" subtype="Book">Agitatoria</title><!-- subtype? -->
-            <citedRange xml:id="bibl027" unit="fragment" from="5" to="6">5–6</citedRange>
+            <citedRange xml:id="bibl027" unit="fragment" from="9" to="10">9–10 R.3</citedRange>
           </bibl>
           <bibl xml:id="noctes-atticae-7-8" resp="#FG"><!-- Nevio citato in Gellio Lib. VII, Cap. 8, Para. 5 --><!-- Frammento di origine incerta (prob. Palliatae), lo conosciamo solo attraverso Gellio--> 
             <author ref="#AG"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/552045775">Noctes Atticae</title>
-            <biblScope unit="volume" n="7">7</biblScope><!-- Vol. 7, Ch. 8 -->
+            <biblScope unit="book" n="7">7</biblScope><!-- Vol. 7, Ch. 8 -->
             <biblScope unit="chapter">8</biblScope>
             <citedRange xml:id="bibl031" unit="Excerpt" n="7">7</citedRange>
           </bibl>
@@ -280,35 +280,35 @@
           <bibl xml:id="tusculanae-quaestiones-2" resp="#CSPC">
             <author ref="#MTC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/177007391 http://worldcat.org/entity/work/id/1151019064">Tusculanae Quaestiones</title>
-            <biblScope unit="volume" n="2">2</biblScope><!-- Vol. 2, Ch. 2 -->
+            <biblScope unit="book" n="2">2</biblScope><!-- Vol. 2, Ch. 2 -->
             <biblScope unit="chapter" n="2">2</biblScope>
             <citedRange xml:id="bibl046" unit="Excerpt" n="sample-1">sample 1</citedRange>
           </bibl>
           <bibl xml:id="istitutiones" resp="#FG">
             <author ref="#MFQ"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/313800246 http://worldcat.org/entity/work/id/393939867">Institutiones</title>
-            <biblScope unit="volume" n="6">6</biblScope><!-- Vol. 6, Ch. 109 -->
+            <biblScope unit="book" n="6">6</biblScope><!-- Vol. 6, Ch. 109 -->
             <biblScope unit="chapter" n="109">109</biblScope>
             <citedRange xml:id="bibl046a" unit="Excerpt" n="sample-1">sample 1</citedRange>
           </bibl>
           <bibl xml:id="de-vita-caesarum-99" resp="#CSPC">
             <author ref="#GST"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/177421616 http://worldcat.org/entity/work/id/2999285211">De vita caesarum</title>
-            <biblScope unit="volume">2</biblScope>
+            <biblScope unit="book">2</biblScope>
             <title level="a" type="ShortStory" subtype="BookChapter">99</title>
             <citedRange xml:id="bibl048" unit="Excerpt" n="sample-1">sample 1</citedRange>
           </bibl>
           <bibl xml:id="de-officiis-1" resp="#CSPC">
             <author ref="#MTC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/186224872 http://worldcat.org/entity/work/id/4020564955">De Officiis</title>
-            <biblScope unit="volume">1</biblScope>
+            <biblScope unit="book">1</biblScope>
             <citedRange xml:id="bibl049" unit="Excerpt" n="sample-1">34</citedRange>
             <citedRange xml:id="bibl049a" unit="Excerpt" n="sample-2">36</citedRange>
           </bibl>
           <bibl xml:id="africa-6" resp="#CSPC">
             <author ref="#FP"/>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/174922047 http://worldcat.org/entity/work/id/1151690385">Africa</title>
-            <biblScope unit="volume">6</biblScope>
+            <biblScope unit="book">6</biblScope>
             <citedRange xml:id="bibl050" unit="verse" from="899" to="900">899–900</citedRange>
           </bibl>
           <bibl xml:id="canzoniere-302" resp="#FG">
@@ -431,7 +431,7 @@
           <bibl xml:id="c-saggio-translation-eneide" resp="#CSPC" type="Expression" sameAs="http://viaf.org/viaf/96145424570586831353 http://www.worldcat.org/oclc/797349660">
             <editor ref="#CS" role="translator"/>
             <author ref="#PVM"/>
-            <biblScope unit="volume" n="2">2</biblScope>
+            <biblScope unit="book" n="2">2</biblScope>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
             <pubPlace>Napoli</pubPlace>
             <publisher>Riccardi</publisher>
@@ -441,7 +441,7 @@
           <bibl xml:id="g-albini-translation-eneide" resp="#CSPC" sameAs="http://worldcat.org/entity/work/id/343260592">
             <editor ref="#GA" role="translator"/>
             <author ref="#PVM"/>
-            <biblScope unit="volume" n="2">2</biblScope>
+            <biblScope unit="book" n="2">2</biblScope>
             <title level="m" type="Poem" subtype="Book">Eneide</title>
             <!--<pubPlace>Bologna</pubPlace>
             <publisher>Zanichelli</publisher> 
@@ -453,7 +453,7 @@
           <bibl xml:id="r-calzecchi-onesti-translation-eneide" resp="#CSPC" type="Expression" sameAs="http://viaf.org/viaf/1130145424592186831349 http://www.worldcat.org/oclc/848523823">
             <editor ref="#RCO" role="translator"/>
             <author ref="#PVM"/>
-            <biblScope unit="volume" n="2">2</biblScope>
+            <biblScope unit="book" n="2">2</biblScope>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
             <pubPlace>Torino</pubPlace>
             <publisher>Einaudi</publisher>
@@ -505,7 +505,7 @@
           <bibl xml:id="annales-11" resp="#CSPC">
             <author ref="#CT"/> 
             <title level="m" type="Work" subtype="Book" xml:id="annales" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl076" unit="Excerpt" n="11">11</citedRange>
             <citedRange xml:id="bibl085" unit="Excerpt" n="sample-2">sample 2</citedRange>
             <citedRange xml:id="bibl152" unit="Excerpt" n="sample-3">sample 3</citedRange>
@@ -522,14 +522,14 @@
           <bibl xml:id="lettere-a-lucilio-4" resp="#CSPC">
             <author ref="#LAS"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://worldcat.org/entity/work/id/4535726765">Lettere a Lucilio</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <title level="a" type="Work" subtype="Letter">4</title>
             <citedRange xml:id="bibl080" unit="Excerpt" n="sample-1">sample 1</citedRange>
           </bibl>
           <bibl xml:id="epigrammi-34" resp="#CSPC">
             <author ref="#MVM"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="5">5</biblScope>
+            <biblScope unit="book" n="5">5</biblScope>
             <title level="a" type="Poem" subtype="Expression">34, Per la morte della sua bambina</title>
             <citedRange xml:id="bibl081" unit="verse" from="1" to="10">1–10</citedRange>
           </bibl>
@@ -543,14 +543,14 @@
           <bibl xml:id="epigrammi-90" resp="#CSPC">
             <author ref="#MVM"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="2" sameAs="http://viaf.org/viaf/186439610">2</biblScope>
+            <biblScope unit="book" n="2" sameAs="http://viaf.org/viaf/186439610">2</biblScope>
             <title level="a" type="Poem" subtype="Expression">90</title>
             <citedRange xml:id="bibl083" unit="verse" from="7" to="10">7–10</citedRange>
           </bibl>
           <bibl xml:id="epigrammi-4" resp="#CSPC">
             <author ref="#MVM"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <title level="a" type="Poem" subtype="Expression">4</title>
             <citedRange xml:id="bibl084" unit="verse" from="7" to="8">7–8</citedRange>
           </bibl>
@@ -564,7 +564,7 @@
           <bibl xml:id="epigrammi-88" resp="#CSPC">
             <author ref="#MVM"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <title level="a" type="Poem" subtype="Expression">88</title>
             <citedRange xml:id="bibl088" unit="verse" from="1" to="10">1–10</citedRange><!-- cit completa -->
           </bibl>
@@ -572,7 +572,7 @@
             <author ref="#MVM"/>
             <editor role="translator" resp="#GCER"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <title level="a" type="Poem" subtype="Expression">88</title>
             <citedRange xml:id="bibl089" unit="verse" from="1" to="10">1–10</citedRange>
           </bibl>
@@ -586,26 +586,26 @@
           <bibl xml:id="epigrammi-11" resp="#PB">
             <author ref="#MVM"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/183261534 http://worldcat.org/entity/work/id/3063546860">Epigrammi</title>
-            <biblScope unit="volume" n="2">2</biblScope>
+            <biblScope unit="book" n="2">2</biblScope>
             <title level="a" type="Poem" subtype="Expression">11</title>
             <citedRange xml:id="bibl092" unit="verse" from="1" to="10">1–10</citedRange>
           </bibl>
           <bibl xml:id="de-clementia-3" resp="#CSPC">
             <author ref="#LAS"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/179765947 http://worldcat.org/entity/work/id/3769251849">De clementia</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl093" unit="Excerpt" n="paragraph-3">3</citedRange>
           </bibl>
           <bibl xml:id="de-clementia-7" resp="#CSPC">
             <author ref="#LAS"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/179765947 http://worldcat.org/entity/work/id/3769251849">De clementia</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl094" unit="Excerpt" n="paragraph-7">7</citedRange>
           </bibl>
           <bibl xml:id="de-clementia-8" resp="#CSPC">
             <author ref="#LAS"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/179765947 http://worldcat.org/entity/work/id/3769251849">De clementia</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl095" unit="Excerpt" n="paragraph-8">8</citedRange>
             <citedRange xml:id="bibl095a" unit="Excerpt" n="paragraph-8">8</citedRange>
           </bibl>
@@ -630,7 +630,7 @@
           <bibl xml:id="eneide-6" resp="#CSPC">
             <author ref="#PVM"/> 
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
-            <biblScope unit="volume" n="6" sameAs="http://viaf.org/viaf/307170022">6</biblScope>
+            <biblScope unit="book" n="6" sameAs="http://viaf.org/viaf/307170022">6</biblScope>
             <citedRange xml:id="bibl101" unit="verse" n="429">429</citedRange>
           </bibl>
           <bibl xml:id="la-monaca-di-monza" resp="#CSPC">
@@ -681,7 +681,7 @@
           <bibl xml:id="scienza-della-logica" resp="#CSPC">
             <author ref="#FH"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/177001411 http://worldcat.org/entity/work/id/1153366651">Scienza della logica</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <pubPlace>Bari</pubPlace> 
             <date>1958</date>
             <citedRange xml:id="bibl112" unit="page" from="51" to="52">51–52</citedRange>
@@ -689,7 +689,7 @@
           <bibl xml:id="annales-15" resp="#CSPC">
             <author ref="#CT"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
-            <biblScope unit="volume" n="15">15</biblScope>
+            <biblScope unit="book" n="15">15</biblScope>
             <citedRange xml:id="bibl114" unit="Excerpt" n="44">44</citedRange>
             <citedRange xml:id="bibl135" unit="Excerpt" from="42" to="43">42–43</citedRange>
           </bibl>
@@ -753,7 +753,7 @@
           <bibl xml:id="ad-familiares-4-9" resp="#CSPC">
             <author ref="#MTC"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/187066890 http://worldcat.org/entity/work/id/2261383546">Ad familiares</title>
-            <biblScope unit="volume" n="4">4</biblScope>
+            <biblScope unit="book" n="4">4</biblScope>
             <title level="a" n="9" type="Work" subtype="Letter">9</title>
             <date when="-0046">46 a.C.</date>
             <citedRange xml:id="bibl126" unit="Excerpt" n="sample-1">sample 1</citedRange>
@@ -854,7 +854,7 @@
           <bibl xml:id="institutionem-libri" resp="#CSPC">
             <author ref="#IUST"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/1155883279">Institutionem Iustiniani</title>
-            <!--<biblScope unit="volume" n="7">7</biblScope>-->
+            <!--<biblScope unit="book" n="7">7</biblScope>-->
             <citedRange xml:id="bibl150" unit="Excerpt" n="sample-1">sample 1</citedRange>
             <citedRange xml:id="bibl150c" unit="Excerpt" n="sample-2">sample 2</citedRange>
             <citedRange xml:id="bibl150d" unit="Excerpt" n="sample-3">sample 3</citedRange>
@@ -868,13 +868,13 @@
           <bibl xml:id="eneide-1" resp="#CSPC">
             <author ref="#PVM"/>
             <title level="m" type="Poem" subtype="Book" sameAs="http://viaf.org/viaf/313680866 http://worldcat.org/entity/work/id/3144508483">Eneide</title>
-            <biblScope unit="volume" n="1" sameAs="http://viaf.org/viaf/195835493">1</biblScope>
+            <biblScope unit="book" n="1" sameAs="http://viaf.org/viaf/195835493">1</biblScope>
             <citedRange xml:id="bibl153" unit="verse" n="33">33</citedRange>
           </bibl>
           <bibl xml:id="annales-28" resp="#CSPC">
             <author ref="#CT"/> 
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl154" unit="Excerpt" n="28">sample 1</citedRange>
             <citedRange xml:id="bibl154a" unit="Excerpt" n="28">sample 2</citedRange>
             <citedRange xml:id="bibl154b" unit="Excerpt" n="28">sample 2</citedRange>
@@ -882,7 +882,7 @@
           <bibl xml:id="le-storie" resp="#CSPC">
             <author ref="#CT"/>
             <title level="m" type="Work" subtype="Book" xml:id="ct-le-storie" sameAs="http://viaf.org/viaf/174131919">Le Storie</title>
-            <biblScope unit="volume" n="1">1</biblScope>
+            <biblScope unit="book" n="1">1</biblScope>
             <citedRange xml:id="bibl156" unit="Excerpt" n="28">sample 1</citedRange>
           </bibl>
           <bibl xml:id="c-giussani-translation-le-storie" resp="#CSPC" type="Expression">
@@ -897,7 +897,7 @@
           <bibl xml:id="carmina-2-3" resp="#CSPC">
             <author ref="#QOF"/>
             <title type="WorkCollection" subtype="Book" level="m" sameAs="http://viaf.org/viaf/305230137 http://worldcat.org/entity/work/id/1812994603">Carmina</title>
-            <biblScope unit="volume" n="2">2</biblScope>
+            <biblScope unit="book" n="2">2</biblScope>
             <title type="Poem" subtype="Expression" level="a">3</title>
             <citedRange xml:id="bibl158" unit="verse" from="25" to="28">25–28</citedRange><!-- versi citati anche in quot-189, ma parzialmente, utilizzo comunque un unico rif bibliografico bibl 158 -->
             <citedRange xml:id="bibl158a" unit="verse" n="25">25</citedRange>
@@ -986,163 +986,163 @@
             <persName>Unknown</persName>
           </person>
           <person xml:id="AG">
-            <persName sameAs="http://viaf.org/viaf/100198334/ http://it.dbpedia.org/resource/Aulo_Gellio">Gèllio, Aulo (125–180)</persName>
+            <persName sameAs="http://viaf.org/viaf/100198334/ http://it.dbpedia.org/resource/Aulo_Gellio">Aulus Gellius (125–180)</persName>
           </person>
           <person xml:id="BC">
-            <persName sameAs="http://viaf.org/viaf/61544292 http://it.dbpedia.org/resource/Benedetto_Croce">Croce, Benedetto (1866–1952)</persName>
+            <persName sameAs="http://viaf.org/viaf/61544292 http://it.dbpedia.org/resource/Benedetto_Croce">Benedetto Croce (1866–1952)</persName>
           </person>
           <person xml:id="TM">
-            <persName sameAs="http://viaf.org/viaf/54151065 http://it.dbpedia.org/resource/Thomas_Mann">Mann, Thomas (1875–1955)</persName>
+            <persName sameAs="http://viaf.org/viaf/54151065 http://it.dbpedia.org/resource/Thomas_Mann">Thomas Mann (1875–1955)</persName>
           </person>
           <person xml:id="LM"><!-- Livio Maitan ? -->
-            <persName sameAs="https://viaf.org/viaf/192144393 http://dbpedia.org/resource/Livio_Maitan">Maitan, Livio (1923–2004)</persName>
+            <persName sameAs="https://viaf.org/viaf/192144393 http://dbpedia.org/resource/Livio_Maitan">Livio Maitan (1923–2004)</persName>
           </person>
           <person xml:id="LAVM">
-            <persName sameAs="http://viaf.org/viaf/13118288 http://it.dbpedia.org/resource/Lavinia_Mazzucchetti">Mazzucchetti, Lavinia (1889–1965)</persName>
+            <persName sameAs="http://viaf.org/viaf/13118288 http://it.dbpedia.org/resource/Lavinia_Mazzucchetti">Lavinia Mazzucchetti (1889–1965)</persName>
           </person>
           <person xml:id="QOF">
-            <persName sameAs="http://viaf.org/viaf/100227522 http://it.dbpedia.org/resource/Quinto_Orazio_Flacco">Orazio Flacco, Quinto (65 a.C.–8 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/100227522 http://it.dbpedia.org/resource/Quinto_Orazio_Flacco">Q. Horatius Flaccus (65 a.C.–8 a.C.)</persName>
           </person>
           <person xml:id="AM">
-            <persName sameAs="http://viaf.org/viaf/14356 http://it.dbpedia.org/resource/Alessandro_Manzoni">Manzoni, Alessandro (1785–1873)</persName>
+            <persName sameAs="http://viaf.org/viaf/14356 http://it.dbpedia.org/resource/Alessandro_Manzoni">Alessandro Manzoni (1785–1873)</persName>
           </person>
           <person xml:id="FH">
-            <persName sameAs="http://viaf.org/viaf/89774942 http://it.dbpedia.org/resource/Georg_Wilhelm_Friedrich_Hegel">Hegel, Georg Wilhelm Friedrich (1770–1831)</persName>
+            <persName sameAs="http://viaf.org/viaf/89774942 http://it.dbpedia.org/resource/Georg_Wilhelm_Friedrich_Hegel">Georg Wilhelm Friedrich Hegel (1770–1831)</persName>
           </person>
           <person xml:id="KM">
-            <persName sameAs="http://viaf.org/viaf/49228757 http://it.dbpedia.org/resource/Karl_Marx">Marx, Karl (1818–1883)</persName>
+            <persName sameAs="http://viaf.org/viaf/49228757 http://it.dbpedia.org/resource/Karl_Marx">Karl Marx (1818–1883)</persName>
           </person>
           <person xml:id="TLC">
-            <persName sameAs="http://viaf.org/viaf/106388020 http://it.dbpedia.org/resource/Tito_Lucrezio_Caro">Lucrezio Caro, Tito (97–55 a.C)</persName>
+            <persName sameAs="http://viaf.org/viaf/106388020 http://it.dbpedia.org/resource/Tito_Lucrezio_Caro">Lucretius (97–55 a.C)</persName>
           </person>
           <person xml:id="DA">
-            <persName sameAs="http://viaf.org/viaf/97105654 http://it.dbpedia.org/resource/Dante_Alighieri">Alighieri, Dante (1265–1321)</persName>
+            <persName sameAs="http://viaf.org/viaf/97105654 http://it.dbpedia.org/resource/Dante_Alighieri">Dante Alighieri (1265–1321)</persName>
           </person>
           <person xml:id="WS">
-            <persName sameAs="http://viaf.org/viaf/96994048 http://it.dbpedia.org/resource/William_Shakespeare">Shakespeare, William (1564–1616)</persName>
+            <persName sameAs="http://viaf.org/viaf/96994048 http://it.dbpedia.org/resource/William_Shakespeare">William Shakespeare (1564–1616)</persName>
           </person>
           <person xml:id="PVM">
-            <persName sameAs="http://viaf.org/viaf/339144647673697600501 http://it.dbpedia.org/resource/Publio_Virgilio_Marone">Virgilio Marone, Publio (70 a.C.–19 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/339144647673697600501 http://it.dbpedia.org/resource/Publio_Virgilio_Marone">P. Vergilius Maro (70 a.C.–19 a.C.)</persName>
           </person>
           <person xml:id="DGG">
-            <persName sameAs="http://viaf.org/viaf/83985148 http://it.dbpedia.org/resource/Decimo_Giunio_Giovenale">Giovenale, Decimo Giunio (ca. 60–140)</persName>
+            <persName sameAs="http://viaf.org/viaf/83985148 http://it.dbpedia.org/resource/Decimo_Giunio_Giovenale">D. Iunius Iuvenalis (ca. 60–140)</persName>
           </person>
           <person xml:id="QE">
-            <persName sameAs="http://viaf.org/viaf/84976347 http://it.dbpedia.org/resource/Quinto_Ennio">Ennio, Quinto (240–170 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/84976347 http://it.dbpedia.org/resource/Quinto_Ennio">Ennius (240–170 a.C.)</persName>
           </person>
           <person xml:id="GN">
-            <persName sameAs="http://viaf.org/viaf/593145858157623022452 http://it.dbpedia.org/resource/Gneo_Nevio">Nevio, Gneo (ca. 264 a.C.–201 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/593145858157623022452 http://it.dbpedia.org/resource/Gneo_Nevio">G. Naevius (ca. 264 a.C.–201 a.C.)</persName>
           </person>
           <person xml:id="GA">
-            <persName sameAs="http://viaf.org/viaf/7513665 http://it.dbpedia.org/resource/Giuseppe_Albini_(filologo)">Albini, Giuseppe (1863–1933)</persName>
+            <persName sameAs="http://viaf.org/viaf/7513665 http://it.dbpedia.org/resource/Giuseppe_Albini_(filologo)">Giuseppe Albini (1863–1933)</persName>
           </person>
           <person xml:id="SA">
-            <persName sameAs="http://viaf.org/viaf/310519475 http://it.dbpedia.org/resource/Publio_Cornelio_Scipione">Scipione, Publio Cornelio (235 a.C.–183 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/310519475 http://it.dbpedia.org/resource/Publio_Cornelio_Scipione">Scipio Africanus (235 a.C.–183 a.C.)</persName>
           </person>
           <person xml:id="LAS">
-            <persName sameAs="http://viaf.org/viaf/90637919 http://it.dbpedia.org/resource/Lucio_Anneo_Seneca">Seneca, Lucio Anneo (4 a.C.–65)</persName>
+            <persName sameAs="http://viaf.org/viaf/90637919 http://it.dbpedia.org/resource/Lucio_Anneo_Seneca">Seneca (4 a.C.–65)</persName>
           </person>
           <person xml:id="FP">
-            <persName sameAs="http://viaf.org/viaf/39382430 http://it.dbpedia.org/resource/Francesco_Petrarca">Petrarca, Francesco (1304–1374)</persName>
+            <persName sameAs="http://viaf.org/viaf/39382430 http://it.dbpedia.org/resource/Francesco_Petrarca">Francesco Petrarca (1304–1374)</persName>
           </person>
           <person xml:id="HM">
-            <persName sameAs="http://viaf.org/viaf/73857245 http://it.dbpedia.org/resource/Hans_Mayer">Mayer, Hans (1907–2001)</persName>
+            <persName sameAs="http://viaf.org/viaf/73857245 http://it.dbpedia.org/resource/Hans_Mayer">Hans Mayer (1907–2001)</persName>
           </person>
           <person xml:id="MTC">
-            <persName sameAs="http://viaf.org/viaf/126144814493626773404 http://it.dbpedia.org/resource/Marco_Tullio_Cicerone">Cicerone, Marco Tullio (106 a.C.–43 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/126144814493626773404 http://it.dbpedia.org/resource/Marco_Tullio_Cicerone">M. Tullius Cicero (106 a.C.–43 a.C.)</persName>
           </person>
           <person xml:id="GF">
-            <persName sameAs="http://viaf.org/viaf/9846192 http://it.dbpedia.org/resource/Gustave_Flaubert">Flaubert, Gustave (1821–1880)</persName>
+            <persName sameAs="http://viaf.org/viaf/9846192 http://it.dbpedia.org/resource/Gustave_Flaubert">Gustave Flaubert (1821–1880)</persName>
           </person>
           <person xml:id="MY">
-            <persName sameAs="http://viaf.org/viaf/105154898 http://it.dbpedia.org/resource/Marguerite_Yourcenar">Yourcenar, Marguerite (1903–1987)</persName>
+            <persName sameAs="http://viaf.org/viaf/105154898 http://it.dbpedia.org/resource/Marguerite_Yourcenar">Marguerite Yourcenar (1903–1987)</persName>
           </person>
           <person xml:id="OA">       
-            <persName sameAs="http://viaf.org/viaf/18013086">Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)</persName>
+            <persName sameAs="http://viaf.org/viaf/18013086">Caesar Augustus, imperatore romano (63 a.C.–14)</persName>
           </person>
           <person xml:id="QTC">
-            <persName sameAs="http://viaf.org/viaf/39461100 http://it.dbpedia.org/resource/Quinto_Tullio_Cicerone">Cicerone, Quinto Tullio (102 a.C.–43 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/39461100 http://it.dbpedia.org/resource/Quinto_Tullio_Cicerone">Q. Tullius Cicero (102 a.C.–43 a.C.)</persName>
           </person>
           <person xml:id="RW">
-            <persName sameAs="http://viaf.org/viaf/29732107 http://it.dbpedia.org/resource/Richard_Wagner">Wagner, Richard (1813–1883)</persName>
+            <persName sameAs="http://viaf.org/viaf/29732107 http://it.dbpedia.org/resource/Richard_Wagner">Richard Wagner (1813–1883)</persName>
           </person>
           <person xml:id="FN">
-            <persName sameAs="http://viaf.org/viaf/89798474 http://it.dbpedia.org/resource/Friedrich_Nietzsche">Nietzsche, Friedrich Wilhelm (1844–1900)</persName>
+            <persName sameAs="http://viaf.org/viaf/89798474 http://it.dbpedia.org/resource/Friedrich_Nietzsche">Friedrich Wilhelm Nietzsche (1844–1900)</persName>
           </person>
           <person xml:id="AR"><!-- ? -->
-            <persName sameAs="http://viaf.org/viaf/15782167">Romagnoli, Alberto ()</persName>
+            <persName sameAs="http://viaf.org/viaf/15782167">Alberto Romagnoli</persName>
           </person>
           <person xml:id="AS">
-            <persName sameAs="http://viaf.org/viaf/17229367 http://it.dbpedia.org/resource/Arthur_Schopenhauer">Schopenhauer, Arthur (1788–1860)</persName>
+            <persName sameAs="http://viaf.org/viaf/17229367 http://it.dbpedia.org/resource/Arthur_Schopenhauer">Arthur Schopenhauer (1788–1860)</persName>
           </person>
           <person xml:id="GL">
-            <persName sameAs="http://viaf.org/viaf/12311353 http://it.dbpedia.org/resource/Giacomo_Leopardi">Leopardi, Giacomo (1798–1837)</persName>
+            <persName sameAs="http://viaf.org/viaf/12311353 http://it.dbpedia.org/resource/Giacomo_Leopardi">Giacomo Leopardi (1798–1837)</persName>
           </person>
           <person xml:id="GGB">
-            <persName sameAs="http://viaf.org/viaf/2513982 http://it.dbpedia.org/resource/Giuseppe_Gioachino_Belli">Belli, Giuseppe Gioachino (1791–1863)</persName>
+            <persName sameAs="http://viaf.org/viaf/2513982 http://it.dbpedia.org/resource/Giuseppe_Gioachino_Belli">Giuseppe Gioachino Belli (1791–1863)</persName>
           </person>
           <person xml:id="RF">
-            <persName sameAs="http://viaf.org/viaf/10534087 http://it.dbpedia.org/resource/Roberto_Fertonani">Fertonani, Roberto (1925–2000)</persName>
+            <persName sameAs="http://viaf.org/viaf/10534087 http://it.dbpedia.org/resource/Roberto_Fertonani">Roberto Fertonani (1925–2000)</persName>
           </person>
           <person xml:id="EFN">
-            <persName sameAs="http://viaf.org/viaf/19764135 http://it.dbpedia.org/resource/Elisabeth_F%C3%B6rster-Nietzsche">Nietzsche, Elisabeth Förster (1846–1935)</persName>
+            <persName sameAs="http://viaf.org/viaf/19764135 http://it.dbpedia.org/resource/Elisabeth_F%C3%B6rster-Nietzsche">Elisabeth Förster Nietzsche (1846–1935)</persName>
           </person>
           <person xml:id="SEG">
             <persName sameAs="https://viaf.org/viaf/95147024 http://it.dbpedia.org/resource/San_Girolamo">San Girolamo (347–420)</persName>
           </person>
           <person xml:id="SF">
-            <persName sameAs="http://viaf.org/viaf/34456780 http://it.dbpedia.org/resource/Sigmund_Freud">Freud, Sigmund (1856–1939)</persName>
+            <persName sameAs="http://viaf.org/viaf/34456780 http://it.dbpedia.org/resource/Sigmund_Freud">Sigmund Freud (1856–1939)</persName>
           </person>
           <person xml:id="SOCR">
             <persName sameAs="http://viaf.org/viaf/88039167 http://it.dbpedia.org/resource/Socrate">Socrate (ca. 469 a.C.–399 a.C.)</persName>
           </person>
           <person xml:id="TC">
-            <persName sameAs="http://viaf.org/viaf/7387920 http://it.dbpedia.org/resource/Tommaso_Campanella">Campanella, Tommaso (1568–1639)</persName>
+            <persName sameAs="http://viaf.org/viaf/7387920 http://it.dbpedia.org/resource/Tommaso_Campanella">Tommaso Campanella (1568–1639)</persName>
           </person>
           <person xml:id="CS"><!-- ? -->
-            <persName sameAs="http://viaf.org/viaf/172297485">Saggio, Carlo (?)</persName>
+            <persName sameAs="http://viaf.org/viaf/172297485">Carlo Saggio</persName>
           </person>
           <person xml:id="RCO">
-            <persName sameAs="http://viaf.org/viaf/164476494 http://it.dbpedia.org/resource/Rosa_Calzecchi_Onesti">Calzecchi Onesti, Rosa (1916–2011)</persName>
+            <persName sameAs="http://viaf.org/viaf/164476494 http://it.dbpedia.org/resource/Rosa_Calzecchi_Onesti">Rosa Calzecchi Onesti (1916–2011)</persName>
           </person>
           <person xml:id="PB">
-            <persName sameAs="http://viaf.org/viaf/113685222 http://it.dbpedia.org/resource/Paolo_Bufalini">Bufalini, Paolo (1915–2001)</persName>
+            <persName sameAs="http://viaf.org/viaf/113685222 http://it.dbpedia.org/resource/Paolo_Bufalini">Paolo Bufalini (1915–2001)</persName>
           </person>
           <person xml:id="BA">
-            <persName sameAs="http://viaf.org/viaf/195457172 http://it.dbpedia.org/resource/Bruno_Arzeni">Arzeni, Bruno (1905–1954)</persName>
+            <persName sameAs="http://viaf.org/viaf/195457172 http://it.dbpedia.org/resource/Bruno_Arzeni">Bruno Arzeni (1905–1954)</persName>
           </person>
           <person xml:id="GPC"><!-- ? -->
-            <persName sameAs="">G. P. C. ()</persName>
+            <persName sameAs="">G. P. C.</persName>
           </person>
           <person xml:id="GV">
-            <persName sameAs="http://viaf.org/viaf/59090329 http://it.dbpedia.org/resource/Giambattista_Vico">Vico, Giambattista (1668–1744)</persName>
+            <persName sameAs="http://viaf.org/viaf/59090329 http://it.dbpedia.org/resource/Giambattista_Vico">Giambattista Vico (1668–1744)</persName>
           </person>
           <person xml:id="GC">
-            <persName sameAs="http://viaf.org/viaf/34470601 http://it.dbpedia.org/resource/Giosu%C3%A8_Carducci">Carducci, Giosuè (1835–1907)</persName>
+            <persName sameAs="http://viaf.org/viaf/34470601 http://it.dbpedia.org/resource/Giosu%C3%A8_Carducci">Giosuè Carducci (1835–1907)</persName>
           </person>
           <person xml:id="CT">
-            <persName sameAs="http://viaf.org/viaf/100226923 http://it.dbpedia.org/resource/Publio_Cornelio_Tacito">Tacito, Publio Cornelio (ca. 55–120)</persName>
+            <persName sameAs="http://viaf.org/viaf/100226923 http://it.dbpedia.org/resource/Publio_Cornelio_Tacito">Cornelius Tacitus (ca. 55–120)</persName>
           </person>
           <person xml:id="TIB">
-            <persName sameAs="http://viaf.org/viaf/89600176 http://it.dbpedia.org/resource/Tiberio">Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)</persName>
+            <persName sameAs="http://viaf.org/viaf/89600176 http://it.dbpedia.org/resource/Tiberio">Tiberius, imperatore romano (43 a.C.–37)</persName>
           </person>
           <person xml:id="CG">
-            <persName sameAs="http://viaf.org/viaf/5688379">Giussani, Camillo (1879–1960)</persName>
+            <persName sameAs="http://viaf.org/viaf/5688379">Camillo Giussani (1879–1960)</persName>
           </person>
           <person xml:id="MFQ">
-            <persName sameAs="http://viaf.org/viaf/34451872 http://it.dbpedia.org/resource/Marco_Fabio_Quintiliano">Quintiliano, Marco Fabio (ca. 35–96)</persName>
+            <persName sameAs="http://viaf.org/viaf/34451872 http://it.dbpedia.org/resource/Marco_Fabio_Quintiliano">Quintilianus (ca. 35–96)</persName>
           </person>
           <person xml:id="GST">
-            <persName sameAs="http://viaf.org/viaf/89599270 http://it.dbpedia.org/resource/Gaio_Svetonio_Tranquillo">Svetonio Tranquillo, Caio (sec. I–II)</persName>
+            <persName sameAs="http://viaf.org/viaf/89599270 http://it.dbpedia.org/resource/Gaio_Svetonio_Tranquillo">C. Suetonius Tranquillus (sec. I–II)</persName>
           </person>
           <person xml:id="MVM">
-            <persName sameAs="http://viaf.org/viaf/8099277 http://it.dbpedia.org/resource/Marco_Valerio_Marziale">Marziale, Marco Valerio (ca. 40–101)</persName>
+            <persName sameAs="http://viaf.org/viaf/8099277 http://it.dbpedia.org/resource/Marco_Valerio_Marziale">M. V. Martialis (ca. 40–101)</persName>
           </person>
           <person xml:id="MEMM">
-            <persName sameAs="http://it.dbpedia.org/resource/Gaio_Memmio">Memmio, Gaio (ca. 99 a.C.–46 a.C.)</persName>
+            <persName sameAs="http://it.dbpedia.org/resource/Gaio_Memmio">Gaius Memmius (ca. 99 a.C.–46 a.C.)</persName>
           </person>
           <person xml:id="NERO">
-            <persName sameAs="http://viaf.org/viaf/84036175 http://it.dbpedia.org/resource/Nerone">Nerone, Claudio Cesare, imperatore romano (37–68)</persName>
+            <persName sameAs="http://viaf.org/viaf/84036175 http://it.dbpedia.org/resource/Nerone">Nero Claudius Caesar Augustus, imperatore romano (37–68)</persName>
           </person>
           <person xml:id="ISEO">
             <persName sameAs="http://viaf.org/viaf/265571975 http://it.dbpedia.org/resource/Iseo_(oratore)">Iseo, retore (ca. 420 a.C.–350 a.C.)</persName>
@@ -1154,207 +1154,204 @@
             <persName sameAs="http://it.dbpedia.org/resource/Carmide">Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)</persName>
           </person>
           <person xml:id="GCER">
-            <persName sameAs="http://viaf.org/viaf/110904769 http://it.dbpedia.org/resource/Guido_Ceronetti">Ceronetti, Guido (1927–)</persName>
-          </person>
-          <person xml:id="MVM_E">
-            <persName sameAs="http://viaf.org/viaf/8099277 http://it.dbpedia.org/resource/Marco_Valerio_Marziale">Marziale, Marco Valerio (40–ca. 101)</persName>
+            <persName sameAs="http://viaf.org/viaf/110904769 http://it.dbpedia.org/resource/Guido_Ceronetti">Guido Ceronetti (1927–2018)</persName>
           </person>
           <person xml:id="PG">
-            <persName sameAs="http://viaf.org/viaf/10638270 http://it.dbpedia.org/resource/Gaio_Plinio_Cecilio_Secondo">Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)</persName>
+            <persName sameAs="http://viaf.org/viaf/10638270 http://it.dbpedia.org/resource/Gaio_Plinio_Cecilio_Secondo">C. Plinius Caecilius Secundus, detto il Giovane (ca. 61–114)</persName>
           </person>
           <person xml:id="ADT">
-            <persName sameAs="http://viaf.org/viaf/66474207 http://it.dbpedia.org/resource/Alexis_de_Tocqueville">Tocqueville, Alexis de (1805–1859)</persName>
+            <persName sameAs="http://viaf.org/viaf/66474207 http://it.dbpedia.org/resource/Alexis_de_Tocqueville">Alexis de Tocqueville (1805–1859)</persName>
           </person>
           <person xml:id="GMAUP">
-            <persName sameAs="http://viaf.org/viaf/29537765 http://it.dbpedia.org/resource/Guy_de_Maupassant">Maupassant, Guy de (1850–1893)</persName>
+            <persName sameAs="http://viaf.org/viaf/29537765 http://it.dbpedia.org/resource/Guy_de_Maupassant">Guy de Maupassant (1850–1893)</persName>
           </person>
           <person xml:id="STEN">
             <persName sameAs="http://viaf.org/viaf/17823 http://it.dbpedia.org/resource/Stendhal">Stendhal, pseud. (1783–1842)</persName>
           </person>
           <person xml:id="GR">
-            <persName sameAs="http://viaf.org/viaf/71739299 http://it.dbpedia.org/resource/Giuseppe_Ripamonti">Ripamonti, Giuseppe (1577–1643)</persName>
+            <persName sameAs="http://viaf.org/viaf/71739299 http://it.dbpedia.org/resource/Giuseppe_Ripamonti">Giuseppe Ripamonti (1577–1643)</persName>
           </person>
           <person xml:id="TD">
-            <persName sameAs="http://viaf.org/viaf/64345901 http://it.dbpedia.org/resource/Tullio_Dandolo">Dandolo, Tullio (1801–1870)</persName>
+            <persName sameAs="http://viaf.org/viaf/64345901 http://it.dbpedia.org/resource/Tullio_Dandolo">Tullio Dandolo (1801–1870)</persName>
           </person>
           <person xml:id="GP">
-            <persName sameAs="http://viaf.org/viaf/9919481 http://it.dbpedia.org/resource/Giovanni_Pontano">Pontano, Giovanni (1426–1503)</persName>
+            <persName sameAs="http://viaf.org/viaf/9919481 http://it.dbpedia.org/resource/Giovanni_Pontano">Giovanni Pontano (1426–1503)</persName>
           </person>
           <person xml:id="AT">
-            <persName sameAs="http://viaf.org/viaf/71424155 http://it.dbpedia.org/resource/Adolphe_Thiers">Thiers, Adolphe (1797–1877)</persName>
+            <persName sameAs="http://viaf.org/viaf/71424155 http://it.dbpedia.org/resource/Adolphe_Thiers">Adolphe Thiers (1797–1877)</persName>
           </person>
           <person xml:id="SR">    
-            <persName sameAs="http://viaf.org/viaf/44304667 http://it.dbpedia.org/resource/Sergio_Romano">Romano, Sergio (1929–)</persName>
+            <persName sameAs="http://viaf.org/viaf/44304667 http://it.dbpedia.org/resource/Sergio_Romano">Sergio Romano (1929–)</persName>
           </person>
           <person xml:id="GMCC">
-            <persName sameAs="http://viaf.org/viaf/67131644 http://it.dbpedia.org/resource/Giovanni_Macchia">Macchia, Giovanni (1912–2001)</persName>
+            <persName sameAs="http://viaf.org/viaf/67131644 http://it.dbpedia.org/resource/Giovanni_Macchia">Giovanni Macchia (1912–2001)</persName>
           </person>
           <person xml:id="GML">
-            <persName sameAs="http://viaf.org/viaf/77187411 http://dbpedia.org/page/Gabriel_Malagrida">Malagrida, Gabriele (1689–1761)</persName>
+            <persName sameAs="http://viaf.org/viaf/77187411 http://dbpedia.org/page/Gabriel_Malagrida">Gabriele Malagrida (1689–1761)</persName>
           </person>
           <person xml:id="TT">
-            <persName sameAs="http://viaf.org/viaf/4936996 http://it.dbpedia.org/resource/Torquato_Tasso">Tasso, Torquato (1544–1595)</persName>
+            <persName sameAs="http://viaf.org/viaf/4936996 http://it.dbpedia.org/resource/Torquato_Tasso">Torquato Tasso (1544–1595)</persName>
           </person>
           <person xml:id="GB">
-            <persName sameAs="http://viaf.org/viaf/68926311 http://it.dbpedia.org/resource/Giordano_Bruno">Bruno, Giordano (1548–1600)</persName>
+            <persName sameAs="http://viaf.org/viaf/68926311 http://it.dbpedia.org/resource/Giordano_Bruno">Giordano Bruno (1548–1600)</persName>
           </person>
           <person xml:id="RG">
-            <persName sameAs="http://viaf.org/viaf/106962834 http://it.dbpedia.org/resource/Renato_Guttuso">Guttuso, Renato (1911–1987)</persName>
+            <persName sameAs="http://viaf.org/viaf/106962834 http://it.dbpedia.org/resource/Renato_Guttuso">Renato Guttuso (1911–1987)</persName>
           </person>
           <person xml:id="GBRIG">
-            <persName sameAs="http://viaf.org/viaf/19752554 http://it.dbpedia.org/resource/Giuliano_Briganti">Briganti, Giuliano (1918–1992)</persName>
+            <persName sameAs="http://viaf.org/viaf/19752554 http://it.dbpedia.org/resource/Giuliano_Briganti">Giuliano Briganti (1918–1992)</persName>
           </person>
           <person xml:id="EG">
-            <persName sameAs="http://viaf.org/viaf/24425 http://it.dbpedia.org/resource/Eugenio_Garin">Garin, Eugenio (1909–2004)</persName>
+            <persName sameAs="http://viaf.org/viaf/24425 http://it.dbpedia.org/resource/Eugenio_Garin">Eugenio Garin (1909–2004)</persName>
           </person>
           <person xml:id="FDS">
-            <persName sameAs="http://viaf.org/viaf/32222177 http://it.dbpedia.org/resource/Francesco_De_Sarlo">De Sarlo, Francesco (1864–1937)</persName>
+            <persName sameAs="http://viaf.org/viaf/32222177 http://it.dbpedia.org/resource/Francesco_De_Sarlo">Francesco De Sarlo (1864–1937)</persName>
           </person>
           <person xml:id="AL">
-            <persName sameAs="http://viaf.org/viaf/22157411 http://it.dbpedia.org/resource/Antonio_Labriola">Labriola, Antonio (1843–1904)</persName>
+            <persName sameAs="http://viaf.org/viaf/22157411 http://it.dbpedia.org/resource/Antonio_Labriola">Antonio Labriola (1843–1904)</persName>
           </person>
           <person xml:id="NM">
-            <persName sameAs="http://viaf.org/viaf/95151646 http://it.dbpedia.org/resource/Niccol%C3%B2_Machiavelli/">Machiavelli, Niccolò (1469–1527)</persName>
+            <persName sameAs="http://viaf.org/viaf/95151646 http://it.dbpedia.org/resource/Niccol%C3%B2_Machiavelli/">Niccolò Machiavelli (1469–1527)</persName>
           </person>
           <person xml:id="ADA">
-            <persName sameAs="http://viaf.org/viaf/49316306 http://it.dbpedia.org/resource/Alessandro_D'Ancona">D'Ancona, Alessandro (1835–1914)</persName>
+            <persName sameAs="http://viaf.org/viaf/49316306 http://it.dbpedia.org/resource/Alessandro_D'Ancona">Alessandro D'Ancona (1835–1914)</persName>
           </person>
           <person xml:id="VA">
-            <persName sameAs="http://viaf.org/viaf/39389587 http://it.dbpedia.org/resource/Vittorio_Alfieri">Alfieri, Vittorio (1749–1803)</persName>
+            <persName sameAs="http://viaf.org/viaf/39389587 http://it.dbpedia.org/resource/Vittorio_Alfieri">Vittorio Alfieri (1749–1803)</persName>
           </person>
           <person xml:id="NT">
-            <persName sameAs="http://viaf.org/viaf/24639861 http://it.dbpedia.org/resource/Niccol%C3%B2_Tommaseo">Tommaseo, Niccolò (1802–1874)</persName>
+            <persName sameAs="http://viaf.org/viaf/24639861 http://it.dbpedia.org/resource/Niccol%C3%B2_Tommaseo">Niccolò Tommaseo (1802–1874)</persName>
           </person>
           <person xml:id="JWG">
-            <persName sameAs="http://viaf.org/viaf/24602065 http://it.dbpedia.org/resource/Johann_Wolfgang_von_Goethe">Goethe, Johann Wolfgang von (1749–1832)</persName>
+            <persName sameAs="http://viaf.org/viaf/24602065 http://it.dbpedia.org/resource/Johann_Wolfgang_von_Goethe">Johann Wolfgang von Goethe (1749–1832)</persName>
           </person>
           <person xml:id="AMAR">
-            <persName sameAs="https://viaf.org/viaf/51211798 http://it.dbpedia.org/resource/Antonio_Martini">Martini, Antonio, arciv. di Firenze (1720–1809)</persName>
+            <persName sameAs="https://viaf.org/viaf/51211798 http://it.dbpedia.org/resource/Antonio_Martini">Antonio Martini, arciv. di Firenze (1720–1809)</persName>
           </person>
           <person xml:id="PP"><!-- ? -->
-            <persName sameAs="">Parrella, Pietro ()</persName>
+            <persName sameAs="">Pietro Parrella</persName>
           </person>
           <person xml:id="LT">
-            <persName sameAs="http://viaf.org/viaf/96987389 http://it.dbpedia.org/resource/Lev_Tolstoj">Tolstoj, Lev Nikolaevič (1828–1910)</persName>
+            <persName sameAs="http://viaf.org/viaf/96987389 http://it.dbpedia.org/resource/Lev_Tolstoj">Lev Nikolaevič Tolstoj (1828–1910)</persName>
           </person>
           <person xml:id="GCR"><!-- ? -->
-            <persName sameAs="http://viaf.org/viaf/36988266">Craig, Gordon Alexander (1913–2005)</persName>
+            <persName sameAs="http://viaf.org/viaf/36988266">Gordon Alexander Craig (1913–2005)</persName>
           </person>
           <person xml:id="RMR">
-            <persName sameAs="http://viaf.org/viaf/46897170 http://it.dbpedia.org/resource/Rainer_Maria_Rilke">Rilke, Rainer Maria (1875–1926)</persName>
+            <persName sameAs="http://viaf.org/viaf/46897170 http://it.dbpedia.org/resource/Rainer_Maria_Rilke">Rainer Maria Rilke (1875–1926)</persName>
           </person>
           <person xml:id="FMANN"><!-- ? -->
-            <persName sameAs="">Fratelli Mann ()</persName>
+            <persName sameAs="">Fratelli Mann</persName>
           </person>
           <person xml:id="HH">
-            <persName sameAs="http://viaf.org/viaf/41841418 http://it.dbpedia.org/resource/Hermann_Hesse">Hesse, Herman (1877–1962)</persName>
+            <persName sameAs="http://viaf.org/viaf/41841418 http://it.dbpedia.org/resource/Hermann_Hesse">Herman Hesse (1877–1962)</persName>
           </person>
           <person xml:id="AD">
-            <persName sameAs="http://viaf.org/viaf/51688166 http://it.dbpedia.org/resource/Alfred_D%C3%B6blin">Döblin, Alfred (1878–1957)</persName>
+            <persName sameAs="http://viaf.org/viaf/51688166 http://it.dbpedia.org/resource/Alfred_D%C3%B6blin">Alfred Döblin (1878–1957)</persName>
           </person>
           <person xml:id="ASH">
-            <persName sameAs="http://viaf.org/viaf/12492826 http://it.dbpedia.org/resource/Arnold_Sch%C3%B6nberg">Schoenberg, Arnold (1874–1951)</persName>
+            <persName sameAs="http://viaf.org/viaf/12492826 http://it.dbpedia.org/resource/Arnold_Sch%C3%B6nberg">Arnold Schoenberg (1874–1951)</persName>
           </person>
           <person xml:id="PBONF">
-            <persName sameAs="http://viaf.org/viaf/32743167 http://it.dbpedia.org/resource/Pietro_Bonfante">Bonfante, Pietro (1864–1932)</persName>
+            <persName sameAs="http://viaf.org/viaf/32743167 http://it.dbpedia.org/resource/Pietro_Bonfante">Pietro Bonfante (1864–1932)</persName>
           </person>
           <person xml:id="SSG">
-            <persName sameAs="http://viaf.org/viaf/27034761 http://it.dbpedia.org/resource/Servio_Sulpicio_Galba_(imperatore_romano)">Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)</persName>
+            <persName sameAs="http://viaf.org/viaf/27034761 http://it.dbpedia.org/resource/Servio_Sulpicio_Galba_(imperatore_romano)">Servius Sulpicius Galba, imperatore romano (3 a.C.–69)</persName>
           </person>
           <person xml:id="GVIG">
-            <persName sameAs="http://viaf.org/viaf/111306541 http://it.dbpedia.org/resource/Giorgio_Vigolo">Vigolo, Giorgio (1894–1983)</persName>
+            <persName sameAs="http://viaf.org/viaf/111306541 http://it.dbpedia.org/resource/Giorgio_Vigolo">Giorgio Vigolo (1894–1983)</persName>
           </person>
           <person xml:id="AF">
-            <persName sameAs="http://viaf.org/viaf/4925052 http://it.dbpedia.org/resource/Anatole_France">France, Anatole  (1844–1924)</persName>
+            <persName sameAs="http://viaf.org/viaf/4925052 http://it.dbpedia.org/resource/Anatole_France">Anatole France (1844–1924)</persName>
           </person>
           <person xml:id="EH">
-            <persName sameAs="http://viaf.org/viaf/109181569 http://it.dbpedia.org/resource/Eberhard_Horst">Horst, Eberhard (1924–2012)</persName>
+            <persName sameAs="http://viaf.org/viaf/109181569 http://it.dbpedia.org/resource/Eberhard_Horst">Eberhard Horst (1924–2012)</persName>
           </person>
           <person xml:id="FPAN">
-            <persName sameAs="http://viaf.org/viaf/32094916 http://it.dbpedia.org/resource/Filippo_Pananti">Pananti, Filippo (1766–1837)</persName>
+            <persName sameAs="http://viaf.org/viaf/32094916 http://it.dbpedia.org/resource/Filippo_Pananti">Filippo Pananti (1766–1837)</persName>
           </person>
           <person xml:id="GG">
-            <persName sameAs="http://viaf.org/viaf/64072355 http://it.dbpedia.org/resource/Giuseppe_Giusti">Giusti, Giuseppe (1809–1850)</persName>
+            <persName sameAs="http://viaf.org/viaf/64072355 http://it.dbpedia.org/resource/Giuseppe_Giusti">Giuseppe Giusti (1809–1850)</persName>
           </person>
           <person xml:id="GVC">
-            <persName sameAs="http://viaf.org/viaf/100218993 http://it.dbpedia.org/resource/Gaio_Valerio_Catullo">Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/100218993 http://it.dbpedia.org/resource/Gaio_Valerio_Catullo">Gaius Valerius Catullus (ca. 84 a.C.–54 a.C.)</persName>
           </person>
           <person xml:id="DC">
-            <persName sameAs="http://viaf.org/viaf/7387912 http://it.dbpedia.org/resource/Dino_Campana">Campana, Dino (1885–1932)</persName>
+            <persName sameAs="http://viaf.org/viaf/7387912 http://it.dbpedia.org/resource/Dino_Campana">Dino Campana (1885–1932)</persName>
           </person>
         </listPerson>
         <listPerson type="cited-person">
           <person xml:id="MG">
-            <persName sameAs="http://viaf.org/viaf/97859168 http://it.dbpedia.org/resource/Michail_Gorbačëv">Gorbačev, Michail Sergeevič (1931–)</persName>
+            <persName sameAs="http://viaf.org/viaf/97859168 http://it.dbpedia.org/resource/Michail_Gorbačëv">Michail Sergeevič Gorbačev (1931–)</persName>
           </person>
           <person xml:id="EB">
-            <persName sameAs="http://viaf.org/viaf/5024806 http://it.dbpedia.org/resource/Enrico_Berlinguer">Berlinguer, Enrico (1922–1985)</persName>
+            <persName sameAs="http://viaf.org/viaf/5024806 http://it.dbpedia.org/resource/Enrico_Berlinguer">Enrico Berlinguer (1922–1985)</persName>
           </person>
           <person xml:id="GM">
-            <persName sameAs="http://viaf.org/viaf/297335553 http://it.dbpedia.org/resource/Germano_Marri">Marri, Germano (1932–)</persName>
+            <persName sameAs="http://viaf.org/viaf/297335553 http://it.dbpedia.org/resource/Germano_Marri">Germano Marri (1932–)</persName>
           </person>
           <person xml:id="LP" role="politician former-mayor-of-Rome">
-            <persName sameAs="http://viaf.org/viaf/247435929 http://it.dbpedia.org/resource/Luigi_Petroselli">Petroselli, Luigi (1932–1981)</persName>
+            <persName sameAs="http://viaf.org/viaf/247435929 http://it.dbpedia.org/resource/Luigi_Petroselli">Luigi Petroselli (1932–1981)</persName>
           </person>
           <person xml:id="IUST">
-            <persName sameAs="http://viaf.org/viaf/88881722 http://it.dbpedia.org/resource/Giustiniano_I">Giustiniano I, imperatore d'Oriente (482–565)</persName>
+            <persName sameAs="http://viaf.org/viaf/88881722 http://it.dbpedia.org/resource/Giustiniano_I">Flavius Petrus Sabbatius Iustinianus Augustus, imperatore d'Oriente (482–565)</persName>
           </person>
           <person xml:id="IUSTIN">
-            <persName sameAs="http://viaf.org/viaf/265706771 http://it.dbpedia.org/resource/Giustino_I">Giustino I, imperatore d'Oriente (ca. 450–527)</persName>
+            <persName sameAs="http://viaf.org/viaf/265706771 http://it.dbpedia.org/resource/Giustino_I">Flavius Iustinus Augustus, imperatore d'Oriente (ca. 450–527)</persName>
           </person>
           <person xml:id="GGC">
-            <persName sameAs="http://viaf.org/viaf/100227925 http://it.dbpedia.org/resource/Gaio_Giulio_Cesare">Cesare, Gaio Giulio (100 a.C.–44 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/100227925 http://it.dbpedia.org/resource/Gaio_Giulio_Cesare">Gaius Julius Caesar (100 a.C.–44 a.C.)</persName>
           </person>
           <person xml:id="GMAR">
-            <persName sameAs="http://viaf.org/viaf/82988171 http://it.dbpedia.org/resource/Gaio_Mario">Mario, Gaio (ca. 157 a.C.–86 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/82988171 http://it.dbpedia.org/resource/Gaio_Mario">Gaius Marius (ca. 157 a.C.–86 a.C.)</persName>
           </person>
           <person xml:id="LCS">
-            <persName sameAs="http://viaf.org/viaf/84037378 http://it.dbpedia.org/resource/Lucio_Cornelio_Silla">Silla, Lucio Cornelio (138 a.C.–78 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/84037378 http://it.dbpedia.org/resource/Lucio_Cornelio_Silla">Lucius Cornelius Sulla (138 a.C.–78 a.C.)</persName>
           </person>
           <person xml:id="MANT">
-            <persName sameAs="http://viaf.org/viaf/88759462 http://it.dbpedia.org/resource/Marco_Antonio">Antonio, Marco (82 a.C.–30 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/88759462 http://it.dbpedia.org/resource/Marco_Antonio">Marcus Antonius (82 a.C.–30 a.C.)</persName>
           </person>
           <person xml:id="GMIN">
-            <persName sameAs="http://it.dbpedia.org/resource/Giulia_Minore">Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)</persName>
+            <persName sameAs="http://it.dbpedia.org/resource/Giulia_Minore">Vipsania Julia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)</persName>
           </person>
           <person xml:id="MGB">
-            <persName sameAs="http://viaf.org/viaf/63975332 http://it.dbpedia.org/resource/Marco_Giunio_Bruto">Bruto, Marco Iunio (85 a.C.–42 a.C.)</persName>
+            <persName sameAs="http://viaf.org/viaf/63975332 http://it.dbpedia.org/resource/Marco_Giunio_Bruto">Marcus Iunius Brutus (85 a.C.–42 a.C.)</persName>
           </person>
           <person xml:id="MA">
-            <persName sameAs="http://viaf.org/viaf/102895066 http://it.dbpedia.org/resource/Marco_Aurelio">Marco Aurelio, imperatore romano (121–180)</persName>
+            <persName sameAs="http://viaf.org/viaf/102895066 http://it.dbpedia.org/resource/Marco_Aurelio">Marcus Aurelius, imperatore romano (121–180)</persName>
           </person>
           <person xml:id="PILAT">
-            <persName sameAs="http://viaf.org/viaf/172385754 http://it.dbpedia.org/resource/Ponzio_Pilato">Pilato, Ponzio (I sec.)</persName>
+            <persName sameAs="http://viaf.org/viaf/172385754 http://it.dbpedia.org/resource/Ponzio_Pilato">Marcus Pontius Pilatus (I sec.)</persName>
           </person>
           <person xml:id="MSO">
-            <persName sameAs="http://viaf.org/viaf/84036319 http://it.dbpedia.org/resource/Otone">Otone, Marco Salvio, imperatore romano (32–69)</persName>
+            <persName sameAs="http://viaf.org/viaf/84036319 http://it.dbpedia.org/resource/Otone">Marcus Salvius Otho, imperatore romano (32–69)</persName>
           </person>
           <person xml:id="AVG">
-            <persName sameAs="http://viaf.org/viaf/16012563 http://it.dbpedia.org/resource/Vitellio">Vitellio, Aulo, imperatore romano (15–69)</persName>
+            <persName sameAs="http://viaf.org/viaf/16012563 http://it.dbpedia.org/resource/Vitellio">Aulus Vitellius, imperatore romano (15–69)</persName>
           </person>
           <person xml:id="TFSV">
-            <persName sameAs="http://viaf.org/viaf/96539514 http://it.dbpedia.org/resource/Vespasiano">Vespasiano, Tito Flavio, imperatore romano (9–79)</persName>
+            <persName sameAs="http://viaf.org/viaf/96539514 http://it.dbpedia.org/resource/Vespasiano">Titus Flavius Vespasianus, imperatore romano (9–79)</persName>
           </person>
           <person xml:id="TFV">
-            <persName sameAs="http://viaf.org/viaf/83217593 http://it.dbpedia.org/resource/Tito_(imperatore_romano)">Tito, Flavio Vespasiano, imperatore romano (39–81)</persName>
+            <persName sameAs="http://viaf.org/viaf/83217593 http://it.dbpedia.org/resource/Tito_(imperatore_romano)">Titus Flavius Caesar Vespasianus, imperatore romano (39–81)</persName>
           </person>
           <person xml:id="TFD">
-            <persName sameAs="http://viaf.org/viaf/96284078 http://it.dbpedia.org/resource/Domiziano">Domiziano, Tito Flavio, imperatore romano (51–96)</persName>
+            <persName sameAs="http://viaf.org/viaf/96284078 http://it.dbpedia.org/resource/Domiziano">Titus Flavius Domitianus, imperatore romano (51–96)</persName>
           </person>
           <person xml:id="MCN">
-            <persName sameAs="http://viaf.org/viaf/69725573 http://it.dbpedia.org/resource/Marco_Cocceio_Nerva">Nerva, Marco Cocceio, imperatore romano (26/30–98)</persName>
+            <persName sameAs="http://viaf.org/viaf/69725573 http://it.dbpedia.org/resource/Marco_Cocceio_Nerva">Marcus Cocceius Nerva, imperatore romano (26/30–98)</persName>
           </person>
           <person xml:id="MUNT">
-            <persName sameAs="http://viaf.org/viaf/88067472 http://it.dbpedia.org/resource/Traiano">Traiano, Marco Ulpio Nerva, imperatore romano (53–117)</persName>
+            <persName sameAs="http://viaf.org/viaf/88067472 http://it.dbpedia.org/resource/Traiano">Marcus Ulpius Nerva Traianus, imperatore romano (53–117)</persName>
           </person>               
           <person xml:id="JS" role="literary-character">
-            <persName sameAs="http://viaf.org/viaf/172891020 http://fr.dbpedia.org/resource/Julien_Sorel">Sorel, Julien, personaggio</persName>
+            <persName sameAs="http://viaf.org/viaf/172891020 http://fr.dbpedia.org/resource/Julien_Sorel">Julien Sorel, personaggio</persName>
           </person>         
           <person xml:id="DION" role="mithological-character greek-god">
             <persName sameAs="http://viaf.org/viaf/50019379 http://it.dbpedia.org/resource/Dioniso">Dioniso, divinità greca</persName>
           </person>
           <person xml:id="GCRI" role="profet">
-            <persName sameAs="http://viaf.org/viaf/38323081 http://it.dbpedia.org/resource/Ges%C3%B9">Gesù, di Nazaret (4 a.C.–29)</persName>
+            <persName sameAs="http://viaf.org/viaf/38323081 http://it.dbpedia.org/resource/Ges%C3%B9">Gesù di Nazaret (4 a.C.–29)</persName>
           </person>
           <person xml:id="ZAR" role="profet mithological-character">
             <persName sameAs="http://viaf.org/viaf/66440309 http://it.dbpedia.org/resource/Zarathustra">Zaratustra (IX–XVIII sec. a.C.?)</persName>
@@ -3171,7 +3168,7 @@
         </cit>
         <pb n="64" facs="quad035v"/>
         <cit xml:id="marziale-1-88b" next="#marziale-1-88c">
-          <bibl><author ref="#MVM_E">Marziale</author>.<title>I, 88</title></bibl>
+          <bibl><author ref="#MVM">Marziale</author>.<title>I, 88</title></bibl>
           <quote xml:id="quot-098" xml:lang="lat" source="#bibl088" sameAs="#quot-096">
             <lg>
               <l>Alcime quem raptum domino crescentibus annis</l>
