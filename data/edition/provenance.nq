@@ -1,0 +1,3 @@
+<https://w3id.org/bufalinis-notebook/edition/> <http://www.w3.org/ns/prov#wasAttributedTo> <https://w3id.org/bufalinis-notebook/person/pb> <https://w3id.org/bufalinis-notebook/edition-provenance/> .
+<https://w3id.org/bufalinis-notebook/edition/> <http://www.w3.org/ns/prov#generatedAtTime> "1991-03-01T00:00:01+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <https://w3id.org/bufalinis-notebook/edition-provenance/> .
+

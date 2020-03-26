@@ -1,0 +1,9 @@
+<https://w3id.org/bufalinis-notebook/quote/quot-113> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/quote/quot-113> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Influence> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-112> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112> <http://www.w3.org/2000/01/rdf-schema#label> "Verg. Aen. 6, 429 in G. Carducci, Rime Nuove 2, 11" <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-112> <http://www.w3.org/ns/prov#wasGeneratedBy> <https://w3id.org/bufalinis-notebook/generation/quote/quot-112> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-112> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-112> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112> <https://w3id.org/bufalinis-notebook/infl-quot-113-to-quot-112-assertion/> .
+

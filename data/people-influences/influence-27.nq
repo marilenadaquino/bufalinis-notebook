@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164> <http://www.w3.org/2000/01/rdf-schema#label> "G. Carducci si dichiara in accordo con N. Tommaseo sulle qualità poetiche dell'inno sacro di A. Manzoni, 'La Resurrezione'" <https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/nt> <https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/nt> <http://purl.org/spar/cito/agreesWith> <https://w3id.org/bufalinis-notebook/person/gc> <https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/gc> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164> <https://w3id.org/bufalinis-notebook/infl-nt-agreesWith-gc-quot-164-assertion/> .
+

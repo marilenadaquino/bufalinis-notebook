@@ -1,0 +1,9 @@
+<https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Influence> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178> <http://www.w3.org/2000/01/rdf-schema#label> "Verg. Aen. 1, 33 in Tac. Ann. 1, 11" <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-178> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-178> <http://www.w3.org/ns/prov#wasGeneratedBy> <https://w3id.org/bufalinis-notebook/generation/quote/quot-178> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/quote/quot-179> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-179> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-179-to-quot-178-assertion/> .
+

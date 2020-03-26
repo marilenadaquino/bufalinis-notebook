@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/bc> <https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/fds> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100> <https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sottolinea la comunione di idee fra B. Croce e F. De Sarlo a proposito dell'assolutezza della morale" <https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/bc> <http://purl.org/spar/cito/agreesWith> <https://w3id.org/bufalinis-notebook/person/fds> <https://w3id.org/bufalinis-notebook/infl-bc-agreesWith-fds-comm-100-assertion/> .
+

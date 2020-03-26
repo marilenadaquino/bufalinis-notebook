@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sulla relazione fra R. Wagner e T. Mann" <https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/tm> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026> <https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/rw> <https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/rw> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-rw-citesAsRelated-tm-comm-026-assertion/> .
+

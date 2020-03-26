@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-head/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-head/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-np> <http://www.nanopub.org/nschema#hasProvenance> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-provenance/> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-head/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-np> <http://www.nanopub.org/nschema#hasPublicationInfo> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-pubinfo/> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-head/> .
+

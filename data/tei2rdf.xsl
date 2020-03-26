@@ -6,7 +6,7 @@
     <xsl:param name="frbr">http://purl.org/vocab/frbr/core#</xsl:param>
     <xsl:param name="fabio">http://purl.org/spar/fabio/</xsl:param>
     <xsl:template match="/">
-        <xsl:result-document href="quaderno_rdf.rdf ">
+        <xsl:result-document href="rdf_dump/quaderno_rdf.rdf ">
             <rdf:RDF xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"

@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/person/pb> <http://purl.org/spar/cito/disagreesWith> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/pb> <https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini avanza obiezioni verso il commento di Thomas Mann a 'Il mondo come volontà e rappresentazione' di A. Schopenhauer" <https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/tm> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056> <https://w3id.org/bufalinis-notebook/infl-pb-disagreesWith-tm-comm-056-assertion/> .
+

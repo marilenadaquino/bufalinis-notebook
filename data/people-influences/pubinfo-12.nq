@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/organization/cspc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> <https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-pubinfo/> .
+<https://w3id.org/bufalinis-notebook/organization/cspc> <http://www.w3.org/2000/01/rdf-schema#label> "Centro Studi Permanenza del Classico, Università di Bologna" <https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-pubinfo/> .
+<https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-np> <http://www.w3.org/ns/prov#wasAttributedTo> <https://w3id.org/bufalinis-notebook/organization/cspc> <https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-pubinfo/> .
+<https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-np> <http://www.w3.org/ns/prov#generatedAtTime> "2018-01-01T00:00:01+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> <https://w3id.org/bufalinis-notebook/infl-fn-citesAsRelated-tm-comm-026-pubinfo/> .
+

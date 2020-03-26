@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/as> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/as> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/ggb> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sul pessimismo in A. Schopenhauer, G. Leopardi, Stendhal, A. Manzoni, G. G. Belli" <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/ggb> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-ggb-comm-024-assertion/> .
+

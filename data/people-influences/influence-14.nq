@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/fn> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/tm> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029> <http://www.w3.org/2000/01/rdf-schema#label> "R. Fertonani sottolinea la lettura di 'Hecce Homo' di F. Nietzsche da parte di T. Mann in preparazione del 'Doctor Faustus'" <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-assertion/> .
+

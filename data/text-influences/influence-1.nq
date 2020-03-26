@@ -1,0 +1,9 @@
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/quote/quot-007> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-005h> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-005h> <http://www.w3.org/ns/prov#wasGeneratedBy> <https://w3id.org/bufalinis-notebook/generation/quote/quot-005h> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h> <http://www.w3.org/2000/01/rdf-schema#label> "Lucr. Rer. Nat. 1, 38–40 in A. Manzoni, Inni Sacri, Il nome di Maria" <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-005h> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/quote/quot-007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/oa#Annotation> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Influence> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+<https://w3id.org/bufalinis-notebook/generation/quote/quot-005h> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Generation> <https://w3id.org/bufalinis-notebook/infl-quot-007-to-quot-005h-assertion/> .
+

@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/person/tm> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/as> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sulla relazione fra T. Mann e R. Wagner, F. Nietzsche, A. Schopenhauer" <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/as> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-tm-comm-026-assertion/> .
+

@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sull'influenza di F. Pananti su G. Giusti" <https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/fpan> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/gg> <https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/fpan> <https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/gg> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192> <https://w3id.org/bufalinis-notebook/infl-fpan-citesAsRelated-gg-quot-192-assertion/> .
+

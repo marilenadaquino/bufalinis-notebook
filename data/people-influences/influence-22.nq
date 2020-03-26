@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/person/pvm> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/am> <https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133> <http://www.w3.org/2000/01/rdf-schema#label> "G. Carducci sull'influenza di Virgilio su A. Manzoni" <https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/pvm> <https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133> <https://w3id.org/bufalinis-notebook/infl-pvm-citesAsRelated-am-quot-133-assertion/> .
+

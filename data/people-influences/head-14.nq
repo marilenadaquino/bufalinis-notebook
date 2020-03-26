@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-head/> .
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-assertion/> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-head/> .
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-np> <http://www.nanopub.org/nschema#hasPublicationInfo> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-pubinfo/> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-head/> .
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-np> <http://www.nanopub.org/nschema#hasProvenance> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-provenance/> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-comm-029-head/> .
+

@@ -2,7 +2,7 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="tei">
     <xsl:output method="html" indent="yes" omit-xml-declaration="yes" encoding="UTF-8"/>
     <xsl:template match="/">
-        <xsl:result-document href="quaderno.html">
+        <xsl:result-document href="xml/quaderno.html">
             <section class="tei_transcription">
                 <xsl:copy>
                     <xsl:apply-templates select="//tei:text"/>

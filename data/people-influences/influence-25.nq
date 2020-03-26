@@ -1,0 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/nt> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162> <http://www.w3.org/2000/01/rdf-schema#label> "N. Tommaseo apprezza le qualità poetiche dell'inno sacro di A. Manzoni, 'La Resurrezione'" <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/nt> <http://purl.org/spar/cito/likes> <https://w3id.org/bufalinis-notebook/person/am> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162-assertion/> .
+
