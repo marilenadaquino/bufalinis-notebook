@@ -1,0 +1,525 @@
+$def with (citedPeopleList, relationsList, citedPeopleListForm, quots, authors, workAutDict)
+
+<p style="background-color: greenyellow;">PEOPLE TREEMAP</p> <!-- insert the first p mandatory -->
+<p>
+	var data = google.visualization.arrayToDataTable([<br>
+	['Cited person', 'People who cites him/her', 'Number of people who cite her/him', 'Citation occurrences'],<br>
+	['Bufalini, Paolo (1915–2001) in Appunti 1981-1991', null, 1, 2],
+</p>
+
+	$ emptyPeople = set()
+	$ authName = ""
+	$for citedPerson in citedPeopleList['results']['bindings']:
+		$ pers = citedPerson['person']['value'].split(' ')[0:2]
+		$ persVal = ' '.join(pers)
+			$ person = citedPerson['s']['value']
+			$if person not in emptyPeople:
+				$ authorSet = set()
+				$ emptyExcerpt = set()
+				$ emptyPeople.add(person)
+			
+			$if person == citedPerson['s']['value']:
+				$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['realizerLabel']['value'])
+					$ authName = citedPerson['realizerLabel']['value']
+						
+				$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['authorLabel']['value'])
+					$ authName = citedPerson['authorLabel']['value']
+						
+				$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+					$emptyExcerpt.add(citedPerson['body']['value'])
+					$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>['$citedPerson['person']['value'] is cited by $authName in $workButt', '$authName', n, n],</p>
+
+						$else:
+							<p>['$citedPerson['person']['value'] is cited by $authName', '$authName', n, n],</p>
+
+					$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>['$citedPerson['person']['value'] is cited by $authName in $workButt', '$authName', n, n],</p>
+						$else:
+							<p>['$citedPerson['person']['value'] is cited by $authName', '$authName', n, n],</p>
+
+					$else:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>['$citedPerson['person']['value'] is cited by $authName in $workButt', '$authName', n, n],</p>
+						$else:
+							<p>['$citedPerson['person']['value'] is cited by $authName', '$authName', n, n],</p>
+								
+		</div>	
+</div>
+<p>]);</p>
+
+
+$ doubleRealizer = []
+$ doubleAuthor = []
+
+<p style="background-color: aqua;">PEOPLE SETS</p> <!-- insert the first p mandatory -->
+<p> var fsdata = [{<br>
+	"id": "Il quaderno di Paolo Bufalini",<br>
+	"text": "Il quaderno di Paolo Bufalini",<br>
+	"parent": ""<br>
+  },
+  {
+	"id": "analytics",<br>
+	"text": "analytics",<br>
+	"parent": "Il quaderno di Paolo Bufalini",<br>
+	"data-xx": "xx-analytics"<br>
+  },<br>
+  {<br>
+	"id": "cluster",<br>
+	"text": "cluster",<br>
+	"parent": "analytics",<br>
+	"data-xx": "xx-cluster"<br>
+  },<br>
+  {<br>
+	"id": "Bufalini, Paolo (1915–2001)",<br>
+	"text": "Bufalini, Paolo (1915–2001) cites the following number of excerpts:",<br>
+	"parent": "cluster"<br>
+  },<br>
+</p>
+
+	$ emptyPeople = set()
+	$ authName = ""
+	$for citedPerson in citedPeopleList['results']['bindings']:
+		$ pers = citedPerson['person']['value'].split(' ')[0:2]
+		$ persVal = ' '.join(pers)
+			$ person = citedPerson['s']['value']
+			$if person not in emptyPeople:
+				$ authorSet = set()
+				$ emptyExcerpt = set()
+				$ emptyPeople.add(person)
+					
+			$if person == citedPerson['s']['value']:
+				$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['realizerLabel']['value'])
+						$ authName = citedPerson['realizerLabel']['value']
+						$if citedPerson['realizerLabel']['value'] not in doubleRealizer:
+							$doubleRealizer.append(citedPerson['realizerLabel']['value'])
+							<p>
+								{<br>
+									"id": "$citedPerson['realizerLabel']['value']",<br>
+									"text": "$citedPerson['realizerLabel']['value'] cites the following number of excerpts:",<br>
+									"parent": "cluster"<br>
+								},<br>
+							</p>
+					
+				$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['authorLabel']['value'])
+						$ authName = citedPerson['authorLabel']['value']
+						$if citedPerson['authorLabel']['value'] not in doubleAuthor:
+							$doubleAuthor.append(citedPerson['authorLabel']['value'])
+							<p>
+								{<br>
+									"id": "$citedPerson['authorLabel']['value']",<br>
+									"text": "$citedPerson['authorLabel']['value'] cites the following number of excerpts:",<br>
+									"parent": "cluster"<br>
+								},
+							</p>
+					
+				$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+					$emptyExcerpt.add(citedPerson['body']['value'])
+					$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"id": "$citedPerson['person']['value'] cited by $authName",<br>
+									"text": "$citedPerson['person']['value'] in $workButt",<br>
+									"parent": "$authName",<br>
+									"value": <br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"id": "$citedPerson['person']['value'] cited by $authName",<br>
+									"text": "$citedPerson['person']['value']",<br>
+									"parent": "$authName",<br>
+									"value": <br>
+								},<br>
+							</p>
+					$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"id": "$citedPerson['person']['value'] cited by $authName",<br>
+									"text": "$citedPerson['person']['value'] in $workButt",<br>
+									"parent": "$authName",<br>
+									"value": <br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"id": "$citedPerson['person']['value'] cited by $authName",<br>
+									"text": "$citedPerson['person']['value']",<br>
+									"parent": "$authName",<br>
+									"value": <br>
+								},<br>
+							</p>
+					$else:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"id": "$citedPerson['person']['value'] cited by $authName",<br>
+									"text": "$citedPerson['person']['value'] in $workButt",<br>
+									"parent": "$authName",<br>
+									"value": <br>
+								},<br>
+							</p>		
+						$else:
+						<p>
+							{<br>
+								"id": "$citedPerson['person']['value'] cited by $authName",<br>
+								"text": "$citedPerson['person']['value']",<br>
+								"parent": "$authName",<br>
+								"value": <br>
+							},<br>
+						</p>
+<p>];</p>
+
+$ graphRealizer = []
+$ graphAuthor = []
+
+<p style="background-color: fuchsia;">PEOPLE GRAPH</p> <!-- insert the first p mandatory --><!-- remove duplicates and make nodes compact -->
+<p style="background-color: pink;">People who are cited</p>
+
+	$ emptyPeople = set()
+	$ authName = ""
+	$for citedPerson in citedPeopleList['results']['bindings']:
+	
+		$ pers = citedPerson['person']['value'].split(' ')[0:2]
+		$ persVal = ' '.join(pers)
+		
+			$ person = citedPerson['s']['value']
+			$if person not in emptyPeople:
+				$ authorSet = set()
+				$ emptyExcerpt = set()
+				$ emptyPeople.add(person)
+				
+			$if person == citedPerson['s']['value']:
+				$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['realizerLabel']['value'])
+						$ authName = citedPerson['realizerLabel']['value']
+
+				$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['authorLabel']['value'])
+						$ authName = citedPerson['authorLabel']['value']
+					
+				$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+					$emptyExcerpt.add(citedPerson['body']['value'])
+					$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									  "$authName in $workButt",<br>
+									],<br>
+								},<br>
+							</p>
+							
+						$else:
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$authName",<br>
+									],<br>
+								},<br>
+							</p>
+							
+					$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									  "$authName in $workButt",<br>
+									],<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$authName",<br>
+									],<br>
+								},<br>
+							</p>
+	
+					$else:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$authName in $workButt",<br>
+									],<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"name": "$citedPerson['person']['value']",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$authName",<br>
+									],<br>
+								},<br>
+							</p>
+
+<p style="background-color: pink;">People who cite other people</p>
+
+$ emptyPeople = set()
+	$ authName = ""
+	$for citedPerson in citedPeopleList['results']['bindings']:
+	
+		$ pers = citedPerson['person']['value'].split(' ')[0:2]
+		$ persVal = ' '.join(pers)
+		
+			$ person = citedPerson['s']['value']
+			$if person not in emptyPeople:
+				$ authorSet = set()
+				$ emptyExcerpt = set()
+				$ emptyPeople.add(person)
+				
+			$if person == citedPerson['s']['value']:
+				$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['realizerLabel']['value'])
+						$ authName = citedPerson['realizerLabel']['value']
+
+				$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['authorLabel']['value'])
+						$ authName = citedPerson['authorLabel']['value']
+					
+				$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+					$emptyExcerpt.add(citedPerson['body']['value'])
+					$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									  "$citedPerson['person']['value']",<br>
+									],<br>
+								},<br>
+							</p>
+							
+						$else:
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$citedPerson['person']['value']",<br>
+									],<br>
+								},<br>
+							</p>
+							
+					$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									  "$citedPerson['person']['value'],<br>
+									],<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$citedPerson['person']['value']",<br>
+									],<br>
+								},<br>
+							</p>
+	
+					$else:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$citedPerson['person']['value']",<br>
+									],<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									"name": "$authName",<br>
+									"value": "",<br>
+									"linkWith":[<br>
+									"$citedPerson['person']['value']",<br>
+									],<br>
+								},<br>
+							</p>
+
+<p>
+	];<br>
+	});<br>
+</p>
+
+<p style="background-color: orange;">PEOPLE PLAY WITH DATA</p> <!-- insert the first p mandatory --><!-- remove duplicates and make nodes compact -->
+<p>networkSeries.data = [{</p>
+$ emptyPeople = set()
+	$ authName = ""
+	$for citedPerson in citedPeopleList['results']['bindings']:
+	
+		$ pers = citedPerson['person']['value'].split(' ')[0:2]
+		$ persVal = ' '.join(pers)
+		
+			$ person = citedPerson['s']['value']
+			$if person not in emptyPeople:
+				$ authorSet = set()
+				$ emptyExcerpt = set()
+				$ emptyPeople.add(person)
+				
+			$if person == citedPerson['s']['value']:
+				$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['realizerLabel']['value'])
+						$ authName = citedPerson['realizerLabel']['value']
+
+				$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+					$authorSet.add(citedPerson['authorLabel']['value'])
+						$ authName = citedPerson['authorLabel']['value']
+					
+				$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+					$emptyExcerpt.add(citedPerson['body']['value'])
+					$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: '$workButt', value:<br>
+								},<br>
+							</p>
+							
+						$else:
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: 'Il quaderno di Paolo Bufalini', value:<br>
+								},<br>
+							</p>
+							
+					$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: '$workButt', value:<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: 'Il quaderno di Paolo Bufalini', value:<br>
+								},<br>
+							</p>
+	
+					$else:
+						$if 'work' in citedPerson.keys():
+							$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
+							$ workButt = " ".join(workName).upper()
+							$ workFinalPoint = "".join(workName).upper().replace("'", "")
+							$ workFinal = workFinalPoint.replace(".", "")
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: '$workButt:<br>
+								},<br>
+							</p>
+						$else:
+							<p>
+								{<br>
+									name: '$authName',<br>
+									work: 'Il quaderno di Paolo Bufalini',<br>
+									children: [{<br>
+									  name: '$citedPerson['person']['value']', work: 'Il quaderno di Paolo Bufalini', value:<br>
+								},<br>
+							</p>
+
+<p>];></p>

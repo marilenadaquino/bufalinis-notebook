@@ -1,0 +1,192 @@
+$def with ()
+	
+<section class="col-md-8" id="introContainer">
+	<h3 id="intro_title1"></h3>
+	<p id="p_1"></p>
+	<p id="p_2"></p>
+	<p id="p_3"></p>
+	<h3 id="intro_title2"></h3>
+	<p id="p_4"></p>
+	<h3 id="intro_title21"></h3>
+	<p id="p_5"></p>
+	<p id="p_6"></p>
+	<h3 id="intro_title3"></h3>
+	<p id="p_7"></p>
+	<p id="p_8"></p>
+	<ul>
+		<li id="li_1"></li>
+		<li id="li_2"></li>
+		<li id="li_3"></li>
+	</ul>
+	<p id="p_9"></p>
+	<h4 id="intro_title31"></h4>
+	<p id="p_10"></p>
+	<p id="p_11"></p>
+	<ul>
+		<li id="li_4"></li>
+		<li id="li_5"></li>
+	</ul>
+	<p id="p_12"></p>
+	<img src="/static/nanopub.png">
+	<p>Khun, T., <i>Nanopublications. Provenance-Aware Linked Data Publishing</i>, 2015.</p>
+	<p id="p_13"></p>
+	<p id="p_14"></p>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet1" aria-expanded="false" aria-controls="snippet1">snippet</button>
+	<div class="collapse" id="snippet1">
+	  <div class="card card-body">
+	    <pre><code>
+@prefix np:  &lt;http://www.nanopub.org/nschema#&gt; .
+@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
+@prefix generation: &lt;https://w3id.org/bufalinis-notebook/generation/quote/&gt; .
+@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; . 
+@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; . 
+
+pb:infl-quot-007-to-quot-005h-head {
+     pb:infl-quot-007-to-quot-005h-np a np:Nanopublication .
+     pb:infl-quot-007-to-quot-005h-np np:hasAssertion :infl-quot-007-to-quot-005h-assertion .
+     pb:infl-quot-007-to-quot-005h-np np:hasProvenance :infl-quot-007-to-quot-005h-provenance .
+     pb:infl-quot-007-to-quot-005h-np np:hasPublicationInfo :infl-quot-007-to-quot-005h-pubInfo .
+}
+
+pb:infl-quot-007-to-quot-005h-assertion {
+   quote:quot-005h prov:wasGeneratedBy generation:quot-005h .
+   generation:quot-005h a prov:Generation .
+   generation:quot-005h prov:qualifiedInfluence pb:infl-quot-007-to-quot-005h .
+   pb:infl-quot-007-to-quot-005h a prov:Influence .
+   pb:infl-quot-007-to-quot-005h rdfs:label "Lucr. Rer. Nat. 1, 38–40 in A. Manzoni, Inni Sacri, Il nome di Maria" .
+   pb:infl-quot-007-to-quot-005h prov:agent quote:quot-007 .
+   quote:quot-005h a oa:Annotation .
+   quote:quot-007 a oa:Annotation .
+}
+
+pb:infl-quot-007-to-quot-005h-provenance {
+   pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
+   pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
+   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
+   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
+   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
+   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
+   pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
+}
+
+pb:infl-quot-007-to-quot-005h-pubinfo {
+   pb:infl-quot-007-to-quot-005h-np prov:wasAttributedTo pb:cspc .
+   pb:infl-quot-007-to-quot-005h-np prov:generatedAtTime "2018-01-01T00:00:01Z"^^xsd:dateTime .
+}
+	    </code></pre>
+	  </div>
+	</div>
+	<p id="p_15"></p>
+	<h4 id="intro_title32"></h4>
+	<p id="p_16"></p>
+	<p id="p_17"></p>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet2" aria-expanded="false" aria-controls="snippet2">snippet</button>
+	<div class="collapse" id="snippet2">
+	  <div class="card card-body">
+	    <pre><code>
+@prefix citation: &lt;https://w3id.org/bufalinis-notebook/citation/&gt; .
+@prefix cito: &lt;http://purl.org/spar/cito/&gt; .
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix excerpt: &lt;https://w3id.org/bufalinis-notebook/excerpt/&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
+@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+@prefix prism1: &lt;http://prismstandard.org/namespaces/1.2/basic/&gt; .
+@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+quote:quot-005h a oa:Annotation ;
+    oa:hasBody excerpt:bibl004h ;
+    oa:hasTarget citation:am-inni-sacri-il-nome-di-maria ;
+    oa:motivatedBy pb:quotation .
+
+citation:am-inni-sacri-il-nome-di-maria a cito:Citation ;
+    cito:hasCitedEntity excerpt:bibl004h ;
+    cito:hasCitingEntity &lt;https://w3id.org/bufalinis-notebook/page/4&gt; .
+
+
+excerpt:bibl004h a &lt;http://purl.org/spar/fabio/Excerpt&gt; ;
+    rdfs:label "Inni sacri, Il nome di Maria, verse 82–84" ;
+    prism1:startingPage &lt;https://w3id.org/bufalinis-notebook/page/4&gt; ;
+    frbr:partOf &lt;https://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; ;
+    rdf:value """
+               &lt;section xmlns="http://www.tei-c.org/ns/1.0"&gt;
+                  &lt;l>O degli afflitti scampo,&lt;/l&gt;
+                  &lt;l>
+                     &lt;ref rend="underline" target="#quot-007-1"&gt;inclita&lt;/ref&gt; come il sol, terribil come&lt;/l&gt;
+                  &lt;l&gt;oste schierata in campo.&lt;/l&gt;
+               &lt;/section&gt;
+            """^^rdf:XMLLiteral.
+
+pb:quotation rdfs:label "quotation" .
+	    </code></pre>
+	  </div>
+	</div>
+	<p id="p_18"></p>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet3" aria-expanded="false" aria-controls="snippet3">snippet</button>
+	<div class="collapse" id="snippet3">
+	  <div class="card card-body">
+	    <pre><code>
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix pb: &lt;http://w3id.org/bufalinis-notebook/&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/Book&gt; ;
+    rdfs:label "Inni sacri" ;
+    frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; .
+
+&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Expression&gt; ;
+    rdfs:label "Inni sacri, Il nome di Maria" ;
+    frbr:partOf &lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; ;
+    frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; .
+
+&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Poem&gt; ;
+    rdfs:label "Inni sacri, Il nome di Maria" ;
+    dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
+    frbr:partOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; ;
+    = &lt;http://viaf.org/viaf/292682306&gt; .
+
+&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/WorkCollection&gt; ;
+    rdfs:label "Inni sacri" ;
+    dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
+    = &lt;http://viaf.org/viaf/177864710&gt;,
+        &lt;http://worldcat.org/entity/work/id/3888291&gt; .
+	    </code></pre>
+	  </div>
+	</div>
+	<h4 id="intro_title33"></h4>
+	<p id="p_19"></p>
+	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet4" aria-expanded="false" aria-controls="snippet4">snippet</button>
+	<div class="collapse" id="snippet4">
+	  <div class="card card-body">
+	    <pre><code>
+@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; . 
+@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; . 
+   pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
+   pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
+   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
+   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
+   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
+   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
+   pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
+
+	    </code></pre>
+	  </div>
+	</div>
+	<p id="p_20"></p>
+	<p id="p_21"></p>
+</section>			
+
+			

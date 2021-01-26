@@ -4,7 +4,7 @@ $def with (data, entity)
 	    <title>$entity</title>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-	    <link rel="icon" href="/static/favicon.ico" />
+	    <link rel="icon" href="static/favicon.ico" />
 	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,7 +19,7 @@ $def with (data, entity)
 			$for result in data['results']['bindings']:
 				$if result['predicate']['value'] == 'http://www.w3.org/2000/01/rdf-schema#label':
 					<h2>$result['object']['value']</h2>
-			$for result in data['results']['bindings']:	
+			$for result in data['results']['bindings']:
 				$if 'subject' not in result.keys():
 					<section>oooops not found</section>
 				$elif result['subject']['value'] == entity:
@@ -43,7 +43,6 @@ $def with (data, entity)
 							<section class="col-md-8"><a class="prefix" href=$result['subject']['value']>$result['subject']['value']</a></section>
 					</section>
 		</section>
-		
+
 	</body>
 </html>
-

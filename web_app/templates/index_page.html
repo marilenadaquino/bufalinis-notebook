@@ -1,4 +1,4 @@
-$def with (dict, metadataDict, num)
+$def with (dict, metadataDict, num, citedPeopleList, quots)
 $var mainjs = '/static/script/notebook.js'
 $var imgResizer = '/static/script/imageMapResizer.min.js'
 $var mapifyjs = '/static/script/jquery.mapify.js'
@@ -7,31 +7,296 @@ $var i18n = '/static/script/jquery.i18n.properties.js'
 $var cookies = '/static/script/cookies.js'
 $var maincss = '/static/css/notebook.css'
 $var mapifycss = '/static/css/jquery.mapify.css'
-	
-	<section class="col-md-3" id="textViewer">
-		<select id="pages" class="col-md-9">
-			<option selected disabled id="pages_select">Pages</option>
-        </select>
-        
-        <section id='output'>
-        	<p id="infoContainer"></p>
-        </section>
-    </section>
-	
-    <section class="col-md-9">
-    	<!-- <a id="swapprevsimg">Prev</a>
-    	<a id="swapnextimg">Next</a> -->
-    	<section class="col-md-1">
-            <button id="prev">&lt;</button>
-        </section>
-        
-        <section id="viewer" class="col-md-10"></section>
-        <section class="col-md-1">
-            <button id="next">&gt;</button>
-        </section>
-    </section>
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+				<h2 id="digital_edition_header_title">Digital Edition</h2>
+				<a href="#metadata_title"><i class="fas fa-chevron-down intro_go"></i></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+ <!-- metadata panel -->
+ <section class="col-md-12 panel_tool_metadata" id="introContainer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="media">
+					<div class="media-left">
+						<button class="button_panel" type="button" data-toggle="collapse" data-target="#snippet1" aria-expanded="false" aria-controls="snippet1"><i class="glyphicon glyphicon-fullscreen"></i></button>
+					</div>
+					<div class="media-body">
+					<h4 id="metadata_title">Metadata</h4>
+					<div class="collapse" id="snippet1">
+						<div class="metadata-modal">
+							<p><span class="filters_category_title meta_author">Author</span>: <span class="meta_author_val">Bufalini, Paolo (1915–2001)</span></p>
+							<p><span class="filters_category_title meta_title">Title</span>: <span class="italic meta_title_val">Appunti. 1981–1991</span></p>
+							<p><span class="filters_category_title meta_creation">Date of creation</span>: <span class="meta_creation_val">1981–1991</span></p>
+							<p><span class="filters_category_title meta_tech">Production technique</span>: <span class="meta_tech_val">handwriting</span></p>
+							<p><span class="filters_category_title meta_material">Materials and physical description</span>: <span class="meta_material_val">hardback, covered with decorated paper both inside and outside; cloth-bound spine and corners; 145 pages, 2 loose leaves</span></p>
+							<p><span class="filters_category_title meta_dimensions">Dimensions</span>: <span class="meta_dimensions_val">H 215 x L 140 x W 15 mm</span></p>
+							<p><span class="filters_category_title meta_rights">Rights</span>: <span class="meta_rights_val"></span>Alma Mater Studiorum University of Bologna. All rights reserved. Any other reproduction or distribution is prohibited</p>
+							<p><span class="filters_category_title meta_bibl">Cite as</span>: <span class="meta_bibl_val">Bufalini, Paolo. 1981-1991. Manuscript notebook, Appunti. 1981-1991, Ezio Raimondi Library, Department of Classical Philology and Italian Studies, University of Bologna.</span></p>
+							<p><span class="filters_category_title meta_manifest">IIIF manifest</span>: <span class="meta_manifest_val"><a href="https://dl.ficlit.unibo.it/iiif/12808/manifest" target="_blank" alt="IIIF" manifest="">https://dl.ficlit.unibo.it/iiif/12808/manifest</a></span></p>
+							<!-- <p><span class="filters_category_title meta_permalink">Permalink</span>: <span class="meta_permalink_val">https://w3id.org/ficlitdl/paolo-bufalini-notebook/physical-object</span></p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- facets and page panel -->
+<section class="col-md-12 introContainer_facets_page_panel" id="introContainer">
+	<div class="container-fluid container_fluid_facets_page_panel">
+		<div class="row">
+			<!-- facets -->
+			<div class="col-md-2 col-sm-3 panel_tool reduced-window" id="facets_panel_box">
+				<!-- results -->
+				<div class="row" id="results-container">
+					<div class="col-md-12 panel-results">
+						<div class="media bigger-results">
+							<div class="media-left">
+								<button class="button_panel" id="close-results" onclick="closeResults()"><i class="glyphicon glyphicon-remove"></i></button>
+							</div>
+							<div class="media-body">
+								<h4><span id="n-results"></span> <span id="results_title_list">Results <br><span class="brackets">(in order of occurrence)</span></span></h4>
+								<a id="clear_res">Clear results</a>
+							</div>
+							<!-- search in results -->
+							<!-- <div class="row">
+								<div class="col-md-12">
+									<form id="edition-search-tool">
+										<input type="text" id="filter-res" placeholder="Cerca nei risultati..." class="filter-res-bar">
+									</form>
+								</div>
+							</div> -->
+							<!-- / search in results -->
+							<div id="print-results">
+								<ol id="list-results">
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- / results -->
+				<div class="media move-facets">
+					<div class="media-left">
+						<button class="button_panel" onclick="closeFacets()"><i class="glyphicon glyphicon-remove"></i></button>
+					</div>
+					<div class="media-body">
+						<h4 id="facets_title">Facets</h4>
+					</div>
+					<div id="closeFacets_div">
+						<div>
+							<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">People</span>
+							<div id="filters_checkbox_people">
+								<form class="checkbox_margin">
+									$for x in citedPeopleList:
+										<input type="checkbox" class="peopleCheck" id="$x.split(' ')[0].replace(',', '')">
+										<label for="$x.split(' ')[0].replace(',', '')" class="labelInline">$x</label><br>
+								</form>
+							</div>
+						</div>
+						<hr class="filters_category_title_nested">
+						<div>
+							<span class="filters_category_title filters_category_title_nested" id="filters_people_role">People role</span>
+							<div id="add-pers-role">
+								<div class="people-role-box">
+									<div class="row thumbnail person-role">
+										<div class="col-md-2">
+											<button class="filters_icon filters_people_role_button"><i class="far fa-user"></i></button>
+										</div>
+										<div class="col-md-10">
+											<div class="caption">
+												<h5 class="change_role_cap filters_people_role_caption" id="role_caption_name_index">Search for a person</h5>
+											</div>
+											<div class="role-check" style="display: none;">
+												<input type="checkbox" class="input-auth-check" role="auth-role">
+												<label class="labelInline" id="author_role">Author</label> <span class="dot dot-orchid"></span>
+												<br>
+												<input type="checkbox" class="input-cited-check" role="cited-role">
+												<label class="labelInline" id="cited_role">Mentioned person</label> <span class="dot dot-yellowgreen"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div>
+							<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Types of excerpts</span>
+							<form class="checkbox_margin" id="check-excerpt-container">
+								<input type="checkbox" id="comment">
+								<label class="labelInline" id="comment_val">Comments</label> <span class="dot dot-green"></span><br>
+								<input type="checkbox" id="quotation">
+								<label class="labelInline" id="quotation_val">Quotations</label> <span class="dot dot-pink"></span><br>
+								<input type="checkbox" id="translation">
+								<label class="labelInline" id="translation_val">Translations</label> <span class="dot dot-yellow"></span><br>
+							</form>
+						</div>
+						<hr class="filters_category_title_nested">
+						<div>
+							<span class="filters_category_title filters_category_title_nested" id="filters_works">Works</span>
+							<div id="filters_checkbox_people">
+								<form class="checkbox_margin">
+									$for z, uriId, excerpts_uris in quots:
+										<input type="checkbox" class="workCheck" id="$uriId" data-excerpts="$excerpts_uris">
+										<label class="labelInline">$z</label><br>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		<!-- page -->
+		<div class="col-md-10 col-sm-12 panel_tool panel_tool_page" id="page_panel_tool">
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="media">
+						<div class="media-left">
+							<button class="button_panel" onclick="openPage()"><i class="glyphicon glyphicon-fullscreen"></i></button>
+						</div>
+						<div class="media-body">
+							<div class="row">
+								<div class="col-md-1">
+									<h4 id="page_title">Page</h4>
+								</div>
+								<div class="col-md-2">
+									<!-- print the code of the excerpt clicked in the list of results -->
+									<h4 id="title-id"></h4>
+								</div>
+								<div class="col-md-2">
+									<select id="pages" class="page_selector margin-top-15">
+										<option selected id="pages_select"></option>
+									</select>
+								</div>
+								<div class="col-md-5">
+									<form class="margin-top-15" id="edition-search-tool">
+										<input type="text" id="gsearch" name="gsearch" placeholder="Inserisci testo..." class="col-md-9 change-placeholder-edition search_bar">
+										<button type="button" name="button" class="col-md-9 search_bar_button search-prev-next" id="prev-string"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+										<button type="button" name="button" class="col-md-9 search_bar_button search-prev-next" id="next-string"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+										<button type="button" name="button" class="col-md-9 search_bar_button" id="search_string">Search</button>
+										<button class="button_snippet button_reset" id="reset_button">New search</button>
+									</form>
+								</div>
+								<div class="col-md-2">
+									<p class="margin-top-15" id="query-info" style="display: none;"><span id="query-results-n" class="filters_category_title"></span><span class="results_in"> results in </span><span id="query-string" class="filters_category_title"></span></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- div to toggle page -->
+				<div id="page-toggle">
+					<!-- transcription -->
+					<div class="col-md-4 col-sm-6 panel_tool nested_panel_tool resize_panel" id="close_transcription_div">
+						<div class="media" id="titleTras">
+							<div class="media-left">
+								<button class="button_panel" onclick="closeTranscription()"><i class="glyphicon glyphicon-remove"></i></button>
+							</div>
+							<div class="media-body">
+								<h4 id="transcription_title">Transcription</h4>
+							</div>
+							<div class="media-left padding-right-23">
+								<!-- tooltip to change style -->
+								<div class="col-md-6">
+									<button class="button_panel" id="change_style_button"><i class="glyphicon glyphicon-text-size"></i></button>
+								</div>
+								<!-- tooltip to download xml document -->
+								<div class="col-md-6">
+									<a href="static/bufalini_quaderno.xml"  download="bufalini-quaderno.xml"><button class="button_panel"><i class="fas fa-code"></i></button></a>
+								</div>
+							</div>
+						</div>
+
+						<!-- tooltip -->
+						<div class="media tooltip_style toggle_tooltip_style">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										<select class="page_selector font">
+											<option id="arial">Arial</option>
+											<option selected="selected" id="openSans"></option>
+											<option id="timesNewRoman">Times New Roman</option>
+											<option id="verdana">Verdana</option>
+										</select>
+									</div>
+									<div class="col-md-12">
+										<select class="page_selector font_size">
+											<option id="size_18">18</option>
+											<option selected="selected" id="size_20"></option>
+											<option id="size_22">22</option>
+											<option id="size_24">24</option>
+											<option id="size_26">26</option>
+											<option id="size_28">28</option>
+											<option id="size_30">30</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="col-md-4">
+									<button class="change_background_button change_background_dark_button" id="dark_page">Dark page</button>
+								</div>
+								<div class="col-md-4">
+									<button class="change_background_button change_background_sepia_button" id="sepia_page">Sepia page</button>
+								</div>
+								<div class="col-md-4">
+									<button class="change_background_button change_background_white_button" id="white_page">White page</button>
+								</div>
+							</div>
+						</div>
+						<div id="text-transcription">
+							<button class="button_results hide-butt" onclick="goToEx()" id="go-to-ex"><span class="go_to_pages_edition">Go to pages</span> <span id="specific-pages"></span></button>
+							<section class="scroll_transcription" id="transcriptionViewer">
+							</section>
+						</div>
+					</div>
+
+					<!-- facsimile -->
+					<div class="col-md-8 col-sm-6 panel_tool nested_panel_tool resize_panel"  id="close_facsimile_div">
+						<div class="media">
+							<div class="media-left">
+								<button class="button_panel" onclick="closeFacsimile()"><i class="glyphicon glyphicon-remove"></i></button>
+							</div>
+							<div class="media-body">
+								<h4 id="panel_title">Facsimile</h4>
+							</div>
+						</div>
+						<section class="col-md-12 parent_div" id="viewerContainer">
+							<section class="col-md-1">
+								<button id="prev"><span class="prev_next_button"><i class="glyphicon glyphicon-menu-left"></i></span></button>
+							</section>
+							<section id="viewer" class="col-md-10"></section>
+							<section class="col-md-1">
+								<button id="next"><span class="prev_next_button"><i class="glyphicon glyphicon-menu-right"></i></span></button>
+							</section>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<script id="excerpts" type="application/json">$:dict</script>
+<script id="metadata" type="application/json">$:metadataDict</script>
+
+<script type="text/javascript">
+	$$(function() {
+		var pages = $$("#pages option:selected").text();
+		$$("#specific-pages").html(pages);
+	});
+</script>
+
     <script id="excerpts" type="application/json">$:dict</script>
     <script id="metadata" type="application/json">$:metadataDict</script>
-			
-
-			

@@ -1,0 +1,5 @@
+The "Works Semantic Index" section offers four different ways of accessing the list of all the works cited in the notebook.
+<br>
+In "List" mode, the index is represented in its traditional form: each cited work is associated with its author and the excerpts in which the citation appears.  By clicking on each of excerpt, the user is redirected to the corresponding full-text.
+<br>
+In the modes Treemap, Sets and Play with data the cited works and their relationships are graphically represented by means of different types of Data Visualization.

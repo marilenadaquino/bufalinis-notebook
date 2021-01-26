@@ -1,0 +1,439 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 align_center">
+        <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
+        <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+          <ul class="nav nav-pills tab-works">
+              <li role="presentation"><a href="./library" id="people_list">List</a></li>
+              <li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
+              <li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
+              <li role="presentation"><a class="no-active-tab">|</a></li>
+              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>
+              <li role="presentation"><a class="info-vis padding-21" data-toggle="collapse" href="#collapsePlay" role="button" aria-expanded="false" aria-controls="collapsePlay"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+          </ul>
+        </div>
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="collapse" id="collapsePlay">
+              <h3 class="text_black" id="explain_play_works_h3">Play with data</h3>
+              <p class="justify text_grey" id="explain_play_works_p">The chart below is designed as an environment in which users can <span class="bold"> explore the data in a funny way and discover new relationships</span>.<br>Each <span class="bold">author</span> of works cited in the notebook is represented as a <span class="bold">circle with a white margin</span>, while the <span class="bold">works cited</span> by that same author as <span class="bold">smaller circles without margin</span>. By hovering on each circle with margin, the name of the author associated with the circle is displayed. By hovering on each circle without margin, the name of the work associated with each circle is displayed.<br>The size of the circles is proportional to the frequency with which each work in the notebook is cited.<br>The user exploring the chart will be able to search <span class="bold">which and how many works of a certain author are cited and who and how many authors these works refer</span>.<br>To facilitate the search, each node with margin can be open and close. By closing all the nodes, you will discover who are all the authors of which at least one work is cited in the notebook.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+
+var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+networkSeries.dataFields.linkWith = "linkWith";
+networkSeries.dataFields.name = "name";
+networkSeries.dataFields.id = "name";
+networkSeries.dataFields.value = "value";
+networkSeries.dataFields.children = "children";
+
+networkSeries.nodes.template.label.text = "{name}"
+networkSeries.fontSize = 8;
+networkSeries.linkWithStrength = 0;
+
+var nodeTemplate = networkSeries.nodes.template;
+nodeTemplate.tooltipText = "{name}";
+nodeTemplate.fillOpacity = 1;
+nodeTemplate.label.hideOversized = true;
+nodeTemplate.label.truncate = true;
+
+var linkTemplate = networkSeries.links.template;
+linkTemplate.strokeWidth = 1;
+var linkHoverState = linkTemplate.states.create("hover");
+linkHoverState.properties.strokeOpacity = 1;
+linkHoverState.properties.strokeWidth = 2;
+
+nodeTemplate.events.on("over", function (event) {
+    var dataItem = event.target.dataItem;
+    dataItem.childLinks.each(function (link) {
+        link.isHover = true;
+    })
+})
+
+nodeTemplate.events.on("out", function (event) {
+    var dataItem = event.target.dataItem;
+    dataItem.childLinks.each(function (link) {
+        link.isHover = false;
+    })
+})
+  
+  networkSeries.data = [{
+    name: 'Manzoni, Alessandro (1785–1873)',
+    children: [{
+      name: 'Inni sacri', value: 24
+    }, {
+      name: 'La Monaca di Monza', value: 9
+    }, {
+      name: 'I Promessi Sposi', value: 2
+    }]
+  }, {
+    name: 'Alighieri, Dante (1265–1321)',
+    children: [{
+      name: 'La Divina Commedia', value: 14
+    }]
+  }, {
+    name: 'Petrarca, Francesco (1304–1374)',
+    children: [{
+      name: 'Canzoniere', value: 12
+    }, {
+      name: 'Africa', value: 1
+    }, {
+      name: 'Rime', value: 1
+    }]
+  }, {
+    name: 'Mann, Thomas (1875–1955)',
+    children: [{
+      name: 'Saggi. Schopenhauer, Nietzche, Freud', value: 11
+    }, {
+      name: 'Disordine e dolore precoce', value: 4
+    }, {
+      name: 'La montagna incantata', value: 3
+    }, {
+      name: 'La filosofia di Nietzsche alla luce della nostra esperienza', value: 2
+    }, {
+      name: 'La genesi del Doctor Faustus', value: 1
+    }, {
+      name: 'Tutte le opere', value: 1
+    }]
+  }, {
+    name: 'Campanella, Tommaso (1568–1639)',
+    children: [{
+      name: 'Poesie filosofiche', value: 10
+    }]
+  }, {
+    name: 'Tacito, Publio Cornelio (ca. 55–120)',
+    children: [{
+      name: 'Annales', value: 9
+    }, {
+      name: 'Le Storie', value: 1
+    }]
+  }, {
+    name: 'Virgilio Marone, Publio (70 a.C.–19 a.C.)',
+    children: [{
+      name: 'Eneide', value: 6
+    }]
+  }, {
+    name: 'Marziale, Marco Valerio (ca. 40–101)',
+    children: [{
+      name: 'Epigrammi', value: 6
+    }]
+  }, {
+    name: 'Horst, Eberhard (1924–2012)',
+    children: [{
+      name: 'Cesare', value: 5
+    }]
+  }, {
+    name: 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)',
+    children: [{
+      name: 'Ars poetica', value: 4
+    }, {
+      name: 'Carmina', value: 4
+    }, {
+      name: 'Epistualae', value: 1
+    }, {
+      name: 'Epodi', value: 1
+    }, {
+      name: 'Satire', value: 1
+    }]
+  }, {
+    name: 'Lucrezio Caro, Tito (97–55 a.C)',
+    children: [{
+      name: 'De Rerum Natura', value: 4
+    }]
+  }, {
+    name: 'Seneca, Lucio Anneo (4 a.C.–65)',
+    children: [{
+      name: 'De clementia', value: 4
+    }, {
+      name: 'Lettere a Lucilio', value: 2
+    }]
+  }, {
+    name: 'Belli, Giuseppe Gioachino (1791–1863)',
+    children: [{
+      name: 'Sonetti romaneschi', value: 4
+    }]
+  }, {
+    name: 'Giussani, Camillo (1879–1960)',
+    children: [{
+      name: 'Gli annali', value: 3
+    }, {
+      name: 'Le Storie', value: 1
+    }]
+  }, {
+    name: "Giustiniano I, imperatore d'Oriente (482–565)",
+    children: [{
+      name: 'Institutionem Iustiniani', value: 3
+    }]
+  }, {
+    name: 'Flaubert, Gustave (1821–1880)',
+    children: [{
+      name: 'Madame Bovary', value: 3
+    }, {
+      name: 'Correspondance', value: 1
+    }]
+  }, {
+    name: 'Yourcenar, Marguerite (1903–1987)',
+    children: [{
+      name: "Mémoires d'Hadrien", value: 3
+    }, {
+      name: 'Memorie di Adriano', value: 2
+    }]
+  }, {
+    name: 'Nietzsche, Friedrich Wilhelm (1844–1900)',
+    children: [{
+      name: 'Scritti su Wagner', value: 3
+    }]
+  }, {
+    name: 'Shakespeare, William (1564–1616)',
+    children: [{
+      name: 'Sonnets', value: 3
+    }, {
+      name: 'King Lear', value: 2
+    }, {
+      name: 'Amleto', value: 1
+    }, {
+      name: 'Hamlet', value: 1
+    }]
+  }, {
+    name: 'Ennio, Quinto (240–170 a.C.)',
+    children: [{
+      name: 'Annales', value: 2
+    }]
+  }, {
+    name: 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)',
+    children: [{
+      name: 'De Officiis', value: 2
+    }, {
+      name: 'Ad familiares', value: 1
+    }, {
+      name: 'Tusculanae Quaestiones', value: 1
+    }]
+  }, {
+    name: 'Campana, Dino (1885–1932)',
+    children: [{
+      name: 'Inediti', value: 2
+    }]
+  }, {
+    name: 'Bonfante, Pietro (1864–1932)',
+    children: [{
+      name: 'Istituzioni di diritto Romano', value: 2
+    }]
+  }, {
+    name: 'Martini, Antonio, arciv. di Firenze (1720–1809)',
+    children: [{
+      name: 'La Sacra Biblia', value: 2
+    }]
+  }, {
+    name: 'Carducci, Giosuè (1835–1907)',
+    children: [{
+      name: 'Rime Nuove', value: 2
+    }, {
+      name: 'Odi Barbare', value: 2
+    }, {
+      name: 'A proposito di alcuni giudizi su Alessandro Manzoni', value: 1
+    }, {
+      name: "Dell'inno 'La Risurrezione' in A. Manzoni e in S. Paolino d'Aquileja", value: 1
+    }]
+  }, {
+    name: 'Fertonani, Roberto (1925–2000)',
+    children: [{
+      name: 'Saggi, Introduzione', value: 2
+    }]
+  }, {
+    name: 'Croce, Benedetto (1866–1952)',
+    children: [{
+      name: 'Storie e leggende napoletane', value: 2
+    }, {
+      name: "Storia d'Italia dal 1871 al 1915", value: 1
+    }, {
+      name: "lettera a De Sarlo", value: 1
+    }, {
+      name: "Lettera ad Alessandro D'Ancona, in morte della figlia", value: 1
+    }]
+  }, {
+    name: 'Tommaseo, Niccolò (1802–1874)',
+    children: [{
+      name: 'Studi critici', value: 2
+    }]
+  }, {
+    name: 'Maupassant, Guy de (1850–1893)',
+    children: [{
+      name: 'Unknown', value: 2
+    }]
+  }, {
+    name: 'Tolstoj, Lev Nikolaevič (1828–1910)',
+    children: [{
+      name: 'Anna Karenina', value: 1
+    }]
+  }, {
+    name: 'San Girolamo (347–420)',
+    children: [{
+      name: 'Biblia Sacra Vulgata', value: 1
+    }]
+  }, {
+    name: 'Romano, Sergio (1929–)',
+    children: [{
+      name: 'Corriere della Sera', value: 1
+    }]
+  }, {
+    name: 'Macchia, Giovanni (1912–2001)',
+    children: [{
+      name: 'Corriere della Sera', value: 1
+    }]
+  }, {
+    name: 'Parrella, Pietro ()',
+    children: [{
+      name: 'De Rerum Natura', value: 1
+    }]
+  }, {
+    name: 'Pontano, Giovanni (1426–1503)',
+    children: [{
+      name: 'De laudibus divinis', value: 1
+    }]
+  }, {
+    name: 'Svetonio Tranquillo, Caio (sec. I–II)',
+    children: [{
+      name: 'De vita caesarum', value: 1
+    }]
+  }, {
+    name: 'Hegel, Georg Wilhelm Friedrich (1770–1831)',
+    children: [{
+      name: 'Enciclopedia delle scienze filosofiche in compendio, Introduzione', value: 1
+    }, {
+      name: 'Scienza della logica', value: 1
+    }]
+  }, {
+    name: 'Giusti, Giuseppe (1809–1850)',
+    children: [{
+      name: 'Epigrammi', value: 1
+    }]
+  }, {
+    name: 'Craig, Gordon Alexander (1913–2005)',
+    children: [{
+      name: 'Germania, 1866-1945', value: 1
+    }]
+  }, {
+    name: 'Bruno, Giordano (1548–1600)',
+    children: [{
+      name: 'Gli eroici furori', value: 1
+    }]
+  }, {
+    name: 'Ripamonti, Giuseppe (1577–1643)',
+    children: [{
+      name: 'Historiarum patriae', value: 1
+    }]
+  }, {
+    name: 'Quintiliano, Marco Fabio (ca. 35–96)',
+    children: [{
+      name: 'Institutiones', value: 1
+    }]
+  }, {
+    name: 'Tocqueville, Alexis de (1805–1859)',
+    children: [{
+      name: "L'ancien régime et la Révolution", value: 1
+    }]
+  }, {
+    name: 'Alfieri, Vittorio (1749–1803)',
+    children: [{
+      name: 'Mirra', value: 1
+    }]
+  }, {
+    name: 'Gèllio, Aulo (125–180)',
+    children: [{
+      name: 'Noctes Atticae', value: 1
+    }]
+  }, {
+    name: 'Nevio, Gneo (ca. 264 a.C.–201 a.C.)',
+    children: [{
+      name: 'Palliatae', value: 1
+    }]
+  }, {
+    name: 'Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)',
+    children: [{
+      name: 'Panegyricus', value: 1
+    }]
+  }, {
+    name: 'Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)',
+    children: [{
+      name: 'Poesie', value: 1
+    }]
+  }, {
+    name: 'Giovenale, Decimo Giunio (ca. 60–140)',
+    children: [{
+      name: 'Satire', value: 1
+    }]
+  }, {
+    name: 'Thiers, Adolphe (1797–1877)',
+    children: [{
+      name: 'Storia della Rivoluzione Francese', value: 1
+    }]
+  }, {
+    name: 'Unknown',
+    children: [{
+      name: 'Targa Vistarini', value: 1
+    }, {
+      name: 'Re Torrismondo', value: 1
+    }]
+  }, {
+    name: 'Maitan, Livio (1923–2004)',
+    children: [{
+      name: 'Unknown', value: 1
+    }]
+  }];
+  
+  networkSeries.dataFields.linkWith = "linkWith";
+  networkSeries.dataFields.name = "name";
+  networkSeries.dataFields.id = "name";
+  networkSeries.dataFields.value = "value";
+  networkSeries.dataFields.children = "children";
+  networkSeries.links.template.distance = 1;
+  networkSeries.nodes.template.tooltipText = "{name}, {value} excerpts";
+  networkSeries.nodes.template.fillOpacity = 1;
+  networkSeries.nodes.template.outerCircle.scale = 1;
+  
+  networkSeries.nodes.template.label.text = "{name}"
+  networkSeries.fontSize = 20;
+  networkSeries.nodes.template.label.hideOversized = true;
+  networkSeries.nodes.template.label.truncate = true;
+  networkSeries.minRadius = am4core.percent(2);
+  networkSeries.manyBodyStrength = -5;
+  networkSeries.links.template.strokeOpacity = 0;
+  
+  }); // end am4core.ready()
+  </script>
+  
+    <!-- HTML -->
+    <div id="chartdiv"></div>
+  </div>

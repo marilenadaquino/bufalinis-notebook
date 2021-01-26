@@ -1,192 +1,322 @@
 $def with ()
-	
-<section class="col-md-8" id="introContainer">
-	<h3 id="intro_title1"></h3>
-	<p id="p_1"></p>
-	<p id="p_2"></p>
-	<p id="p_3"></p>
-	<h3 id="intro_title2"></h3>
-	<p id="p_4"></p>
-	<h3 id="intro_title21"></h3>
-	<p id="p_5"></p>
-	<p id="p_6"></p>
-	<h3 id="intro_title3"></h3>
-	<p id="p_7"></p>
-	<p id="p_8"></p>
-	<ul>
-		<li id="li_1"></li>
-		<li id="li_2"></li>
-		<li id="li_3"></li>
-	</ul>
-	<p id="p_9"></p>
-	<h4 id="intro_title31"></h4>
-	<p id="p_10"></p>
-	<p id="p_11"></p>
-	<ul>
-		<li id="li_4"></li>
-		<li id="li_5"></li>
-	</ul>
-	<p id="p_12"></p>
-	<img src="/static/nanopub.png">
-	<p>Khun, T., <i>Nanopublications. Provenance-Aware Linked Data Publishing</i>, 2015.</p>
-	<p id="p_13"></p>
-	<p id="p_14"></p>
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet1" aria-expanded="false" aria-controls="snippet1">snippet</button>
-	<div class="collapse" id="snippet1">
-	  <div class="card card-body">
-	    <pre><code>
-@prefix np:  &lt;http://www.nanopub.org/nschema#&gt; .
-@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
-@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
-@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
-@prefix generation: &lt;https://w3id.org/bufalinis-notebook/generation/quote/&gt; .
-@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; . 
-@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; . 
 
-pb:infl-quot-007-to-quot-005h-head {
-     pb:infl-quot-007-to-quot-005h-np a np:Nanopublication .
-     pb:infl-quot-007-to-quot-005h-np np:hasAssertion :infl-quot-007-to-quot-005h-assertion .
-     pb:infl-quot-007-to-quot-005h-np np:hasProvenance :infl-quot-007-to-quot-005h-provenance .
-     pb:infl-quot-007-to-quot-005h-np np:hasPublicationInfo :infl-quot-007-to-quot-005h-pubInfo .
-}
 
-pb:infl-quot-007-to-quot-005h-assertion {
-   quote:quot-005h prov:wasGeneratedBy generation:quot-005h .
-   generation:quot-005h a prov:Generation .
-   generation:quot-005h prov:qualifiedInfluence pb:infl-quot-007-to-quot-005h .
-   pb:infl-quot-007-to-quot-005h a prov:Influence .
-   pb:infl-quot-007-to-quot-005h rdfs:label "Lucr. Rer. Nat. 1, 38–40 in A. Manzoni, Inni Sacri, Il nome di Maria" .
-   pb:infl-quot-007-to-quot-005h prov:agent quote:quot-007 .
-   quote:quot-005h a oa:Annotation .
-   quote:quot-007 a oa:Annotation .
-}
-
-pb:infl-quot-007-to-quot-005h-provenance {
-   pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
-   pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
-   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
-   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
-   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
-   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
-   pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
-}
-
-pb:infl-quot-007-to-quot-005h-pubinfo {
-   pb:infl-quot-007-to-quot-005h-np prov:wasAttributedTo pb:cspc .
-   pb:infl-quot-007-to-quot-005h-np prov:generatedAtTime "2018-01-01T00:00:01Z"^^xsd:dateTime .
-}
-	    </code></pre>
-	  </div>
+<div class="container-fluid section_header">
+<div class="row">
+	<div class="col-md-12 align_center">
+		<!-- do not remove #intro_header_title -->
+		<h2 id="intro_header_title">Introduction</h2>
+		<h2 class="no-display" id="nav_lang"></h2>
+		<a href="#intro_anchor"><i class="fas fa-chevron-down intro_go"></i></a>
 	</div>
-	<p id="p_15"></p>
-	<h4 id="intro_title32"></h4>
-	<p id="p_16"></p>
-	<p id="p_17"></p>
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet2" aria-expanded="false" aria-controls="snippet2">snippet</button>
-	<div class="collapse" id="snippet2">
-	  <div class="card card-body">
-	    <pre><code>
-@prefix citation: &lt;https://w3id.org/bufalinis-notebook/citation/&gt; .
-@prefix cito: &lt;http://purl.org/spar/cito/&gt; .
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
-@prefix excerpt: &lt;https://w3id.org/bufalinis-notebook/excerpt/&gt; .
-@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
-@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
-@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
-@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
-@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
-@prefix prism1: &lt;http://prismstandard.org/namespaces/1.2/basic/&gt; .
-@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-
-quote:quot-005h a oa:Annotation ;
-    oa:hasBody excerpt:bibl004h ;
-    oa:hasTarget citation:am-inni-sacri-il-nome-di-maria ;
-    oa:motivatedBy pb:quotation .
-
-citation:am-inni-sacri-il-nome-di-maria a cito:Citation ;
-    cito:hasCitedEntity excerpt:bibl004h ;
-    cito:hasCitingEntity &lt;https://w3id.org/bufalinis-notebook/page/4&gt; .
+</div>
+</div>
 
 
-excerpt:bibl004h a &lt;http://purl.org/spar/fabio/Excerpt&gt; ;
-    rdfs:label "Inni sacri, Il nome di Maria, verse 82–84" ;
-    prism1:startingPage &lt;https://w3id.org/bufalinis-notebook/page/4&gt; ;
-    frbr:partOf &lt;https://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; ;
-    rdf:value """
-               &lt;section xmlns="http://www.tei-c.org/ns/1.0"&gt;
-                  &lt;l>O degli afflitti scampo,&lt;/l&gt;
-                  &lt;l>
-                     &lt;ref rend="underline" target="#quot-007-1"&gt;inclita&lt;/ref&gt; come il sol, terribil come&lt;/l&gt;
-                  &lt;l&gt;oste schierata in campo.&lt;/l&gt;
-               &lt;/section&gt;
-            """^^rdf:XMLLiteral.
-
-pb:quotation rdfs:label "quotation" .
-	    </code></pre>
-	  </div>
+<div class="container-fluid background_dark" id="intro_anchor">
+	<div class="container" id="intro_anchor">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="align_center" id="intro_title1">Paolo Bufalini and the notebook</h3>
+				<p id="p_1">Paolo Bufalini (Rome, 1915-2001), Italian politician and partisan, was one of the protagonists of post-WWII politics in Italy. Graduated in law, he held leading positions in the Italian Communist Party (PCI) besides being a member of the Parliament and of the Senate of the Republic uninterruptedly from 1963 to 1992. Alongside politics, Bufalini cultivated his interest in classics, and especially Latin literature. His translations of Horace's odes are particularly appreciated (<span class="italic">A Leuconoe</span>, Vanni Scheiwiller, 1982 and 1993).</p>
+				<p id="p_2">Between 1981 and 1991, Bufalini kept a private notebook which he titled <span class="italic">Appunti 1981–1991</span> (transl. <span class="italic">Notes 1981–1991</span>). The contents of the notebook are linked to significant moments of Paolo Bufalini's intellectual and social life: excerpts from literary works, personal notes and comments, narrations of events, unpublished translations from Latin into Italian. Given the private nature of the notebook, the relationships between the various textual components (text-text, text-comment, text-translation, translation-translation) are not explicitly declared. The same applies to the sources of the cited texts.</p>
+				<p id="p_3">After Bufalini's death, the notebook was donated to the Department of Classic Philology and Italian Studies of the University of Bologna, where a team of scholars transcribed it and identified the sources of the 196 cited texts which include works by Dante, Manzoni, Petrarch, Alfieri, Belli, Campana, Campanella, Carducci, Croce, Passavanti, Pontano, Ripamonti, Tasso (Italian literature); Catullus, Lucretius, Martial, Horace, Seneca, Tacitus, Virgil, Cicero, Ennius, Juvenal, Justinian, Naevius, Pliny the Younger, Quintilian, Suetonius (Latin literature); Flaubert, Hegel, Mann, Shakespeare, Tolstoj, Toqueville, Yourcenar (other European literatures).</p>
+				<img src="static/img-web-app/bufalini_intro.png" class="img_center img-xs">
+			</div>
+		</div>
 	</div>
-	<p id="p_18"></p>
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet3" aria-expanded="false" aria-controls="snippet3">snippet</button>
-	<div class="collapse" id="snippet3">
-	  <div class="card card-body">
-	    <pre><code>
-@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
-@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
-@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
-@prefix pb: &lt;http://w3id.org/bufalinis-notebook/&gt; .
-@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
-@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+</div>
 
-&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/Book&gt; ;
-    rdfs:label "Inni sacri" ;
-    frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; .
 
-&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Expression&gt; ;
-    rdfs:label "Inni sacri, Il nome di Maria" ;
-    frbr:partOf &lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; ;
-    frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; .
-
-&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Poem&gt; ;
-    rdfs:label "Inni sacri, Il nome di Maria" ;
-    dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
-    frbr:partOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; ;
-    = &lt;http://viaf.org/viaf/292682306&gt; .
-
-&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/WorkCollection&gt; ;
-    rdfs:label "Inni sacri" ;
-    dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
-    = &lt;http://viaf.org/viaf/177864710&gt;,
-        &lt;http://worldcat.org/entity/work/id/3888291&gt; .
-	    </code></pre>
-	  </div>
+<div class="container-fluid background_light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="align_center" id="intro_title2">The Semantic Scholarly Digital Edition of Paolo Bufalini's Notebook</h3>
+				<p id="p_4">The semantic digital scholarly edition of Paolo Bufalini's notebook is a project of the Department of Classical Philology and Italian Studies (<a href="https://ficlit.unibo.it/it" target="_blank" alt="Link to FICLIT website">FICLIT</a>) and of the Digital Humanities Advanced Research Centre (<a href="https://centri.unibo.it/dharc/en" target="_blank" alt="Link to /DH.arc website">/DH.arc</a>) of the University of Bologna.</p>
+				<p id="p_5">The primary aims of the edition are to identify, analyse and enhance the complex network of texts (quotes, comments, translations, narrations, etc.) characterizing the notebook.</p>
+				<img src="static/img-web-app/book_intro.png" class="img_center img-xs">
+			</div>
+		</div>
 	</div>
-	<h4 id="intro_title33"></h4>
-	<p id="p_19"></p>
-	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#snippet4" aria-expanded="false" aria-controls="snippet4">snippet</button>
-	<div class="collapse" id="snippet4">
-	  <div class="card card-body">
-	    <pre><code>
-@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
-@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
-@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; . 
-@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; . 
-   pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
-   pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
-   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
-   pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
-   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
-   pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
-   pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
+</div>
 
-	    </code></pre>
-	  </div>
+
+<div class="container-fluid background_dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="text_grey" id="intro_title21">XML/TEI Encoding</h3>
+				<p id="p_6">The XML/TEI model developed for Paolo Bufalini's notebook aims to represent the relationships between the textual fragments of the notebook (citations, comments, translations, etc.) and to link the local authority files to external datasets. The main types of encoded relationships are:</p>
+				<ol>
+					<li id="li_1">Relationships between a quoted text and translations by various authors or by Bufalini himself;</li>
+					<li id="li_2">Relationships between multiple occurrences of the same work in the notebook;</li>
+					<li id="li_3">Relationship between texts juxtaposed by Bufalini for affinity of form and/or content;</li>
+					<li id="li_4">Relationships between intellectuals, whose thought Bufalini comments upon;</li>
+					<li id="li_5">Relationships between cited texts and sources;</li>
+					<li id="li_6">Links to authority files and/or external knowledge bases, such as <a href="http://viaf.org/" target="_blank" alt="Link to VIAF website">VIAF</a>, <a href="https://wiki.dbpedia.org/" target="_blank" alt="Link to DBpedia website">DBpedia</a> and <a href="https://www.worldcat.org/" target="_blank" alt="Link to WorldCat website">Worldcat</a>.</li>
+				</ol>
+			</div>
+		</div>
 	</div>
-	<p id="p_20"></p>
-	<p id="p_21"></p>
-</section>			
+</div>
 
-			
+
+<div class="container-fluid background_light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="text_grey" id="intro_title3">The Semantic Edition</h3>
+				<p id="p_7">In order to represent and enhance the complex network of relationships among the texts and the authors of the notebook, the research team decided to produce a digital scholarly edition that exploits Semantic Web technologies. The result is an edition based entirely on linked open data which:</p>
+				<ul>
+					<li id="li_7">uses persistent URIs to identify resources and the relationships between them (through the provider <a href="https://w3id.org" target="_blank">https://w3id.org</a>);</li>
+					<li id="li_8">uses existing ontologies for the organization of information (in particular <a href="https://sparontologies.github.io/" target="_blank" alt="Link to SPAR Ontologies website">SPAR Ontologies</a>, <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/" target="_blank" alt="Link to Dublin Core website">Dublin Core</a>, <a href="http://www.openannotation.org/spec/core/" target="_blank" alt="Link to Open Annotation website">Open Annotation</a>, <a href="http://hico.sourceforge.net/" target="_blank" alt="Link to HiCO website">HiCO</a> and <a href="http://nanopub.org/wordpress/" target="_blank" alt="Link to Nanopublications website">Nanopublications</a>;</li>
+					<li id="li_9">serves data through content negotiation and makes them searchable through a SPARQL endpoint equipped with a graphical interface.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid background_dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="text_grey" id="intro_title31">The Metamodel</h4>
+				<p id="p_9">The digital scholarly edition of Paolo Bufalini's notebook features two interpretative layers: the author, who juxtaposed texts and highlighted mutual influences, and the editors, who have analysed and formalized Bufalini's choices. In order to distinguish the different layers and associate each RDF statement with its provenance, we employed named graphs and, in particular:</p>
+				<ul>
+					<li id="li_10">RDF statements concerning the entities of the text, such as comments, mentioned persons, cited texts, bibliographic references, are part of a single graph (URI: <a href="https://w3id.org/bufalinis-notebook/edition/" target="_blank" alt="Link to the Notebook edition URI">https://w3id.org/bufalinis-notebook/edition/</a>);</li>
+					<li id="li_11">RDF statements expressing interpersonal relationships and relationships between cited works are stored in separate graphs.</li>
+				</ul>
+				<p id="p_10">Nanopublications allow for the representation of linked open data along with their provenance and publication details. Each set of RDF statements (e.g. representing an author's influence over another) is accompanied by three additional graphs: one containing information about the provenance of the assertions (e.g. Bufalini who notices an influence of one author over another and cites supporting texts); another containing information about the digital scholarly edition; and a third graph describing the nanopublication itself and linking together the four graphs. The model adopted make it possible to cite each single RDF statement separately from the edition, but in such a way that there is no loss of context. Furthermore, an integrity key is associated to the nanopublications so allow for references to a particular version of the edition through time.</p>
+				<img src="static/img-web-app/nanopub.png" class="img_center img-small-width">
+				<p class="align_center">Khun, T., <span class="bold">Nanopublications. Provenance-Aware Linked Data Publishing</span>, 2015.</p>
+				<p id="p_11">The example below shows a nanopublication (serialized in Trig) expressing that a passage of Lucretius' <span class="italic">De Rerum Natura</span> influenced a passage of Alessandro Manzoni's <span class="italic">Inni Sacri</span>.</p>
+				<button class="button_medium button_snippet button_placeholder" type="button" data-toggle="collapse" data-target="#snippet1" aria-expanded="false" aria-controls="snippet1">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet1">
+				<div class="card card-body">
+					<pre><code>
+			@prefix np:  &lt;http://www.nanopub.org/nschema#&gt; .
+			@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+			@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+			@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
+			@prefix generation: &lt;https://w3id.org/bufalinis-notebook/generation/quote/&gt; .
+			@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+			@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+			@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; .
+
+			pb:infl-quot-007-to-quot-005h-head {
+				pb:infl-quot-007-to-quot-005h-np a np:Nanopublication .
+				pb:infl-quot-007-to-quot-005h-np np:hasAssertion :infl-quot-007-to-quot-005h-assertion .
+				pb:infl-quot-007-to-quot-005h-np np:hasProvenance :infl-quot-007-to-quot-005h-provenance .
+				pb:infl-quot-007-to-quot-005h-np np:hasPublicationInfo :infl-quot-007-to-quot-005h-pubInfo .
+			}
+
+			pb:infl-quot-007-to-quot-005h-assertion {
+			quote:quot-005h prov:wasGeneratedBy generation:quot-005h .
+			generation:quot-005h a prov:Generation .
+			generation:quot-005h prov:qualifiedInfluence pb:infl-quot-007-to-quot-005h .
+			pb:infl-quot-007-to-quot-005h a prov:Influence .
+			pb:infl-quot-007-to-quot-005h rdfs:label "Lucr. Rer. Nat. 1, 38–40 in A. Manzoni, Inni Sacri, Il nome di Maria" .
+			pb:infl-quot-007-to-quot-005h prov:agent quote:quot-007 .
+			quote:quot-005h a oa:Annotation .
+			quote:quot-007 a oa:Annotation .
+			}
+
+			pb:infl-quot-007-to-quot-005h-provenance {
+			pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
+			pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
+			pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
+			pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
+			pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
+			pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
+			pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
+			}
+
+			pb:infl-quot-007-to-quot-005h-pubinfo {
+			pb:infl-quot-007-to-quot-005h-np prov:wasAttributedTo pb:cspc .
+			pb:infl-quot-007-to-quot-005h-np prov:generatedAtTime "2018-01-01T00:00:01Z"^^xsd:dateTime .
+			}
+					</code></pre>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid background_light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="text_grey" id="intro_title32">The Knowledge Graph of the Edition</h4>
+				<p id="p_12">The main graph includes about 8K triples representing textual phenomena and bibliographic information. The edition reuses the <a href="https://www.w3.org/TR/annotation-model/" target="_blank" alt="Link to w3.org/annotation-model website">Web Annotation</a> data model to represent texts (quotes, translations, comments); selected properties from Dublin Core and from the <a href="https://sparontologies.github.io/frbr/current/frbr.html" target="_blank" alt="Link to OWLDL of FRBR website">OWL2DL version of FRBR</a> provided by the SPAR Ontologies are used to link cited texts, cited entities (e.g. persons), and other related fragments which precedes, follow, complete or translate the texts. The same ontologies are used also for bibliographic information. The relations between the cited texts and the citing entities (i.e. the texts of the notebook) are formalized through <a href="https://sparontologies.github.io/cito/current/cito.html" target="_blank" alt="Link to CiTO website">CiTO</a>. The following examples, in N3, show an excerpt of the notebook citing lines from <span class="italic">Il Nome di Maria</span> by Manzoni and the full reference to the cited work:</p>
+				<button class="button_medium button_snippet button_placeholder" type="button" data-toggle="collapse" data-target="#snippet2" aria-expanded="false" aria-controls="snippet2">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet2">
+				<div class="card card-body">
+					<pre><code>
+			@prefix citation: &lt;https://w3id.org/bufalinis-notebook/citation/&gt; .
+			@prefix cito: &lt;http://purl.org/spar/cito/&gt; .
+			@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+			@prefix excerpt: &lt;https://w3id.org/bufalinis-notebook/excerpt/&gt; .
+			@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+			@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
+			@prefix oa: &lt;http://www.w3.org/ns/oa#&gt; .
+			@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+			@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+			@prefix prism1: &lt;http://prismstandard.org/namespaces/1.2/basic/&gt; .
+			@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+			@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+			@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+			quote:quot-005h a oa:Annotation ;
+				oa:hasBody excerpt:bibl004h ;
+				oa:hasTarget citation:am-inni-sacri-il-nome-di-maria ;
+				oa:motivatedBy pb:quotation .
+
+			citation:am-inni-sacri-il-nome-di-maria a cito:Citation ;
+				cito:hasCitedEntity excerpt:bibl004h ;
+				cito:hasCitingEntity &lt;https://w3id.org/bufalinis-notebook/page/4&gt; .
+
+
+			excerpt:bibl004h a &lt;http://purl.org/spar/fabio/Excerpt&gt; ;
+				rdfs:label "Inni sacri, Il nome di Maria, verse 82–84" ;
+				prism1:startingPage &lt;https://w3id.org/bufalinis-notebook/page/4&gt; ;
+				frbr:partOf &lt;https://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; ;
+				rdf:value """
+						&lt;section xmlns="http://www.tei-c.org/ns/1.0"&gt;
+							&lt;l>O degli afflitti scampo,&lt;/l&gt;
+							&lt;l>
+								&lt;ref rend="underline" target="#quot-007-1"&gt;inclita&lt;/ref&gt; come il sol, terribil come&lt;/l&gt;
+							&lt;l&gt;oste schierata in campo.&lt;/l&gt;
+						&lt;/section&gt;
+						"""^^rdf:XMLLiteral.
+
+			pb:quotation rdfs:label "quotation" .
+					</code></pre>
+				</div>
+				</div>
+				<br>
+				<button class="button_medium button_snippet button_placeholder" type="button" data-toggle="collapse" data-target="#snippet3" aria-expanded="false" aria-controls="snippet3">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet3">
+				<div class="card card-body">
+					<pre><code>
+			@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+			@prefix frbr: &lt;http://purl.org/vocab/frbr/core#&gt; .
+			@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+			@prefix pb: &lt;http://w3id.org/bufalinis-notebook/&gt; .
+			@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+			@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+			&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/Book&gt; ;
+				rdfs:label "Inni sacri" ;
+				frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; .
+
+			&lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Expression&gt; ;
+				rdfs:label "Inni sacri, Il nome di Maria" ;
+				frbr:partOf &lt;http://w3id.org/bufalinis-notebook/text/am-inni-sacri&gt; ;
+				frbr:realizationOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; .
+
+			&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri/il-nome-di-maria&gt; a &lt;http://purl.org/spar/fabio/Poem&gt; ;
+				rdfs:label "Inni sacri, Il nome di Maria" ;
+				dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
+				frbr:partOf &lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; ;
+				= &lt;http://viaf.org/viaf/292682306&gt; .
+
+			&lt;http://w3id.org/bufalinis-notebook/work/am-inni-sacri&gt; a &lt;http://purl.org/spar/fabio/WorkCollection&gt; ;
+				rdfs:label "Inni sacri" ;
+				dcterms:creator &lt;http://w3id.org/bufalinis-notebook/person/am&gt; ;
+				= &lt;http://viaf.org/viaf/177864710&gt;,
+					&lt;http://worldcat.org/entity/work/id/3888291&gt; .
+					</code></pre>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid background_dark">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<h3 class="text_grey" id="intro_title33">The knowledge graphs of interpretations</h4>
+				<p id="p_13">Bufalini's ideas on the relations among the texts and the authors of the notebook constitute 10% (about 800 RDF triples) of the knowledge base. In order to represent such ideas, we employed HiCO, an ontology extending <a href="https://www.w3.org/TR/prov-o/" target="_blank" alt="Link to PROV-O website">PROV-O</a> with the possibility of specifying a source for the statement, the criteria adopted for formulating the statement, and the type of statement as shown in the example below:</p>
+				<button class="button_medium button_snippet button_placeholder" type="button" data-toggle="collapse" data-target="#snippet4" aria-expanded="false" aria-controls="snippet4">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet4">
+				<div class="card card-body">
+					<pre><code>
+			@prefix pb: &lt;https://w3id.org/bufalinis-notebook/&gt; .
+			@prefix quote: &lt;https://w3id.org/bufalinis-notebook/quote/&gt; .
+			@prefix person: &lt;https://w3id.org/bufalinis-notebook/person/&gt; .
+			@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+			@prefix hico: &lt;http://purl.org/emmedi/hico/&gt; .
+			pb:infl-quot-007-to-quot-005h-assertion prov:wasGeneratedBy pb:infl-quot-007-to-quot-005hint-act .
+			pb:infl-quot-007-to-quot-005hint-act a hico:InterpretationAct .
+			pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-007 .
+			pb:infl-quot-007-to-quot-005hint-act hico:isExtractedFrom quote:quot-005h .
+			pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationCriterion pb:comparison-of-texts .
+			pb:infl-quot-007-to-quot-005hint-act hico:hasInterpretationType pb:similarity-between-texts-recognition .
+			pb:infl-quot-007-to-quot-005hint-act prov:wasAssociatedWith person:pb .
+
+					</code></pre>
+				</div>
+				</div>
+				<p class="margin-top-30" id="p_14">Bufalini illustrates a relation between two texts by highlighting the common features (e.g. a term or a concept appearing in both texts), whereas when claiming an influence of an author over another, he cites secondary sources in support. To formalize authoritativeness (i.e. the sources, either primary or secondary, on which a claim is based or which support the claim), CiTO is employed.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="container-fluid background_light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+				<p id="p_15">For full technical description of the digital edition see <span class="bold">Daquino, M., Giovannetti, F., &amp; Tomasi, F. (2019). Linked Data per le edizioni scientifiche digitali. Il workflow di pubblicazione dell'edizione semantica del quaderno di appunti di Paolo Bufalini. <span class="italic">Umanistica Digitale</span>, 3(7), <a href="http://doi.org/10.6092/issn.2532-8816/9091" target="_blank" alt="Link paper Daquino, M., Giovannetti, F., &amp; Tomasi, F. (2019). Linked Data per le edizioni scientifiche digitali. Il workflow di pubblicazione dell'edizione semantica del quaderno di appunti di Paolo Bufalini. Umanistica Digitale, 3(7), http://doi.org/10.6092/issn.2532-8816/9091.">http://doi.org/10.6092/issn.2532-8816/9091</a></span></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+<div class="container-fluid background_red">
+    <div class="container footer">
+        <div class="row">
+            <div class="col-md-5 col-sm-6 justify">
+                <h4 class="text_light" id="footer_title_1"></h4>
+                <p class="text_light footer_text"><a href="/sparql" target="_black" class="link_footer">SPARQL endpoint</a></p>
+                <p class="text_light footer_text"><a href="/downloadDataset" target="_blank" class="link_footer" id="footer_download">Download the dataset</a></p>
+            </br>
+                <p class="text_light footer_text"><a href="/specifications" target="_blank" class="link_footer" id="footer_documentation_1">Technical specifications</a></p>
+                <p class="text_light footer_text"><a href="/webApplication" target="_blank" class="link_footer" id="footer_web_app">Web application</a></p>
+                <!--<p class="text_light footer_text"><a href="/publications" target="_blank" class="link_footer" id="footer_pub"></a></p>-->
+            </br>
+                <p class="text_light footer_text"><a href="/credits" target="_blank" class="link_footer">Credits</a></p>
+                <p class="text_light footer_text"><a href="/licences" target="_blank" class="link_footer" id="footer_licences">Licences</a></p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
+                <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en" target="_black" alt="Dharc website" class="link_footer">About</a></p>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/research/projects-at-dh-arc" target="_black" alt="Dharc website" class="link_footer" id="dharc_projects_documentation">All /DH.arc projects</a></p>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/contacts" target="_black" alt="Dharc website" class="link_footer" id="footer_contacts">Contacts</a></p>
+            </br>
+                <img src="static/img-web-app/dharc_logo.png" class="img-xs" id="logo_dharc">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid background_red_light">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 justify">
+			   <p class="align_center footer_copyright text_light">© Copyright (c) 2020 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
+			</div>
+		</div>
+	</div>
+</div>

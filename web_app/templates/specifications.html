@@ -1,0 +1,907 @@
+$def with ()
+
+<div class="container-fluid padding-bottom-0 padding-top-0 section_header" id="introContainer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 align_center">
+				<h2 id="specs_header_title">Specifiche tecniche</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid background_light padding-15">
+	<div class="row">
+		<div class="col-md-2 col-sm-3 side-bar hate-full-height">
+			<div class="side-section active-side-section" color="dimgray" id="doc-overview">
+				<h4 class="filters_category_title text_light">Overview</h4>
+			</div>
+			<div class="side-section" color="green-yellow" id="doc-objectives">
+				<h4 class="doc_objectives_tra filters_category_title text_grey">Project objectives</h4>
+			</div>
+			<div class="side-section" color="orchid" id="doc-methodology">
+				<h4 class="doc_methodology_tra filters_category_title text_grey">Methodology</h4>
+			</div>
+			<div class="side-section" color="green" id="doc-rdf">
+				<h4 class="doc_rdf_tra filters_category_title text_grey">RDF dataset components</h4>
+			</div>
+			<div class="side-section" color="pink" id="doc-app">
+				<h4 class="doc_dev_tra filters_category_title text_grey">Web application development</h4>
+			</div>
+			<div class="side-section" color="yellow" id="doc-facets">
+				<h4 class="doc_facets_tra filters_category_title text_grey">Facets for semantic queries</h4>
+			</div>
+			<div class="side-section" color="blue" id="doc-datavis">
+				<h4 class="doc_datavis_tra filters_category_title text_grey">Data Visualisation charts</h4>
+			</div>
+			<hr>
+			<!-- Go to Web application section -->
+			<div class="side-section" color="rosy" id="doc-overview">
+				<a href="/webApplication" class="doc_to_app margin-top-30 rosy" target="_blank" alt="Go to Web application section"><h4 class="go_to_web_app filters_category_title text_grey">Go to Web application section</h4></a>
+			</div>
+		</div>
+		<div class="col-md-10 hate-full-height scroll side-text">
+			<!-- Overview -->
+			<div class="side-text-paragraph justify" id="doc-overview">
+				<h3 class="align_center">Overview</h3>
+				<p id="overview_1"><span class="italic">Paolo Bufalini’s notebook</span> Scholarly Semantic Digital Edition (SSDE) project is based on the notebook of handwritten notes by Paolo Bufalini, member of the Italian Communist Party, latinist and translator.</p>
+				<p id="overview_2">Between 1981 and 1991, Bufalini kept a private notebook which he titled <span class="italic">Appunti 1981–1991</span> (transl. <span class="italic">Notes 1981–1991</span>). The contents of the notebook reflect Bufalini's intellectual and social life: excerpts from literary works, personal notes and comments, narrations of events, unpublished translations from Latin into Italian. Given the private nature of the notebook, the relationships between the various textual components (text-text, text-comment, text-translation, translation-translation) are not explicitly declared. The same applies to the sources of the cited texts. Due to its complexity in terms of conceptualisation, Paolo Bufalini’s notebook has been chosen as a starting point on which to elaborate a non-linear reading.</p>
+				<p id="overview_3">The project resulted in a Semantic Scholarly Digital Edition (SSDE) Web application which aims to provide tools to access, browse, visualise, study and preserve the notebook and to contextualise it in a semantically-rich and metatextual framework.</p>
+				<p id="overview_4">The project documentation is organised as follows:</p>
+				<p>
+					<ul>
+						<li class="doc-li" color="green-yellow"><span class="doc_objectives_tra bold pointer green-yellow text_grey">Project objectives</span> - <span id="doc_obj">This section introduces the specific objectives underlying the SSDE project.</span></li>
+						<li class="doc-li" color="orchid"><span class="doc_methodology_tra bold pointer orchid text_grey">Methodology</span> - <span id="doc_met">This section explains the methodology used to develop the SSDE Web application. Specifically, the development workflow and the reused data models.</span></li>
+						<li class="doc-li" color="green"><span class="doc_rdf_tra bold pointer green text_grey">RDF dataset components</span> - <span id="doc_rdf_comp">This section explains the structure of the RDF graph by dividing it into a series of smaller models.</span></li>
+						<li class="doc-li" color="pink"><span class="doc_dev_tra bold pointer pink text_grey">Web application development</span> - <span id="doc_web_dev">This section explains the various steps to develop the SSDE Web application.</span></li>
+						<li class="doc-li" color="yellow" id="doc-facets"><span class="doc_facets_tra bold pointer yellow text_grey">Facets for semantic queries</span> - <span id="doc_facets">This section illustrates the main SSDE Web application features in terms of user interaction and data visualisation, specifically focusing on the design of <span class="italic">Facets</span>, a user-friendly tools to access, extract, browse and visualise semantic data.</span></li>
+						<li class="doc-li" color="blue" id="doc-facets"><span class="doc_datavis_tra bold pointer blue text_grey">Data Visualisation charts</span> - <span id="doc_vis">This section illustrates the main Data Visualisation charts available in the SSDE Web application.</span></li>
+					</ul>
+				</p>
+			</div>
+			<!-- Project objectives -->
+			<div class="side-text-paragraph justify" id="doc-objectives" style="display: none;">
+				<h3 class="align_center doc_objectives_tra">Project objectives</h3>
+				<p id="obj_1">The objectives are to identify, analyse, formalise and semantically represent the implicit intratextual and intertextual relations that characterise the notebook.</p>
+				<p id="obj_2">Textual encoding and Semantic Web technologies are integrated, respectively aiming at visualising the logical structure of the document and extracting semantic information from the document.</p>
+				<p id="obj_3">The result is a knowledge graph where nodes represent the entities of the edition (quotations, comments, translations, authors, works, persons, places, etc.) and arcs represent relations between entities.</p>
+				<p id="obj_4">The edition becomes a network of entities which are uniquely identified by means of persistent URIs.</p>
+			</div>
+			<!-- Methodology -->
+			<div class="side-text-paragraph margin-bottom-30 justify" id="doc-methodology" style="display: none;">
+				<h3 class="doc_methodology_tra align_center">Methodology</h3>
+				<p id="met_1">We introduce here the XML/TEI P5 markup model, the conversion process from the XML/TEI P5 document into an HTML document, the process of data extraction, and the transformation into RDF according to the specific ontologies.</p>
+
+				<!-- SUBSECTION: MARKUP MODEL -->
+				<div>
+					<h4 class="margin-bottom-0 text_grey" id="mark_up_1">Markup model</h4>
+					<p id="mark_up_2"><a href="https://github.com/marilenadaquino/bufalinis-notebook/blob/master/web_app/static/bufalini_quaderno.xml" target="_blank" alt="XML/TEI document of the notebook">The text of the notebook is marked up in XML/TEI P5</a>, with a specific focus on a number of entities that are meant to populate the knowledge base.</p>
+					<a class="text_red read_more" data-toggle="collapse" data-target="#markup-toggle" aria-expanded="false" aria-controls="markup-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #markup-toggle -->
+					<div class="collapse margin-top-15" id="markup-toggle">
+						<!-- TEI person -->
+						<p><span class="bold person_entity">Person.</span></p>
+						<p id="mark_up_3">In <code>&lt;teiHeader&gt;</code> each personal name is included in a <code>&lt;person&gt;</code> element and uniquely identified by an <code>@xml:id</code>. Corresponding <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a> records are included via the attribute <code>@sameAs</code>. Each person’s name occurrence in the document is linked to the corresponding identifier in <code>&lt;teiHeader&gt;</code> via the attribute <code>@ref</code> pointing at the ID assigned to the person in <code>&lt;teiHeader&gt;</code>.</p>
+						<div>
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet4" aria-expanded="false" aria-controls="snippet4">Snippet <span class="caret"></span></button>
+							<!-- snippet -->
+							<div class="collapse" id="snippet4">
+								<div class="card card-body">
+									<pre><code>
+&lt;person xml:id="MTC"&gt;
+	&lt;persName sameAs="http://viaf.org/viaf/126144814493626773404 http://it.dbpedia.org/resource/Marco_Tullio_Cicerone">Cicerone, Marco Tullio (106 a.C.–43 a.C.)&lt;/persName&gt;
+&lt;/person&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- / snippet -->
+						</div>
+
+						<div>
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-person-xml-occ" aria-expanded="false" aria-controls="snippet-person-xml-occ">Snippet <span class="caret"></span></button>
+							<!-- snippet -->
+							<div class="collapse" id="snippet-person-xml-occ">
+								<div class="card card-body">
+									<pre><code>
+&lt;bibl&gt;&lt;author ref="#MTC"&gt;&lt;/author&gt;Cicerone&lt;/author&gt;&lt;/bibl&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- / snippet -->
+						</div>
+
+						<!-- TEI comments -->
+						<p class="comment_entity margin-top-30"><span class="bold">Comments by Bufalini or other authors.</span></p>
+						<p id="mark_up_5"><code>&lt;note&gt;</code> encloses the excerpt corresponding to a comment. <code>@type="comment"</code> specifies that the given excerpt corresponds to a comment.</p>
+						<p id="mark_up_6"><code>@corresp</code> points to the <code>@xml:id</code> attribute of the referenced excerpt, i.e., a quotation or a translation (see below).</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-xml-comment" aria-expanded="false" aria-controls="snippet-xml-comment">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-xml-comment">
+								<div class="card card-body">
+									<pre><code>
+&lt;p&gt;note type="comment" xml:id="comm-002" corresp="#quot-001-1" resp="#PB"&gt;
+	&lt;p&gt;p>Gettare olio sulle acque torbide&lt;/p&gt;
+	&lt;p&gt;p>Gettare olio sulle acque burrascose&lt;/p&gt;
+	&lt;p&gt;p>Gettare olio sulle acque inasprite.&lt;/p&gt;
+	&lt;p&gt;p>E si adagiano anzi in placida lentezza&lt;/p&gt;
+&lt;/note&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+
+						<!-- TEI quotations -->
+						<p class="margin-top-30 quot_entity"><span class="bold">Quotations.</span></p>
+						<p id="mark_up_7"><code>&lt;quote&gt;</code> includes the text of a quoted excerpt. <code>@source</code> links a quotation to the bibliographical description of the work included in <code>&lt;teiHeader&gt;</code>.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-xml-quot" aria-expanded="false" aria-controls="snippet-xml-quot">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-xml-quot">
+								<div class="card card-body">
+									<pre><code>
+&lt;quote xml:id="quot-150" xml:lang="lat" source="#bibl126"&gt;
+	&lt;p&gt;Necessitati parēre semper sapientis est habitum&lt;/p&gt;
+&lt;/quote&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- / snippet -->
+						</div>
+
+						<!-- TEI translations -->
+						<p class="margin-top-30 trans_entity"><span class="bold">Translations by Paolo Bufalini or other authors.</span></p>
+						<p id="mark_up_8">The translations by Bufalini are encoded following the schema below.</p>
+						<p id="mark_up_9"><code>&lt;quote&gt;</code> encloses the text of the excerpt in its original language.</p>
+						<p id="mark_up_10"><code>&lt;note type="translation"&gt;</code> encloses the corresponding translation by Bufalini or other authors.</p>
+						<p id="mark_up_11"><code>@corresp</code> links to the unique identifier of the translated excerpt, which is in turn linked (via <code>@source</code> ) to the bibliographical description of the translated work in the <code>&lt;teiHeader&gt;</code>.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-xml-trans" aria-expanded="false" aria-controls="snippet-xml-trans">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-xml-trans">
+								<div class="card card-body">
+									<pre><code>
+&lt;quote xml:id="quot-002" xml:lang="lat" source="#bibl001"&gt;
+	&lt;l&gt;Visendus ater flumine languido&lt;/l&gt;
+	&lt;l&gt;Cocytus errans... &lt;/l&gt;
+&lt;/quote&gt;
+&lt;bibl&gt;(<author ref="#QOF">Hor</author>)&lt;/bibl&gt;
+&lt;note type="translation" xml:id="tra-001" corresp="#quot-002" resp="#PB"&gt;
+	&lt;lg&gt;
+		&lt;l&gt;Dobbiamo vederlo il nero fiume lento&lt;/l&gt;
+		&lt;l&gt;Cocito errante... &lt;/l&gt;
+	&lt;/lg&gt;
+&lt;/note&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- / snippet -->
+						</div>
+
+						<!-- Works -->
+						<p class="margin-top-30 works_entity"><span class="bold">Works.</span></p>
+						<p id="mark_up_12">Like people, works described in the <code>&lt;teiHeader&gt;</code> are linked to the corresponding <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a>/<a href="https://www.worldcat.org/" target="_blank" alt="WorldCat website">WorldCat</a> records by <code>@sameAs</code>. An example is reported below.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-xml-work" aria-expanded="false" aria-controls="snippet-xml-work">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-xml-work">
+								<div class="card card-body">
+									<pre><code>
+&lt;bibl xml:id="ad-familiares-4-9" resp="#CSPC"&gt;
+	&lt;author ref="#MTC"/&gt;
+	&lt;title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/187066890 http://worldcat.org/entity/work/id/2261383546"&gt;Ad familiares&lt;/title&gt;
+	&lt;biblScope unit="volume" n="4"&gt;4&lt;/biblScope&gt;
+	&lt;title level="a" n="9" type="Work" subtype="Letter"&gt;9&lt;/title&gt;
+	&lt;date when="-0046">46 a.C.&lt;/date&gt;
+	&lt;citedRange xml:id="bibl126" unit="Excerpt" n="sample-1"&gt;sample 1&lt;/citedRange&gt;
+&lt;/bibl&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+
+					</div>
+				</div>
+
+				<!-- SUBSECTION: HTML CONVERSION -->
+				<hr>
+				<div>
+					<h4 class="margin-bottom-0 text_grey" id="html_1">HTML conversion</h4>
+					<p id="html_2">An HTML document containing the transcription of the text is obtained by means of a <a href="https://github.com/marilenadaquino/bufalinis-notebook/blob/master/data/tei2html.xsl" target="_blank" alt="XSL file for TEI to HTML conversion">XSL transformation of the XML/TEI P5 file in an HTML file</a>.</p>
+					<p id="html_3">Not all the information encoded in the XML/TEI file is converted, but only the ones necessary to the document typesetting. For instance, the authority files are not included in the resulting HTML.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#html-toggle" aria-expanded="false" aria-controls="html-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #HTML-toggle -->
+					<div class="collapse margin-top-15" id="html-toggle">
+						<p id="html_4">The selected information is represented in the HTML as follows.</p>
+						<!-- HTML person -->
+						<p><span class="bold person_entity">Person.</span></p>
+						<p id="html_5">A <code>&lt;span class="persName"&gt;</code> identifies a person’s name in the transcription, whether it is reported as a full name or as an abbreviation. To each identified person, a <code>&lt;span class="tooltiptext"&gt;</code> is nested to make the person’s full name explicit.</p>
+						<p id="html_6"><code>@data-ref</code> specifies the ID assigned to the person, as formalised in the XML/TEI encoding.</p>
+						<p id="html_7">The class <code>author</code> is added to <code>&lt;span class="persName"&gt;</code> in the case the person is the author of a specific excerpt. An example is reported below.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-html-person" aria-expanded="false" aria-controls="snippet-html-person">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-html-person">
+								<div class="card card-body">
+									<pre><code>
+&lt;span class="tooltip persName" data-ref="#MTC"&gt;&lt;span class="tooltiptext"&gt;Cicerone, Marco Tullio (106 a.C.–43 a.C.)&lt;/span&gt;Cicerone&lt;/span&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+						<!-- HTML comments -->
+						<p class="margin-top-30"><span class="bold comment_entity">Comments.</span></p>
+						<p id="html_8">Comments are included in a <code>&lt;section class="note" data-type="comment"&gt;</code> element.</p>
+						<p id="html_9">Each comment is uniquely identified by a specific <code>@id</code>. Each assigned ID contains the string <code>"comm-"</code> at its beginning. An example is reported below.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-html-comm" aria-expanded="false" aria-controls="snippet-html-comm">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-html-comm">
+								<div class="card card-body">
+									<pre><code>
+&lt;section class="note" data-type="comment" id="comm-002" data-corresp="#quot-001-1" data-resp="#PB"&gt;
+	&lt;p&gt;Gettare olio sulle acque torbide&lt;/p&gt;
+	&lt;p&gt;Gettare olio sulle acque burrascose&lt;/p&gt;
+	&lt;p&gt;Gettare olio sulle acque inasprite.&lt;/p&gt;
+	&lt;p&gt;E si adagiano anzi in placida lentezza&lt;/p&gt;
+&lt;/section&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+						<!-- HTML quotations -->
+						<p class="margin-top-30 quot_entity"><span class="bold">Quotations.</span></p>
+						<p id="html_10">Quotations are included in a <code>&lt;blockquote&gt;</code> element.</p>
+						<p id="html_11">Each quotation is uniquely identified by an <code>@id</code>. Each assigned ID contains the string <code>"quot-"</code> at its beginning.</p>
+						<p id="html_12"><code>@data-source</code> identifies each quotation source work. Its value corresponds to the <code>@source</code> values, as assigned in the XML/TEI document. An example is reported below.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-html-quot" aria-expanded="false" aria-controls="snippet-html-quot">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-html-quot">
+								<div class="card card-body">
+									<pre><code>
+&lt;blockquote id="quot-150" lang="lat" data-source="#bibl126"&gt;
+	&lt;p&gt;Necessitati parēre semper sapientis est habitum&lt;/p&gt;
+&lt;/blockquote&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+						<!-- HTML translations -->
+						<p class="margin-top-30 trans_entity"><span class="bold">Translations.</span></p>
+						<p id="html_13">Translations are included in a <code>&lt;section class="note" data-type="translation"&gt;</code> element and in <code>&lt;blockquote class="note" data-type="translation"&gt;</code></p>
+						<p id="html_14">Each translation is uniquely identified by a specific <code>@id</code>. Each assigned ID contains the string <code>"tra-"</code> at its beginning.</p>
+						<p id="html_15"><code>@data-corresp</code> identifies the ID of the translated excerpt, while <code>@data-resp</code> the ID of the translator. An example is reported below.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-html-trans" aria-expanded="false" aria-controls="snippet-html-trans">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-html-trans">
+								<div class="card card-body">
+									<pre><code>
+&lt;section class="cit" id="horatio-carm-2-14-17"&gt;
+	&lt;blockquote id="quot-002" lang="lat" data-source="#bibl001"&gt;
+		&lt;p class="l"&gt;Visendus ater flumine languido&lt;/p&gt;
+		&lt;p class="l"&gt;Cocytus errans... &lt;/p&gt;
+	&lt;/blockquote&gt; (&lt;span class="author persName tooltip" data-ref="#QOF"&gt;&lt;span class="tooltiptext"&gt;Orazio Flacco, Quinto (65 a.C.–8 a.C.)&lt;/span&gt;Hor&lt;/span&gt;) &lt;section class="note" data-type="translation" id="tra-001" data-corresp="#quot-002" data-resp="#PB"&gt;
+		&lt;section class="lg"&gt;
+			&lt;p class="l">Dobbiamo vederlo il nero fiume lento&lt;/p&gt;
+			&lt;p class="l">Cocito errante... &lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/section&gt;
+&lt;/section&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+						<!-- HTML works -->
+						<p class="margin-top-30 works_entity"><span class="bold">Works.</span></p>
+						<p id="html_16">Works are identified by <code>@data-source</code> in <code>&lt;blockquote&gt;</code> and <code>&lt;section&gt;</code> elements. Their values correspond to the <code>@source</code> values, as assigned in the XML/TEI document.</p>
+						<div>
+							<!-- snippet -->
+							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-html-work" aria-expanded="false" aria-controls="snippet-html-work">Snippet <span class="caret"></span></button>
+							<div class="collapse" id="snippet-html-work">
+								<div class="card card-body">
+									<pre><code>
+&lt;blockquote id="quot-150" lang="lat" data-source="#bibl126"&gt;
+	&lt;p&gt;Necessitati parēre semper sapientis est habitum&lt;/p&gt;
+&lt;/blockquote&gt;
+									</code></pre>
+								</div>
+							</div>
+							<!-- /snippet -->
+						</div>
+						<p class="margin-top-30" id="html_17">The final HTML document contains the information relevant to the text transcription visualisation.</p>
+					</div>
+				</div>
+
+
+				<!-- SUBSECTION: RDF CONVERSION -->
+				<hr>
+				<div>
+					<h4 class="margin-bottom-0 text_grey" id="rdf_1">RDF conversion</h4>
+					<p id="rdf_2">The Resource Description Framework (RDF) is a data model according to which data is organised in a graph data structure.</p>
+					<p id="rdf_3">The resulting graph is composed of a series of statements about the specific knowledge domain. Each statement is structured in a triple according to the schema <span class="italic">subject-predicate-object</span>.</p>
+					<p id="rdf_4">RDF graphs may be serialised according to diverse schemas, such as <span class="italic">Turtle</span>, <span class="italic">N-Triples</span>, <span class="italic">N-Quads</span>, etc. The RDF dataset of <span class="italic">Paolo Bufalini’s notebook</span> is organised in several graphs, each including information of diverse nature (e.g. edition-specific information, authors and works relations, context information and so on).</p>
+					<p id="rdf_5">The XML/TEI data extraction focused on a specific number of selected TEI elements.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#rdf-toggle" aria-expanded="false" aria-controls="rdf-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #RDF-toggle -->
+					<div class="collapse margin-top-15" id="rdf-toggle">
+						<p id="rdf_6">The entities extracted are textual components such as <span class="bold">comments</span>, <span class="bold">quotations</span> and <span class="bold">translations</span>, extracted from the XML/TEI document <code>body</code>, <span class="bold">persons mentioned</span> by the author and <span class="bold">bibliographical entities</span> cited by the author, extracted from the XML/TEI <code>teiHeader</code> authority.</p>
+						<p id="rdf_7">In addition, <span class="bold">intratextual relations</span> (i.e. the relations between a comment/quotation/translation and its author) and <span class="bold">intertextual relations</span> (i.e. the relations between an excerpt and its translations and comments) are extracted from the XML/TEI document <code>body</code>.</p>
+						<p id="rdf_8">A further encoding level defines the provenance of the assertions, describing if a phenomenon has been identified by Bufalini or by the editors, and what information support the assessment of that phenomenon, according to the <span class="italic">nanopublication</span> data model.</p>
+						<div>
+							<img src="static/img-web-app/nanopub.png" class="img_center img-small-width">
+							<p class="align_center" id="rdf_9">Fig 1. Khun, T., <span class="bold">Nanopublications. Provenance-Aware Linked Data Publishing</span>, 2015.</p>
+						</div>
+						<p id="rdf_10">Finally, <span class="bold">links to the authority files and external datasets</span> are included to enrich the RDF knowledge base.</p>
+						<p id="rdf_11">The final dataset contains the resulting named graphs composed of a graph including all the textual elements and 64 graphs related to the assertions, their provenance and editorial information, as formalised by the text editors.</p>
+						<p id="rdf_12">RDF graphs are used to serve data in user interface, and to build <span class="italic">user-friendly</span> tools to allow their browsing on the user-side. Specifically, they are used to support the browsing of Facsimiles, to develop the <span class="italic">Facets</span> sidebar in the Indexes and the Data Visualisation charts.</p>
+					</div>
+				</div>
+
+				<!-- SUBSECTION: REUSED MODELS -->
+				<hr>
+				<div>
+					<h4 class="margin-bottom-0 text_grey" id="reused_models">Reused models</h4>
+					<p id="reused_models_1">A set of existing ontologies are reused to describe the notebook entities, relationships, and its semantic contextual information.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#models-toggle" aria-expanded="false" aria-controls="models-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<div class="collapse margin-top-15" id="models-toggle">
+						<!-- FaBiO -->
+						<div class="margin-top-15">
+							<p id="reused_fabio"><span class="bold"><a href="https://sparontologies.github.io/fabio/current/fabio.html" target="_blank" alt="FRBR-align Bibliographic Ontology (FaBiO) webpage">FRBR-align Bibliographic Ontology (FaBiO)</a>.</span></p>
+							<p id="reused_fabio_1">The FRBR-align Bibliographic Ontology (<span class="bold"><a href="https://sparontologies.github.io/fabio/current/fabio.html" target="_blank" alt="FRBR-align Bibliographic Ontology (FaBiO) webpage">FaBiO</a></span>) is an ontology to describe published or potentially publishable entities, as journal articles, conference papers, books, which contain or are referred to bibliographic references.</p>
+							<p id="reused_fabio_2">In this project, FaBiO ontology is used to represent the articulation of the textual object levels, some peritextual elements as page titles, notes and quotes.</p>
+						</div>
+						<!-- Open Annotation Model -->
+						<div class="margin-top-30">
+							<p id="reused_oa"><span class="bold"><a href="http://www.openannotation.org/" target="_blank" alt="Open Annotation website">Open Annotation Model</a>.</span></p>
+							<p id="reused_oa_1">The <span class="bold"><a href="http://www.openannotation.org/" target="_blank" alt="Open Annotation website">Open Annotation Model</a></span> is an ontology to provide a standard description mechanism for sharing Annotations between systems.</p>
+							<p id="reused_oa_2">In this project, the Open Annotation ontology is used to represent the mentioned persons’ roles.</p>
+						</div>
+						<!-- CiTO -->
+						<div class="margin-top-30">
+							<p id="reused_cito"><span class="bold"><a href="https://sparontologies.github.io/cito/current/cito.html" target="_blank" alt="CiTO Ontology webpage">Citation Typing Ontology (CiTO)</a>.</span></p>
+							<p id="reused_cito_1">The Citation Typing Ontology (<span class="bold"><a href="https://sparontologies.github.io/cito/current/cito.html" target="_blank" alt="CiTO Ontology webpage">CiTO</a></span>) is an ontology to characterise the nature or type of citations.</p>
+							<p id="reused_cito_2">In this project, CiTO ontology is used to formalise the underlying relations between cited works, specifically the relations between works cited by Bufalini and citations between different authors.</p>
+						</div>
+						<!-- HiCO -->
+						<div class="margin-top-30">
+							<p id="reused_hico"><span class="bold"><a href="http://hico.sourceforge.net/" target="_blank" alt="HiCO Ontology webpage">Historical Context Ontology (HiCO)</a>.</span></p>
+							<p id="reused_hico_1">The Historical Context Ontology (<span class="bold"><a href="http://hico.sourceforge.net/" target="_blank" alt="HiCO Ontology webpage">HiCO</a></span>) is an ontology to describe the context information of cultural heritage objects.</p>
+							<p id="reused_hico_2">In this project, HiCO ontology is used to formalise statements on the texts cited by Bufalini, influences between authors and assumptions made by authors cited by Bufalini.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- RDF dataset components -->
+			<div class="side-text-paragraph margin-bottom-30 justify" id="doc-rdf" style="display: none;">
+				<h3 class="doc_rdf_tra align_center" id="rdf_data">RDF dataset components</h3>
+				<!-- SUBSECTION: PEOPLE -->
+				<div>
+					<h4 class="person_entity margin-bottom-0 text_grey">People</h4>
+					<p id="rdf_data_pers">Each mentioned person in the notebook is formalised by including a <span class="bold">URI</span> to uniquely identify the specific person and <code>rdf:resource="http://xmlns.com/foaf/0.1/Person"</code> to identify the specific entity as a person. Its VIAF/DBpedia identifiers URI are associated at this level respectively by <code>owl:sameAs</code>. An example is reported below.</p>
+					<!-- snippet -->
+					<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-people" aria-expanded="false" aria-controls="snippet-rdf-people">Snippet <span class="caret"></span></button>
+					<div class="collapse" id="snippet-rdf-people">
+					<div class="card card-body">
+						<pre><code>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/person/mtc"&gt;
+&lt;rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/&gt;
+&lt;rdfs:label&gt;Cicerone, Marco Tullio (106 a.C.–43 a.C.)&lt;/rdfs:label&gt;
+&lt;owl:sameAs rdf:resource="http://viaf.org/viaf/126144814493626773404"/&gt;
+&lt;owl:sameAs rdf:resource="http://it.dbpedia.org/resource/Marco_Tullio_Cicerone"/&gt;
+&lt;/rdf:Description>
+						</code></pre>
+					</div>
+					</div>
+					<!-- /snippet -->
+				</div>
+
+
+				<!-- SUBSECTION: COMMENTS -->
+				<div>
+					<h4 class="comment_entity margin-bottom-0 margin-top-30 text_grey">Comments</h4>
+					<p id="rdf_data_comm">Each comment excerpt in the notebook is formalised by including:</p>
+					<p>
+						<ul>
+							<li id="rdf_data_comm_1">A <span class="bold">URI</span> to uniquely identify the specific comment excerpt.</li>
+							<li id="rdf_data_comm_2"><code>oa:hasTarget</code> to declare the relationship between an annotation and its target.</li>
+							<li id="rdf_data_comm_3"><code>oa:hasBody</code> to report the resource body of the annotation, i.e. the full-text of the comment itself.</li>
+							<li id="rdf_data_comm_4"><code>frbr:realizer</code> to specify the author of the comment.</li>
+							<li id="rdf_data_comm_5"><code>prism:startingPage</code> to indicate the page in which the comment is reported.</li>
+							<li id="rdf_data_comm_6"><code>oa:motivatedBy</code> to describe the reason for the creation of the annotation, i.e. to formalise a specific excerpt as a comment.</li>
+							<li id="rdf_data_comm_7"><code>frbr:complementOf</code> to formalise the relationship between the comment and the excerpt to which it refers.</li>
+						</ul>
+					</p>
+					<p id="rdf_data_comm_8">The body of the comment is included in a <code>&lt;section&gt;</code> element containing the following attributes:</p>
+					<p>
+						<ul>
+							<li id="rdf_data_comm_9"><code>@xmlns</code> to specify the XML namespace for the document.</li>
+							<li id="rdf_data_comm_10"><code>@type</code> to specify the type of excerpt, i.e. comment.</li>
+							<li id="rdf_data_comm_11"><code>@xml:id</code> to assign a univocal ID to the excerpt.</li>
+							<li id="rdf_data_comm_12"><code>@corresp</code> to specify the excerpt to which it refers.</li>
+							<li id="rdf_data_comm_13"><code>@resp</code> to specify the author of the comment.</li>
+						</ul>
+					</p>
+					<p class="example_sent">An example is reported below.</p>
+					<!-- snippet -->
+					<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-comment" aria-expanded="false" aria-controls="snippet-rdf-comment">Snippet <span class="caret"></span></button>
+					<div class="collapse" id="snippet-rdf-comment">
+					<div class="card card-body">
+						<pre><code>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/comment/comm-002"&gt;
+&lt;rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/&gt;
+&lt;oa:hasTarget rdf:resource="http://w3id.org/bufalinis-notebook/citation/livio-m-su-tm"/&gt;
+&lt;oa:hasBody&gt;
+	&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/note/comm-002"&gt;
+	&lt;rdf:value rdf:parseType="XMLLiteral"&gt;
+			&lt;section xmlns="http://www.tei-c.org/ns/1.0"
+					type="comment"
+					xml:id="comm-002"
+					corresp="#quot-001-1"
+					resp="#PB"&gt;
+			&lt;p&gt;Gettare olio sulle acque torbide&lt;/p&gt;
+			&lt;p&gt;Gettare olio sulle acque burrascose&lt;/p&gt;
+			&lt;p&gt;Gettare olio sulle acque inasprite.&lt;/p&gt;
+			&lt;p&gt;E si adagiano anzi in placida lentezza&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/rdf:value&gt;
+		&lt;frbr:realizer rdf:resource="http://w3id.org/bufalinis-notebook/person/pb"/&gt;
+		&lt;prism:startingPage rdf:resource="http://w3id.org/bufalinis-notebook/page/1"/&gt;
+	&lt;/rdf:Description&gt;
+&lt;/oa:hasBody&gt;
+&lt;oa:motivatedBy&gt;
+	&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/comment"&gt;
+		&lt;rdfs:label&gt;comment&lt;/rdfs:label&gt;
+	&lt;/rdf:Description&gt;
+&lt;/oa:motivatedBy&gt;
+&lt;frbr:complementOf rdf:resource="http://w3id.org/bufalinis-notebook/quote/quot-001-1"/&gt;
+&lt;/rdf:Description&gt;
+						</code></pre>
+					</div>
+					</div>
+					<!-- /snippet -->
+				</div>
+
+
+				<!-- SUBSECTION: QUOTATIONS -->
+				<div>
+					<h4 class="quot_entity margin-bottom-0 margin-top-30 text_grey">Quotations</h4>
+					<p id="rdf_data_quot">Each quotation excerpt in the notebook is formalised by including:</p>
+					<p>
+						<ul>
+							<li id="rdf_data_quot_1">A <span class="bold">URI</span> to uniquely identify the specific citation.</li>
+							<li id="rdf_data_quot_2"><code>cito:hasCitingEntity</code> and <code>cito:hasCitedEntity</code> to allow the citation to be reified, so that it can become the subject or object of other RDF statements.</li>
+							<li id="rdf_data_quot_3">A URI inserted in a <code>&lt;rdf:Description&gt;</code> element nested into the <code>&lt;cito:hasCitedEntity&gt;</code>.</li>
+							<li id="rdf_data_quot_4"><code>prism:startingPage</code> to indicate the page in which the quotation is reported.</li>
+							<li id="rdf_data_quot_5">A <span class="bold">URI</span> to uniquely identify the specific quotation excerpt body.</li>
+							<li id="rdf_data_quot_6"><code>oa:hasTarget</code> to declare the relationship between an annotation and its target.</li>
+							<li id="rdf_data_quot_7"><code>oa:hasBody</code> to report the resource body of the annotation, i.e. the full-text of the quotation itself indicates, in this case, with its URI assigned in <code>&lt;cito:hasCitedEntity&gt;</code> element.</li>
+							<li id="rdf_data_quot_8"><code>oa:motivatedBy</code> to describe the reason for the creation of the annotation, i.e. to formalise a specific excerpt as a quotation.</li>
+						</ul>
+					</p>
+					<p id="rdf_data_quot_9">The body of the quotation is included in a <code>&lt;section&gt;</code> elements containing the following attribute <code>@xmlns</code> to specify the XML namespace for the document.</p>
+					<p id="rdf_data_quot_10">An example is reported below. It reports the formalisation of a quotation from <span class="italic">Lettere</span> by Cicerone.</p>
+					<!-- snippet -->
+					<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-quotation" aria-expanded="false" aria-controls="snippet-rdf-quotation">Snippet <span class="caret"></span></button>
+					<div class="collapse" id="snippet-rdf-quotation">
+					<div class="card card-body">
+						<pre><code>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/citation/cicerone-lettere-46-ac"&gt;
+&lt;rdf:type rdf:resource="http://purl.org/spar/cito/Citation"/&gt;
+&lt;cito:hasCitingEntity rdf:resource="http://w3id.org/bufalinis-notebook/page/112"/&gt;
+&lt;cito:hasCitedEntity&gt;
+	&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/excerpt/bibl126"&gt;
+		&lt;rdf:value rdf:parseType="XMLLiteral"&gt;
+			&lt;section xmlns="http://www.tei-c.org/ns/1.0"&gt;
+			&lt;p&gt;Necessitati parēre semper sapientis est habitum&lt;/p&gt;
+			&lt;/section&gt;
+		&lt;/rdf:value&gt;
+		&lt;prism:startingPage rdf:resource="http://w3id.org/bufalinis-notebook/page/112"/&gt;
+	&lt;/rdf:Description&gt;
+&lt;/cito:hasCitedEntity&gt;
+&lt;/rdf:Description&gt;
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/quote/quot-150"&gt;
+&lt;rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/&gt;
+&lt;oa:hasTarget rdf:resource="http://w3id.org/bufalinis-notebook/citation/cicerone-lettere-46-ac"/&gt;
+&lt;oa:hasBody rdf:resource="http://w3id.org/bufalinis-notebook/excerpt/bibl126"/&gt;
+&lt;oa:motivatedBy&gt;
+	&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/quotation"&gt;
+		&lt;rdfs:label&gt;quotation&lt;/rdfs:label&gt;
+	&lt;/rdf:Description&gt;
+&lt;/oa:motivatedBy&gt;
+&lt;/rdf:Description&gt;
+						</code></pre>
+					</div>
+					</div>
+					<!-- /snippet -->
+				</div>
+
+
+				<!-- SUBSECTION: TRANSLATIONS -->
+				<div>
+					<h4 class="trans_entity margin-bottom-0 margin-top-30 text_grey">Translations</h4>
+					<p id="rdf_trans">Each translation excerpt in the notebook is formalised by including:</p>
+					<p>
+						<ul>
+							<li id="rdf_trans_1">A <span class="bold">URI</span> to uniquely identify the specific translation excerpt.</li>
+							<li id="rdf_trans_2"><code>oa:hasTarget</code> to declare the relationship between an annotation and its target.</li>
+							<li id="rdf_trans_3"><code>oa:hasBody</code> to report the resource body of the annotation, i.e. the full-text of the translation itself.</li>
+							<li id="rdf_trans_4">A <span class="bold">URI</span> to uniquely identify the specific translation excerpt body.</li>
+							<li id="rdf_trans_5"><code>frbr:translationOf</code> to specify which is the source excerpt of the translation.</li>
+							<li id="rdf_trans_6"><code>frbr:realizer</code> to specify the author of the translation.</li>
+							<li id="rdf_trans_7"><code>prism:startingPage</code> to indicate the page bearing the translation.</li>
+							<li id="rdf_trans_8"><code>oa:motivatedBy</code> to describe the reason for the creation of the annotation, i.e. to formalise a specific excerpt as a translation.</li>
+						</ul>
+					</p>
+					<p id="rdf_trans_9">The body of the translation is included in a <code>&lt;section&gt;</code> element containing the following attributes <code>@xmlns</code> to specify the XML namespace for the document, <code>@type</code> to specify the type of excerpt, i.e. <span class="italic">translation</span>, <code>@xml:id</code> to assign a univocal ID to the excerpt, <code>@corresp</code> to specify the excerpt to which the translation refers, and <code>@resp</code> to specify the author of the translation.</p>
+					<p id="rdf_trans_10">An example of translation from Horace is reported below.</p>
+				<!-- snippet -->
+				<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-translation" aria-expanded="false" aria-controls="snippet-rdf-translation">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet-rdf-translation">
+				<div class="card card-body">
+					<pre><code>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/comment/tra-001"&gt;
+&lt;rdf:type rdf:resource="http://www.w3.org/ns/oa#Annotation"/&gt;
+&lt;oa:hasTarget rdf:resource="http://w3id.org/bufalinis-notebook/citation/horatio-carm-2-14-17"/&gt;
+&lt;oa:hasBody&gt;
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/note/tra-001"&gt;
+	&lt;rdf:value rdf:parseType="XMLLiteral"&gt;
+		&lt;section xmlns="http://www.tei-c.org/ns/1.0"
+				type="translation"
+				xml:id="tra-001"
+				corresp="#quot-002"
+				resp="#PB"&gt;
+		&lt;lg&gt;
+			&lt;l&gt;Dobbiamo vederlo il nero fiume lento&lt;/l&gt;
+			&lt;l&gt;Cocito errante... &lt;/l&gt;
+		&lt;/lg&gt;
+		&lt;/section&gt;
+	&lt;/rdf:value&gt;
+	&lt;frbr:translationOf rdf:resource="http://w3id.org/bufalinis-notebook/quote/quot-002"/&gt;
+	&lt;frbr:realizer rdf:resource="http://w3id.org/bufalinis-notebook/person/pb"/&gt;
+	&lt;prism:startingPage rdf:resource="http://w3id.org/bufalinis-notebook/page/2"/&gt;
+&lt;/rdf:Description&gt;
+&lt;/oa:hasBody&gt;
+&lt;oa:motivatedBy&gt;
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/translation"&gt;
+	&lt;rdfs:label&gt;translation&lt;/rdfs:label&gt;
+&lt;/rdf:Description&gt;
+&lt;/oa:motivatedBy&gt;
+&lt;frbr:translationOf rdf:resource="http://w3id.org/bufalinis-notebook/quote/quot-002"/&gt;
+&lt;/rdf:Description&gt;
+					</code></pre>
+				</div>
+				</div>
+				<!-- /snippet -->
+				</div>
+
+
+				<!-- SUBSECTION: WORKS -->
+				<div>
+					<h4 class="works_entity margin-bottom-0 margin-top-30 text_grey">Works</h4>
+					<p id="rdf_works_1">The works cited in the notebook are formalised using FaBiO.</p>
+					<p id="rdf_works_2">According to the reference model, each literary work cited in the notebook is formalised as follows.</p>
+					<!-- FRBR work -->
+					<p><span class="bold" id="frbr_work">FRBR Work.</span></p>
+					<p>
+						<ul>
+							<li id="frbr_work_1">A <span class="bold">URI</span> to uniquely identify the work.</li>
+							<li id="frbr_work_2"><code>rdf:resource="http://purl.org/spar/fabio/Poem"</code> to represent poems.</li>
+							<li id="frbr_work_3"><code>rdf:resource="http://purl.org/spar/fabio/Play"</code> to represent plays.</li>
+							<li id="frbr_work_4"><code>rdf:resource="http://purl.org/spar/fabio/Work"</code> to represent published or potentially publishable works containing or referring to bibliographic references.</li>
+							<li id="frbr_work_5"><code>rdf:resource="http://purl.org/spar/fabio/WorkCollection"</code> to represent  collections of works.</li>
+							<li id="frbr_work_6"><code>owl:sameAs</code> to associate <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a>/<a href="https://www.worldcat.org/" target="_blank" alt="WorldCat website">WorldCat</a> identifiers.</li>
+						</ul>
+					</p>
+					<!-- FRBR expression -->
+					<p><span class="bold" id="frbr_ex">FRBR Expression.</span></p>
+					<p>
+						<ul>
+							<li id="frbr_ex_1">A <span class="bold">URI</span> to uniquely identify the specific work Expression.</li>
+							<li id="frbr_ex_2"><code>rdf:resource="http://purl.org/spar/fabio/Book"</code> to identify the work realisation as a non-serial document in one or more volumes.</li>
+							<li id="frbr_ex_3"><code>frbr:realizationOf</code> to identify the reference Work.</li>
+						</ul>
+					</p>
+					<!-- FRBR volume -->
+					<p><span class="bold" id="frbr_vol">Volume.</span></p>
+					<p>
+						<ul>
+							<li id="frbr_vol_1">A <span class="bold">URI</span> to uniquely identify a specific work Expression volume.</li>
+							<li id="frbr_vol_2"><code>rdf:resource="http://purl.org/spar/fabio/Expression"</code> which corresponds to a subclass of FRBR expression.</li>
+							<li id="frbr_vol_3"><code>frbr:partOf</code> to indicate that one entity is part of another entity, i.e. a specific volume is part of a specific work Expression.</li>
+						</ul>
+					</p>
+					<!-- FRBR further information -->
+					<p><span class="bold" id="frbr_info">Further information.</span></p>
+					<p>
+						<ul>
+							<li id="frbr_info_1">A <span class="bold">URI</span> to uniquely identify a specific work subtype of Expression.</li>
+							<li id="frbr_info_2"><code>rdf:resource="http://purl.org/spar/fabio/Work"</code> to represent published or potentially publishable works containing or referring to bibliographic references.</li>
+							<li id="frbr_info_3"><code>frbr:partOf</code> to indicate that one entity is part of another entity, i.e. a specific subpart of volume is part of a specific work.</li>
+							<li id="frbr_info_4"><code>dcterms:creator</code> to identify the subtype of Expression author.</li>
+						</ul>
+					</p>
+					<p id="frbr_info_5">The specific nature of a formalised subtype of Expression is represented also as follows:</p>
+					<p>
+						<ul>
+							<li id="frbr_info_6"><code>rdf:resource="http://purl.org/spar/fabio/Letter"</code>.</li>
+							<li id="frbr_info_7"><code>rdf:resource="http://purl.org/spar/fabio/Novel"</code>.</li>
+							<li id="frbr_info_8"><code>rdf:resource="http://purl.org/spar/fabio/ShortStory"</code>.</li>
+							<li id="frbr_info_9">etc.</li>
+						</ul>
+					</p>
+					<p id="frbr_info_10">An example is reported below, which show the formalisation of <span class="italic">Ad familiares</span> work by Cicerone.</p>
+					<!-- snippet -->
+				<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-work" aria-expanded="false" aria-controls="snippet-rdf-work">Snippet <span class="caret"></span></button>
+				<div class="collapse" id="snippet-rdf-work">
+				<div class="card card-body">
+					<pre><code>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/work/mtc-ad-familiares">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/WorkCollection"/>
+	&lt;rdfs:label>Ad familiares&lt;/rdfs:label>
+	&lt;owl:sameAs rdf:resource="http://viaf.org/viaf/187066890"/>
+	&lt;owl:sameAs rdf:resource="http://worldcat.org/entity/work/id/2261383546"/>
+	&lt;dcterms:creator rdf:resource="http://w3id.org/bufalinis-notebook/person/mtc"/>
+&lt;/rdf:Description>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/Book"/>
+	&lt;rdfs:label>Ad familiares&lt;/rdfs:label>
+	&lt;frbr:realizationOf rdf:resource="http://w3id.org/bufalinis-notebook/work/mtc-ad-familiares"/>
+	&lt;/rdf:Description>
+	&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares/volume-4">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/Expression"/>
+	&lt;rdfs:label>Ad familiares, 4&lt;/rdfs:label>
+	&lt;frbr:partOf rdf:resource="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares"/>
+&lt;/rdf:Description>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/work/mtc-ad-familiares/9">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/Work"/>
+	&lt;rdfs:label>Ad familiares, 9&lt;/rdfs:label>
+	&lt;frbr:partOf rdf:resource="http://w3id.org/bufalinis-notebook/work/mtc-ad-familiares"/>
+	&lt;dcterms:creator rdf:resource="http://w3id.org/bufalinis-notebook/person/mtc"/>
+&lt;/rdf:Description>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares/volume-4/9">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/Letter"/>
+	&lt;rdfs:label>Ad familiares, 4, 9&lt;/rdfs:label>
+	&lt;frbr:partOf rdf:resource="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares/volume-4"/>
+	&lt;frbr:realizationOf rdf:resource="http://w3id.org/bufalinis-notebook/work/mtc-ad-familiares/9"/>
+&lt;/rdf:Description>
+&lt;rdf:Description rdf:about="http://w3id.org/bufalinis-notebook/excerpt/bibl126">
+	&lt;rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
+	&lt;rdfs:label>Ad familiares, 4, 9&lt;/rdfs:label>
+	&lt;frbr:partOf rdf:resource="http://w3id.org/bufalinis-notebook/text/mtc-ad-familiares/volume-4/9"/>
+&lt;/rdf:Description>
+					</code></pre>
+				</div>
+				</div>
+				<!-- /snippet -->
+				</div>
+			</div>
+
+
+			<!-- Web application development -->
+			<div class="side-text-paragraph justify margin-bottom-30" id="doc-app" style="display: none;">
+				<!-- Web application general development -->
+				<div>
+					<h3 class="doc_dev_tra align_center" id="doc_web_app">Web application development</h3>
+					<p id="doc_web_app_1">Web application development is the last SSDE development stage which is based on the following resources:</p>
+					<ul>
+						<li id="doc_web_app_2"><span class="bold">XML/TEI document</span>, named <span class="bold">bufalini_quaderno.xml</span>.</li>
+						<li id="doc_web_app_3"><span class="bold">HTML document</span>, obtained from the XSL conversion, named <span class="bold">quaderno.html</span>.</li>
+						<li id="doc_web_app_4"><span class="bold">RDF/XML dataset</span>, named <span class="bold">quaderno_rdf.rdf</span>.</li>
+					</ul>
+					<p id="doc_web_app_5">The development of the SSDE Web application requires:</p>
+					<ul>
+						<li id="doc_web_app_6"><a href="https://webpy.org/" target="_blank" alt="web.py website">web.py</a> to develop a server-side Web application and manage the RDF data available on the triplestore.</li>
+						<li id="doc_web_app_7"><a href="https://blazegraph.com/" target="_blank" alt="blazegraph website">blazegraph</a> to store the dataset, including the aforementioned RDF document of the edition and the annotations included in bespoke named graphs.</li>
+					</ul>
+					<p id="doc_web_app_8">To load data on blazegraph, it is necessary to install the <a href="https://rdflib.readthedocs.io/en/stable/" target="_blank" alt="RDFLib website">rdflib</a> library, run <span class="bold">nquads.py</span> and load <span class="bold">rdf_dump/all.nq</span> on blazegraph.</p>
+					<p id="doc_web_app_9">On the client-side, the following frameworks and libraries have been reused:</p>
+					<p>
+						<ul>
+							<li id="doc_web_app_10"><a href="https://api.jquery.com/" target="_blank" alt="jQuery API documentation">jQuery 3.3.1</a>.</li>
+							<li id="doc_web_app_11"><a href="https://getbootstrap.com/docs/3.3/getting-started/" target="_blank" alt="Bootstrap 3.3.7 documentation">Bootstrap 3.3.7</a>.</li>
+							<li id="doc_web_app_12"><a href="https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use" target="_blank" alt="Fontawesome documentation">Fontawesome</a>.</li>
+						</ul>
+					</p>
+				</div>
+				<!-- Translation system -->
+				<div>
+					<h4 class="margin-bottom-0 margin-top-30 text_grey" id="doc_web_app_tra">Web pages translation</h4>
+					<p id="doc_web_app_tra_1">The texts of the Web application are bilingual, thanks to the JS library <a href="https://www.i18next.com/" target="_blank" alt="i18n documentation">i18n</a>.</p>
+					<p id="doc_web_app_tra_2">The library allows to assign class/ID to HTML elements to be translated, and the translation is stored in dedicated files, such as <span class="bold">Messages_en.properties</span> and <span class="bold">Messages_it.properties</span>.</p>
+					<p id="doc_web_app_tra_3">The file <span class="bold">notebook.js</span> reads the translations in the method <span class="bold">loadBundles()</span> and serves the client-side translation when clicking on the language buttons in the menu.</p>
+				</div>
+			</div>
+
+
+			<!-- Facets -->
+			<div class="side-text-paragraph justify margin-bottom-30" id="doc-facets" style="display: none;">
+				<!-- Facets intro -->
+				<div>
+					<h3 class="doc_facets_tra align_center" id="doc_fac">Facets for semantic queries</h3>
+					<p id="doc_fac_1"><span class="bold">Facets</span> are a client-side query tool completely developed in <a href="https://api.jquery.com/" target="_blank" alt="jQuery API documentation">jQuery</a> aimed at analysing the text of the edition from the point of view of its inter and intratextual relationships, as formalised in the SSDE back-end LOD dataset.</p>
+					<p id="doc_fac_2"><span class="bold">Facets</span> make available a set of checkboxes divided into categories reflecting the actual SSDE dataset organisation and structure. The categories are <span class="bold">People</span>, under which all the people mentioned in the notebook are collected; <span class="bold">People role</span>, through which it is possible to assign a specific role to a mentioned person between <span class="italic">Mentioned person</span> and <span class="italic">Author</span>; <span class="bold">Type of excerpts</span>, which identifies the notebook <span class="italic">comments</span>, <span class="italic">quotations</span> and <span class="italic">translations</span>; <span class="bold">Works</span>, which lists the works cited in the notebook.</p>
+					<p id="doc_fac_3">Three functions in <span class="bold">notebook.js</span> implement the functionalities of Facets: <span class="bold">editionFacets()</span> for managing the facets in the <span class="italic">Digital Edition</span> section, <span class="bold">peopleIndexFacets()</span> for managing the facets in the <span class="italic">People Semantic Index</span> section, and <span class="bold">worksIndexFacets()</span> for managing the facets in the <span class="italic">Works Semantic Index</span> section.</p>
+					<p id="doc_fac_4">These are based on the same algorithm adapted to the needs of each section. The basic algorithm works as follows.</p>
+				</div>
+				<!-- Facets input -->
+				<div>
+					<h4 class="margin-bottom-0 margin-top-30 text_grey">Input</h4>
+					<p id="fac_input">The algorithm takes as input the category assigned as a <code>@class</code> to each checkbox <code>&lt;input&gt;</code> element and its univocal <code>@id</code>.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-input-toggle" aria-expanded="false" aria-controls="facets-input-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #facets-input-toggle -->
+					<div class="collapse margin-top-15" id="facets-input-toggle">
+						<p id="fac_input_1">To assign each checkbox with a specific category it is necessary to set a univocal attribute for each category and assign it to the checkbox <code>&lt;input&gt;</code> element.</p>
+						<p id="fac_input_2">For instance, <code>@class="peopleCheck"</code> is assigned to distinguish <span class="italic">People category</span>. Developers may change the assigned categories and create new ones.</p>
+						<p id="fac_input_3">Each checkbox under each category is assigned also with an input value which works as a query parameter. To assign an input value it is necessary to set a univocal <code>@id</code> to assign to the checkbox <code>&lt;input&gt;</code> element. Only in the case of <span class="italic">People category</span>, the same attribute value is to be set in <code>@for</code> to assign to the checkbox <code>&lt;label&gt;</code> element.</p>
+						<p id="fac_input_4">In case of homonyms, a <code>-i</code> string, where <code>i=0</code> at the beginning of a cycle, may be added in advance to avoid malfunctioning.</p>
+						<p id="fac_input_5">An example is reported below where <code>@id="Mann"</code> and <code>@for="Mann"</code> are assigned to <span class="italic">Mann, Thomas (1875-1955)</span>.</p>
+						<!-- snippet -->
+						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-id" aria-expanded="false" aria-controls="snippet-facets-id">Snippet <span class="caret"></span></button>
+						<div class="collapse" id="snippet-facets-id">
+						<div class="card card-body">
+							<pre><code>
+&lt;input type="checkbox" class="peopleCheck" id="Mann"&gt;
+&lt;label for="Mann"&gt;Mann, Thomas (1875–1955)&lt;/label&gt;
+							</code></pre>
+						</div>
+						</div>
+						<!-- /snippet -->
+						<p class="margin-top-30" id="fac_input_6">The attribute values to set must have a correspondent in the attributes values assigned to the elements of the text on which to perform the queries, as further explained.</p>
+					</div>
+					<!-- / #facets-input-toggle -->
+				</div>
+				<!-- Facets processing -->
+				<div>
+					<h4 class="margin-bottom-0 margin-top-30 text_grey">Processing</h4>
+					<p id="fac_pro">On input change of the given checkboxes, the algorithm searches for an input value that matches the attributes values assigned to the elements of the reference text on which the query is performed. When the attributes in the reference text are not available, the algorithm search for occurrences of the input value in the text body.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-comment-toggle" aria-expanded="false" aria-controls="facets-comment-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #facets-input-toggle -->
+					<div class="collapse margin-top-15" id="facets-comment-toggle">
+						<p id="fac_pro_1">For instance, in the <span class="italic">Digital Edition</span> section, in the HTML file <span class="bold">quaderno.html</span>, which is uploaded on <span class="bold">index.html</span> by using an AJAX method, and on which the queries are performed, a <span class="italic">comment</span> entity is represented as follows. Specifically the attribute value <code>comment</code> is associated with <code>@data-type</code> in order to distinguish that particular excerpt as a comment.</p>
+						<!-- snippet -->
+						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-comment" aria-expanded="false" aria-controls="snippet-facets-comment">Snippet <span class="caret"></span></button>
+						<div class="collapse" id="snippet-facets-comment">
+						<div class="card card-body">
+							<pre><code>
+&lt;section class="note" data-type="comment" id="comm-002" data-corresp="#quot-001-1" data-resp="#PB"&gt;
+	&lt;p&gt;Gettare olio sulle acque torbide&lt;/p&gt;
+	&lt;p&gt;Gettare olio sulle acque burrascose&lt;/p&gt;
+	&lt;p&gt;Gettare olio sulle acque inasprite.&lt;/p&gt;
+	&lt;p&gt;E si adagiano anzi in placida lentezza&lt;/p&gt;
+&lt;/section&gt;
+							</code></pre>
+						</div>
+						</div>
+						<!-- /snippet -->
+						<p class="margin-top-30" id="fac_pro_2">The checkbox corresponding to <span class="italic">comment</span>, instead, is represented as follows. The attribute value <code>comment</code> is associated with <code>@id</code> in order to assign that specific input value to the input.</p>
+						<!-- snippet -->
+						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-input-label" aria-expanded="false" aria-controls="snippet-facets-input-label">Snippet <span class="caret"></span></button>
+						<div class="collapse" id="snippet-facets-input-label">
+						<div class="card card-body">
+							<pre><code>
+&lt;input type="checkbox" id="comment"&gt;
+&lt;label class="labelInline" id="comment_val"&gt;Comment&lt;/label&gt;
+							</code></pre>
+						</div>
+						</div>
+						<!-- /snippet -->
+						<p class="margin-top-30" id="fac_pro_3">By clicking on the checkbox corresponding to <span class="italic">comment</span>, the algorithm takes as input the checkbox assigned ID corresponding to <span class="italic">comment</span> and searches for it in <code>@data-type</code> attribute values in <span class="bold">quaderno.html</span>.</p>
+					</div>
+				</div>
+				<!-- Facets output -->
+				<div>
+					<h4 class="margin-bottom-0 margin-top-30 text_grey">Output</h4>
+					<p id="fac_out">Depending on the Web application section, a specific output is returned.</p>
+					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-output-toggle" aria-expanded="false" aria-controls="facets-output-toggle" alt="Read more">Read more <span class="caret"></span></a>
+					<!-- #facets-input-toggle -->
+					<div class="collapse margin-top-15" id="facets-output-toggle">
+						<p class="sec_de"><span class="bold">Digital Edition</span>.</p>
+						<p id="fac_out_1">In the <span class="italic">Digital Edition</span>, when an input value is matched, a specific CSS class which applies the property <code>background-color</code> is added to the HTML DOM element object which contains the input value occurrence in its attributes or in its content.</p>
+						<p class="sec_si"><span class="bold">Semantic Indexes</span>.</p>
+						<p id="fac_out_2">In <span class="italic">Semantic Indexes</span>, when an input value is matched, the matched HTML DOM element object is displayed by using jQuery <code>.show()</code> method. On the contrary, the DOM element objects which are not matched are hidden by using jQuery <code>.hide()</code> method.</p>
+					</div>
+				</div>
+				<!-- Facets final explanation -->
+				<div class="margin-top-30">
+					<p id="fac_fin_1">As explained, the algorithm is completely based on the matching between the attributes values assigned both to the inputs and to the reference corpus HTML DOM elements.</p>
+					<p id="fac_fin_2">It is worth noting that the <span class="italic">Semantic Indexes</span> Facets engine behaviour is completely different from the <span class="italic">Digital Edition</span> one. In the <span class="italic">Semantic Indexes</span> Facets engine any input value affects the behavior of any other input value, performing filtering operations on the index. Consequently, every set parameter added in users’ query completely modifies the results obtained from the previous query results. On the contrary, in the <span class="italic">Digital Edition</span> section input values do not affect each other. This implies that the sum of the results of every input are returned, without filtering operations.</p>
+				</div>
+			</div>
+
+
+			<!-- Data visualisation -->
+			<div class="side-text-paragraph justify margin-bottom-30" id="doc-datavis" style="display: none;">
+				<!-- Facets intro -->
+				<div>
+					<h3 class="doc_datavis_tra align_center">Data Visualisation charts</h3>
+					<p id="datavis_1">Different tools are used to develop Data Visualization charts:</p>
+					<p>
+						<ul>
+							<li><span class="bold">Treemap</span> - <a href="https://developers.google.com/chart" target="_blank" alt="Google Charts website">Google Charts</a>.</li>
+							<li><span class="bold sets_name">Sets</span> - <a href="https://www.zingchart.com/" target="_blank" alt="ZingChart website">ZingChart</a>.</li>
+							<li><span class="bold graph_name">Graph</span> - <a href="https://www.amcharts.com/" target="_blank" alt="amCharts website">amCharts</a>.</li>
+							<li><span class="bold play_name">Play with data</span> - <a href="https://www.amcharts.com/" target="_blank" alt="amCharts website">amCharts</a>.</li>
+						</ul>
+					</p>
+					<p id="datavis_2">All the charts are JavaScript charts based on a JSON data structure. Each required JSON has specific structural features depending on the type of Data Visualisation chart. Since the available data are stored in an RDF/XML data structure, it is fundamental to correctly select the data necessary to the visualisation and convert them from RDF/XML into JSON format.</p>
+					<p id="datavis_3">To check the required JSON data structure features of each Data Visualisation chart, you are invited to consult the official documentation of each framework reported below:</p>
+					<p>
+						<ul>
+							<li><span class="bold">Treemap</span> - Google Charts: <a href="https://developers.google.com/chart/interactive/docs/gallery/treemap" target="_blank" alt="Google Charts Treemap documentation">https://developers.google.com/chart/interactive/docs/gallery/treemap</a>.</li>
+							<li><span class="bold sets_name">Sets</span> - ZingChart: <a href=" https://www.zingchart.com/docs/chart-types/bubble-pack" target="_blank" alt="ZingChart Sets documentation"> https://www.zingchart.com/docs/chart-types/bubble-pack</a>.</li>
+							<li><span class="bold graph_name">Graph</span> - amCharts: <a href="https://www.amcharts.com/docs/v4/chart-types/force-directed/" target="_blank" alt="amCharts Graph documentation">https://www.amcharts.com/docs/v4/chart-types/force-directed/</a>.</li>
+							<li><span class="bold play_name">Play with data</span> - <a href="https://www.amcharts.com/docs/v4/chart-types/force-directed/" target="_blank" alt="amCharts Play with data documentation">https://www.amcharts.com/docs/v4/chart-types/force-directed/</a>.</li>
+						</ul>
+					</p>
+					<p id="data_ex">To check Data Visualisation charts in <span class="italic">Paolo Bufalini&#39;s notebook</span> web application, it is possible to check the following web application sections:</p>
+					<p>
+						<span class="bold" id="data_ex_people">People Semantic Index</span>
+						<ul>
+							<li><span class="bold"><a onclick="window.location = '/treemapPeople'" id="data_ex_treemap_people">Treemap mode section</a></span>.</li>
+							<li><span class="bold"><a onclick="window.location = '/setsPeople'" id="data_ex_sets_people">Sets mode section</a></span>.</li>
+							<li><span class="bold"><a onclick="window.location = '/graphPeople'" id="data_ex_graph_people">Graph mode section</a></span>.</li>
+							<li><span class="bold"><a onclick="window.location = '/playWithPeople'" id="data_ex_play_people">Play with data mode section</a></span>.</li>
+						</ul>
+					</p>
+					<p>
+						<span class="bold" id="data_ex_works">Works Semantic Index</span>
+						<ul>
+							<li><span class="bold"><a onclick="window.location = '/treemapWorks'" id="data_ex_treemap_works">Treemap mode section</a></span>.</li>
+							<li><span class="bold"><a onclick="window.location = '/setsWorks'" id="data_ex_sets_works">Sets mode section</a></span>.</li>
+							<li><span class="bold"><a onclick="window.location = '/playWithWorks'" id="data_ex_play_works">Play with data mode section</a></span>.</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+<div class="container-fluid background_red">
+  <div class="container footer">
+    <div class="row">
+      <div class="col-md-5 col-sm-6 justify">
+        <h4 class="text_light" id="footer_title_1"></h4>
+        <p class="text_light footer_text"><a href="/sparql" target="_black" class="link_footer">SPARQL endpoint</a></p>
+        <p class="text_light footer_text"><a href="/downloadDataset" target="_blank" class="link_footer" id="footer_download"></a></p>
+      </br>
+        <p class="text_light footer_text"><a href="/specifications" target="_blank" class="link_footer" id="footer_documentation_1"></a></p>
+        <p class="text_light footer_text"><a href="/webApplication" target="_blank" class="link_footer" id="footer_web_app"></a></p>
+        <!--<p class="text_light footer_text"><a href="/publications" target="_blank" class="link_footer" id="footer_pub"></a></p>-->
+      </br>
+        <p class="text_light footer_text"><a href="/credits" target="_blank" class="link_footer">Credits</a></p>
+        <p class="text_light footer_text"><a href="/licences" target="_blank" class="link_footer" id="footer_licences"></a></p>
+      </div>
+      <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
+        <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
+        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en" target="_black" alt="Dharc website" class="link_footer">About</a></p>
+        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/research/projects-at-dh-arc" target="_black" alt="Dharc website" class="link_footer" id="dharc_projects_documentation"></a></p>
+        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/contacts" target="_black" alt="Dharc website" class="link_footer" id="footer_contacts"></a></p>
+      </br>
+        <img src="static/img-web-app/dharc_logo.png" class="img-xs" id="logo_dharc">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid background_red_light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 justify">
+        <p class="align_center footer_copyright text_light">© Copyright (c) 2020 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
+      </div>
+    </div>
+  </div>
+</div>

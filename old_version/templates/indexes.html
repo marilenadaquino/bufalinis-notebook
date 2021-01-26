@@ -1,0 +1,77 @@
+$def with (citedPeopleList, relationsList)
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link" id="people_tab" data-toggle="tab" href="#people" role="tab" aria-controls="people" aria-selected="true">persone</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="quotations_tab2" data-toggle="tab" href="#quotations" role="tab" aria-controls="quotations" aria-selected="false">citazioni</a>
+	  </li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="people_tab">
+	  	<section id="listPeople">
+	  		$ emptyPeople = set()
+	  		$ directRelations = {'citesAsRelated': 'richiama', 'agreesWith': 'concorda con', 'disagreesWith': 'in disaccordo', 'likes': 'apprezza'}
+	  		$ inverseRelations = {'citesAsRelated': 'richiamato da', 'agreesWith': 'concorda con', 'disagreesWith': 'in disaccordo', 'likes': 'apprezzato da'}
+	  		$for citedPerson in citedPeopleList['results']['bindings']:
+	  			$ person = citedPerson['s']['value']
+	  			$if person not in emptyPeople:
+	  				$ authorSet = set()
+	  				$ emptyExcerpt = set()
+	  				$ emptyPeople.add(person)
+					<section class="citedPerson col-md-12" data-work=$citedPerson['person']['value'][0]>
+						<section class="workIcon col-md-12">
+							<section class="workInfo col-md-8">
+								<h3 class="col-md-12" data-uri=$person>$citedPerson['person']['value']</h3>
+								$if 'externalURI' in citedPerson.keys():
+									<ul>
+										<li class="externalLinkLi">
+											<i class="fas fa-external-link-alt"></i>
+											<a href=$citedPerson['externalURI']['value']>
+												$if 'dbpedia' in citedPerson['externalURI']['value']:
+													<span>dbpedia</span>
+												$elif 'viaf' in citedPerson['externalURI']['value']:
+													<span>viaf</span>
+											</a>
+										</li>
+									</ul>
+									
+									$for relation in relationsList['results']['bindings']:
+										$if person == relation['active']['value']:
+											$if relation['relation']['value'].rsplit('/',1)[-1] in directRelations:
+												<h4 class="col-md-4">$directRelations[relation['relation']['value'].rsplit('/',1)[-1]]</h4>
+											<section class="citing-entity">$relation['passiveLabel']['value']</section>
+											<p class="col-md-12 influence"><i>$relation['influenceLabel']['value']</i></p>
+											<section class="quotRef"><a href=./excerpt/$relation['excerpt']['value'].rsplit('/',1)[-1] class="quotID">$relation['excerpt']['value'].rsplit('/',1)[-1]</a></section>
+										$elif person == relation['passive']['value']:
+											$if relation['relation']['value'].rsplit('/',1)[-1] in inverseRelations:
+												<h4 class="col-md-4">$inverseRelations[relation['relation']['value'].rsplit('/',1)[-1]]</h4>
+											<section class="citing-entity">$relation['activeLabel']['value']</section>
+											<p class="col-md-12 influence"><i>$relation['influenceLabel']['value']</i></p>
+											<section class="quotRef"><a href=./excerpt/$relation['excerpt']['value'].rsplit('/',1)[-1] class="quotID">$relation['excerpt']['value'].rsplit('/',1)[-1]</a></section>
+								
+								<h4 class="col-md-4" id="cited_by">citato da</h4>
+							</section>
+						</section>
+						
+					</section>	
+				$if person == citedPerson['s']['value']:
+					$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
+						$authorSet.add(citedPerson['realizerLabel']['value'])
+						<section class="col-md-3 citing-entity">$citedPerson['realizerLabel']['value']</section>
+					$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
+						$authorSet.add(citedPerson['authorLabel']['value'])
+						<section class="col-md-3 citing-entity">$citedPerson['authorLabel']['value']</section>
+					$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
+	  					$emptyExcerpt.add(citedPerson['body']['value'])
+						<section class="quotRef"><a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] class="quotID">$citedPerson['body']['value'].rsplit('/',1)[-1]</a></section>
+					
+
+	  	</section>
+	  </div>
+	  <div class="tab-pane fade" id="quotations" role="tabpanel" aria-labelledby="quotations-tab">
+	  	coming soon
+	  </div>
+	</div>			
+
+			

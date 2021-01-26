@@ -1,0 +1,235 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+                <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
+                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+            <ul class="nav nav-pills tab-works">
+                <li role="presentation"><a href="./library" id="people_list">List</a></li>
+                <li role="presentation" class="filters_category_title active"><a href="#" id="people_treemap">Treemap</a></li>
+                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseTreemap" role="button" aria-expanded="false" aria-controls="collapseTreemap"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+                <li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
+                <li role="presentation"><a class="no-active-tab">|</a></li>
+				<li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
+            </ul>
+        </div>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="collapse" id="collapseTreemap">
+                    <h3 class="text_black" id="explain_treemap_works_h3">Treemap</h3>
+                    <p class="justify text_grey" id="explain_treemap_works_p">In the chart below each <span class="bold">block</span> corresponds to an <span class="bold">author cited</span> in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each author is cited. By hovering on each block corresponding to an author, the <span class="bold">number of excerpts from works by the author</span> is displayed. By clicking on the same block, a series of <span class="bold">sub-blocks</span> are displayed, each of which corresponds to a <span class="bold">work cited</span> in the notebook. Also in this case the colors and dimensions of the blocks represent in a proportional way the frequency with which each work is cited. By hovering on each of them, you get the <span class="bold">number of excerpts from that specific work cited in the notebook</span>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chart_div"></div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['treemap']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Work title', 'Author', 'Number of excerpts', 'Number of excerpts for color'],
+          ['All cited works divided per author', null, 224, 224],
+          // authors
+          ['Albini, Giuseppe (1863–1933), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 'All cited works divided per author', 3, 3],
+          ['Alfieri, Vittorio (1749–1803)', 'All cited works divided per author', 1, 1],
+          ['Alighieri, Dante (1265–1321)', 'All cited works divided per author', 14, 14],
+          ['Arzeni, Bruno (1905–1954), Mann, Thomas (1875–1955)', 'All cited works divided per author', 11, 11],
+          ['Belli, Giuseppe Gioachino (1791–1863)', 'All cited works divided per author', 4, 4],
+          ['Bonfante, Pietro (1864–1932)', 'All cited works divided per author', 2, 2],
+          ['Bruno, Giordano (1548–1600)', 'All cited works divided per author', 1, 1],
+          ['Calzecchi Onesti, Rosa (1916–2011), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 'All cited works divided per author', 1, 1],
+          ['Campana, Dino (1885–1932)', 'All cited works divided per author', 2, 2],
+          ['Campanella, Tommaso (1568–1639)', 'All cited works divided per author', 10, 10],
+          ['Carducci, Giosuè (1835–1907)', 'All cited works divided per author', 6, 6],
+          ['Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)', 'All cited works divided per author', 1, 1],
+          ['Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 'All cited works divided per author', 4, 4],
+          ['Craig, Gordon Alexander (1913–2005)', 'All cited works divided per author', 1, 1],
+          ['Croce, Benedetto (1866–1952)', 'All cited works divided per author', 5, 5],
+          ['Dandolo, Tullio (1801–1870), Ripamonti, Giuseppe (1577–1643)', 'All cited works divided per author', 1, 1],
+          ['Ennio, Quinto (240–170 a.C.)', 'All cited works divided per author', 2, 2],
+          ['Fertonani, Roberto (1925–2000), Mann, Thomas (1875–1955)', 'All cited works divided per author', 2, 2],
+          ['Flaubert, Gustave (1821–1880)', 'All cited works divided per author', 4, 4],
+          ['Giovenale, Decimo Giunio (ca. 60–140)', 'All cited works divided per author', 1, 1],
+          ['Giussani, Camillo (1879–1960), Tacito, Publio Cornelio (ca. 55–120)', 'All cited works divided per author', 4, 4],
+          ['Giusti, Giuseppe (1809–1850)', 'All cited works divided per author', 1, 1],
+          ["Giustiniano I, imperatore d'Oriente (482–565)", 'All cited works divided per author', 3, 3],
+          ['Gèllio, Aulo (125–180)', 'All cited works divided per author', 1, 1],
+          ['Hegel, Georg Wilhelm Friedrich (1770–1831)', 'All cited works divided per author', 2, 2],
+          ['Horst, Eberhard (1924–2012)', 'All cited works divided per author', 5, 5],
+          ['Lucrezio Caro, Tito (97–55 a.C)', 'All cited works divided per author', 4, 4],
+          ['Macchia, Giovanni (1912–2001)', 'All cited works divided per author', 1, 1],
+          ['Maitan, Livio (1923–2004)', 'All cited works divided per author', 1, 1],
+          ['Mann, Thomas (1875–1955)', 'All cited works divided per author', 10, 10],
+          ['Manzoni, Alessandro (1785–1873)', 'All cited works divided per author', 35, 35],
+          ['Martini, Antonio, arciv. di Firenze (1720–1809)', 'All cited works divided per author', 2, 2],
+          ['Marziale, Marco Valerio (ca. 40–101)', 'All cited works divided per author', 6, 6],
+          ['Maupassant, Guy de (1850–1893)', 'All cited works divided per author', 2, 2],
+          ['Mazzucchetti, Lavinia (1889–1965), Arzeni, Bruno (1905–1954), Mann, Thomas (1875–1955)', 'All cited works divided per author', 2, 2],
+          ['Nevio, Gneo (ca. 264 a.C.–201 a.C.)', 'All cited works divided per author', 1, 1],
+          ['Nietzsche, Friedrich Wilhelm (1844–1900)', 'All cited works divided per author', 3, 3],
+          ['Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 'All cited works divided per author', 11, 11],
+          ['Parrella, Pietro (), Lucrezio Caro, Tito (97–55 a.C)', 'All cited works divided per author', 1, 1],
+          ['Petrarca, Francesco (1304–1374)', 'All cited works divided per author', 14, 14],
+          ['Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)', 'All cited works divided per author', 1, 1],
+          ['Pontano, Giovanni (1426–1503)', 'All cited works divided per author', 1, 1],
+          ['Quintiliano, Marco Fabio (ca. 35–96)', 'All cited works divided per author', 1, 1],
+          ['Ripamonti, Giuseppe (1577–1643)', 'All cited works divided per author', 1, 1],
+          ['Romagnoli, Alberto (), Nietzsche, Friedrich Wilhelm (1844–1900)', 'All cited works divided per author', 3, 3],
+          ['Romano, Sergio (1929–)', 'All cited works divided per author', 1, 1],
+          ['Saggio, Carlo (?), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 'All cited works divided per author', 1, 1],
+          ['San Girolamo (347–420)', 'All cited works divided per author', 1, 1],
+          ['Seneca, Lucio Anneo (4 a.C.–65)', 'All cited works divided per author', 6, 6],
+          ['Shakespeare, William (1564–1616)', 'All cited works divided per author', 7, 7],
+          ['Svetonio Tranquillo, Caio (sec. I–II)', 'All cited works divided per author', 1, 1],
+          ['Tacito, Publio Cornelio (ca. 55–120)', 'All cited works divided per author', 10, 10],
+          ['Thiers, Adolphe (1797–1877)', 'All cited works divided per author', 1, 1],
+          ['Tocqueville, Alexis de (1805–1859)', 'All cited works divided per author', 1, 1],
+          ['Tolstoj, Lev Nikolaevič (1828–1910)', 'All cited works divided per author', 1, 1],
+          ['Tommaseo, Niccolò (1802–1874)', 'All cited works divided per author', 2, 2],
+          ['Unknown', 'All cited works divided per author', 1, 1],
+          ['Virgilio Marone, Publio (70 a.C.–19 a.C.)', 'All cited works divided per author', 6, 6],
+          ['Yourcenar, Marguerite (1903–1987)', 'All cited works divided per author', 5, 5],
+          // works
+          ['Inni sacri', 'Manzoni, Alessandro (1785–1873)', 24, 24],
+          ['La Divina Commedia', 'Alighieri, Dante (1265–1321)', 14, 14],
+          ['Canzoniere', 'Petrarca, Francesco (1304–1374)', 12, 12],
+          ['Saggi. Schopenhauer, Nietzche, Freud', 'Arzeni, Bruno (1905–1954), Mann, Thomas (1875–1955)', 11, 11],
+          ['Poesie filosofiche', 'Campanella, Tommaso (1568–1639)', 10, 10],
+          ['Annales', 'Tacito, Publio Cornelio (ca. 55–120)', 9, 9],
+          ['La Monaca di Monza', 'Manzoni, Alessandro (1785–1873)', 9, 9],
+          ['Eneide', 'Virgilio Marone, Publio (70 a.C.–19 a.C.)', 6, 6],
+          ['Epigrammi', 'Marziale, Marco Valerio (ca. 40–101)', 6, 6],
+          ['Cesare', 'Horst, Eberhard (1924–2012)', 5, 5],
+          ['Ars poetica', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 4, 4],
+          ['Carmina', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 4, 4],
+          ['De Rerum Natura', 'Lucrezio Caro, Tito (97–55 a.C)', 4, 4],
+          ['De clementia', 'Seneca, Lucio Anneo (4 a.C.–65)', 4, 4],
+          ['Disordine e dolore precoce', 'Mann, Thomas (1875–1955)', 4, 4],
+          ['Sonetti romaneschi', 'Belli, Giuseppe Gioachino (1791–1863)', 4, 4],
+          ['Eneide. A cura di Albini, Giuseppe (1863–1933)', 'Albini, Giuseppe (1863–1933), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 3, 3],
+          ['Gli annali. A cura di Giussani, Camillo (1879–1960)', 'Giussani, Camillo (1879–1960), Tacito, Publio Cornelio (ca. 55–120)', 3, 3],
+          ['Institutionem Iustiniani', "Giustiniano I, imperatore d'Oriente (482–565)", 3, 3],
+          ['La montagna incantata', 'Mann, Thomas (1875–1955)', 3, 3],
+          ['Madame Bovary', 'Flaubert, Gustave (1821–1880)', 3, 3],
+          ["Mémoires d'Hadrien", 'Yourcenar, Marguerite (1903–1987)', 3, 3],
+          ['Opere. A cura di A. Romagnoli', 'Romagnoli, Alberto (), Nietzsche, Friedrich Wilhelm (1844–1900)', 3, 3],
+          ['Scritti su Wagner', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 3, 3],
+          ['Sonnets', 'Shakespeare, William (1564–1616)', 3, 3],
+          ['Annales, Ennio, Quinto (240–170 a.C.)', 'Ennio, Quinto (240–170 a.C.)', 2, 2],
+          ['De Officiis', 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 2, 2],
+          ['I Promessi Sposi', 'Manzoni, Alessandro (1785–1873)', 2, 2],
+          ['Inediti', 'Campana, Dino (1885–1932)', 2, 2],
+          ['Istituzioni di diritto Romano', 'Bonfante, Pietro (1864–1932)', 2, 2],
+          ['King Lear', 'Shakespeare, William (1564–1616)', 2, 2],
+          ['La Sacra Biblia secondo la volgata', 'Martini, Antonio, arciv. di Firenze (1720–1809)', 2, 2],
+          ['La filosofia di Nietzsche alla luce della nostra esperienza', 'Mann, Thomas (1875–1955)', 2, 2],
+          ['Lettere a Lucilio', 'Seneca, Lucio Anneo (4 a.C.–65)', 2, 2],
+          ['Memorie di Adriano', 'Yourcenar, Marguerite (1903–1987)', 2, 2],
+          ['Odi Barbare', 'Carducci, Giosuè (1835–1907)', 2, 2],
+          ['Rime Nuove', 'Carducci, Giosuè (1835–1907)', 2, 2],
+          ['Saggi, Introduzione', 'Fertonani, Roberto (1925–2000), Mann, Thomas (1875–1955)', 2, 2],
+          ['Storie e leggende napoletane', 'Croce, Benedetto (1866–1952)', 2, 2],
+          ['Studi critici', 'Tommaseo, Niccolò (1802–1874)', 2, 2],
+          ['Unknown, Maupassant, Guy de (1850–1893)', 'Maupassant, Guy de (1850–1893)', 2, 2],
+          ['A proposito di alcuni giudizi su Alessandro Manzoni', 'Carducci, Giosuè (1835–1907)', 1, 1],
+          ['Ad familiares', 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 1, 1],
+          ['Africa', 'Petrarca, Francesco (1304–1374)', 1, 1],
+          ['Amleto', 'Shakespeare, William (1564–1616)', 1, 1],
+          ['Anna Karenina', 'Tolstoj, Lev Nikolaevič (1828–1910)', 1, 1],
+          ['Biblia Sacra Vulgata', 'San Girolamo (347–420)', 1, 1],
+          ['Correspondance', 'Flaubert, Gustave (1821–1880)', 1, 1],
+          ['Corriere della Sera, Romano, Sergio (1929–)', 'Romano, Sergio (1929–)', 1, 1],
+          ['Corriere della Sera, Macchia, Giovanni (1912–2001)', 'Macchia, Giovanni (1912–2001)', 1, 1],
+          ['De Rerum Natura. A cura di Parrella, Pietro ()', 'Parrella, Pietro (), Lucrezio Caro, Tito (97–55 a.C)', 1, 1],
+          ['De laudibus divinis', 'Pontano, Giovanni (1426–1503)', 1, 1],
+          ['De vita caesarum', 'Svetonio Tranquillo, Caio (sec. I–II)', 1, 1],
+          ['Dell inno "La Risurrezione" in A. Manzoni e in S. Paolino d Aquileja', 'Carducci, Giosuè (1835–1907)', 1, 1],
+          ['Enciclopedia delle scienze filosofiche in compendio, Introduzione', 'Hegel, Georg Wilhelm Friedrich (1770–1831)', 1, 1],
+          ['Eneide. A cura di Carlo (?)', 'Saggio, Carlo (?), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 1, 1],
+          ['Eneide. A cura di Calzecchi Onesti, Rosa (1916–2011)', 'Calzecchi Onesti, Rosa (1916–2011), Virgilio Marone, Publio (70 a.C.–19 a.C.)', 1, 1],
+          ['Epigrammi, Giusti, Giuseppe (1809–1850)', 'Giusti, Giuseppe (1809–1850)', 1, 1],
+          ['Epistualae', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 1, 1],
+          ['Epodi', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 1, 1],
+          ['Germania, 1866-1945', 'Craig, Gordon Alexander (1913–2005)', 1, 1],
+          ['Gli eroici furori', 'Bruno, Giordano (1548–1600)', 1, 1],
+          ['Hamlet', 'Shakespeare, William (1564–1616)', 1, 1],
+          ['Historiarum patriae', 'Dandolo, Tullio (1801–1870), Ripamonti, Giuseppe (1577–1643)', 1, 1],
+          ['Historiarum patriae, Ripamonti, Giuseppe (1577–1643)', 'Ripamonti, Giuseppe (1577–1643)', 1, 1],
+          ['Institutiones', 'Quintiliano, Marco Fabio (ca. 35–96)', 1, 1],
+          ["L'ancien régime et la Révolution", 'Tocqueville, Alexis de (1805–1859)', 1, 1],
+          ['La genesi del Doctor Faustus', 'Mann, Thomas (1875–1955)', 1, 1],
+          ['Le Storie. A cura di Giussani, Camillo (1879–1960)', 'Giussani, Camillo (1879–1960), Tacito, Publio Cornelio (ca. 55–120)', 1, 1],
+          ['Le Storie', 'Tacito, Publio Cornelio (ca. 55–120)', 1, 1],
+          ['Mirra', 'Alfieri, Vittorio (1749–1803)', 1, 1],
+          ['Noctes Atticae', 'Gèllio, Aulo (125–180)', 1, 1],
+          ['Palliatae', 'Nevio, Gneo (ca. 264 a.C.–201 a.C.)', 1, 1],
+          ['Panegyricus', 'Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)', 1, 1],
+          ['Poesie', 'Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)', 1, 1],
+          ['Re Torrismondo', 'Unknown', 1, 1],
+          ['Rime', 'Petrarca, Francesco (1304–1374)', 1, 1],
+          ['Satire', 'Giovenale, Decimo Giunio (ca. 60–140)', 1, 1],
+          ['Satire, Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 1, 1],
+          ['Scienza della logica', 'Hegel, Georg Wilhelm Friedrich (1770–1831)', 1, 1],
+          ["Storia d'Italia dal 1871 al 1915", 'Croce, Benedetto (1866–1952)', 1, 1],
+          ['Storia della Rivoluzione Francese', 'Thiers, Adolphe (1797–1877)', 1, 1],
+          ['Targa Vistarini', 'Unknown', 1, 1],
+          ['Tusculanae Quaestiones', 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 1, 1],
+          ['Tutte le opere', 'Mazzucchetti, Lavinia (1889–1965), Arzeni, Bruno (1905–1954), Mann, Thomas (1875–1955)', 1, 1],
+          ['Unkwnown', 'Maitan, Livio (1923–2004)', 1, 1],
+          ['lettera a De Sarlo', 'Croce, Benedetto (1866–1952)', 1, 1],
+          ["lettera ad Alessandro D'Ancona, in morte della figlia", 'Croce, Benedetto (1866–1952)', 1, 1],
+          ['La rôtisserie de la reine Pédaugne', 'Unknown', 0, 1],
+          ['Rime, Unknown', 'Unknown', 0, 1],
+          ['Tutte le opere Doctor Faustus: la vita del compositore tedesco Adrian Leverkühn narrata da un amico; [traduzione di Ervino Pocar], Introduzione.', 'Unknown', 0, 1]        
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+
+    var options = {
+        highlightOnMouseOver: true,
+        minColor: '#FFE6E6',
+        midColor: '#FF8080',
+        maxColor: '#E86130',
+        headerColor: '#FEFEFE',
+        headerHeight: 50,
+        fontColor: '#0D0D0D',
+        fontFamily: 'open sans, sans-serif',
+        fontSize: '16',
+        showScale: false,
+        generateTooltip: showFullTooltip,
+        useWeightedAverageForAggregation: true,
+        forceIFrame: true
+    };
+
+tree.draw(data, options);
+
+    function showFullTooltip(row, size, value) {
+        return '<div style="background-color: #ffffff; border: 0px solid; border-radius: 43px; padding: 30px 70px; box-shadow: 0px 5px 40px -10px rgba(38, 44, 52, 0.4);">' 
+
+                    + '<span style="font-family: open sans,sans-serif; font-size: 20px; font-weight: 600; letter-spacing: 1px;">' + data.getValue(row, 0) + '</span><br>'
+                    
+                    + '<span style="color: #404040; font-family: open-sans, sans-serif; font-size: 17px; font-weight: 200; letter-spacing: 1px;">Number of excerpts: </span>' + "<span style='color: #0d0d0d; font-family: open sans, sans-serif; font-size: 16px; font-weight: 600; line-height: 25px;  margin-bottom: 15px; padding-left: 0px;'>" + data.getValue(row, 2) + "</span><br>" 
+                                    
+                + "</div>"
+    }
+
+}
+</script>

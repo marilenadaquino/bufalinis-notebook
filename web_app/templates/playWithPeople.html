@@ -1,0 +1,481 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 align_center">
+              <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
+              <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+          <ul class="nav nav-pills">
+              <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+              <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
+              <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
+              <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
+              <li role="presentation"><a class="no-active-tab">|</a></li>
+              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>
+              <li role="presentation"><a class="info-vis padding-21" data-toggle="collapse" href="#collapsePlay" role="button" aria-expanded="false" aria-controls="collapsePlay"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+          </ul>
+        </div>
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="collapse" id="collapsePlay">
+              <h3 class="text_black" id="explain_play_people_h3">Play with data</h3>
+              <p class="justify text_grey" id="explain_play_people_p">The chart below is designed as an environment in which users can <span class="bold"> explore the data in a funny way and discover new relationships between them</span>.<br>Each <span class="bold">person who mentions other people</span> is represented as a <span class="bold">circle with a white margin</span>, while <span class="bold">people who are mentioned</span> from that same person as <span class="bold">smaller circles with no margin</span>. By hovering on each circle, the name of the person associated with the circle and the number of excerpts in which she is cited are displayed.<br>The size of the circles is proportional to the number of extracts in which the person is mentioned.<br>People who are mentioned can be mentioned by several people at the same time. By exploring the chart, the user can search for <span class="bold">how many nodes are repeated</span>, discovering who mentions the person searched.<br>To facilitate the search, each node with a margin can be opened and closed. By closing all the nodes, whe user will find out who are all the people who mention other people in the notebook.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+
+// Themes begin
+am4core.useTheme(am4themes_frozen);
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+
+var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+networkSeries.dataFields.linkWith = "linkWith";
+networkSeries.dataFields.name = "name";
+networkSeries.dataFields.id = "name";
+networkSeries.dataFields.value = "value";
+networkSeries.dataFields.children = "children";
+
+networkSeries.nodes.template.label.text = "{name}"
+networkSeries.fontSize = 8;
+networkSeries.linkWithStrength = 0;
+
+var nodeTemplate = networkSeries.nodes.template;
+nodeTemplate.tooltipText = "{name}";
+nodeTemplate.fillOpacity = 1;
+nodeTemplate.label.hideOversized = true;
+nodeTemplate.label.truncate = true;
+
+var linkTemplate = networkSeries.links.template;
+linkTemplate.strokeWidth = 1;
+var linkHoverState = linkTemplate.states.create("hover");
+linkHoverState.properties.strokeOpacity = 1;
+linkHoverState.properties.strokeWidth = 2;
+
+nodeTemplate.events.on("over", function (event) {
+    var dataItem = event.target.dataItem;
+    dataItem.childLinks.each(function (link) {
+        link.isHover = true;
+    })
+})
+
+nodeTemplate.events.on("out", function (event) {
+    var dataItem = event.target.dataItem;
+    dataItem.childLinks.each(function (link) {
+        link.isHover = false;
+    })
+})
+
+  
+  networkSeries.data = [{
+    name: 'Bufalini, Paolo (1915–2001)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Arzeni, Bruno (1905–1954)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Belli, Giuseppe Gioachino (1791–1863)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Berlinguer, Enrico (1922–1985)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Briganti, Giuliano (1918–1992)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Campanella, Tommaso (1568–1639)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Carducci, Giosuè (1835–1907)', work: 'Il quaderno di Paolo Bufalini', value: 4
+    }, {
+      name: 'Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Cesare, Gaio Giulio (100 a.C.–44 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'De Sarlo, Francesco (1864–1937)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Fertonani, Roberto (1925–2000)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Fidia (ca. 500–430)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Flaubert, Gustave (1821–1880)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Garin, Eugenio (1909–2004)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Gesù, di Nazaret (4 a.C.–29)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Gorbačev, Michail Sergeevič (1931–)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Guttuso, Renato (1911–1987)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Gèllio, Aulo (125–180)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Hegel, Georg Wilhelm Friedrich (1770–1831)', work: 'Il quaderno di Paolo Bufalini', value: 3
+    }, {
+      name: 'Iseo, retore (ca. 420 a.C.–350 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Labriola, Antonio (1843–1904)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Leopardi, Giacomo (1798–1837)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Lucrezio Caro, Tito (97–55 a.C)', work: 'Il quaderno di Paolo Bufalini', value: 3
+    }, {
+      name: 'Mann, Thomas (1875–1955)', work: 'Il quaderno di Paolo Bufalini', value: 3
+    }, {
+      name: 'Manzoni, Alessandro (1785–1873)', work: 'Il quaderno di Paolo Bufalini', value: 12
+    }, {
+      name: 'Marri, Germano (1932–)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Marx, Karl (1818–1883)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Memmio, Gaio (ca. 99 a.C.–46 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Nerone, Claudio Cesare, imperatore romano (37–68)', work: 'Il quaderno di Paolo Bufalini', value: 3
+    }, {
+      name: 'Nevio, Gneo (ca. 264 a.C.–201 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Petroselli, Luigi (1932–1981)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Pontano, Giovanni (1426–1503)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Schopenhauer, Arthur (1788–1860)', work: 'Il quaderno di Paolo Bufalini', value: 4
+    }, {
+      name: 'Scipione, Publio Cornelio (235 a.C.–183 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Socrate (ca. 469 a.C.–399 a.C.)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Stendhal, pseud. (1783–1842)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Tacito, Publio Cornelio (ca. 55–120)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', work: 'Il quaderno di Paolo Bufalini', value: 3
+    }, {
+      name: 'Tocqueville, Alexis de (1805–1859)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Tommaseo, Niccolò (1802–1874)', work: 'Il quaderno di Paolo Bufalini', value: 2
+    }, {
+      name: 'Vico, Giambattista (1668–1744)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Vigolo, Giorgio (1894–1983)', work: 'Il quaderno di Paolo Bufalini', value: 1
+    }, {
+      name: 'Wagner, Richard (1813–1883)', work: 'Il quaderno di Paolo Bufalini', value: 4
+    }]
+  }, {
+    name: 'Horst, Eberhard (1924–2012)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Antonio, Marco (82 a.C.–30 a.C.)', work: 'Cesare', value: 1
+    }, {
+      name: 'Bruto, Marco Iunio (85 a.C.–42 a.C.)', work: 'Cesare', value: 1
+    }, {
+      name: 'Cesare, Gaio Giulio (100 a.C.–44 a.C.)', work: 'Cesare', value: 4
+    }, {
+      name: 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', work: 'Cesare', value: 3
+    }, {
+      name: "Giustiniano I, imperatore d'Oriente (482–565)", work: 'Cesare', value: 1
+    }, {
+      name: 'Mario, Gaio (ca. 157 a.C.–86 a.C.)', work: 'Cesare', value: 1
+    }, {
+      name: 'Silla, Lucio Cornelio (138 a.C.–78 a.C.)', work: 'Cesare', value: 1
+    }, {
+      name: 'Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)', work: 'Cesare', value: 1
+    }]
+  }, {
+    name: 'Giussani, Camillo (1879–1960)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Augusto, Gaio Giulio Cesare Ottaviano (63 a.C.–14)', work: 'Gli Annali', value: 1
+    }, {
+      name: 'Domiziano, Tito Flavio, imperatore romano (51–96)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Gesù, di Nazaret (4 a.C.–29)', work: 'Gli Annali', value: 1
+    }, {
+      name: 'Nerone, Claudio Cesare, imperatore romano (37–68)', work: 'Gli Annali', value: 1
+    }, {
+      name: 'Nerva, Marco Cocceio, imperatore romano (26/30–98)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Otone, Marco Salvio, imperatore romano (32–69)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Pilato, Ponzio (I sec.)', work: 'Gli Annali', value: 1
+    }, {
+      name: 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', work: 'Gli Annali', value: 3
+    }, {
+      name: 'Tito, Flavio Vespasiano, imperatore romano (39–81)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Traiano, Marco Ulpio Nerva, imperatore romano (53–117)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Vespasiano, Tito Flavio, imperatore romano (9–79)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Vitellio, Aulo, imperatore romano (15–69)', work: 'Le Storie', value: 1
+    }]
+  }, {
+    name: 'Tacito, Publio Cornelio (ca. 55–120)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Augusto, Gaio Giulio Cesare Ottaviano (63 a.C.–14)', work: 'Annales', value: 3
+    }, {
+      name: 'Domiziano, Tito Flavio, imperatore romano (51–96)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Gesù, di Nazaret (4 a.C.–29)', work: 'Annales', value: 1
+    }, {
+      name: 'Nerone, Claudio Cesare, imperatore romano (37–68)', work: 'Annales', value: 1
+    }, {
+      name: 'Nerva, Marco Cocceio, imperatore romano (26/30–98)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Otone, Marco Salvio, imperatore romano (32–69)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Pilato, Ponzio (I sec.)', work: 'Annales', value: 1
+    }, {
+      name: 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', work: 'Annales', value: 5
+    }, {
+      name: 'Tito, Flavio Vespasiano, imperatore romano (39–81)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Traiano, Marco Ulpio Nerva, imperatore romano (53–117)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Vespasiano, Tito Flavio, imperatore romano (9–79)', work: 'Le Storie', value: 1
+    }, {
+      name: 'Vitellio, Aulo, imperatore romano (15–69)', work: 'Le Storie', value: 1
+    }]
+  }, {
+    name: 'Croce, Benedetto (1866–1952)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Carducci, Giosuè (1835–1907)', work: "Storia d'Italia dal 1871 al 1915", value: 1
+    }, {
+      name: 'Labriola, Antonio (1843–1904)', work: 'Lettera a De Sarlo', value: 1
+    }, {
+      name: 'Machiavelli, Niccolò (1469–1527)', work: 'Lettera a De Sarlo', value: 1
+    }]
+  }, {
+    name: 'Yourcenar, Marguerite (1903–1987)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)', work: "Memoires d'Hadrien", value: 1
+    }, {
+      name: 'Fidia (ca. 500–430)', work: "Memoires d'Hadrien", value: 1
+    }, {
+      name: 'Iseo, retore (ca. 420 a.C.–350 a.C.)', work: "Memoires d'Hadrien", value: 1
+    }, {
+      name: 'Memmio, Gaio (ca. 99 a.C.–46 a.C.)', work: "Memoires d'Hadrien", value: 1
+    }, {
+      name: 'Nerone, Claudio Cesare, imperatore romano (37–68)', work: "Memoires d'Hadrien", value: 1
+    }, {
+      name: 'Socrate (ca. 469 a.C.–399 a.C.)', work: "Memoires d'Hadrien", value: 1
+    }]
+  }, {
+    name: 'Flaubert, Gustave (1821–1880)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', work: "Correspondance", value: 1
+    }, {
+      name: 'Gesù, di Nazaret (4 a.C.–29)', work: "Correspondance", value: 1
+    }, {
+      name: 'Marco Aurelio, imperatore romano (121–180)', work: "Correspondance", value: 1
+    }]
+  }, {
+    name: 'Mann, Thomas (1875–1955)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Dioniso, divinità greca', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Freud, Sigmund (1856–1939)', work: "Saggi. Introduzione", value: 1
+    }, {
+      name: 'Mann, Thomas (1875–1955)', work: "La filosofia di Nietzsche alla luce della nostra esperienza", value: 1
+    }, {
+      name: 'Nietzsche, Elisabeth Förster (1846–1935)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Schopenhauer, Arthur (1788–1860)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Socrate (ca. 469 a.C.–399 a.C.)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Sorel, Julien, personaggio', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Zaratustra (IX–XVIII sec. a.C.?)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }]
+  }, {
+    name: 'Arzeni, Bruno (1905–1954)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Dioniso, divinità greca', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Mann, Thomas (1875–1955)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Mann, Thomas (1875–1955)', work: "unknown", value: 1
+    }, {
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 3
+    }, {
+      name: 'Schopenhauer, Arthur (1788–1860)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 2
+    }, {
+      name: 'Socrate (ca. 469 a.C.–399 a.C.)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Sorel, Julien, personaggio', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }, {
+      name: 'Zaratustra (IX–XVIII sec. a.C.?)', work: "Saggi. Schopenhauer, Nietzsche, Freud", value: 1
+    }]
+  }, {
+    name: 'Craig, Gordon Alexander (1913–2005)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Döblin, Alfred (1878–1957)', work: "Germania 1866-1945", value: 1
+    }, {
+      name: 'Hesse, Herman (1877–1962)', work: "Germania 1866-1945", value: 1
+    }, {
+      name: 'Rilke, Rainer Maria (1875–1926)', work: "Germania 1866-1945", value: 1
+    }, {
+      name: 'Schoenberg, Arnold (1874–1951)', work: "Germania 1866-1945", value: 1
+    }]
+  }, {
+    name: 'Maupassant, Guy de (1850–1893)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Flaubert, Gustave (1821–1880)', work: "Germania 1866-1945", value: 1
+    }]
+  }, {
+    name: 'Fertonani, Roberto (1925–2000)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Freud, Sigmund (1856–1939)', work: "Saggi. Introduzione", value: 1
+    },{
+      name: 'Mann, Thomas (1875–1955)', work: "Saggi. Introduzione", value: 1
+    }, {
+      name: 'Nietzsche, Elisabeth Förster (1846–1935)', work: "Saggi. Introduzione", value: 1
+    }, {
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: "Saggi. Introduzione", value: 1
+    }]
+  }, {
+    name: 'Bonfante, Pietro (1864–1932)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: "Giustiniano I, imperatore d'Oriente (482–565)", work: "Istituzioni di diritto Romano", value: 1
+    },{
+      name: "Giustino I, imperatore d'Oriente (ca. 450–527)", work: "Istituzioni di diritto Romano", value: 1
+    }]
+  }, {
+    name: 'Giustiniano I',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: "Giustino I, imperatore d'Oriente (ca. 450–527)", work: "Institutionem Iustiniani", value: 2
+    }]
+  }, {
+    name: 'Carducci, Giosuè (1835–1907)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Goethe, Johann Wolfgang von (1749–1832)', work: "Dell'inno 'La Risurrezione' in A Manzoni e in S Paolino d'Aquileja", value: 1
+    }, {
+      name: 'Pontano, Giovanni (1426–1503)', work: 'A proposito di alcuni giudizi su Alessandro Manzoni', value: 2
+    }]
+  }, {
+    name: 'Guttuso, Renato (1911–1987)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Guttuso, Renato (1911–1987)', work: 'unknown', value: 1
+    }]
+  }, {
+    name: 'Macchia, Giovanni (1912–2001)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Malagrida, Gabriele (1689–1761)', work: 'Corriere della Sera', value: 1
+    }, {
+      name: 'Sorel, Julien, personaggio', work: 'Corriere della Sera', value: 1
+    }, {
+      name: 'Stendhal, pseud. (1783–1842)', work: 'Corriere della Sera', value: 1
+    }]
+  }, {
+    name: 'Mazzucchetti, Lavinia (1889–1965)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Mann, Thomas (1875–1955)', work: 'unknown', value: 1
+    }, {
+      name: 'Mann, Thomas (1875–1955)', work: 'Saggi. Introduzione', value: 1
+    }, {
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: 'unknown', value: 1
+    }, {
+      name: 'Wagner, Richard (1813–1883)', work: 'unknown', value: 1
+    }]
+  }, {
+    name: 'Manzoni, Alessandro (1785–1873)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Manzoni, Alessandro (1785–1873)', work: 'La Monaca di Monza', value: 1
+    }]
+  }, {
+    name: 'Nietzsche, Friedrich Wilhelm (1844–1900)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Nietzsche, Friedrich Wilhelm (1844–1900)', work: 'Scritti su Wagner', value: 2
+    }, {
+      name: 'Wagner, Richard (1813–1883)', work: 'Scritti su Wagner', value: 2
+    }]
+  }, {
+    name: 'Giusti, Giuseppe (1809–1850)',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Pananti, Filippo (1766–1837)', work: 'Epigrammi', value: 1
+    }]
+  }, {
+    name: 'Romagnoli, Alberto ()',
+    work: 'Il quaderno di Paolo Bufalini',
+    children: [{
+      name: 'Schopenhauer, Arthur (1788–1860)', work: 'Opere. A cura di A. Romagnoli', value: 3
+    }, {
+      name: 'Wagner, Richard (1813–1883)', work: 'Opere. A cura di A. Romagnoli', value: 2
+    }]
+  }];
+  
+  networkSeries.dataFields.linkWith = "linkWith";
+  networkSeries.dataFields.name = "name";
+  networkSeries.dataFields.id = "name";
+  networkSeries.dataFields.value = "value";
+  networkSeries.dataFields.children = "children";
+  networkSeries.links.template.distance = 1;
+  networkSeries.nodes.template.tooltipText = "{name}, {value} excerpts of {work}";
+  networkSeries.nodes.template.fillOpacity = 1;
+  networkSeries.nodes.template.outerCircle.scale = 1;
+  
+  networkSeries.nodes.template.label.text = "{name}"
+  networkSeries.fontSize = 20;
+  networkSeries.nodes.template.label.hideOversized = true;
+  networkSeries.nodes.template.label.truncate = true;
+  networkSeries.minRadius = am4core.percent(2);
+  networkSeries.manyBodyStrength = -5;
+  networkSeries.links.template.strokeOpacity = 0;
+  
+  }); // end am4core.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>  
+</div>

@@ -1,0 +1,914 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 align_center">
+        <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
+        <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+          <ul class="nav nav-pills tab-works">
+              <li role="presentation"><a href="./library" id="people_list">List</a></li>
+              <li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
+              <li role="presentation" class="filters_category_title active"><a href="#" id="people_sets">Sets</a></li>
+              <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseSets" role="button" aria-expanded="false" aria-controls="collapseSets"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+              <li role="presentation"><a class="no-active-tab">|</a></li>
+              <li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
+          </ul>
+        </div>
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="collapse" id="collapseSets">
+              <h3 class="text_black" id="explain_sets_works_h3">Sets</h3>
+              <p class="justify text_grey" id="explain_sets_works_p">In the chart below all the <span class="bold">works cited</span> in the notebook are grouped according to their author.<br>By hovering on each <span class="bold">set</span>, the following information is obtained: <span class="bold"> name of the author</span> and <span class="bold">number of excerpts</span> from works by that author cited in the notebook.<br>By hovering/clicking on each <span class="bold">subset</span> the following information is obtained: name of the <span class="bold">cited work</span> and <span class="bold">number of excerpts</span> from that work cited in the notebook.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div style="padding:10px">
+        <span id="visualize_span"></span> <select id="minlevel">
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> <span id="visualize_span_to"></span> <select id="maxlevel">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected>4</option>
+    </select><button class="btnrender-works" id="btnrender" style="margin-left: 15px;">Visualizza i livelli</button>
+      </div>
+      <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="padding-left: 70px;">
+                <div id="zc"></div>
+            </div>
+            <div class="col-md-2">     
+            </div>
+      </div>
+</div>
+
+  <script>
+    var fsdata = [
+   {
+      "id":"Il quaderno di Paolo Bufalini",
+      "text":"Il quaderno di Paolo Bufalini",
+      "parent":""
+   },
+   {
+      "id":"analytics",
+      "text":"analytics",
+      "parent":"Il quaderno di Paolo Bufalini",
+      "data-xx":"xx-analytics"
+   },
+   {
+      "id":"cluster",
+      "text":"cluster",
+      "parent":"analytics",
+      "data-xx":"xx-cluster"
+   },
+   {
+      "id":"Manzoni, Alessandro (1785–1873)",
+      "text":"Manzoni, Alessandro (1785–1873)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Alighieri, Dante (1265–1321)",
+      "text":"Alighieri, Dante (1265–1321)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Petrarca, Francesco (1304–1374)",
+      "text":"Petrarca, Francesco (1304–1374)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Mann, Thomas (1875–1955)",
+      "text":"Mann, Thomas (1875–1955)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Campanella, Tommaso (1568–1639)",
+      "text":"Campanella, Tommaso (1568–1639)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Tacito, Publio Cornelio (ca. 55–120)",
+      "text":"Tacito, Publio Cornelio (ca. 55–120)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "text":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Marziale, Marco Valerio (ca. 40–101)",
+      "text":"Marziale, Marco Valerio (ca. 40–101)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Horst, Eberhard (1924–2012)",
+      "text":"Horst, Eberhard (1924–2012)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Lucrezio Caro, Tito (97–55 a.C)",
+      "text":"Lucrezio Caro, Tito (97–55 a.C)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Seneca, Lucio Anneo (4 a.C.–65)",
+      "text":"Seneca, Lucio Anneo (4 a.C.–65)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Belli, Giuseppe Gioachino (1791–1863)",
+      "text":"Belli, Giuseppe Gioachino (1791–1863)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Giussani, Camillo (1879–1960)",
+      "text":"Giussani, Camillo (1879–1960)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Giustiniano I, imperatore d'Oriente (482–565)",
+      "text":"Giustiniano I, imperatore d'Oriente (482–565)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Flaubert, Gustave (1821–1880)",
+      "text":"Flaubert, Gustave (1821–1880)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Yourcenar, Marguerite (1903–1987)",
+      "text":"Yourcenar, Marguerite (1903–1987)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "text":"Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Shakespeare, William (1564–1616)",
+      "text":"Shakespeare, William (1564–1616)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Ennio, Quinto (240–170 a.C.)",
+      "text":"Ennio, Quinto (240–170 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "text":"Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Campana, Dino (1885–1932)",
+      "text":"Campana, Dino (1885–1932)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Bonfante, Pietro (1864–1932)",
+      "text":"Bonfante, Pietro (1864–1932)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Martini, Antonio, arciv. di Firenze (1720–1809)",
+      "text":"Martini, Antonio, arciv. di Firenze (1720–1809)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Carducci, Giosuè (1835–1907)",
+      "text":"Carducci, Giosuè (1835–1907)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Fertonani, Roberto (1925–2000)",
+      "text":"Fertonani, Roberto (1925–2000)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Croce, Benedetto (1866–1952)",
+      "text":"Croce, Benedetto (1866–1952)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Tommaseo, Niccolò (1802–1874)",
+      "text":"Tommaseo, Niccolò (1802–1874)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Maupassant, Guy de (1850–1893)",
+      "text":"Maupassant, Guy de (1850–1893)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Tolstoj, Lev Nikolaevič (1828–1910)",
+      "text":"Tolstoj, Lev Nikolaevič (1828–1910)",
+      "parent":"cluster"
+   },
+   {
+      "id":"San Girolamo (347–420)",
+      "text":"San Girolamo (347–420)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Romano, Sergio (1929–)",
+      "text":"Romano, Sergio (1929–)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Macchia, Giovanni (1912–2001)",
+      "text":"Macchia, Giovanni (1912–2001)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Parrella, Pietro ()",
+      "text":"Parrella, Pietro ()",
+      "parent":"cluster"
+   },
+   {
+      "id":"Pontano, Giovanni (1426–1503)",
+      "text":"Pontano, Giovanni (1426–1503)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Svetonio Tranquillo, Caio (sec. I–II)",
+      "text":"Svetonio Tranquillo, Caio (sec. I–II)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "text":"Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Giusti, Giuseppe (1809–1850)",
+      "text":"Giusti, Giuseppe (1809–1850)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Craig, Gordon Alexander (1913–2005)",
+      "text":"Craig, Gordon Alexander (1913–2005)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Bruno, Giordano (1548–1600)",
+      "text":"Bruno, Giordano (1548–1600)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Ripamonti, Giuseppe (1577–1643)",
+      "text":"Ripamonti, Giuseppe (1577–1643)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Quintiliano, Marco Fabio (ca. 35–96)",
+      "text":"Quintiliano, Marco Fabio (ca. 35–96)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Tocqueville, Alexis de (1805–1859)",
+      "text":"Tocqueville, Alexis de (1805–1859)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Alfieri, Vittorio (1749–1803)",
+      "text":"Alfieri, Vittorio (1749–1803)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Gèllio, Aulo (125–180)",
+      "text":"Gèllio, Aulo (125–180)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+      "text":"Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)",
+      "text":"Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)",
+      "text":"Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Giovenale, Decimo Giunio (ca. 60–140)",
+      "text":"Giovenale, Decimo Giunio (ca. 60–140)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Thiers, Adolphe (1797–1877)",
+      "text":"Thiers, Adolphe (1797–1877)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Unknown",
+      "text":"Unknown",
+      "parent":"cluster"
+   },
+   {
+      "id":"Maitan, Livio (1923–2004)",
+      "text":"Maitan, Livio (1923–2004)",
+      "parent":"cluster"
+   },
+   {
+      "id":"Inni sacri by Manzoni, Alessandro (1785–1873)",
+      "text":"Inni sacri",
+      "parent":"Manzoni, Alessandro (1785–1873)",
+      "value":"24"
+   },
+   {
+      "id":"La Divina Commedia by Alighieri, Dante (1265–1321)",
+      "text":"La Divina Commedia",
+      "parent":"Alighieri, Dante (1265–1321)",
+      "value":"14"
+   },
+   {
+      "id":"Canzoniere by Petrarca, Francesco (1304–1374)",
+      "text":"Canzoniere",
+      "parent":"Petrarca, Francesco (1304–1374)",
+      "value":"12"
+   },
+   {
+      "id":"Saggi. Schopenhauer, Nietzche, Freud by Mann, Thomas (1875–1955)",
+      "text":"Saggi. Schopenhauer, Nietzche, Freud",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"11"
+   },
+   {
+      "id":"Poesie filosofiche by Campanella, Tommaso (1568–1639)",
+      "text":"Poesie filosofiche",
+      "parent":"Campanella, Tommaso (1568–1639)",
+      "value":"10"
+   },
+   {
+      "id":"Annales by Tacito, Publio Cornelio (ca. 55–120)",
+      "text":"Annales",
+      "parent":"Tacito, Publio Cornelio (ca. 55–120)",
+      "value":"9"
+   },
+   {
+      "id":"La Monaca di Monza by Manzoni, Alessandro (1785–1873)",
+      "text":"La Monaca di Monza",
+      "parent":"Manzoni, Alessandro (1785–1873)",
+      "value":"9"
+   },
+   {
+      "id":"Eneide by Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "text":"Eneide",
+      "parent":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "value":"6"
+   },
+   {
+      "id":"Epigrammi by Marziale, Marco Valerio (ca. 40–101)",
+      "text":"Epigrammi",
+      "parent":"Marziale, Marco Valerio (ca. 40–101)",
+      "value":"6"
+   },
+   {
+      "id":"Cesare by Horst, Eberhard (1924–2012)",
+      "text":"Cesare",
+      "parent":"Horst, Eberhard (1924–2012)",
+      "value":"5"
+   },
+   {
+      "id":"Ars poetica by Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Ars poetica",
+      "parent":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value":"4"
+   },
+   {
+      "id":"Carmina by Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Carmina",
+      "parent":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value":"4"
+   },
+   {
+      "id":"De Rerum Natura by Lucrezio Caro, Tito (97–55 a.C)",
+      "text":"De Rerum Natura",
+      "parent":"Lucrezio Caro, Tito (97–55 a.C)",
+      "value":"4"
+   },
+   {
+      "id":"De clementia by Seneca, Lucio Anneo (4 a.C.–65)",
+      "text":"De clementia",
+      "parent":"Seneca, Lucio Anneo (4 a.C.–65)",
+      "value":"4"
+   },
+   {
+      "id":"Disordine e dolore precoce by Mann, Thomas (1875–1955)",
+      "text":"Disordine e dolore precoce",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"4"
+   },
+   {
+      "id":"Sonetti romaneschi by Belli, Giuseppe Gioachino (1791–1863)",
+      "text":"Sonetti romaneschi",
+      "parent":"Belli, Giuseppe Gioachino (1791–1863)",
+      "value":"4"
+   },
+   {
+      "id":"Eneide by Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "text":"Eneide",
+      "parent":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "value":"3"
+   },
+   {
+      "id":"Gli annali by Giussani, Camillo (1879–1960)",
+      "text":"Gli annali",
+      "parent":"Giussani, Camillo (1879–1960)",
+      "value":"3"
+   },
+   {
+      "id":"Institutionem Iustiniani by Giustiniano I, imperatore d'Oriente (482–565)",
+      "text":"Institutionem Iustiniani",
+      "parent":"Giustiniano I, imperatore d'Oriente (482–565)",
+      "value":"3"
+   },
+   {
+      "id":"La montagna incantata by Mann, Thomas (1875–1955)",
+      "text":"La montagna incantata",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"3"
+   },
+   {
+      "id":"Madame Bovary by Flaubert, Gustave (1821–1880)",
+      "text":"Madame Bovary",
+      "parent":"Flaubert, Gustave (1821–1880)",
+      "value":"3"
+   },
+   {
+      "id":"Mémoires d'Hadrien by Yourcenar, Marguerite (1903–1987)",
+      "text":"Mémoires d'Hadrien",
+      "parent":"Yourcenar, Marguerite (1903–1987)",
+      "value":"3"
+   },
+   {
+      "id":"Opere. A cura di A. Romagnoli by Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "text":"Opere. A cura di A. Romagnoli",
+      "parent":"Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "value":"3"
+   },
+   {
+      "id":"Scritti su Wagner by Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "text":"Scritti su Wagner",
+      "parent":"Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "value":"3"
+   },
+   {
+      "id":"Sonnets by Shakespeare, William (1564–1616)",
+      "text":"Sonnets",
+      "parent":"Shakespeare, William (1564–1616)",
+      "value":"3"
+   },
+   {
+      "id":"Annales by Ennio, Quinto (240–170 a.C.)",
+      "text":"Annales",
+      "parent":"Ennio, Quinto (240–170 a.C.)",
+      "value":"2"
+   },
+   {
+      "id":"De Officiis by Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "text":"De Officiis",
+      "parent":"Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "value":"2"
+   },
+   {
+      "id":"I Promessi Sposi by Manzoni, Alessandro (1785–1873)",
+      "text":"I Promessi Sposi",
+      "parent":"Manzoni, Alessandro (1785–1873)",
+      "value":"2"
+   },
+   {
+      "id":"Inediti by Campana, Dino (1885–1932)",
+      "text":"Inediti",
+      "parent":"Campana, Dino (1885–1932)",
+      "value":"2"
+   },
+   {
+      "id":"Istituzioni di diritto Romano by Bonfante, Pietro (1864–1932)",
+      "text":"Istituzioni di diritto Romano",
+      "parent":"Bonfante, Pietro (1864–1932)",
+      "value":"2"
+   },
+   {
+      "id":"King Lear by Shakespeare, William (1564–1616)",
+      "text":"King Lear",
+      "parent":"Shakespeare, William (1564–1616)",
+      "value":"2"
+   },
+   {
+      "id":"La Sacra Biblia secondo la volgata by Martini, Antonio, arciv. di Firenze (1720–1809)",
+      "text":"La Sacra Biblia secondo la volgata",
+      "parent":"Martini, Antonio, arciv. di Firenze (1720–1809)",
+      "value":"2"
+   },
+   {
+      "id":"La filosofia di Nietzsche alla luce della nostra esperienza by Mann, Thomas (1875–1955)",
+      "text":"La filosofia di Nietzsche alla luce della nostra esperienza",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"2"
+   },
+   {
+      "id":"Lettere a Lucilio by Seneca, Lucio Anneo (4 a.C.–65)",
+      "text":"Lettere a Lucilio",
+      "parent":"Seneca, Lucio Anneo (4 a.C.–65)",
+      "value":"2"
+   },
+   {
+      "id":"Memorie di Adriano by Yourcenar, Marguerite (1903–1987)",
+      "text":"Memorie di Adriano",
+      "parent":"Yourcenar, Marguerite (1903–1987)",
+      "value":"2"
+   },
+   {
+      "id":"Odi Barbare by Carducci, Giosuè (1835–1907)",
+      "text":"Odi Barbare",
+      "parent":"Carducci, Giosuè (1835–1907)",
+      "value":"2"
+   },
+   {
+      "id":"Rime Nuove by Carducci, Giosuè (1835–1907)",
+      "text":"Rime Nuove",
+      "parent":"Carducci, Giosuè (1835–1907)",
+      "value":"2"
+   },
+   {
+      "id":"Saggi, Introduzione by Fertonani, Roberto (1925–2000)",
+      "text":"Saggi, Introduzione",
+      "parent":"Fertonani, Roberto (1925–2000)",
+      "value":"2"
+   },
+   {
+      "id":"Storie e leggende napoletane by Croce, Benedetto (1866–1952)",
+      "text":"Storie e leggende napoletane",
+      "parent":"Croce, Benedetto (1866–1952)",
+      "value":"2"
+   },
+   {
+      "id":"Studi critici by Tommaseo, Niccolò (1802–1874)",
+      "text":"Studi critici",
+      "parent":"Tommaseo, Niccolò (1802–1874)",
+      "value":"2"
+   },
+   {
+      "id":"Unkwnown by Maupassant, Guy de (1850–1893)",
+      "text":"Unkwnown",
+      "parent":"Maupassant, Guy de (1850–1893)",
+      "value":"2"
+   },
+   {
+      "id":"A proposito di alcuni giudizi su Alessandro Manzoni by Carducci, Giosuè (1835–1907)",
+      "text":"A proposito di alcuni giudizi su Alessandro Manzoni",
+      "parent":"Carducci, Giosuè (1835–1907)",
+      "value":"1"
+   },
+   {
+      "id":"Ad familiares by Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "text":"Ad familiares",
+      "parent":"Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Africa by Petrarca, Francesco (1304–1374)",
+      "text":"Africa",
+      "parent":"Petrarca, Francesco (1304–1374)",
+      "value":"1"
+   },
+   {
+      "id":"Amleto by Shakespeare, William (1564–1616)",
+      "text":"Amleto",
+      "parent":"Shakespeare, William (1564–1616)",
+      "value":"1"
+   },
+   {
+      "id":"Anna Karenina by Tolstoj, Lev Nikolaevič (1828–1910)",
+      "text":"Anna Karenina",
+      "parent":"Tolstoj, Lev Nikolaevič (1828–1910)",
+      "value":"1"
+   },
+   {
+      "id":"Biblia Sacra Vulgata by San Girolamo (347–420)",
+      "text":"Biblia Sacra Vulgata",
+      "parent":"San Girolamo (347–420)",
+      "value":"1"
+   },
+   {
+      "id":"Correspondance by Flaubert, Gustave (1821–1880)",
+      "text":"Correspondance",
+      "parent":"Flaubert, Gustave (1821–1880)",
+      "value":"1"
+   },
+   {
+      "id":"Corriere della Sera by Romano, Sergio (1929–)",
+      "text":"Corriere della Sera",
+      "parent":"Romano, Sergio (1929–)",
+      "value":"1"
+   },
+   {
+      "id":"Corriere della Sera by Macchia, Giovanni (1912–2001)",
+      "text":"Corriere della Sera",
+      "parent":"Macchia, Giovanni (1912–2001)",
+      "value":"1"
+   },
+   {
+      "id":"De Rerum Natura by Parrella, Pietro ()",
+      "text":"De Rerum Natura",
+      "parent":"Parrella, Pietro ()",
+      "value":"1"
+   },
+   {
+      "id":"De laudibus divinis by Pontano, Giovanni (1426–1503)",
+      "text":"De laudibus divinis",
+      "parent":"Pontano, Giovanni (1426–1503)",
+      "value":"1"
+   },
+   {
+      "id":"De vita caesarum by Svetonio Tranquillo, Caio (sec. I–II)",
+      "text":"De vita caesarum",
+      "parent":"Svetonio Tranquillo, Caio (sec. I–II)",
+      "value":"1"
+   },
+   {
+      "id":"Dell'inno La Risurrezione in A. Manzoni e in S. Paolino d'Aquileja by Carducci, Giosuè (1835–1907)",
+      "text":"Dell'inno La Risurrezione in A. Manzoni e in S. Paolino d'Aquileja",
+      "parent":"Carducci, Giosuè (1835–1907)",
+      "value":"1"
+   },
+   {
+      "id":"Enciclopedia delle scienze filosofiche in compendio, Introduzione by Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "text":"Enciclopedia delle scienze filosofiche in compendio, Introduzione",
+      "parent":"Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "value":"1"
+   },
+   {
+      "id":"Eneide by Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "text":"Eneide",
+      "parent":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Eneide by Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "text":"Eneide",
+      "parent":"Virgilio Marone, Publio (70 a.C.–19 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Epigrammi by Giusti, Giuseppe (1809–1850)",
+      "text":"Epigrammi",
+      "parent":"Giusti, Giuseppe (1809–1850)",
+      "value":"1"
+   },
+   {
+      "id":"Epistualae by Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Epistualae",
+      "parent":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Epodi by Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Epodi",
+      "parent":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Germania, 1866-1945 by Craig, Gordon Alexander (1913–2005)",
+      "text":"Germania, 1866-1945",
+      "parent":"Craig, Gordon Alexander (1913–2005)",
+      "value":"1"
+   },
+   {
+      "id":"Gli eroici furori by Bruno, Giordano (1548–1600)",
+      "text":"Gli eroici furori",
+      "parent":"Bruno, Giordano (1548–1600)",
+      "value":"1"
+   },
+   {
+      "id":"Hamlet by Shakespeare, William (1564–1616)",
+      "text":"Hamlet",
+      "parent":"Shakespeare, William (1564–1616)",
+      "value":"1"
+   },
+   {
+      "id":"Historiarum patriae by Ripamonti, Giuseppe (1577–1643)",
+      "text":"Historiarum patriae",
+      "parent":"Ripamonti, Giuseppe (1577–1643)",
+      "value":"1"
+   },
+   {
+      "id":"Institutiones by Quintiliano, Marco Fabio (ca. 35–96)",
+      "text":"Institutiones",
+      "parent":"Quintiliano, Marco Fabio (ca. 35–96)",
+      "value":"1"
+   },
+   {
+      "id":"L'ancien régime et la Révolution by Tocqueville, Alexis de (1805–1859)",
+      "text":"L'ancien régime et la Révolution",
+      "parent":"Tocqueville, Alexis de (1805–1859)",
+      "value":"1"
+   },
+   {
+      "id":"La genesi del Doctor Faustus by Mann, Thomas (1875–1955)",
+      "text":"La genesi del Doctor Faustus",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"1"
+   },
+   {
+      "id":"Le Storie by Giussani, Camillo (1879–1960)",
+      "text":"Le Storie",
+      "parent":"Giussani, Camillo (1879–1960)",
+      "value":"1"
+   },
+   {
+      "id":"Le Storie by Tacito, Publio Cornelio (ca. 55–120)",
+      "text":"Le Storie",
+      "parent":"Tacito, Publio Cornelio (ca. 55–120)",
+      "value":"1"
+   },
+   {
+      "id":"Mirra by Alfieri, Vittorio (1749–1803)",
+      "text":"Mirra",
+      "parent":"Alfieri, Vittorio (1749–1803)",
+      "value":"1"
+   },
+   {
+      "id":"Noctes Atticae by Gèllio, Aulo (125–180)",
+      "text":"Noctes Atticae",
+      "parent":"Gèllio, Aulo (125–180)",
+      "value":"1"
+   },
+   {
+      "id":"Palliatae by Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+      "text":"Palliatae",
+      "parent":"Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Panegyricus by Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)",
+      "text":"Panegyricus",
+      "parent":"Plinio Cecilio Secondo, Gaio, detto il Giovane (ca. 61–114)",
+      "value":"1"
+   },
+   {
+      "id":"Poesie by Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)",
+      "text":"Poesie",
+      "parent":"Catullo, Gaio Valerio (ca. 84 a.C.–54 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Rime by Petrarca, Francesco (1304–1374)",
+      "text":"Rime",
+      "parent":"Petrarca, Francesco (1304–1374)",
+      "value":"1"
+   },
+   {
+      "id":"Satire by Giovenale, Decimo Giunio (ca. 60–140)",
+      "text":"Satire",
+      "parent":"Giovenale, Decimo Giunio (ca. 60–140)",
+      "value":"1"
+   },
+   {
+      "id":"Satire by Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "text":"Satire",
+      "parent":"Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Scienza della logica by Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "text":"Scienza della logica",
+      "parent":"Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "value":"1"
+   },
+   {
+      "id":"Storia d'Italia dal 1871 al 1915 by Croce, Benedetto (1866–1952)",
+      "text":"Storia d'Italia dal 1871 al 1915",
+      "parent":"Croce, Benedetto (1866–1952)",
+      "value":"1"
+   },
+   {
+      "id":"Storia della Rivoluzione Francese by Thiers, Adolphe (1797–1877)",
+      "text":"Storia della Rivoluzione Francese",
+      "parent":"Thiers, Adolphe (1797–1877)",
+      "value":"1"
+   },
+   {
+      "id":"Targa Vistarini by Unknown",
+      "text":"Targa Vistarini",
+      "parent":"Unknown",
+      "value":"1"
+   },
+   {
+      "id":"Re Torrismondo by Unknown",
+      "text":"Re Torrismondo",
+      "parent":"Unknown",
+      "value":"1"
+   },
+   {
+      "id":"Tusculanae Quaestiones by Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "text":"Tusculanae Quaestiones",
+      "parent":"Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "value":"1"
+   },
+   {
+      "id":"Tutte le opere by Mann, Thomas (1875–1955)",
+      "text":"Tutte le opere",
+      "parent":"Mann, Thomas (1875–1955)",
+      "value":"1"
+   },
+   {
+      "id":"Unkwnown by Maitan, Livio (1923–2004)",
+      "text":"Unkwnown",
+      "parent":"Maitan, Livio (1923–2004)",
+      "value":"1"
+   },
+   {
+      "id":"lettera a De Sarlo by Croce, Benedetto (1866–1952)",
+      "text":"lettera a De Sarlo",
+      "parent":"Croce, Benedetto (1866–1952)",
+      "value":"1"
+   },
+   {
+      "id":"lettera ad Alessandro D'Ancona, in morte della figlia by Croce, Benedetto (1866–1952)",
+      "text":"lettera ad Alessandro D'Ancona, in morte della figlia",
+      "parent":"Croce, Benedetto (1866–1952)",
+      "value":"1"
+   }
+  ];
+
+    function render() {
+
+      var cdata = {
+        "background-color": "rgba(244, 180, 156, 0)",
+        "type": "bubble-pack",
+        "plotarea": {
+          "margin": 5
+        },
+        "options": {
+          "active": true,
+          "padding": 1,
+          "min-size": 1,
+          "max-items": 999,
+          "min-level": minlevel.value,
+          "max-level": maxlevel.value,
+          "-filter": ["operator"],
+          "item": {
+            "-background-color": "#FEFEFE",
+            "border-color": "#E86130",
+            "border-width": 1.5,
+            "font-family" : "open-sans, sans-serif",
+            "-tooltip": {
+              "text": "%fullname<br>%fullvalue<br>%data-xx"
+            }
+          },
+          "-item-level-2": {
+            "background-color": "#FEFEFE"
+          },
+          "-item-id-axis": {
+            "border-width": 5,
+            "background-color": "#FEFEFE"
+          }
+        },
+        "series": fsdata,
+      };
+
+      zingchart.render({
+        id: 'zc',
+        width: 800,
+        height: 800,
+        output: 'svg',
+        data: cdata
+      });
+
+    };
+
+    render();
+
+    btnrender.addEventListener('click', render);
+  </script>

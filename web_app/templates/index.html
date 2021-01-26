@@ -1,56 +1,383 @@
-$def with (dict, metadataDict)
-	
-	
-	
-	
-    	<ul class="nav nav-tabs" id="myTab" role="tablist">
-		  <li class="nav-item">
-		    <a class="nav-link" id="modal-tab" data-toggle="tab" href="#modal" role="tab" aria-controls="modal" aria-selected="true">modal</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" id="transcription_tab" data-toggle="tab" href="#transcription" role="tab" aria-controls="transcription" aria-selected="false">trascrizione</a>
-		  </li>
-		</ul>
-		<div class="tab-content" id="myTabContent">
-			<div class="tab-pane fade col-md-12" id="modal" role="tabpanel" aria-labelledby="modal-tab">
-				<section class="col-md-4" id="textViewer">
-					
-					<select id="pages" class="col-md-9">
-						<option selected id="pages_select">Pages</option>
-			        </select>
-			        
-			        <section id='output'>
-			        	<p id="infoContainer"></p>
-			        </section>
-			    </section>
-			    <section class="col-md-8" id="viewerContainer">
-			    	<section class="col-md-1">
-			    		<button id="prev">&lt;</button>
-			    	</section>
-			    	
-					<section id="viewer" class="col-md-10"></section>
-					<section class="col-md-1">
-						<button id="next">&gt;</button>
-					</section>
-			    </section>
-			</div>
-			<div class="tab-pane fade" id="transcription" role="tabpanel" aria-labelledby="transcription_tab">
-				<section id="transcriptionViewer" class="col-md-12">
-					<script type="text/javascript">
-						$$( "#transcriptionViewer" ).load('./static/quaderno.html');
-					</script>
-				</section>
-			</div>
+$def with (dict, metadataDict, citedPeopleList, quots, citations)
 
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+	<div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+				<h2 id="digital_edition_header_title">Digital Edition</h2>
+				<a href="#metadata_title"><i class="fas fa-chevron-down intro_go"></i></a>
+			</div>
 		</div>
+	</div>
+</section>
 
+<!-- metadata panel -->
+<section class="col-md-12 panel_tool_metadata" id="introContainer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="media">
+					<div class="media-left">
+						<button class="button_panel button_panel_meta" type="button" data-toggle="collapse" data-target="#snippet1" aria-expanded="false" aria-controls="snippet1"><i class="glyphicon glyphicon-fullscreen"></i></button>
+					</div>
+					<div class="media-body">
+					<h4 id="metadata_title">Metadata</h4>
+					<div class="collapse" id="snippet1">
+						<div class="metadata-modal">
+							<p><span class="filters_category_title meta_author">Author</span>: <span class="meta_author_val">Bufalini, Paolo (1915–2001)</span></p>
+							<p><span class="filters_category_title meta_title">Title</span>: <span class="italic meta_title_val"><span class="italic">Appunti. 1981–1991</span></span></p>
+							<p><span class="filters_category_title meta_creation">Date of creation</span>: <span class="meta_creation_val">handwriting</span></p>
+							<p><span class="filters_category_title meta_tech">Production technique</span>: <span class="meta_tech_val">hardback, covered with decorated paper both inside and outside; cloth-bound spine and corners; 145 pages, 2 loose leaves</span></p>
+							<p><span class="filters_category_title meta_material">Materials and physical description</span>: <span class="meta_material_val">H 215 x  L 140 x W 15 mm</span></p>
+							<p><span class="filters_category_title meta_dimensions">Dimensions</span>: <span class="meta_dimensions_val">Alma Mater Studiorum University of Bologna. All rights reserved. Any other reproduction or distribution is prohibited</span></p>
+							<p><span class="filters_category_title meta_rights">Rights</span>: <span class="meta_rights_val">Bufalini, Paolo. 1981-1991. Manuscript notebook, <span class="italic">Appunti. 1981-1991</span>, Ezio Raimondi Library, Department of Classical Philology and Italian Studies, University of Bologna.</span></p>
+							<p><span class="filters_category_title meta_bibl">Cite as</span>: <span class="meta_bibl_val">Bufalini, Paolo. 1981-1991. Manuscript notebook, <span class="italic">Appunti. 1981-1991</span>, Ezio Raimondi Library, Department of Classical Philology and Italian Studies, University of Bologna.</span></p>
+							<p><span class="filters_category_title meta_manifest">IIIF manifest</span>: <span class="meta_manifest_val"><a href="https://dl.ficlit.unibo.it/iiif/12808/manifest" target="_blank" alt="IIIF" manifest="">https://dl.ficlit.unibo.it/iiif/12808/manifest</a></span></p>
+							<!-- <p><span class="filters_category_title meta_permalink">Permalink</span>: <span class="meta_permalink_val">https://w3id.org/ficlitdl/paolo-bufalini-notebook/physical-object</span></p> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-    	<!-- <a id="swapprevsimg">Prev</a>
-    	<a id="swapnextimg">Next</a> -->
-    	
-    
+<!-- facets and page panel -->
+<section class="col-md-12 introContainer_facets_page_panel" id="introContainer">
+	<div class="container-fluid container_fluid_facets_page_panel">
+		<div class="row">
+			<!-- facets -->
+			<div class="col-md-2 col-sm-3 panel_tool reduced-window" id="facets_panel_box">
+				<!-- results -->
+				<div class="row" id="results-container">
+					<div class="col-md-12 panel-results">
+						<div class="media bigger-results">
+							<div class="media-left">
+								<button class="button_panel" id="close-results" onclick="closeResults()"><i class="glyphicon glyphicon-remove"></i></button>
+							</div>
+							<div class="media-body">
+								<h4><span id="n-results"></span> <span id="results_title_list"></span></h4>
+								<a id="clear_res"></a>
+							</div>
+							<!-- search in results -->
+							<!-- <div class="row">
+								<div class="col-md-12">
+									<form id="edition-search-tool">
+										<input type="text" id="filter-res" placeholder="Cerca nei risultati..." class="filter-res-bar">
+									</form>
+								</div>
+							</div> -->
+							<!-- / search in results -->
+							<div id="print-results">
+								<ol id="list-results">
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- / results -->
+				<div class="media move-facets">
+					<div class="media-left">
+						<button class="button_panel" onclick="closeFacets()"><i class="glyphicon glyphicon-remove"></i></button>
+					</div>
+					<div class="media-body">
+						<h4 id="facets_title">Facets</h4>
+					</div>
+					<div id="closeFacets_div">
+						<div>
+							<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">People</span>
+							<div class="filters_ipadpro" id="filters_checkbox_people">
+								<form class="checkbox_margin">
+									$for x in citedPeopleList:
+										$if x == "Nietzsche, Elisabeth Förster (1846–1935)":
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="Förster">
+												<label for="Förster" class="labelInline">Nietzsche, Elisabeth Förster (1846–1935)</label>
+											</div>
+										$elif x == "Giustiniano I, imperatore d'Oriente (482–565)":
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="Giustiniano">
+												<label for="Giustiniano" class="labelInline">Giustiniano I</label>
+											</div>
+										$elif x == "Giustino I, imperatore d'Oriente (ca. 450–527)":
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="Giustino">
+												<label for="Giustino" class="labelInline">Giustino I</label>
+											</div>
+										$elif x == "Pilato, Ponzio (I sec.)":
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="Pilato">
+												<label for="Pilato" class="labelInline">Pilato, Ponzio</label>
+											</div>
+										$elif x == "Vico, Giambattista (1668–1744)":
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="Vico">
+												<label for="Vico" class="labelInline">Vico, Giambattista</label>
+											</div>
+										$else:
+											<div style="white-space:nowrap">
+												<input type="checkbox" class="peopleCheck" id="$x.split(' ')[0].replace(',', '')">
+												<label for="$x.split(' ')[0].replace(',', '')" class="labelInline">$x</label>
+											</div>
+								</form>
+							</div>
+						</div>
+						<hr class="filters_category_title_nested">
+						<div>
+							<span class="filters_category_title filters_category_title_nested" id="filters_people_role">People role</span>
+							<div id="add-pers-role">
+								<div class="people-role-box">
+									<div class="row thumbnail person-role">
+										<!-- <div class="col-md-2 col-sm-2 col-xs-2">
+											<button class="filters_icon filters_people_role_button"><i class="far fa-user"></i></button>
+										</div> -->
+										<div class="col-md-10 col-sm-10">
+											<div class="caption">
+												<span class="change_role_cap filters_people_role_caption" id="role_caption_name_index"></span>
+											</div>
+											<div class="role-check" style="display: none;">
+												<input type="checkbox" class="input-auth-check" role="auth-role">
+												<label class="labelInline" id="author_role">Author</label> <span class="dot dot-orchid"></span>
+												<br>
+												<input type="checkbox" class="input-cited-check" role="cited-role">
+												<label class="labelInline" id="cited_role">Mentioned person</label> <span class="dot dot-yellowgreen"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div>
+							<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Types of excerpts</span>
+							<form class="checkbox_margin" id="check-excerpt-container">
+								<input type="checkbox" id="comment">
+								<label for="" class="labelInline" id="comment_val">Comments</label> <span class="dot dot-green"></span><br>
+								<input type="checkbox" id="quotation">
+								<label for="" class="labelInline" id="quotation_val">Quotations</label> <span class="dot dot-pink"></span><br>
+								<input type="checkbox" id="translation">
+								<label for="" class="labelInline" id="translation_val">Translations</label> <span class="dot dot-yellow"></span><br>
+							</form>
+						</div>
+						<hr class="filters_category_title_nested">
+						<div>
+							<span class="filters_category_title filters_category_title_nested" id="filters_works">Works</span>
+							<div class="filters_ipadpro" id="filters_checkbox_people">
+								<form class="checkbox_margin">
+									$ listItem = []
+									$for x in citations:
+										$for z, uriId, excerpts_uris in quots:
+											$if z in citations[x][0]['workLabel']:
+												$ auth = citations[x][0]['author'].split("(")[0]
+												$ item = z + '__' + auth.strip()
+												$if item not in listItem:
+													$listItem.append(item)
+												$listItem.sort()
+									$ listRes = []
+									$for y in listItem:
+										$for z, uriId, excerpts_uris in quots:
+											$if z in y.split('__')[0]:
+												$ authComp = "".join(y.split('__')[1:])
+												$ authName = "".join(authComp.split(", ")[1:])
+												$ authSurname = authComp.split(", ")[0]
+												$ res = z + '__' + authName + '//' + authSurname
+												$if res not in listRes:
+													$listRes.append(res)
+									$for i in listRes:
+										$ workSearch = i.split("__")[0]
+										$ authSearch = "".join(i.split("__")[1:]).replace("//", " ")
+										$for z, uriId, excerpts_uris in quots:
+											$if workSearch in z:
+												$ firstLetterUri = uriId.split("-")[0][0]
+												$ firstLetterAuth = "".join(authSearch.split()[0][0])
+												$ minfirstLetterAuth = firstLetterAuth.lower()
+												$if firstLetterUri in minfirstLetterAuth:
+													$if 'Annales' in workSearch:
+														<input type="checkbox" class="workCheck" id="qe-annales" data-excerpts="bibl023 bibl024">
+														<label for="qe-annales" class="labelInline">$workSearch, Quinto Ennio</label><br>
+														<input type="checkbox" class="workCheck" id="ct-annales" data-excerpts="bibl076 bibl085 bibl152 bibl152b bibl114 bibl135 bibl154 bibl154a bibl154b">
+														<label for="ct-annales" class="labelInline">$workSearch, Tacito Publio Cornelio</label><br>
+													$elif "bibl036" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="tm-la-filosofia-di-nietzsche-alla-luce-della-nostra-esperienza" data-excerpts="bibl036">
+														<label for="tm-la-filosofia-di-nietzsche-alla-luce-della-nostra-esperienza" class="labelInline">$workSearch, $authSearch</label><br>
+													$elif "bibl069" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="pvmcs-eneide" data-excerpts="bibl069">
+														<label for="pvmcs-eneide" class="labelInline">$workSearch, <span class="trad">trad.</span> Carlo Saggio</label><br>
+													$elif "bibl070 bibl070a bibl070b" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="pvmga-eneide" data-excerpts="bibl070 bibl070a bibl070b">
+														<label for="pvmga-eneide" class="labelInline">$workSearch, <span class="trad">trad.</span> Giuseppe Albini</label><br>
+													$elif "bibl071" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="pvmrco-eneide" data-excerpts="bibl071">
+														<label for="pvmrco-eneide" class="labelInline">$workSearch, <span class="trad">trad.</span> Rosa Calzecchi Onesti</label><br>
+													$elif "bibl075" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="bc-storia-ditalia-dal-1871-al-1915" data-excerpts="bibl075">
+														<label for="bc-storia-ditalia-dal-1871-al-1915" class="labelInline">Storia d'Italia dal 1871 al 1915, Benedetto Croce</label><br>
+													$elif "bibl086 bibl086a bibl086b" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="my-memoires-dhadrien" data-excerpts="bibl086 bibl086a bibl086b">
+														<label for="my-memoires-dhadrien" class="labelInline">Mémoires d'Hadrien, Marguerite Yourcenar</label><br>
+													$elif "bibl097" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="adt-lancien-regime-et-la-revolution" data-excerpts="bibl097">
+														<label for="adt-lancien-regime-et-la-revolution" class="labelInline">L'ancien régime et la Révolution, Alexis de Tocqueville</label><br>
+													$elif "bibl129" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="bc-lettera-ad-alessandro-dancona-in-morte-della-figlia" data-excerpts="bibl129">
+														<label for="bc-lettera-ad-alessandro-dancona-in-morte-della-figlia" class="labelInline">lettera ad Alessandro D'Ancona, in morte della figlia, Benedetto Croce</label><br>
+													$elif "bibl137" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="gc-dellinno-la-risurrezione-in-a-manzoni-e-in-s-paolino-daquileja" data-excerpts="bibl137">
+														<label for="gc-dellinno-la-risurrezione-in-a-manzoni-e-in-s-paolino-daquileja" class="labelInline">Dell'inno "La Risurrezione" in A. Manzoni e in S. Paolino d'Aquileja, Giosuè Carducci</label><br>
+													$elif "bibl144" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="tlcpp-de-rerum-natura" data-excerpts="bibl144">
+														<label for="tlcpp-de-rerum-natura" class="labelInline">$workSearch, <span class="trad">trad.</span> Pietro Parrella</label><br>
+													$elif "bibl156" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="ct-le-storie" data-excerpts="bibl156">
+														<label for="ct-le-storie" class="labelInline">$workSearch, Publio Cornelio Tacito</label><br>
+													$elif "bibl157" in excerpts_uris:
+														<input type="checkbox" class="workCheck" id="ctcg-le-storie" data-excerpts="bibl157">
+														<label for="ctcg-le-storie" class="labelInline">$workSearch, <span class="trad">trad.</span> Camillo Giussani</label><br>
+													$else:
+														<input type="checkbox" class="workCheck" id="$uriId" data-excerpts="$excerpts_uris">
+														<label for="$uriId" class="labelInline">$workSearch, $authSearch</label><br>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- page -->
+			<div class="col-md-10 col-sm-9 panel_tool panel_tool_page" id="page_panel_tool">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="media">
+							<div class="media-left">
+								<button class="button_panel" onclick="openPage()"><i class="glyphicon glyphicon-fullscreen"></i></button>
+							</div>
+							<div class="media-body">
+								<div class="row">
+									<!-- <div class="col-md-1">
+										<h4 id="page_title">Page</h4>
+									</div> -->
+									<div class="col-md-2">
+										<!-- print the code of the excerpt clicked in the list of results -->
+										<h4 id="title-id"></h4>
+									</div>
+									<div class="col-md-2">
+										<select id="pages" class="page_selector margin-top-15">
+											<option selected id="pages_select"></option>
+										</select>
+									</div>
+									<div class="col-md-5">
+										<form class="margin-top-15" id="edition-search-tool">
+											<input type="text" id="gsearch" name="gsearch" placeholder="Inserisci testo..." class="col-md-9 change-placeholder-edition search_bar">
+											<button type="button" name="button" class="col-md-9 search_bar_button search-prev-next" id="prev-string"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+											<button type="button" name="button" class="col-md-9 search_bar_button search-prev-next" id="next-string"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+											<button type="button" name="button" class="col-md-9 search_bar_button" id="search_string">Search</button>
+											<button class="button_snippet button_reset" id="reset_button">New search</button>
+										</form>
+									</div>
+									<div class="col-md-2">
+										<p class="margin-top-15" id="query-info" style="display: none;"><span id="query-results-n" class="filters_category_title"></span><span class="results_in"> results in </span><span id="query-string" class="filters_category_title"></span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- div to toggle page -->
+					<div id="page-toggle">
+						<!-- transcription -->
+						<div class="col-md-4 col-sm-12 panel_tool nested_panel_tool resize_panel" id="close_transcription_div">
+							<div class="media" id="titleTras">
+								<div class="media-left">
+									<button class="button_panel" onclick="closeTranscription()"><i class="glyphicon glyphicon-remove"></i></button>
+								</div>
+								<div class="media-body">
+									<h4 id="transcription_title">Transcription</h4>
+									<!-- print the code of the excerpt clicked in the list of results -->
+									<!--<h4 id="title-id"></h4>-->
+								</div>
+								<div class="media-left padding-right-23">
+									<!-- tooltip to change style -->
+									<div class="col-md-6">
+										<button class="button_panel" id="change_style_button"><i class="glyphicon glyphicon-text-size"></i></button>
+									</div>
+									<!-- tooltip to download xml document -->
+									<div class="col-md-6">
+										<a href="static/bufalini_quaderno.xml"  download="bufalini-quaderno.xml"><button class="button_panel"><i class="fas fa-code"></i></button></a>
+									</div>
+								</div>
+							</div>
+
+							<!-- tooltip -->
+							<div class="media tooltip_style toggle_tooltip_style">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-md-12">
+											<select class="page_selector font">
+												<option id="arial">Arial</option>
+												<option selected="selected" id="openSans"></option>
+												<option id="timesNewRoman">Times New Roman</option>
+												<option id="verdana">Verdana</option>
+											</select>
+										</div>
+										<div class="col-md-12">
+											<select class="page_selector font_size">
+												<option id="size_18">18</option>
+												<option selected="selected" id="size_20"></option>
+												<option id="size_22">22</option>
+												<option id="size_24">24</option>
+												<option id="size_26">26</option>
+												<option id="size_28">28</option>
+												<option id="size_30">30</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="col-md-4">
+										<button class="change_background_button change_background_dark_button" id="dark_page">Dark page</button>
+									</div>
+									<div class="col-md-4">
+										<button class="change_background_button change_background_sepia_button" id="sepia_page">Sepia page</button>
+									</div>
+									<div class="col-md-4">
+										<button class="change_background_button change_background_white_button" id="white_page">White page</button>
+									</div>
+								</div>
+							</div>
+							<div id="text-transcription">
+								<section class="scroll_transcription" id="transcriptionViewer">
+								</section>
+							</div>
+						</div>
+
+						<!-- facsimile -->
+						<div class="col-md-8 col-sm-12 panel_tool nested_panel_tool resize_panel"  id="close_facsimile_div">
+							<div class="media">
+								<div class="media-left">
+									<button class="button_panel" onclick="closeFacsimile()"><i class="glyphicon glyphicon-remove"></i></button>
+								</div>
+								<div class="media-body">
+									<h4 id="panel_title">Facsimile</h4>
+								</div>
+							</div>
+							<section class="col-md-12 parent_div" id="viewerContainer">
+								<section class="col-md-1 col-sm-1 col-xs-1 prev-col">
+									<button id="prev"><span class="prev_next_button"><i class="glyphicon glyphicon-menu-left"></i></span></button>
+								</section>
+								<section id="viewer" class="col-md-10 col-sm-10 col-xs-10"></section>
+								<section class="col-md-1 col-sm-1 col-xs-1 next-col">
+									<button id="next"><span class="prev_next_button"><i class="glyphicon glyphicon-menu-right"></i></span></button>
+								</section>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+<!-- / div to toggle page -->
+
     <script id="excerpts" type="application/json">$:dict</script>
-    <script id="metadata" type="application/json">$:metadataDict</script>
-			
-
-			
+	<script id="metadata" type="application/json">$:metadataDict</script>

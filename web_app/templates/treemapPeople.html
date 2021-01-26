@@ -1,0 +1,517 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+                <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
+                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+                <li role="presentation" class="filters_category_title active"><a href="#" id="people_treemap">Treemap</a></li>
+                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseTreemap" role="button" aria-expanded="false" aria-controls="collapseTreemap"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+                <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
+                <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
+                <li role="presentation"><a class="no-active-tab">|</a></li>
+                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+            </ul>
+        </div>
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="collapse" id="collapseTreemap">
+                    <h3 class="text_black" id="explain_treemap_people_h3">Treemap</h3>
+                    <p class="justify text_grey" id="explain_treemap_people_p">In the chart below each block corresponds to a person mentioned in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each person is mentioned. By hovering/clicking on each block, you get the following information: <span class="bold">names and number of people who mention each person</span> represented in a block and <span class="bold">number of extracts</span> in which that person is mentioned.</p>                </div>
+                </div>
+            </div>
+        </div>
+    <div id="chart_div"></div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['treemap']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Cited person', 'People who cites him/her', 'Number of people who cite her/him', 'Citation occurrences'],
+
+            // people cited by bufalini who in turn are cited by other people - we call them atomic people
+
+            ['Bufalini, Paolo (1915–2001) in Appunti 1981-1991', null, 1, 2],
+            
+            ['Antonio, Marco (82 a.C.–30 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+            
+            ['Arzeni, Bruno (1905–1954)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 2],
+            
+            ['Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 3, 6],
+            
+            ['Belli, Giuseppe Gioachino (1791–1863)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 2],
+            
+            ['Berlinguer, Enrico (1922–1985)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+            
+            ['Briganti, Giuliano (1918–1992)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Bruto, Marco Iunio (85 a.C.–42 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Bufalini, Paolo (1915–2001)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 2],
+
+            ['Campanella, Tommaso (1568–1639)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Carducci, Giosuè (1835–1907)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 5],
+
+            ['Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Cesare, Gaio Giulio (100 a.C.–44 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 5],
+
+            ['Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 4],
+
+            ['De Sarlo, Francesco (1864–1937)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Dioniso, divinità greca', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 1],
+
+            ['Domiziano, Tito Flavio, imperatore romano (51–96)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Döblin, Alfred (1878–1957)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Fertonani, Roberto (1925–2000)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Fidia (ca. 500–430)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Flaubert, Gustave (1821–1880)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 3],
+
+            ['Freud, Sigmund (1856–1939)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 1],
+
+            ['Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Garin, Eugenio (1909–2004)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Gesù, di Nazaret (4 a.C.–29)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 4, 5],
+
+            ["Giustiniano I, imperatore d'Oriente (482–565)", 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ["Giustino I, imperatore d'Oriente (ca. 450–527)", 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 3],
+
+            ['Goethe, Johann Wolfgang von (1749–1832)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Gorbačev, Michail Sergeevič (1931–)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Guttuso, Renato (1911–1987)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 3],
+
+            ['Gèllio, Aulo (125–180)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Hegel, Georg Wilhelm Friedrich (1770–1831)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 3],
+
+            ['Hesse, Herman (1877–1962)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Iseo, retore (ca. 420 a.C.–350 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Labriola, Antonio (1843–1904)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Leopardi, Giacomo (1798–1837)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Lucrezio Caro, Tito (97–55 a.C)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 3],
+
+            ['Machiavelli, Niccolò (1469–1527)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Malagrida, Gabriele (1689–1761)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Mann, Thomas (1875–1955)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 5, 10],
+
+            ['Manzoni, Alessandro (1785–1873)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 13],
+
+            ['Marco Aurelio, imperatore romano (121–180)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Mario, Gaio (ca. 157 a.C.–86 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Marri, Germano (1932–)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Marx, Karl (1818–1883)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Memmio, Gaio (ca. 99 a.C.–46 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Nerone, Claudio Cesare, imperatore romano (37–68)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 4, 6],
+
+            ['Nerva, Marco Cocceio, imperatore romano (26/30–98)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Nevio, Gneo (ca. 264 a.C.–201 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Nietzsche, Elisabeth Förster (1846–1935)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 1],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 6, 10],
+
+            ['Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Otone, Marco Salvio, imperatore romano (32–69)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Pananti, Filippo (1766–1837)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Petroselli, Luigi (1932–1981)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 2],
+
+            ['Pilato, Ponzio (I sec.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Pontano, Giovanni (1426–1503)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 4],
+
+            ['Rilke, Rainer Maria (1875–1926)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Schoenberg, Arnold (1874–1951)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Schopenhauer, Arthur (1788–1860)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 4, 10],
+
+            ['Scipione, Publio Cornelio (235 a.C.–183 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Silla, Lucio Cornelio (138 a.C.–78 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Socrate (ca. 469 a.C.–399 a.C.)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 4, 5],
+
+            ['Sorel, Julien, personaggio', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 3, 2],
+
+            ['Stendhal, pseud. (1783–1842)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 3],
+
+            ['Tacito, Publio Cornelio (ca. 55–120)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 2],
+
+            ['Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 3, 11],
+
+            ['Tito, Flavio Vespasiano, imperatore romano (39–81)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Tocqueville, Alexis de (1805–1859)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Tommaseo, Niccolò (1802–1874)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 3],
+
+            ['Traiano, Marco Ulpio Nerva, imperatore romano (53–117)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Vespasiano, Tito Flavio, imperatore romano (9–79)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Vico, Giambattista (1668–1744)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Vigolo, Giorgio (1894–1983)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 1, 1],
+
+            ['Vitellio, Aulo, imperatore romano (15–69)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 2],
+
+            ['Wagner, Richard (1813–1883)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 4, 9],
+
+            ['Zaratustra (IX–XVIII sec. a.C.?)', 'Bufalini, Paolo (1915–2001) in Appunti 1981-1991', 2, 1],
+
+            // people who cite atomic people
+            ['Antonio, Marco (82 a.C.–30 a.C.) is cited by Horst, Eberhard (1924–2012) once.', 'Antonio, Marco (82 a.C.–30 a.C.)', 1, 1],
+
+            ['Arzeni, Bruno (1905–1954) is cited by Bufalini, Paolo (1915–2001) twice.', 'Arzeni, Bruno (1905–1954)', 1, 2],
+
+            ['Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) is cited by Giussani, Camillo (1879–1960) once.', 'Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)', 1, 1],
+
+            ['Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) is cited by Bufalini, Paolo (1915–2001) twice.', 'Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)', 1, 2],
+
+            ['Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) is cited by Tacito, Publio Cornelio (ca. 55–120) 3 times.', 'Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)', 1, 3],
+
+            ['Belli, Giuseppe Gioachino (1791–1863) is cited by Bufalini, Paolo (1915–2001) twice.', 'Belli, Giuseppe Gioachino (1791–1863)', 1, 2],
+
+            ['Berlinguer, Enrico (1922–1985) is cited by Bufalini, Paolo (1915–2001) once.', 'Berlinguer, Enrico (1922–1985)', 1, 1],
+
+            ['Briganti, Giuliano (1918–1992) is cited by Bufalini, Paolo (1915–2001) once.', 'Briganti, Giuliano (1918–1992)', 1, 1],
+
+            ['Bruto, Marco Iunio (85 a.C.–42 a.C.) is cited by Horst, Eberhard (1924–2012) once.', 'Bruto, Marco Iunio (85 a.C.–42 a.C.)', 1, 1],
+
+            ['Bufalini, Paolo (1915–2001) is cited by Bufalini, Paolo (1915–2001) twice.', 'Bufalini, Paolo (1915–2001)', 1, 2],
+
+            ['Campanella, Tommaso (1568–1639) is cited by Bufalini, Paolo (1915–2001) once.', 'Campanella, Tommaso (1568–1639)', 1, 1],
+
+            ['Carducci, Giosuè (1835–1907) is cited by Bufalini, Paolo (1915–2001) 4 times.', 'Carducci, Giosuè (1835–1907)', 1, 4],
+
+            ['Carducci, Giosuè (1835–1907) is cited by Croce, Benedetto (1866–1952) once.', 'Carducci, Giosuè (1835–1907)', 1, 1],
+
+            ['Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)', 1, 1],
+
+            ['Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)', 1, 1],
+
+            ['Cesare, Gaio Giulio (100 a.C.–44 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Cesare, Gaio Giulio (100 a.C.–44 a.C.)', 1, 1],
+
+            ['Cesare, Gaio Giulio (100 a.C.–44 a.C.) is cited by Horst, Eberhard (1924–2012) 4 times.', 'Cesare, Gaio Giulio (100 a.C.–44 a.C.)', 1, 4],
+
+            ['Cicerone, Marco Tullio (106 a.C.–43 a.C.) is cited by Flaubert, Gustave (1821–1880) once.', 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 1, 1],
+
+            ['Cicerone, Marco Tullio (106 a.C.–43 a.C.) is cited by Horst, Eberhard (1924–2012) 3 times.', 'Cicerone, Marco Tullio (106 a.C.–43 a.C.)', 1, 3],
+
+            ['De Sarlo, Francesco (1864–1937) is cited by Bufalini, Paolo (1915–2001) once.', 'De Sarlo, Francesco (1864–1937)', 1, 1],
+
+            ['Dioniso, divinità greca is cited by Mann, Thomas (1875–1955) once.', 'Dioniso, divinità greca', 1, 1],
+
+            ['Dioniso, divinità greca is cited by Arzeni, Bruno (1905–1954) once.', 'Dioniso, divinità greca', 1, 1],
+
+            ['Domiziano, Tito Flavio, imperatore romano (51–96) is cited by Giussani, Camillo (1879–1960) once.', 'Domiziano, Tito Flavio, imperatore romano (51–96)', 1, 1],
+
+            ['Domiziano, Tito Flavio, imperatore romano (51–96) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Domiziano, Tito Flavio, imperatore romano (51–96)', 1, 1],
+
+            ['Döblin, Alfred (1878–1957) is cited by Craig, Gordon Alexander (1913–2005) once.', 'Döblin, Alfred (1878–1957)', 1, 1],
+
+            ['Fertonani, Roberto (1925–2000) is cited by Bufalini, Paolo (1915–2001) once.', 'Fertonani, Roberto (1925–2000)', 1, 1],
+
+            ['Fidia (ca. 500–430) is cited by Bufalini, Paolo (1915–2001) once.', 'Fidia (ca. 500–430)', 1, 1],
+
+            ['Fidia (ca. 500–430) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Fidia (ca. 500–430)', 1, 1],
+
+            ['Flaubert, Gustave (1821–1880) is cited by Bufalini, Paolo (1915–2001) once.', 'Flaubert, Gustave (1821–1880)', 1, 1],
+
+            ['Flaubert, Gustave (1821–1880) is cited by Maupassant, Guy de (1850–1893) twice.', 'Flaubert, Gustave (1821–1880)', 1, 1],
+
+            ['Freud, Sigmund (1856–1939) is cited by Fertonani, Roberto (1925–2000) once.', 'Freud, Sigmund (1856–1939)', 1, 1],
+
+            ['Freud, Sigmund (1856–1939) is cited by Mann, Thomas (1875–1955) once.', 'Freud, Sigmund (1856–1939)', 1, 1],
+
+            ['Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) is cited by Giussani, Camillo (1879–1960) once.', 'Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)', 1, 1],
+
+            ['Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)', 1, 1],
+
+            ['Garin, Eugenio (1909–2004) is cited by Bufalini, Paolo (1915–2001) once.', 'Garin, Eugenio (1909–2004)', 1, 1],
+
+            ['Gesù, di Nazaret (4 a.C.–29) is cited by Bufalini, Paolo (1915–2001) twice.', 'Gesù, di Nazaret (4 a.C.–29)', 1, 2],
+
+            ['Gesù, di Nazaret (4 a.C.–29) is cited by Giussani, Camillo (1879–1960) once.', 'Gesù, di Nazaret (4 a.C.–29)', 1, 1],
+
+            ['Gesù, di Nazaret (4 a.C.–29) is cited by Flaubert, Gustave (1821–1880) once.', 'Gesù, di Nazaret (4 a.C.–29)', 1, 1],
+
+            ['Gesù, di Nazaret (4 a.C.–29) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Gesù, di Nazaret (4 a.C.–29)', 1, 1],
+
+            ["Giustiniano I, imperatore d'Oriente (482–565) is cited by Horst, Eberhard (1924–2012) once.", "Giustiniano I, imperatore d'Oriente (482–565)", 1, 1],
+
+            ["Giustiniano I, imperatore d'Oriente (482–565) is cited by Bonfante, Pietro (1864–1932) once.", "Giustiniano I, imperatore d'Oriente (482–565)", 1, 1],
+
+            ["Giustino I, imperatore d'Oriente (ca. 450–527) is cited by Giustiniano I, imperatore d'Oriente (482–565) twice.", "Giustino I, imperatore d'Oriente (ca. 450–527)", 1, 2],
+
+            ["Giustino I, imperatore d'Oriente (ca. 450–527) is cited by Bonfante, Pietro (1864–1932) once.", "Giustino I, imperatore d'Oriente (ca. 450–527)", 1, 1],
+
+            ['Goethe, Johann Wolfgang von (1749–1832) is cited by Carducci, Giosuè (1835–1907) once.', 'Goethe, Johann Wolfgang von (1749–1832)', 1, 1],
+            
+            ['Gorbačev, Michail Sergeevič (1931–) is cited by Bufalini, Paolo (1915–2001) once.', 'Gorbačev, Michail Sergeevič (1931–)', 1, 1],
+
+            ['Guttuso, Renato (1911–1987) is cited by Guttuso, Renato (1911–1987) once.', 'Guttuso, Renato (1911–1987)', 1, 1],
+
+            ['Guttuso, Renato (1911–1987) is cited by Bufalini, Paolo (1915–2001) twice.', 'Guttuso, Renato (1911–1987)', 1, 2],
+
+            ['Gèllio, Aulo (125–180) is cited by Bufalini, Paolo (1915–2001) once.', 'Gèllio, Aulo (125–180)', 1, 1],
+
+            ['Hegel, Georg Wilhelm Friedrich (1770–1831) is cited by Bufalini, Paolo (1915–2001) 3 times.', 'Hegel, Georg Wilhelm Friedrich (1770–1831)', 1, 3],
+
+            ['Hesse, Herman (1877–1962) is cited by Craig, Gordon Alexander (1913–2005) once.', 'Hesse, Herman (1877–1962)', 1, 1],
+
+            ['Iseo, retore (ca. 420 a.C.–350 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Iseo, retore (ca. 420 a.C.–350 a.C.)', 1, 1],
+
+            ['Iseo, retore (ca. 420 a.C.–350 a.C.) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Iseo, retore (ca. 420 a.C.–350 a.C.)', 1, 1],
+
+            ['Labriola, Antonio (1843–1904) is cited by Bufalini, Paolo (1915–2001) once.', 'Labriola, Antonio (1843–1904)', 1, 1],
+
+            ['Labriola, Antonio (1843–1904) is cited by Croce, Benedetto (1866–1952) once.', 'Labriola, Antonio (1843–1904)', 1, 1],
+
+            ['Leopardi, Giacomo (1798–1837) is cited by Bufalini, Paolo (1915–2001) once.', 'Leopardi, Giacomo (1798–1837)', 1, 1],
+
+            ['Lucrezio Caro, Tito (97–55 a.C) is cited by Bufalini, Paolo (1915–2001) 3 times.', 'Lucrezio Caro, Tito (97–55 a.C)', 1, 3],
+
+            ['Machiavelli, Niccolò (1469–1527) is cited by Croce, Benedetto (1866–1952) once.', 'Machiavelli, Niccolò (1469–1527)', 1, 1],
+
+            ['Malagrida, Gabriele (1689–1761) is cited by Macchia, Giovanni (1912–2001) once.', 'Malagrida, Gabriele (1689–1761)', 1, 1],
+
+            ['Mann, Thomas (1875–1955) is cited by Bufalini, Paolo (1915–2001) 3 times.', 'Mann, Thomas (1875–1955)', 1, 3],
+
+            ['Mann, Thomas (1875–1955) is cited by Mazzucchetti, Lavinia (1889–1965) 3 times.', 'Mann, Thomas (1875–1955)', 1, 3],
+            
+            ['Mann, Thomas (1875–1955) is cited by Fertonani, Roberto (1925–2000) once.', 'Mann, Thomas (1875–1955)', 1, 1],
+
+            ['Mann, Thomas (1875–1955) is cited by Mann, Thomas (1875–1955) twice.', 'Mann, Thomas (1875–1955)', 1, 2],
+
+            ['Mann, Thomas (1875–1955) is cited by Arzeni, Bruno (1905–1954) once.', 'Mann, Thomas (1875–1955)', 1, 1],
+
+            ['Manzoni, Alessandro (1785–1873) is cited by Bufalini, Paolo (1915–2001) 12 times.', 'Manzoni, Alessandro (1785–1873)', 1, 12],
+
+            ['Manzoni, Alessandro (1785–1873) is cited by Manzoni, Alessandro (1785–1873) once.', 'Manzoni, Alessandro (1785–1873)', 1, 1],
+
+            ['Marco Aurelio, imperatore romano (121–180) is cited by Flaubert, Gustave (1821–1880) once.', 'Marco Aurelio, imperatore romano (121–180)', 1, 1],
+
+            ['Mario, Gaio (ca. 157 a.C.–86 a.C.) is cited by Horst, Eberhard (1924–2012) once.', 'Mario, Gaio (ca. 157 a.C.–86 a.C.)', 1, 1],
+
+            ['Marri, Germano (1932–) is cited by Bufalini, Paolo (1915–2001) once.', 'Marri, Germano (1932–)', 1, 1],
+
+            ['Marx, Karl (1818–1883) is cited by Bufalini, Paolo (1915–2001) once.', 'Marx, Karl (1818–1883)', 1, 1],
+
+            ['Memmio, Gaio (ca. 99 a.C.–46 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Memmio, Gaio (ca. 99 a.C.–46 a.C.)', 1, 1],
+
+            ['Memmio, Gaio (ca. 99 a.C.–46 a.C.) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Memmio, Gaio (ca. 99 a.C.–46 a.C.)', 1, 1],
+
+            ['Nerone, Claudio Cesare, imperatore romano (37–68) is cited by Giussani, Camillo (1879–1960) once.', 'Nerone, Claudio Cesare, imperatore romano (37–68)', 1, 1],
+
+            ['Nerone, Claudio Cesare, imperatore romano (37–68) is cited by Bufalini, Paolo (1915–2001) 3 times.', 'Nerone, Claudio Cesare, imperatore romano (37–68)', 1, 3],
+            
+            ['Nerone, Claudio Cesare, imperatore romano (37–68) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Nerone, Claudio Cesare, imperatore romano (37–68)', 1, 1],
+  
+            ['Nerone, Claudio Cesare, imperatore romano (37–68) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Nerone, Claudio Cesare, imperatore romano (37–68)', 1, 1],
+
+            ['Nerva, Marco Cocceio, imperatore romano (26/30–98) is cited by Giussani, Camillo (1879–1960) once.', 'Nerva, Marco Cocceio, imperatore romano (26/30–98)', 1, 1],
+
+            ['Nerva, Marco Cocceio, imperatore romano (26/30–98) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Nerva, Marco Cocceio, imperatore romano (26/30–98)', 1, 1],
+
+            ['Nevio, Gneo (ca. 264 a.C.–201 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Nevio, Gneo (ca. 264 a.C.–201 a.C.)', 1, 1],
+
+            ['Nietzsche, Elisabeth Förster (1846–1935) is cited by Fertonani, Roberto (1925–2000) once.', 'Nietzsche, Elisabeth Förster (1846–1935)', 1, 1],
+
+            ['Nietzsche, Elisabeth Förster (1846–1935) is cited by Mann, Thomas (1875–1955) once.', 'Nietzsche, Elisabeth Förster (1846–1935)', 1, 1],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Nietzsche, Friedrich Wilhelm (1844–1900) twice.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 2],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Bufalini, Paolo (1915–2001) twice.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 2],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Mazzucchetti, Lavinia (1889–1965) once.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 1],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Fertonani, Roberto (1925–2000) once.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 1],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Mann, Thomas (1875–1955) once.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 1],
+
+            ['Nietzsche, Friedrich Wilhelm (1844–1900) is cited by Arzeni, Bruno (1905–1954) 3 times.', 'Nietzsche, Friedrich Wilhelm (1844–1900)', 1, 3],
+
+            ['Orazio Flacco, Quinto (65 a.C.–8 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Orazio Flacco, Quinto (65 a.C.–8 a.C.)', 1, 1],
+
+            ['Otone, Marco Salvio, imperatore romano (32–69) is cited by Giussani, Camillo (1879–1960) once.', 'Otone, Marco Salvio, imperatore romano (32–69)', 1, 1],
+
+            ['Otone, Marco Salvio, imperatore romano (32–69) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Otone, Marco Salvio, imperatore romano (32–69)', 1, 1],
+
+            ['Pananti, Filippo (1766–1837) is cited by Giusti, Giuseppe (1809–1850) once.', 'Pananti, Filippo (1766–1837)', 1, 1],
+
+            ['Petroselli, Luigi (1932–1981) is cited by Bufalini, Paolo (1915–2001) twice.', 'Petroselli, Luigi (1932–1981)', 1, 2],
+
+            ['Pilato, Ponzio (I sec.) is cited by Giussani, Camillo (1879–1960) once.', 'Pilato, Ponzio (I sec.)', 1, 1],
+
+            ['Pilato, Ponzio (I sec.) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Pilato, Ponzio (I sec.)', 1, 1],
+
+            ['Pontano, Giovanni (1426–1503) is cited by Bufalini, Paolo (1915–2001) twice.', 'Pontano, Giovanni (1426–1503)', 1, 2],
+
+            ['Pontano, Giovanni (1426–1503) is cited by Carducci, Giosuè (1835–1907) twice.', 'Pontano, Giovanni (1426–1503)', 1, 2],
+
+            ['Rilke, Rainer Maria (1875–1926) is cited by Craig, Gordon Alexander (1913–2005) once.', 'Rilke, Rainer Maria (1875–1926)', 1, 1],
+
+            ['Schoenberg, Arnold (1874–1951) is cited by Craig, Gordon Alexander (1913–2005) once.', 'Schoenberg, Arnold (1874–1951)', 1, 1],
+
+            ['Schopenhauer, Arthur (1788–1860) is cited by Bufalini, Paolo (1915–2001) 4 times.', 'Schopenhauer, Arthur (1788–1860)', 1, 4],
+
+            ['Schopenhauer, Arthur (1788–1860) is cited by Romagnoli, Alberto () 3 times.', 'Schopenhauer, Arthur (1788–1860)', 1, 3],
+
+            ['Schopenhauer, Arthur (1788–1860) is cited by Mann, Thomas (1875–1955) once.', 'Schopenhauer, Arthur (1788–1860)', 1, 1],
+
+            ['Schopenhauer, Arthur (1788–1860) is cited by Arzeni, Bruno (1905–1954) twice.', 'Schopenhauer, Arthur (1788–1860)', 1, 2],
+
+            ['Scipione, Publio Cornelio (235 a.C.–183 a.C.) is cited by Bufalini, Paolo (1915–2001) once.', 'Scipione, Publio Cornelio (235 a.C.–183 a.C.)', 1, 1],
+
+            ['Silla, Lucio Cornelio (138 a.C.–78 a.C.) is cited by Horst, Eberhard (1924–2012) once.', 'Silla, Lucio Cornelio (138 a.C.–78 a.C.)', 1, 1],
+
+            ['Socrate (ca. 469 a.C.–399 a.C.) is cited by Bufalini, Paolo (1915–2001) twice.', 'Socrate (ca. 469 a.C.–399 a.C.)', 1, 2],
+
+            ['Socrate (ca. 469 a.C.–399 a.C.) is cited by Mann, Thomas (1875–1955) once.', 'Socrate (ca. 469 a.C.–399 a.C.)', 1, 1],
+
+            ['Socrate (ca. 469 a.C.–399 a.C.) is cited by Arzeni, Bruno (1905–1954) once.', 'Socrate (ca. 469 a.C.–399 a.C.)', 1, 1],
+
+            ['Socrate (ca. 469 a.C.–399 a.C.) is cited by Yourcenar, Marguerite (1903–1987) once.', 'Socrate (ca. 469 a.C.–399 a.C.)', 1, 1],
+
+            ['Sorel, Julien, personaggio is cited by Mann, Thomas (1875–1955) once.', 'Sorel, Julien, personaggio', 1, 1],
+
+            ['Sorel, Julien, personaggio is cited by Arzeni, Bruno (1905–1954) once.', 'Sorel, Julien, personaggio', 1, 1],
+
+            ['Sorel, Julien, personaggio is cited by Macchia, Giovanni (1912–2001) once.', 'Sorel, Julien, personaggio', 1, 1],
+
+            ['Stendhal, pseud. (1783–1842) is cited by Bufalini, Paolo (1915–2001) twice.', 'Stendhal, pseud. (1783–1842)', 1, 2],
+
+            ['Stendhal, pseud. (1783–1842) is cited by Macchia, Giovanni (1912–2001) once.', 'Stendhal, pseud. (1783–1842)', 1, 1],
+
+            ['Tacito, Publio Cornelio (ca. 55–120) is cited by Bufalini, Paolo (1915–2001) twice.', 'Tacito, Publio Cornelio (ca. 55–120)', 1, 2],
+
+            ['Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) is cited by Giussani, Camillo (1879–1960) 3 times.', 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', 1, 3],
+
+            ['Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) is cited by Bufalini, Paolo (1915–2001) 3 times.', 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', 1, 3],
+
+            ['Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) is cited by Tacito, Publio Cornelio (ca. 55–120) 5 times.', 'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)', 1, 5],
+
+            ['Tito, Flavio Vespasiano, imperatore romano (39–81) is cited by Giussani, Camillo (1879–1960) once.', 'Tito, Flavio Vespasiano, imperatore romano (39–81)', 1, 1],
+
+            ['Tito, Flavio Vespasiano, imperatore romano (39–81) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Tito, Flavio Vespasiano, imperatore romano (39–81)', 1, 1],
+
+            ['Tocqueville, Alexis de (1805–1859) is cited by Bufalini, Paolo (1915–2001) once.', 'Tocqueville, Alexis de (1805–1859)', 1, 1],
+
+            ['Tommaseo, Niccolò (1802–1874) is cited by Bufalini, Paolo (1915–2001) twice.', 'Tommaseo, Niccolò (1802–1874)', 1, 2],
+            
+            ['Tommaseo, Niccolò (1802–1874) is cited by Carducci, Giosuè (1835–1907) once.', 'Tommaseo, Niccolò (1802–1874)', 1, 1],
+
+            ['Traiano, Marco Ulpio Nerva, imperatore romano (53–117) is cited by Giussani, Camillo (1879–1960) once.', 'Traiano, Marco Ulpio Nerva, imperatore romano (53–117)', 1, 1],
+
+            ['Traiano, Marco Ulpio Nerva, imperatore romano (53–117) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Traiano, Marco Ulpio Nerva, imperatore romano (53–117)', 1, 1],
+
+            ['Vespasiano, Tito Flavio, imperatore romano (9–79) is cited by Giussani, Camillo (1879–1960) once.', 'Vespasiano, Tito Flavio, imperatore romano (9–79)', 1, 1],
+
+            ['Vespasiano, Tito Flavio, imperatore romano (9–79) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Vespasiano, Tito Flavio, imperatore romano (9–79)', 1, 1],
+
+            ['Vico, Giambattista (1668–1744) is cited by Bufalini, Paolo (1915–2001) once.', 'Vico, Giambattista (1668–1744)', 1, 1],
+
+            ['Vigolo, Giorgio (1894–1983) is cited by Bufalini, Paolo (1915–2001) once.', 'Vigolo, Giorgio (1894–1983)', 1, 1],
+
+            ['Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29) is cited by Horst, Eberhard (1924–2012) once.', 'Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)', 1, 1],
+
+            ['Vitellio, Aulo, imperatore romano (15–69) is cited by Giussani, Camillo (1879–1960) once.', 'Vitellio, Aulo, imperatore romano (15–69)', 1, 1],
+
+            ['Vitellio, Aulo, imperatore romano (15–69) is cited by Tacito, Publio Cornelio (ca. 55–120) once.', 'Vitellio, Aulo, imperatore romano (15–69)', 1, 1],
+
+            ['Wagner, Richard (1813–1883) is cited by Nietzsche, Friedrich Wilhelm (1844–1900) twice.', 'Wagner, Richard (1813–1883)', 1, 2],
+
+            ['Wagner, Richard (1813–1883) is cited by Bufalini, Paolo (1915–2001) 4 times.', 'Wagner, Richard (1813–1883)', 1, 4],
+
+            ['Wagner, Richard (1813–1883) is cited by Romagnoli, Alberto () twice.', 'Wagner, Richard (1813–1883)', 1, 2],
+
+            ['Wagner, Richard (1813–1883) is cited by Mazzucchetti, Lavinia (1889–1965) once.', 'Wagner, Richard (1813–1883)', 1, 1],
+
+            ['Zaratustra (IX–XVIII sec. a.C.?) is cited by Mann, Thomas (1875–1955) once.', 'Zaratustra (IX–XVIII sec. a.C.?)', 1, 1],
+
+            ['Zaratustra (IX–XVIII sec. a.C.?) is cited by Arzeni, Bruno (1905–1954) once.', 'Zaratustra (IX–XVIII sec. a.C.?)', 1, 1],
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+
+    var options = {
+        highlightOnMouseOver: true,
+        minColor: '#d7e6f4',
+        midColor: '#337ab7',
+        maxColor: '#3277b3',
+        maxColorValue: 4,
+        minColorValue: 1,
+        headerColor: '#FEFEFE',
+        headerHeight: 50,
+        fontColor: '#0D0D0D',
+        fontFamily: 'open sans, sans-serif',
+        fontSize: '16',
+        showScale: false,
+        generateTooltip: showFullTooltip,
+        useWeightedAverageForAggregation: true,
+        forceIFrame: true
+    };
+
+    tree.draw(data, options);
+
+        function showFullTooltip(row, size, value) {
+            return '<div style="background-color: #ffffff; border: 0px solid; border-radius: 43px; padding: 30px 70px; box-shadow: 0px 5px 40px -10px rgba(38, 44, 52, 0.4);">' 
+
+                        + '<span style="font-family: open sans,sans-serif; font-size: 20px; font-weight: 600; letter-spacing: 1px;">' + data.getValue(row, 0) + '</span><br>'
+                        
+                        + '<span style="color: #404040; font-family: open-sans, sans-serif; font-size: 17px; font-weight: 200; letter-spacing: 1px;">Number of people who cite her/him: </span>' + "<span style='color: #0d0d0d; font-family: open sans, sans-serif; font-size: 16px; font-weight: 600; line-height: 25px;  margin-bottom: 15px; padding-left: 0px;'>" + data.getValue(row, 2) + "</span><br>" 
+                        
+                        + '<span style="color: #404040; font-family: open-sans, sans-serif; font-size: 17px; font-weight: 200; letter-spacing: 1px;">Number of excerpts she/he is cited in: </span>' + "<span style='color: #0d0d0d; font-size: 16px; font-family: open sans, sans-serif; font-weight: 600; line-height: 25px; margin-bottom: 15px; padding-left: 0px;'>" + data.getValue(row, 3) + "</span>"
+                    
+                    + "</div>"
+        }
+
+    }
+</script>

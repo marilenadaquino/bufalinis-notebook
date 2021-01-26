@@ -1,0 +1,1092 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+                <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
+                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_white">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+          <ul class="nav nav-pills">
+            <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+            <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
+            <li role="presentation" class="filters_category_title active"><a href="#" id="people_sets">Sets</a></li>
+            <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseSets" role="button" aria-expanded="false" aria-controls="collapseSets"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+            <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
+            <li role="presentation"><a class="no-active-tab">|</a></li>
+            <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+          </ul>
+        </div>
+        <div class="container-fluid">
+          <div class="col-md-12">
+            <div class="collapse" id="collapseSets">
+              <h3 class="text_black" id="explain_sets_people_h3">Sets</h3>
+              <p class="justify text_grey" id="explain_sets_people_p">In the chart below all the people mentioned in the notebook are grouped according to the person who mentions them, who, in turn, is mentioned in the notebook. <br> By hovering on each <span class="bold"> set</span> you get the following information: <span class="bold">name of the person who mentions other people</span> and <span class="bold">number of extracts</span> in which that person mention other people.<br>By hovering/clicking on each <span class="bold">subset</span> you get the following information: <span class="bold">names of the people mentioned</span> and <span class="bold">number of extracts</span> in which they appear.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div style="padding:10px">
+        <span id="visualize_span"></span> <select id="minlevel">
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select> <span id="visualize_span_to"></span> <select id="maxlevel">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4" selected>4</option>
+    </select><button class="btnrender" id="btnrender" style="margin-left: 15px;">Visualizza i livelli</button>
+      </div>
+      <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div id="zc"></div>
+            </div>
+            <div class="col-md-2">     
+            </div>
+      </div>
+</div>
+
+  <script>
+    var fsdata = [{
+        "id": "Il quaderno di Paolo Bufalini",
+        "text": "Il quaderno di Paolo Bufalini",
+        "parent": ""
+      },
+      {
+        "id": "analytics",
+        "text": "analytics",
+        "parent": "Il quaderno di Paolo Bufalini",
+        "data-xx": "xx-analytics"
+      },
+      {
+        "id": "cluster",
+        "text": "cluster",
+        "parent": "analytics",
+        "data-xx": "xx-cluster"
+      },
+      {
+        "id": "Bufalini, Paolo (1915–2001)",
+        "text": "Bufalini, Paolo (1915–2001) cites the following number of excerpts:",
+        "parent": "cluster"
+      },
+      {
+        "id": "Arzeni, Bruno (1905–1954) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Arzeni, Bruno (1905–1954)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Belli, Giuseppe Gioachino (1791–1863) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Belli, Giuseppe Gioachino (1791–1863)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Berlinguer, Enrico (1922–1985) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Berlinguer, Enrico (1922–1985)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Briganti, Giuliano (1918–1992) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Briganti, Giuliano (1918–1992)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Bufalini, Paolo (1915–2001) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Bufalini, Paolo (1915–2001)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Campanella, Tommaso (1568–1639) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Campanella, Tommaso (1568–1639)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Carducci, Giosuè (1835–1907) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Carducci, Giosuè (1835–1907)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 4
+      },
+      {
+        "id": "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Cesare, Gaio Giulio (100 a.C.–44 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Cesare, Gaio Giulio (100 a.C.–44 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "De Sarlo, Francesco (1864–1937) cited by Bufalini, Paolo (1915–2001)",
+        "text": "De Sarlo, Francesco (1864–1937)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Fertonani, Roberto (1925–2000) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Fertonani, Roberto (1925–2000)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Fidia (ca. 500–430) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Fidia (ca. 500–430)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Flaubert, Gustave (1821–1880) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Flaubert, Gustave (1821–1880)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Garin, Eugenio (1909–2004) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Garin, Eugenio (1909–2004)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Gesù, di Nazaret (4 a.C.–29) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Gesù, di Nazaret (4 a.C.–29)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Gorbačev, Michail Sergeevič (1931–) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Gorbačev, Michail Sergeevič (1931–)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Guttuso, Renato (1911–1987) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Guttuso, Renato (1911–1987)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Gèllio, Aulo (125–180) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Gèllio, Aulo (125–180)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Hegel, Georg Wilhelm Friedrich (1770–1831) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Hegel, Georg Wilhelm Friedrich (1770–1831)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 3
+      },
+      {
+        "id": "Iseo, retore (ca. 420 a.C.–350 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Iseo, retore (ca. 420 a.C.–350 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Labriola, Antonio (1843–1904) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Labriola, Antonio (1843–1904)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Leopardi, Giacomo (1798–1837) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Leopardi, Giacomo (1798–1837)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Lucrezio Caro, Tito (97–55 a.C) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Lucrezio Caro, Tito (97–55 a.C)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 3
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Mann, Thomas (1875–1955)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 3
+      },
+      {
+        "id": "Manzoni, Alessandro (1785–1873) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Manzoni, Alessandro (1785–1873)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 12
+      },
+      {
+        "id": "Marri, Germano (1932–) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Marri, Germano (1932–)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Marx, Karl (1818–1883) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Marx, Karl (1818–1883)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Memmio, Gaio (ca. 99 a.C.–46 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Memmio, Gaio (ca. 99 a.C.–46 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Nerone, Claudio Cesare, imperatore romano (37–68) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Nerone, Claudio Cesare, imperatore romano (37–68)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 3
+      },
+      {
+        "id": "Nevio, Gneo (ca. 264 a.C.–201 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Orazio Flacco, Quinto (65 a.C.–8 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Petroselli, Luigi (1932–1981) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Petroselli, Luigi (1932–1981)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Pontano, Giovanni (1426–1503) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Pontano, Giovanni (1426–1503)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Schopenhauer, Arthur (1788–1860) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Schopenhauer, Arthur (1788–1860)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 4
+      },
+      {
+        "id": "Scipione, Publio Cornelio (235 a.C.–183 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Scipione, Publio Cornelio (235 a.C.–183 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Socrate (ca. 469 a.C.–399 a.C.) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Socrate (ca. 469 a.C.–399 a.C.)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Stendhal, pseud. (1783–1842) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Stendhal, pseud. (1783–1842)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Tacito, Publio Cornelio (ca. 55–120) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Tacito, Publio Cornelio (ca. 55–120)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 3
+      },
+      {
+        "id": "Tocqueville, Alexis de (1805–1859) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Tocqueville, Alexis de (1805–1859)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Tommaseo, Niccolò (1802–1874) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Tommaseo, Niccolò (1802–1874)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 2
+      },
+      {
+        "id": "Vico, Giambattista (1668–1744) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Vico, Giambattista (1668–1744)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Vigolo, Giorgio (1894–1983) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Vigolo, Giorgio (1894–1983)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 1
+      },
+      {
+        "id": "Wagner, Richard (1813–1883) cited by Bufalini, Paolo (1915–2001)",
+        "text": "Wagner, Richard (1813–1883)",
+        "parent": "Bufalini, Paolo (1915–2001)",
+        "value": 4
+      },
+      {
+        "id": "Horst, Eberhard (1924–2012)",
+        "text": "Horst, Eberhard (1924–2012) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 13
+      },
+      {
+        "id": "Antonio, Marco (82 a.C.–30 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Antonio, Marco (82 a.C.–30 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Bruto, Marco Iunio (85 a.C.–42 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Bruto, Marco Iunio (85 a.C.–42 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Cesare, Gaio Giulio (100 a.C.–44 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Cesare, Gaio Giulio (100 a.C.–44 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 4
+      },
+      {
+        "id": "Cicerone, Marco Tullio (106 a.C.–43 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Cicerone, Marco Tullio (106 a.C.–43 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 3
+      },
+      {
+        "id": "Giustiniano I, imperatore d'Oriente (482–565) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Giustiniano I, imperatore d'Oriente (482–565) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Mario, Gaio (ca. 157 a.C.–86 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Mario, Gaio (ca. 157 a.C.–86 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Silla, Lucio Cornelio (138 a.C.–78 a.C.) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Silla, Lucio Cornelio (138 a.C.–78 a.C.) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29) is cited by Horst, Eberhard (1924–2012)",
+        "text": "Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29) in Cesare",
+        "parent": "Horst, Eberhard (1924–2012)",
+        "value": 1
+      },
+      {
+        "id": "Giussani, Camillo (1879–1960)",
+        "text": "Giussani, Camillo (1879–1960) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 18
+      },
+      {
+        "id": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) cited by Giussani, Camillo (1879–1960)",
+        "text": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) in Gli Annali",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Domiziano, Tito Flavio, imperatore romano (51–96) cited by Giussani, Camillo (1879–1960)",
+        "text": "Domiziano, Tito Flavio, imperatore romano (51–96) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) cited by Giussani, Camillo (1879–1960)",
+        "text": "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Gesù, di Nazaret (4 a.C.–29) cited by Giussani, Camillo (1879–1960)",
+        "text": "Gesù, di Nazaret (4 a.C.–29) in Gli Annali",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Nerone, Claudio Cesare, imperatore romano (37–68) cited by Giussani, Camillo (1879–1960)",
+        "text": "Nerone, Claudio Cesare, imperatore romano (37–68) in Gli Annali",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Nerva, Marco Cocceio, imperatore romano (26/30–98) cited by Giussani, Camillo (1879–1960)",
+        "text": "Nerva, Marco Cocceio, imperatore romano (26/30–98) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Otone, Marco Salvio, imperatore romano (32–69) cited by Giussani, Camillo (1879–1960)",
+        "text": "Otone, Marco Salvio, imperatore romano (32–69) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Pilato, Ponzio (I sec.) cited by Giussani, Camillo (1879–1960)",
+        "text": "Pilato, Ponzio (I sec.) in Gli Annali",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) cited by Giussani, Camillo (1879–1960)",
+        "text": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) in Gli Annali",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 3
+      },
+      {
+        "id": "Tito, Flavio Vespasiano, imperatore romano (39–81) cited by Giussani, Camillo (1879–1960)",
+        "text": "Tito, Flavio Vespasiano, imperatore romano (39–81) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Traiano, Marco Ulpio Nerva, imperatore romano (53–117) cited by Giussani, Camillo (1879–1960)",
+        "text": "Traiano, Marco Ulpio Nerva, imperatore romano (53–117) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Vespasiano, Tito Flavio, imperatore romano (9–79) cited by Giussani, Camillo (1879–1960)",
+        "text": "Vespasiano, Tito Flavio, imperatore romano (9–79) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Vitellio, Aulo, imperatore romano (15–69) cited by Giussani, Camillo (1879–1960)",
+        "text": "Vitellio, Aulo, imperatore romano (15–69) in Le Storie",
+        "parent": "Giussani, Camillo (1879–1960)",
+        "value": 1
+      },
+      {
+        "id": "Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Tacito, Publio Cornelio (ca. 55–120) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 21
+      },
+      {
+        "id": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14) in Annales",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 3
+      },
+      {
+        "id": "Domiziano, Tito Flavio, imperatore romano (51–96) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Domiziano, Tito Flavio, imperatore romano (51–96) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Gesù, di Nazaret (4 a.C.–29) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Gesù, di Nazaret (4 a.C.–29) in Annales",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Nerone, Claudio Cesare, imperatore romano (37–68) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Nerone, Claudio Cesare, imperatore romano (37–68) in Annales",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Nerva, Marco Cocceio, imperatore romano (26/30–98) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Nerva, Marco Cocceio, imperatore romano (26/30–98) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Otone, Marco Salvio, imperatore romano (32–69) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Otone, Marco Salvio, imperatore romano (32–69) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Pilato, Ponzio (I sec.) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Pilato, Ponzio (I sec.) in Annales",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37) in Annales",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 5
+      },
+      {
+        "id": "Tito, Flavio Vespasiano, imperatore romano (39–81) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Tito, Flavio Vespasiano, imperatore romano (39–81) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Traiano, Marco Ulpio Nerva, imperatore romano (53–117) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Traiano, Marco Ulpio Nerva, imperatore romano (53–117) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Vespasiano, Tito Flavio, imperatore romano (9–79) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Vespasiano, Tito Flavio, imperatore romano (9–79) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Vitellio, Aulo, imperatore romano (15–69) cited by Tacito, Publio Cornelio (ca. 55–120)",
+        "text": "Vitellio, Aulo, imperatore romano (15–69) in Le Storie",
+        "parent": "Tacito, Publio Cornelio (ca. 55–120)",
+        "value": 1
+      },
+      {
+        "id": "Croce, Benedetto (1866–1952)",
+        "text": "Croce, Benedetto (1866–1952) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 3
+      },
+      {
+        "id": "Carducci, Giosuè (1835–1907) cited by Croce, Benedetto (1866–1952)",
+        "text": "Carducci, Giosuè (1835–1907) in Storia d'Italia dal 1871 al 1915",
+        "parent": "Croce, Benedetto (1866–1952)",
+        "value": 1
+      },
+      {
+        "id": "Labriola, Antonio (1843–1904) cited by Croce, Benedetto (1866–1952)",
+        "text": "Labriola, Antonio (1843–1904) in Lettera a De Sarlo",
+        "parent": "Croce, Benedetto (1866–1952)",
+        "value": 1
+      },
+      {
+        "id": "Machiavelli, Niccolò (1469–1527) cited by Croce, Benedetto (1866–1952)",
+        "text": "Machiavelli, Niccolò (1469–1527) in Lettera a De Sarlo",
+        "parent": "Croce, Benedetto (1866–1952)",
+        "value": 1
+      },
+      {
+        "id": "Yourcenar, Marguerite (1903–1987)",
+        "text": "Yourcenar, Marguerite (1903–1987) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 6
+      },
+      {
+        "id": "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Fidia (ca. 500–430) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Fidia (ca. 500–430) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Iseo, retore (ca. 420 a.C.–350 a.C.) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Iseo, retore (ca. 420 a.C.–350 a.C.) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Memmio, Gaio (ca. 99 a.C.–46 a.C.) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Memmio, Gaio (ca. 99 a.C.–46 a.C.) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Nerone, Claudio Cesare, imperatore romano (37–68) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Nerone, Claudio Cesare, imperatore romano (37–68) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Socrate (ca. 469 a.C.–399 a.C.) cited by Yourcenar, Marguerite (1903–1987)",
+        "text": "Socrate (ca. 469 a.C.–399 a.C.) in Memoires d'Hadrien",
+        "parent": "Yourcenar, Marguerite (1903–1987)",
+        "value": 1
+      },
+      {
+        "id": "Flaubert, Gustave (1821–1880)",
+        "text": "Flaubert, Gustave (1821–1880) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 3
+      },
+      {
+        "id": "Cicerone, Marco Tullio (106 a.C.–43 a.C.) cited by Flaubert, Gustave (1821–1880)",
+        "text": "Cicerone, Marco Tullio (106 a.C.–43 a.C.) in Correspondance",
+        "parent": "Flaubert, Gustave (1821–1880)",
+        "value": 1
+      },
+      {
+        "id": "Gesù, di Nazaret (4 a.C.–29) cited by Flaubert, Gustave (1821–1880)",
+        "text": "Gesù, di Nazaret (4 a.C.–29) in Correspondance",
+        "parent": "Flaubert, Gustave (1821–1880)",
+        "value": 1
+      },
+      {
+        "id": "Marco Aurelio, imperatore romano (121–180) cited by Flaubert, Gustave (1821–1880)",
+        "text": "Marco Aurelio, imperatore romano (121–180) in Correspondance",
+        "parent": "Flaubert, Gustave (1821–1880)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955)",
+        "text": "Mann, Thomas (1875–1955) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 10
+      },
+      {
+        "id": "Dioniso, divinità greca cited by Mann, Thomas (1875–1955)",
+        "text": "Dioniso, divinità greca in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Freud, Sigmund (1856–1939) cited by Mann, Thomas (1875–1955)",
+        "text": "Freud, Sigmund (1856–1939) in Saggi. Introduzione",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Mann, Thomas (1875–1955) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "text": "Mann, Thomas (1875–1955) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Mann, Thomas (1875–1955) in La filosofia di Nietzsche alla luce della nostra esperienza",
+        "text": "Mann, Thomas (1875–1955) in La filosofia di Nietzsche alla luce della nostra esperienza",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Elisabeth Förster (1846–1935) cited by Mann, Thomas (1875–1955)",
+        "text": "Nietzsche, Elisabeth Förster (1846–1935) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) cited by Mann, Thomas (1875–1955)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Schopenhauer, Arthur (1788–1860) cited by Mann, Thomas (1875–1955)",
+        "text": "Schopenhauer, Arthur (1788–1860) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Socrate (ca. 469 a.C.–399 a.C.) cited by Mann, Thomas (1875–1955)",
+        "text": "Socrate (ca. 469 a.C.–399 a.C.) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Sorel, Julien, personaggio cited by Mann, Thomas (1875–1955)",
+        "text": "Sorel, Julien, personaggio in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Zaratustra (IX–XVIII sec. a.C.?) cited by Mann, Thomas (1875–1955)",
+        "text": "Zaratustra (IX–XVIII sec. a.C.?) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Mann, Thomas (1875–1955)",
+        "value": 1
+      },
+      {
+        "id": "Arzeni, Bruno (1905–1954)",
+        "text": "Arzeni, Bruno (1905–1954) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 11
+      },
+      {
+        "id": "Dioniso, divinità greca cited by Arzeni, Bruno (1905–1954)",
+        "text": "Dioniso, divinità greca in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) by Arzeni, Bruno (1905–1954) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "text": "Mann, Thomas (1875–1955) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) by Arzeni, Bruno (1905–1954)",
+        "text": "Mann, Thomas (1875–1955)",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) by Arzeni, Bruno (1905–1954)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 3
+      },
+      {
+        "id": "Schopenhauer, Arthur (1788–1860) by Arzeni, Bruno (1905–1954)",
+        "text": "Schopenhauer, Arthur (1788–1860) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 2
+      },
+      {
+        "id": "Socrate (ca. 469 a.C.–399 a.C.) by Arzeni, Bruno (1905–1954)",
+        "text": "Socrate (ca. 469 a.C.–399 a.C.) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Sorel, Julien, personaggio by Arzeni, Bruno (1905–1954)",
+        "text": "Sorel, Julien, personaggio in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Zaratustra (IX–XVIII sec. a.C.?) by Arzeni, Bruno (1905–1954)",
+        "text": "Zaratustra (IX–XVIII sec. a.C.?) in Saggi. Schopenhauer, Nietzsche, Freud",
+        "parent": "Arzeni, Bruno (1905–1954)",
+        "value": 1
+      },
+      {
+        "id": "Craig, Gordon Alexander (1913–2005)",
+        "text": "Craig, Gordon Alexander (1913–2005) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 4
+      },
+      {
+        "id": "Döblin, Alfred (1878–1957) cited by Craig, Gordon Alexander (1913–2005)",
+        "text": "Döblin, Alfred (1878–1957) in Germania 1866-1945",
+        "parent": "Craig, Gordon Alexander (1913–2005)",
+        "value": 1
+      },
+      {
+        "id": "Hesse, Herman (1877–1962) cited by Craig, Gordon Alexander (1913–2005)",
+        "text": "Hesse, Herman (1877–1962) in Germania 1866-1945",
+        "parent": "Craig, Gordon Alexander (1913–2005)",
+        "value": 1
+      },
+      {
+        "id": "Rilke, Rainer Maria (1875–1926) cited by Craig, Gordon Alexander (1913–2005)",
+        "text": "Rilke, Rainer Maria (1875–1926) in Germania 1866-1945",
+        "parent": "Craig, Gordon Alexander (1913–2005)",
+        "value": 1
+      },
+      {
+        "id": "Schoenberg, Arnold (1874–1951) cited by Craig, Gordon Alexander (1913–2005)",
+        "text": "Schoenberg, Arnold (1874–1951) in Germania 1866-1945",
+        "parent": "Craig, Gordon Alexander (1913–2005)",
+        "value": 1
+      },
+      {
+        "id": "Maupassant, Guy de (1850–1893)",
+        "text": "Maupassant, Guy de (1850–1893) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 1
+      },
+      {
+        "id": "Flaubert, Gustave (1821–1880) cited by Maupassant, Guy de (1850–1893)",
+        "text": "Flaubert, Gustave (1821–1880) in Unknown",
+        "parent": "Maupassant, Guy de (1850–1893)",
+        "value": 2
+      },
+      {
+        "id": "Fertonani, Roberto (1925–2000)",
+        "text": "Fertonani, Roberto (1925–2000) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 4
+      },
+      {
+        "id": "Freud, Sigmund (1856–1939) cited by Fertonani, Roberto (1925–2000)",
+        "text": "Freud, Sigmund (1856–1939) in Saggi. Introduzione",
+        "parent": "Fertonani, Roberto (1925–2000)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Fertonani, Roberto (1925–2000)",
+        "text": "Mann, Thomas (1875–1955) in Saggi. Introduzione",
+        "parent": "Fertonani, Roberto (1925–2000)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Elisabeth Förster (1846–1935) cited by Fertonani, Roberto (1925–2000)",
+        "text": "Nietzsche, Elisabeth Förster (1846–1935) in Saggi. Introduzione",
+        "parent": "Fertonani, Roberto (1925–2000)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) cited by Fertonani, Roberto (1925–2000)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900) in Saggi. Introduzione",
+        "parent": "Fertonani, Roberto (1925–2000)",
+        "value": 1
+      },
+      {
+        "id": "Bonfante, Pietro (1864–1932)",
+        "text": "Bonfante, Pietro (1864–1932) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 2
+      },
+      {
+        "id": "Giustiniano I, imperatore d'Oriente (482–565) cited by Bonfante, Pietro (1864–1932)",
+        "text": "Giustiniano I, imperatore d'Oriente (482–565) in Istituzioni di diritto Romano",
+        "parent": "Bonfante, Pietro (1864–1932)",
+        "value": 1
+      },
+      {
+        "id": "Giustino I, imperatore d'Oriente (ca. 450–527) cited by Bonfante, Pietro (1864–1932)",
+        "text": "Giustino I, imperatore d'Oriente (ca. 450–527) in Istituzioni di diritto Romano",
+        "parent": "Bonfante, Pietro (1864–1932)",
+        "value": 1
+      },
+      {
+        "id": "Giustiniano I, imperatore d'Oriente (482–565)",
+        "text": "Giustiniano I, imperatore d'Oriente (482–565) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 2
+      },
+      {
+        "id": "Giustino I, imperatore d'Oriente (ca. 450–527) is cited by Giustiniano I, imperatore d'Oriente (482–565)",
+        "text": "Giustino I, imperatore d'Oriente (ca. 450–527) in Institutionem Iustiniani",
+        "parent": "Giustiniano I, imperatore d'Oriente (482–565)",
+        "value": 2
+      },
+      {
+        "id": "Carducci, Giosuè (1835–1907)",
+        "text": "Carducci, Giosuè (1835–1907) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 1
+      },
+      {
+        "id": "Goethe, Johann Wolfgang von (1749–1832) cited by Carducci, Giosuè (1835–1907)",
+        "text": "Goethe, Johann Wolfgang von (1749–1832) in Dell'inno 'La Risurrezione' in A Manzoni e in S Paolino d'Aquileja",
+        "parent": "Carducci, Giosuè (1835–1907)",
+        "value": 1
+      },
+      {
+        "id": "Pontano, Giovanni (1426–1503) cited by Carducci, Giosuè (1835–1907)",
+        "text": "Pontano, Giovanni (1426–1503) in A proposito di alcuni giudizi su Alessandro Manzoni",
+        "parent": "Carducci, Giosuè (1835–1907)",
+        "value": 2
+      },
+      {
+        "id": "Guttuso, Renato (1911–1987)",
+        "text": "Guttuso, Renato (1911–1987) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 1
+      },
+      {
+        "id": "Guttuso, Renato (1911–1987) is cited by Guttuso, Renato (1911–1987)",
+        "text": "Guttuso, Renato (1911–1987)",
+        "parent": "Guttuso, Renato (1911–1987)",
+        "value": 1
+      },
+      {
+        "id": "Macchia, Giovanni (1912–2001)",
+        "text": "Macchia, Giovanni (1912–2001) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 3
+      },
+      {
+        "id": "Malagrida, Gabriele (1689–1761) is cited by Macchia, Giovanni (1912–2001)",
+        "text": "Malagrida, Gabriele (1689–1761) in Corriere della Sera",
+        "parent": "Macchia, Giovanni (1912–2001)",
+        "value": 1
+      },
+      {
+        "id": "Sorel, Julien, personaggio is cited by Macchia, Giovanni (1912–2001)",
+        "text": "Sorel, Julien, personaggio in Corriere della Sera",
+        "parent": "Macchia, Giovanni (1912–2001)",
+        "value": 1
+      },
+      {
+        "id": "Stendhal, pseud. (1783–1842) is cited by Macchia, Giovanni (1912–2001)",
+        "text": "Stendhal, pseud. (1783–1842) in Corriere della Sera",
+        "parent": "Macchia, Giovanni (1912–2001)",
+        "value": 1
+      },
+      {
+        "id": "Mazzucchetti, Lavinia (1889–1965)",
+        "text": "Mazzucchetti, Lavinia (1889–1965) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 4
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Mazzucchetti, Lavinia (1889–1965)",
+        "text": "Mann, Thomas (1875–1955)",
+        "parent": "Mazzucchetti, Lavinia (1889–1965)",
+        "value": 1
+      },
+      {
+        "id": "Mann, Thomas (1875–1955) cited by Mazzucchetti, Lavinia (1889–1965) in Saggi. Introduzione",
+        "text": "Mann, Thomas (1875–1955) in Saggi. Introduzione",
+        "parent": "Mazzucchetti, Lavinia (1889–1965)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) cited by Mazzucchetti, Lavinia (1889–1965)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "parent": "Mazzucchetti, Lavinia (1889–1965)",
+        "value": 1
+      },
+      {
+        "id": "Wagner, Richard (1813–1883) cited by Mazzucchetti, Lavinia (1889–1965)",
+        "text": "Wagner, Richard (1813–1883)",
+        "parent": "Mazzucchetti, Lavinia (1889–1965)",
+        "value": 1
+      },
+      {
+        "id": "Manzoni, Alessandro (1785–1873)",
+        "text": "Manzoni, Alessandro (1785–1873) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 1
+      },
+      {
+        "id": "Manzoni, Alessandro (1785–1873) is cited by Manzoni, Alessandro (1785–1873)",
+        "text": "Manzoni, Alessandro (1785–1873) in La Monaca di Monza",
+        "parent": "Manzoni, Alessandro (1785–1873)",
+        "value": 1
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 4
+      },
+      {
+        "id": "Nietzsche, Friedrich Wilhelm (1844–1900) by Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "text": "Nietzsche, Friedrich Wilhelm (1844–1900) in Scritti su Wagner",
+        "parent": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "value": 2
+      },
+      {
+        "id": "Wagner, Richard (1813–1883) by Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "text": "Wagner, Richard (1813–1883) in Scritti su Wagner",
+        "parent": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "value": 2
+      },
+
+      {
+        "id": "Giusti, Giuseppe (1809–1850)",
+        "text": "Giusti, Giuseppe (1809–1850) cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 1
+      },
+      {
+        "id": "Pananti, Filippo (1766–1837) cited by Giusti, Giuseppe (1809–1850)",
+        "text": "Pananti, Filippo (1766–1837) in Epigrammi",
+        "parent": "Giusti, Giuseppe (1809–1850)",
+        "value": 1
+      },
+      {
+        "id": "Romagnoli, Alberto ()",
+        "text": "Romagnoli, Alberto () cites the following number of excerpts:",
+        "parent": "cluster",
+        "value": 5
+      },
+      {
+        "id": "Schopenhauer, Arthur (1788–1860) cited by Romagnoli, Alberto ()",
+        "text": "Romagnoli, Alberto () in Opere. A cura di A. Romagnoli",
+        "parent": "Romagnoli, Alberto ()",
+        "value": 3
+      },
+      {
+        "id": "Wagner, Richard (1813–1883) cited by Romagnoli, Alberto ()",
+        "text": "Wagner, Richard (1813–1883) in Opere. A cura di A. Romagnoli",
+        "parent": "Romagnoli, Alberto ()",
+        "value": 2
+      }
+    ];
+
+    function render() {
+
+      var cdata = {
+        "background-color": "rgba(244, 180, 156, 0)",
+        "type": "bubble-pack",
+        "plotarea": {
+          "margin": 5
+        },
+        "options": {
+          "active": true,
+          "padding": 1,
+          "min-size": 1,
+          "max-items": 999,
+          "min-level": minlevel.value,
+          "max-level": maxlevel.value,
+          "-filter": ["operator"],
+          "item": {
+            "-background-color": "#FEFEFE",
+            "border-color": "#337AB7",
+            "border-width": 2,
+            "font-family" : "open-sans, sans-serif",
+            "-tooltip": {
+              "text": "%fullname<br>%fullvalue<br>%data-xx"
+            }
+          },
+          "-item-level-2": {
+            "background-color": "#FEFEFE"
+          },
+          "-item-id-axis": {
+            "border-width": 5,
+            "background-color": "#FEFEFE"
+          }
+        },
+        "series": fsdata,
+      };
+
+      zingchart.render({
+        id: 'zc',
+        width: 800,
+        height: 800,
+        output: 'svg',
+        data: cdata
+      });
+
+    };
+
+    render();
+
+    btnrender.addEventListener('click', render);
+  </script>

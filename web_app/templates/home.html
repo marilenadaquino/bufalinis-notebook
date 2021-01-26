@@ -1,8 +1,183 @@
 $def with ()
-	
-			
-<section class="col-md-12 home_page">
-</section>
-<h2 id="main_title">Paolo Bufalini: Quaderno di Appunti, 1981–1991</h2>
-    <section id="main_subtitle">L'edizione digitale</section>
-			
+
+
+	<div class="container-fluid cover parent_div">
+	    <div class="container">
+	        <div class="col-md-4 margin_cover">
+	            <h2 id="main_title">Paolo Bufalini's<br/>Notebook</h2>
+	            <section id="main_subtitle">A semantic digital scholarly edition of Paolo Bufalini's notebook, Appunti 1981-1991, aimed to enhance the complex network of intratextual and intertextual relations which characterizes the notebook.</section>
+	            <button class="button_large button_placeholder" id="button_learn_more" onClick="document.getElementById('first_section').scrollIntoView(true);">Learn more</button>
+	            <img src="static/img-web-app/book_intro.png" class="img-home-md">
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container-fluid background_light portrait" id="first_section">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-4 col-md-offset-3">
+	                <h3 class="margin-bottom-0 text_grey" id="author_name">The author</h3>
+	                <h3 class="margin-top-0" id="author_name_val">Paolo Bufalini</h3>
+	                <p class="justify" id="author_description_snippet">Paolo Bufalini (Rome, 1915-2001), Italian politician and partisan, was one of the protagonists of post-WWII politics in Italy. Graduated in law, he held leading positions in the Italian Communist Party (PCI) besides being a member of the Parliament and of the Senate of the Republic uninterruptedly from 1963 to 1992. Alongside politics, Bufalini cultivated his interest in classics, and especially Latin literature, becoming a renowned translator of Horace's poetry.</p>
+	            </div>
+	            <div class="col-md-4 col-md-offset-1">
+	                <h3 class="margin-bottom-0 text_grey" id="work_name">The work</h3>
+	                <h3 class="margin-top-0" id="work_name_val">Paolo Bufalini's Notebook: <span class="italic">Appunti 1981–1991</span></h3>
+	                <p class="justify" id="work_description_snippet">The private notebook, which Bufalini titled <span class="italic">Appunti 1981–1991</span> (transl. <span class="italic">Notes 1981–1991</span>), contains textual excerpts from Latin, Italian and European literature gathered over ten years of political and intellectual life, and accompanied by translations and comments.<br/>The notebook features 145 pages and two loose sheets.</p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container-fluid background_dark">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-12 justify">
+	                <h3 class="align_center" id="edition_description_snippet_title">The semantic digital scholarly edition of Paolo Bufalini's notebook</h3>
+	                <p id="edition_description_snippet">The semantic digital scholarly edition of Paolo Bufalini's notebook is a project of the Department of Classical Philology and Italian Studies (<a href="https://ficlit.unibo.it/it" target="_blank" alt="Link to FICLIT website">FICLIT</a>) and of the Digital Humanities Advanced Research Centre (<a href="https://centri.unibo.it/dharc/en" target="_blank" alt="Link to /DH.arc website">/DH.ARC</a>) of the University of Bologna.<br/>The primary aims of the edition are to identify, analyse and enhance the intratextual and extratextual relations – otherwise implicit, given the private nature of the notebook – which characterize the texts of the <span class="italic">Appunti</span>. The results are presented as a knowledge graph where nodes represent the entities of the edition (quotes, comments, translations, authors, works, persons, places, etc.) and arcs represent different types of relations between such entities. The graph is formalized using Semantic Web and Linked Open Data (LOD) technologies: from a network of documents, the edition becomes a network of entities which are univocally identified by means of URIs and interconnected through typed links, which are also identified by means of URIs.</p>
+	                <div class="align_center">
+	                    <button class="button_medium_longer button_placeholder" id="go_to_intro_button" onClick="window.location = 'introduction'"; value="Introduction to the project">Go to the introduction</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container-fluid background_light">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-12 justify">
+	                <h3 class="align_center" id="instruction_title">Guide to the application tools</h3>
+	                <img src="static/img-web-app/book_logo.png" class="img_center">
+	            </div>
+	        </div>
+	        <div class="row">
+	            <div class="panel panel-default col-md-5">
+	                <div class="panel-body">
+	                    <img src="static/img-web-app/digital_edition_instruction.png" class="img_instruction img-header-instruction">
+	                    <h3 class="align_center" id="digital_edition_instruction_title">Digital Edition</h3>
+	                    <p class="justify" id="digital_edition_instruction">From Digital Edition, users can view the transcription and the facsimiles of Paolo Bufalini's notebook. In addition, they can also search for relations between people, works, quoted texts, translations, comments.</p>
+	                </div>
+	                <div class="panel-footer">
+	                    <div class="align_center">
+	                        <h4 id="digital_edition_tools_title">All tools <br/> for exploring the Digital Edition</h4>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-md-4 card_instruction modal_button" id="Full-text">
+	                            <img src="static/img-web-app/Full-text.png" class="img_instruction img-instruction-md">
+	                            <h5 class="line-height-0 title_instruction">Full-text</h5>
+	                        </div>
+	                        <div class="col-md-4 card_instruction modal_button" id="Facsimile">
+	                            <img src="static/img-web-app/Facsimile.png" class="img_instruction img-instruction-md">
+	                            <h5 class="line-height-0 title_instruction">Facsimile</h5>
+	                        </div>
+	                        <div class="col-md-4 card_instruction modal_button" id="Facets">
+	                            <img src="static/img-web-app/Facets.png" class="img_instruction img-instruction-md">
+	                            <h5 class="line-height-0 title_instruction" id="tool_facets">Facets</h5>
+	                        </div>
+	                    </div>
+	                    <div class="align_center">
+	                        <button class="button_medium_longer button_placeholder" id="digital_edition_tools_button" onClick="window.location = 'viewer'"; value="Go to Digital Edition">Go to the digital edition</button>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="panel panel-default col-md-5 col-md-offset-2">
+	                <div class="panel-body">
+	                    <img src="static/img-web-app/semantic_indexes_instruction.png" class="img_instruction img-header-instruction">
+	                    <h3 class="align_center" id="semantic_indexes_instruction_title">Semantic Indexes</h3>
+	                    <p class="justify" id="semantic_indexes_instruction">The edition is enriched by semantic indexes which users can consult in the form of traditional lists or as graphical visualizations.<br><br><br></p>
+	                </div>
+	                <div class="panel-footer">
+	                    <div class="align_center">
+	                        <h4 id="semantic_indexes_tools_title">All tools <br> for exploring the Semantic Indexes</h4>
+	                        <div class="row">
+	                            <div class="col-md-6 card_instruction modal_button" id="People Index">
+	                                <img src="static/img-web-app/People Index.png" class="img_instruction_small img-instruction-md">
+	                                <h5 class="line-height-0 title_instruction" id="tool_people_index">People Index</h5>
+	                            </div>
+	                            <div class="col-md-6 card_instruction modal_button" id="Works Index">
+	                                <img src="static/img-web-app/Works Index.png" class="img_instruction_small img-instruction-md">
+	                                <h5 class="line-height-0 title_instruction" id="tool_works_index">Works Index</h5>
+	                            </div>
+	                            <div class="row">
+	                                <div class="col-md-6">
+	                                    <button class="button_instructions button_placeholder" id="people_tools_button" onClick="window.location = 'indexes'"; value="Go to People Semantic Index">Go to People Semantic Index</button>
+	                                </div>
+	                                <div class="col-md-6">
+	                                    <button class="button_instructions button_placeholder" id="works_tools_button" onClick="window.location = 'library'"; value="Go to People Semantic Index">Go to Works Semantic Index</button>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container-fluid background_dark">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-12 justify">
+	                <h3 class="align_center" id="follow_dharc_title">Follow <br> all /DH.arc projects</h3>
+	            </div>
+	            <div class="col-md-12 justify">
+	                <p id="follow_dharc_description">Il Digital Humanities Advanced Research Centre (<a href="https://centri.unibo.it/dharc/en" target="_blank" alt="Link al sito web di /DH.arc">/DH.arc</a>) fa parte del Dipartimento di Filologia Classica e Italianistica (<a href="https://ficlit.unibo.it/it" target="_blank" alt="Link al sito web di FICLIT">FICLIT</a>) dell'Università di Bologna. /DH.arc riunisce studenti, ricercatori, personale IT e professori provenienti dal <a href="https://ficlit.unibo.it/it" target="_blank" alt="Link al sito web di FICLIT">FICLIT</a>, dal <a href="https://disi.unibo.it/it" target="_blank" alt="Link al sito web di DISI">DISI</a> (Dipartimento di Informatica e Ingegneria) e da diverse strutture affiliate a quest'ultimo, all'interno dell'Università di Bologna. Il Centro supporta studiosi e istituzioni nella progettazione, nello sviluppo e nel mantenimento di progetti di ricerca nell'ambito delle DH.</p>
+	                <div class="align_center">
+	                    <button class="button_medium_longer button_placeholder" id="follow_dharc_button" onClick="window.open('https://centri.unibo.it/dharc/en/research/projects-at-dh-arc')"; value="/DH.arc Projects">See /DH.arc projects</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+
+	<!-- Modal filters -->
+	<div id="modal_box" class="modal">
+	    <div class="modal-content">
+	        <span class="close">&times;</span>
+	        <p id="modal-img"></p>
+	        <h3 class="align_center" id="modal-title"></h3>
+	        <p class="modal_p justify" id="modal-p"></p>
+	    </div>
+	</div>
+
+	<!-- footer -->
+	<div class="container-fluid background_red">
+	    <div class="container footer">
+	        <div class="row">
+	            <div class="col-md-5 col-sm-6 justify">
+	                <h4 class="text_light" id="footer_title_1"></h4>
+	                <p class="text_light footer_text"><a href="sparql" target="_black" class="link_footer">SPARQL endpoint</a></p>
+	                <p class="text_light footer_text"><a href="downloadDataset" target="_blank" class="link_footer" id="footer_download">Download the dataset</a></p>
+	            <br/>
+	                <p class="text_light footer_text"><a href="specifications" target="_blank" class="link_footer" id="footer_documentation_1">Technical specifications</a></p>
+	                <p class="text_light footer_text"><a href="webApplication" target="_blank" class="link_footer" id="footer_web_app">Web application</a></p>
+	                <!--<p class="text_light footer_text"><a href="/publications" target="_blank" class="link_footer" id="footer_pub"></a></p>-->
+	            <br/>
+	                <p class="text_light footer_text"><a href="credits" target="_blank" class="link_footer">Credits</a></p>
+	                <p class="text_light footer_text"><a href="licences" target="_blank" class="link_footer" id="footer_licences">Licences</a></p>
+	            </div>
+	            <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
+	                <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
+	                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en" target="_black" alt="Dharc website" class="link_footer">About</a></p>
+	                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/research/projects-at-dh-arc" target="_black" alt="Dharc website" class="link_footer" id="dharc_projects_documentation">All /DH.arc projects</a></p>
+	                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/contacts" target="_black" alt="Dharc website" class="link_footer" id="footer_contacts">Contacts</a></p>
+	            <br/>
+	                <img src="static/img-web-app/dharc_logo.png" class="img-xs" id="logo_dharc">
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="container-fluid background_red_light">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-12 justify">
+	                <!-- do not change the year, the js function currentYear() in notebook.js automatically manages the current year -->
+	               <p class="align_center footer_copyright text_light">© Copyright (c) <span id="current-year">2020</span> by /DH.arc - Digital Humanities Advanced Research Centre.</p>
+	            </div>
+	        </div>
+	    </div>
+	</div>

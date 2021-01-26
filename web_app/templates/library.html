@@ -1,121 +1,215 @@
 $def with (quots, citations, authors, authorAndQuots)
-$var empty: []
-	<section class="intro">
-		<p>La biblioteca di Paolo Bufalini</p>
+
+	<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 align_center">
+					<h2 id="works_indexes_header_title">Works Indexes</h2>
+					<a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+				</div>
+			</div>
+		</div>
 	</section>
-	<ul class="nav nav-tabs" id="myTab" role="tablist">
-	  <li class="nav-item">
-	    <a class="nav-link" id="authors_tab" data-toggle="tab" href="#authors" role="tab" aria-controls="authors" aria-selected="true">autori</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" id="quotations_tab" data-toggle="tab" href="#quotations" role="tab" aria-controls="quotations" aria-selected="false">opere</a>
-	  </li>
-	</ul>
-	<div class="tab-content" id="myTabContent">
-	  <div class="tab-pane fade" id="authors" role="tabpanel" aria-labelledby="authors_tab">
-	  	<section id="listBibl">
-		$for uri, info in authors:
-			<section class="work col-md-4" data-work=$info[0]['name'][0]>
-				<section class="workIcon offset-md-10">
-					<a class="icon-info-i" data-toggle="modal" data-target=#auth$uri.replace("https://w3id.org/bufalinis-notebook/", "").replace("/", "-")><i class="fas fa-info-circle"></i></a>
-					<h3 class="col-md-10" data-uri=$uri>$info[0]['name']</h3>
-					<section class="workInfo">
-						<ul>
-							$for sameAs in info[1:]:
-								$if 'sameAs' in sameAs.keys():
-									<li class="externalLinkLi">
-										<i class="fas fa-external-link-alt"></i>
-										<a href=$sameAs['sameAs']>
-											$if 'dbpedia' in sameAs['sameAs']:
-												<span>dbpedia</span>
-											$elif 'viaf' in sameAs['sameAs']:
-												<span>viaf</span>
-										</a>
-									</li>
-						</ul>
-						$for sameAs in info[1:-1]:
-							$if 'abstract' in sameAs.keys():
-							<p class="ellipsis">$sameAs['abstract']</p>	
-					
 
-						<div class="modal fade bd-example-modal-lg" id=auth$uri.replace("https://w3id.org/bufalinis-notebook/", "").replace("/", "-") tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-						  <div class="modal-dialog modal-lg">
-						    <div class="modal-content">
-						    	<h3>$info[0]['name']</h3>
-						    	$for sameAs in info[1:-1]:
-									$if 'abstract' in sameAs.keys():
-										<section>
-											<p>$sameAs['abstract']</p>
-										</section>
-										<p><b id="source">fonte</b> DBPedia</p>
-										
-						    	$for author, infoQuots in authorAndQuots.iteritems():
-						    		$if author == uri:
-						    			<h3 id="quotations_title">Citazioni</h3>
-						    			$ emptyQuotations = set()
-						    			$for quot in infoQuots:
-							    			$if quot[0] not in emptyQuotations:
-							    				$emptyQuotations.add(quot[0])
-							    				<section class="quotRef">
-							    					<a href=./excerpt/$quot[0] class="quotID">$quot[0]</a> $quot[1]
-							    				</section>
-						    </div>
-						  </div>
+	<!-- People Index -->
+	<div >
+		<div>
+			<!-- Layout -->
+			<section class="col-md-12" id="introContainer">
+				<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+					<div class="row">
+						<!-- facets -->
+						<div class="col-md-2 col-sm-3 panel_tool facets_panel_box_people specific-height" id="facets_panel_box_people">
+							<div class="media">
+								<div class="media-left">
+									<button class="button_panel" onclick="closeFacetsPeople()" id="close-people-fac"><i class="glyphicon glyphicon-remove"></i></button>
+								</div>
+								<div class="media-body">
+									<h4 class="margin-bottom-0" id="facets_title">Filters</h4>
+									<a class="seeWorks" id="clear_res_ind" style="display:none;"></a>
+								</div>
+								<div id="closeFacets_div_people">
+									<div>
+										<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">People</span>
+										<div id="filters_checkbox_works">
+											<form class="checkbox_margin">
+												$ empty = []
+												$for work in quots["results"]["bindings"]:
+													$for cit in citations:
+														$if cit == work['work']['value']:
+															$for x in citations[cit]:
+																$if x['author'] not in empty:
+																	$empty.append(x['author'])
+												$empty.sort()
+												$for el in empty:
+													$ auth = el.split(" ")[0:2]
+													$ finalAuth = " ".join(auth)
+													<input type="checkbox" class="worksPersFilters" workvalue="$finalAuth">
+													<label for="" class="labelInline">$el</label><br>
+											</form>
+										</div>
+										<hr class="filters_category_title">
+										<div>
+											<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Type of excerpts</span>
+											<form class="checkbox_margin" id="check-excerpt-container">
+												<input type="checkbox" class="worksExFilters" id="comment" workvalue="comm-">
+												<label for="" class="labelInline" id="comment"><span id="comment_checkbox">Comments</span> <span class="dot dot-green"></span></label><br>
+												<input type="checkbox" class="worksExFilters" id="quotation" workvalue="quot-">
+												<label for="" class="labelInline" id="quotation"><span id="quotation_checkbox">Quotations</span> <span class="dot dot-pink"></span></label><br>
+												<input type="checkbox" class="worksExFilters" id="translation" workvalue="tra-">
+												<label for="" class="labelInline" id="translation"><span id="translation_checkbox">Translations</span> <span class="dot dot-yellow"></span></label><br>
+											</form>
+										</div>
+										<hr class="filters_category_title_nested">
+										<div>
+											<span class="filters_category_title filters_category_title_nested" id="filters_works">Works</span>
+											<div id="filters_checkbox_works">
+												<form class="checkbox_margin">
+													$ listWork = []
+													$for work in quots["results"]["bindings"]:
+													$ workTitleVal = work['workLabel']['value'].replace("'", "")
+													$ finalworkTitleVal = workTitleVal.replace('"', '')
+													$for cit in citations:
+														$if cit == work['work']['value']:
+															$ empty = []
+															$ author = citations[cit][0]['author'].split("(")[0]
+															$ workRaw = work['workLabel']['value'].replace('"', "")
+															$ finalWork = workRaw.replace("'", "")
+															$ str = work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork
+															$if str not in listWork:
+																$ listWork.append(work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork)
+												$listWork.sort()
+												$for x in listWork:
+													$ name = x.split("__")[0]
+													$ finalWorkCheck  = x.split("__")[1]
+													$ authNameRaw = name.split("-")[1]
+													$ authNameList = authNameRaw.split(", ")
+													$ authSurname = authNameList[0]
+													$ persAuthNameRaw = authNameList[1:]
+													$ persAuthName = "".join(persAuthNameRaw)
+													$if "Dellinno La Risurrezione in A. Manzoni e in S. Paolino dAquileja" in finalWorkCheck:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">Dell'inno "La Risurrezione" in A. Manzoni e in S. Paolino dAquileja, $persAuthName $authSurname</label><br>
+													$elif "Albini" in authSurname:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
+													$elif "Giussani" in authSurname:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
+													$elif "Parrella" in authSurname:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
+													$elif "1945" in authSurname:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">Germania 1866-1945, Gordon Alexander Craig</label><br>
+													$elif "Institutionem Iustiniani" in finalWorkCheck:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, Giustiniano I</label><br>
+													$elif "La Sacra Biblia secondo la volgata" in finalWorkCheck:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, Antonio Martini</label><br>
+													$elif "Lancien r" in finalWorkCheck:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">L'ancien régime et la Révolution, $persAuthName $authSurname</label><br>
+													$elif "moires dHadrien" in finalWorkCheck:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">Mémoires d'Hadrien, $persAuthName $authSurname</label><br>
+													$else:
+														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
+														<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-
-					</section>
-				</section>
-			</section>	
-		
-				
-			
-		</section>
-	  </div>
-	  <div class="tab-pane fade" id="quotations" role="tabpanel" aria-labelledby="quotations_tab">
-	  	<section id="listBibl3">
-		$for work in quots["results"]["bindings"]:
-			<section class="work col-md-4" data-work=$work['workLabel']['value'][0]>
-				<section class="workIcon offset-md-10">
-					<a class="icon-info" data-toggle="modal" data-target=#$work['work']['value'].replace("https://w3id.org/bufalinis-notebook/", "").replace("/", "-")>$work['count']['value']</a>
-					<h3 class="col-md-10" data-uri=$work['work']['value']>$work['workLabel']['value']</h3>
-					<section class="workInfo">
-						$for cit, listDict in citations.iteritems():
-							$if cit == work['work']['value']:
-								$ empty = []
-								$for oneDict in listDict:
-									$if oneDict['author'] not in empty:
-										<p>$oneDict['author']</p>
-										$empty.append(oneDict['author'])
-
-						
-						<div class="modal fade bd-example-modal-lg" id=$work['work']['value'].replace("https://w3id.org/bufalinis-notebook/", "").replace("/", "-") tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-						  <div class="modal-dialog modal-lg">
-						    <div class="modal-content">
-						    	<h3 class="col-md-12" data-uri=$work['work']['value']>$work['workLabel']['value']</h3>
-						    	$for cit, listDict in citations.iteritems():
-									$if cit == work['work']['value']:
-										$ empty = []
-										$for oneDict in listDict:
-											$if oneDict['source'] not in empty:
-												$empty.append( oneDict['source'] )
-										<h3>Citazioni</h3>
-										$for x in empty:
-											<section class="quotRef">
-												$for cit, listDict in citations.iteritems():
-													$for oneDict in listDict:
-														$if x == oneDict['source']:
-															$ bibref = oneDict['bibref']
-												<a href=./excerpt/$x class="quotID">$x</a> $bibref
-											</section>			
-						    </div>
-						  </div>
+						<div class="col-md-10 col-sm-9 panel_tool panel_tool_page page_panel_tool_people padding-top-0 specific-height" id="page_panel_tool_people">
+							<div class="row">
+								<div class="col-md-12 col-sm-12">
+									<div class="media">
+										<div class="media-left">
+											<button class="button_panel" onclick="openPagePeople()"><i class="glyphicon glyphicon-fullscreen"></i></button>
+										</div>
+										<div class="media-body">
+											<ul class="nav nav-pills tab-works">
+												<li role="presentation" class="filters_category_title active"><a href="#" id="people_list">List</a></li>
+												<li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
+												<li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
+												<li role="presentation"><a class="no-active-tab">|</a></li>
+												<li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 page_bars">
+									<form>
+										<input type="text" placeholder="Cerca una persona..." class="col-md-9 change-placeholder-indexes search_bar index-search-input margin-bottom-35" onkeyup="workSearch()">
+									</form>
+								</div>
+								<!-- authors list -->
+								<div id="listWorks" class="scrollPanel padding-index col-md-12">
+									<div id="listBibl">
+										$for work in quots["results"]["bindings"]:
+										<div class="work">
+											<div class="row">
+												<div class="col-md-12 works-index-div filter">
+													$ workTitleVal = work['workLabel']['value'].replace("'", "")
+													$ finalworkTitleVal = workTitleVal.replace('"', '')
+													<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title cited-pers"> $work['workLabel']['value'] <span class="no-display">$finalworkTitleVal</span></span>
+													<div>
+														$for cit in citations:
+															$if cit == work['work']['value']:
+																$ empty = []
+																<h4 class="work-aut">$citations[cit][0]['author']</h4>
+																<h4 class="work-aut"><span class="filters_icon"><i class="far fa-chart-bar"></i></span> $work['count']['value'] <span class="font-size-16">cit:</span></h4>
+														<div>
+															$for cit in citations:
+																$if cit == work['work']['value']:
+																	$ empty = []
+																	$for x in citations[cit]:
+																		$if x['source'] + "__" + x['bibref'] not in empty:
+																			$empty.append(x['source'] + "__" + x['bibref'])
+															$for y in empty:
+																$ code = y.split("__")[0]
+																$ book = "".join(y.split("__")[1:])
+																$if "comm-" in code:
+																	<p class="ex-butt inline_button">
+																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
+																			<button class="checkButt comm-but"><span>$code</span>
+																			</button>
+																		</a>
+																		<span class="font-size-16 thin comm_on">Commento su</span>
+																		<span class="bold font-size-16">$book</span>
+																	</p>
+																$if "quot-" in code:
+																	$ itQuot = code.split("quot-")[1]
+																	<p class="ex-butt inline_button">
+																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
+																			<button class="checkButt quot-but"><span class="n_quot">cit-</span><span>$itQuot</span>
+																			</button>
+																		</a>
+																		<span class="no-display">$code</span>
+																		<span class="font-size-16 thin quot_of">Citazione da</span>
+																		<span class="bold font-size-16">$book</span>
+																	</p>
+																$if "tra-" in code:
+																	<p class="ex-butt inline_button">
+																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
+																			<button class="checkButt tra-but"><span>$code</span>
+																			</button>
+																		</a>
+																		<span class="font-size-16 thin tra-of">Traduzione di</span> <span class="bold font-size-16">$book</span>
+																	</p>
+													</div>
+													<hr>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					</section>
-				</section>
-				
+					</div>
+				</div>
 			</section>
-		</section>
-	  </div>
-	</div>
-
-	

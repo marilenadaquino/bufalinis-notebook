@@ -1,0 +1,891 @@
+$def with ()
+
+<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12 align_center">
+              <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
+              <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="col-md-12 col-sm-12 background_dark_gray panel_visualization_xl">
+    <div class="media">
+        <div class="media-left media-left-visualization">
+            <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
+        </div>
+        <div class="media-body">
+            <ul class="nav nav-pills">
+                <li role="presentation"><a href="./indexes" id="people_list">Lista</a></li>
+                <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
+                <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
+                <li role="presentation" class="filters_category_title active"><a href="#" id="people_graph">Graph</a></li>
+                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseGraph" role="button" aria-expanded="false" aria-controls="collapseGraph"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+                <li role="presentation"><a class="no-active-tab">|</a></li>
+                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+            </ul>
+        </div>
+        <div class="collapse" id="collapseGraph">
+          <div class="container-fluid">
+            <div class="col-md-12">
+              <h3 class="text_light" id="explain_graph_people_h3">Graph</h3>
+              <p class="justify text_light" id="explain_graph_people_p">
+                In the chart below all the people mentioned in the notebook are represented as nodes. The relations between them, on the other hand, correspond to the arcs of the graph.
+                By hovering on each node, a tooltip shows the name of the corresponding cited person.
+                If that person mentions other people, the arcs that connect that person to all the persons she mentions are highlighted.
+                By analyzing the arcs that connect the nodes, the user can discover the network of citations that characterizes Bufalini's text. Furthermore, from the proximity between different nodes we can deduce the interests in common to different people (e.g. Tacito and Giussani are very close nodes and both are connected to people belonging to the Latin world).
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/frozen.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+  
+  <!-- Chart code -->
+  <script>
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_frozen);
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+  
+  var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+  networkSeries.dataFields.linkWith = "linkWith";
+  networkSeries.dataFields.name = "name";
+  networkSeries.dataFields.id = "name";
+  networkSeries.dataFields.value = "value";
+  networkSeries.dataFields.children = "children";
+  
+  networkSeries.nodes.template.label.text = "{name}"
+  networkSeries.fontSize = 20;
+  networkSeries.linkWithStrength = 0.3;
+  
+  var nodeTemplate = networkSeries.nodes.template;
+  nodeTemplate.tooltipText = "{name}";
+  nodeTemplate.fillOpacity = 1;
+  nodeTemplate.label.hideOversized = true;
+  nodeTemplate.label.truncate = true;
+  
+  var linkTemplate = networkSeries.links.template;
+  linkTemplate.strokeWidth = 2;
+  var linkHoverState = linkTemplate.states.create("hover");
+  linkHoverState.properties.strokeOpacity = 3;
+  linkHoverState.properties.strokeWidth = 4;
+  
+  nodeTemplate.events.on("over", function (event) {
+      var dataItem = event.target.dataItem;
+      dataItem.childLinks.each(function (link) {
+          link.isHover = true;
+      })
+  })
+  
+  nodeTemplate.events.on("out", function (event) {
+      var dataItem = event.target.dataItem;
+      dataItem.childLinks.each(function (link) {
+          link.isHover = false;
+      })
+  })
+  
+  // data
+  networkSeries.data = [
+    {  
+      "name": "Bufalini, Paolo (1915–2001)",
+      "value": "45",
+      "linkWith":[  
+       "Arzeni, Bruno (1905–1954)",
+       "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)",
+       "Belli, Giuseppe Gioachino (1791–1863)",
+       "Berlinguer, Enrico (1922–1985)",
+       "Briganti, Giuliano (1918–1992)",
+       "Campanella, Tommaso (1568–1639)",
+       "Carducci, Giosuè (1835–1907)",
+       "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)",
+       "Cesare, Gaio Giulio (100 a.C.–44 a.C.)",
+       "De Sarlo, Francesco (1864–1937)",
+       "Fertonani, Roberto (1925–2000)",
+       "Fidia (ca. 500–430)",
+       "Flaubert, Gustave (1821–1880)",
+       "Garin, Eugenio (1909–2004)",
+       "Gesù, di Nazaret (4 a.C.–29)",
+       "Gorbačev, Michail Sergeevič (1931–)",
+       "Guttuso, Renato (1911–1987)",
+       "Gèllio, Aulo (125–180)",
+       "Hegel, Georg Wilhelm Friedrich (1770–1831)",
+       "Iseo, retore (ca. 420 a.C.–350 a.C.)",
+       "Labriola, Antonio (1843–1904)",
+       "Leopardi, Giacomo (1798–1837)",
+       "Lucrezio Caro, Tito (97–55 a.C)",
+       "Mann, Thomas (1875–1955)",
+       "Manzoni, Alessandro (1785–1873)",
+       "Marri, Germano (1932–)",
+       "Marx, Karl (1818–1883)",
+       "Memmio, Gaio (ca. 99 a.C.–46 a.C.)",
+       "Nerone, Claudio Cesare, imperatore romano (37–68)",
+       "Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+       "Nietzsche, Friedrich Wilhelm (1844–1900)",
+       "Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+       "Petroselli, Luigi (1932–1981)",
+       "Pontano, Giovanni (1426–1503)",
+       "Schopenhauer, Arthur (1788–1860)",
+       "Scipione, Publio Cornelio (235 a.C.–183 a.C.)",
+       "Socrate (ca. 469 a.C.–399 a.C.)",
+       "Stendhal, pseud. (1783–1842)",
+       "Tacito, Publio Cornelio (ca. 55–120)",
+       "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)",
+       "Tocqueville, Alexis de (1805–1859)",
+       "Tommaseo, Niccolò (1802–1874)",
+       "Vico, Giambattista (1668–1744)",
+       "Vigolo, Giorgio (1894–1983)",
+       "Wagner, Richard (1813–1883)"
+      ],
+    },
+    {
+      "name": "Antonio, Marco (82 a.C.–30 a.C.)",
+      "value": "1",
+      
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Horst, Eberhard (1924–2012)",
+      "value": "10",
+      "linkWith":[
+        "Antonio, Marco (82 a.C.–30 a.C.)",
+        "Bruto, Marco Iunio (85 a.C.–42 a.C.)",
+        "Cesare, Gaio Giulio (100 a.C.–44 a.C.)",
+        "Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+        "Giustiniano I, imperatore d'Oriente (482–565)",
+        "Mario, Gaio (ca. 157 a.C.–86 a.C.)",
+        "Silla, Lucio Cornelio (138 a.C.–78 a.C.)",
+        "Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)"
+      ],
+    },
+    {
+      "name": "Giussani, Camillo (1879–1960)",
+      "value": "17",
+      "linkWith":[
+        "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)",
+        "Domiziano, Tito Flavio, imperatore romano (51–96)",
+        "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)",
+        "Gesù, di Nazaret (4 a.C.–29)",
+        "Nerone, Claudio Cesare, imperatore romano (37–68) ",
+        "Nerva, Marco Cocceio, imperatore romano (26/30–98)",
+        "Otone, Marco Salvio, imperatore romano (32–69)",
+        "Pilato, Ponzio (I sec.)",
+        "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)",
+        "Tito, Flavio Vespasiano, imperatore romano (39–81)",
+        "Traiano, Marco Ulpio Nerva, imperatore romano (53–117)",
+        "Vespasiano, Tito Flavio, imperatore romano (9–79)",
+        "Vitellio, Aulo, imperatore romano (15–69)"
+      ],
+    },
+    {
+      "name": "Tacito, Publio Cornelio (ca. 55–120)",
+      "value": "17",
+      "linkWith":[
+        "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)",
+        "Domiziano, Tito Flavio, imperatore romano (51–96)",
+        "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)",
+        "Gesù, di Nazaret (4 a.C.–29)",
+        "Nerone, Claudio Cesare, imperatore romano (37–68)",
+        "Nerva, Marco Cocceio, imperatore romano (26/30–98)",
+        "Otone, Marco Salvio, imperatore romano (32–69)",
+        "Pilato, Ponzio (I sec.)",
+        "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)",
+        "Tito, Flavio Vespasiano, imperatore romano (39–81)",
+        "Traiano, Marco Ulpio Nerva, imperatore romano (53–117)",
+        "Vespasiano, Tito Flavio, imperatore romano (9–79)",
+        "Vitellio, Aulo, imperatore romano (15–69)"
+      ],
+    },
+    {
+      "name": "Croce, Benedetto (1866–1952)",
+      "value": "6",
+      "linkWith":[
+        "Carducci, Giosuè (1835–1907)",
+        "Labriola, Antonio (1843–1904)",
+        "Machiavelli, Niccolò (1469–1527)"
+      ],
+    },
+    {
+      "name": "Yourcenar, Marguerite (1903–1987)",
+      "value": "11",
+      "linkWith":[
+        "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)",
+        "Fidia (ca. 500–430)",
+        "Iseo, retore (ca. 420 a.C.–350 a.C.)",
+        "Memmio, Gaio (ca. 99 a.C.–46 a.C.)",
+        "Nerone, Claudio Cesare, imperatore romano (37–68)",
+        "Socrate (ca. 469 a.C.–399 a.C.)"
+      ],
+    },
+    {
+      "name": "Flaubert, Gustave (1821–1880)",
+      "value": "6",
+      "linkWith":[
+        "Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+        "Gesù, di Nazaret (4 a.C.–29)",
+        "Marco Aurelio, imperatore romano (121–180)"
+      ],
+    },
+    {
+      "name": "Mann, Thomas (1875–1955)",
+      "value": "11",
+      "linkWith":[
+        "Dioniso, divinità greca",
+        "Freud, Sigmund (1856–1939)",
+        "Mann, Thomas (1875–1955)",
+        "Nietzsche, Elisabeth Förster (1846–1935)",
+        "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "Schopenhauer, Arthur (1788–1860)",
+        "Socrate (ca. 469 a.C.–399 a.C.)",
+        "Sorel, Julien, personaggio",
+        "Zaratustra (IX–XVIII sec. a.C.?)"
+      ],
+    },
+    {
+      "name": "Arzeni, Bruno (1905–1954)",
+      "value": "7",
+      "linkWith":[
+        "Dioniso, divinità greca",
+        "Mann, Thomas (1875–1955)",
+        "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "Schopenhauer, Arthur (1788–1860)",
+        "Socrate (ca. 469 a.C.–399 a.C.)",
+        "Sorel, Julien, personaggio",
+        "Zaratustra (IX–XVIII sec. a.C.?)"
+      ],
+    },
+    {
+      "name": "Craig, Gordon Alexander (1913–2005)",
+      "value": "5",
+      "linkWith":[
+        "Döblin, Alfred (1878–1957)",
+        "Hesse, Herman (1877–1962)",
+        "Rilke, Rainer Maria (1875–1926)",
+        "Schopenhauer, Arthur (1788–1860)",
+        "Schoenberg, Arnold (1874–1951)"
+      ],
+    },
+    {
+      "name": "Maupassant, Guy de (1850–1893)",
+      "value": "2",
+      "linkWith":[
+        "Flaubert, Gustave (1821–1880)"
+      ],
+    },
+    {
+      "name": "Fertonani, Roberto (1925–2000)",
+      "value": "4",
+      "linkWith":[
+        "Freud, Sigmund (1856–1939)",
+        "Mann, Thomas (1875–1955)",
+        "Nietzsche, Elisabeth Förster (1846–1935)",
+        "Nietzsche, Friedrich Wilhelm (1844–1900)"
+      ],
+    },
+    {
+      "name": "Bonfante, Pietro (1864–1932)",
+      "value": "4",
+      "linkWith":[
+        "Giustiniano I, imperatore d'Oriente (482–565)",
+        "Giustino I, imperatore d'Oriente (ca. 450–527)",
+      ],
+    },
+    {
+      "name": "Giustiniano I, imperatore d'Oriente (482–565)",
+      "value": "1",
+      "linkWith":[
+        "Giustino I, imperatore d'Oriente (ca. 450–527)"
+      ],
+    },
+    {
+      "name": "Carducci, Giosuè (1835–1907)",
+      "value": "1",
+      "linkWith":[
+        "Goethe, Johann Wolfgang von (1749–1832)",
+        "Pontano, Giovanni (1426–1503)"
+      ],
+    },
+    {
+      "name": "Guttuso, Renato (1911–1987)",
+      "value": "1",
+      "linkWith":[
+        "Guttuso, Renato (1911–1987)"
+      ],
+    },
+    {
+      "name": "Macchia, Giovanni (1912–2001)",
+      "value": "3",
+      "linkWith":[
+        "Malagrida, Gabriele (1689–1761)",
+        "Sorel, Julien, personaggio",
+        "Stendhal, pseud. (1783–1842)"
+      ],
+    },
+    {
+      "name": "Mazzucchetti, Lavinia (1889–1965)",
+      "value": "3",
+      "linkWith":[
+        "Mann, Thomas (1875–1955)",
+        "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "Wagner, Richard (1813–1883)"
+      ],
+    },
+    {
+      "name": "Manzoni, Alessandro (1785–1873)",
+      "value": "1",
+      "linkWith":[
+        "Manzoni, Alessandro (1785–1873)"
+      ],
+    },
+    {
+      "name": "Nietzsche, Friedrich Wilhelm (1844–1900)",
+      "value": "2",
+      "linkWith":[
+        "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "Wagner, Richard (1813–1883)"
+      ],
+    },
+    {
+      "name": "Giusti, Giuseppe (1809-1859)",
+      "value": "1",
+      "linkWith":[
+        "Pananti, Filippo (1766–1837)",
+      ],
+    },
+    {
+      "name": "Romagnoli, Alberto ()",
+      "value": "1",
+      "linkWith":[
+        "Schopenhauer, Arthur (1788–1860)",
+        "Wagner, Richard (1813–1883)"
+      ],
+    },
+    {
+      "name": "Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Belli, Giuseppe Gioachino (1791–1863)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Berlinguer, Enrico (1922–1985)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Briganti, Giuliano (1918–1992)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Bruto, Marco Iunio (85 a.C.–42 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Campanella, Tommaso (1568–1639)",
+      "value": "1",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Cesare, Gaio Giulio (100 a.C.–44 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Cicerone, Marco Tullio (106 a.C.–43 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Flaubert, Gustave (1821–1880)",
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "De Sarlo, Francesco (1864–1937)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Dioniso, divinità greca",
+      "value": "",
+      "linkWith":[
+        "Mann, Thomas (1875–1955)",
+        "Arzeni, Bruno (1905–1954)"
+      ],
+    },
+    {
+      "name": "Domiziano, Tito Flavio, imperatore romano (51–96)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Döblin, Alfred (1878–1957)",
+      "value": "",
+      "linkWith":[
+        "Craig, Gordon Alexander (1913–2005)"
+      ],
+    },
+    {
+      "name": "Fidia (ca. 500–430)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Freud, Sigmund (1856–1939)",
+      "value": "",
+      "linkWith":[
+        "Fertonani, Roberto (1925–2000)",
+        "Mann, Thomas (1875–1955)"
+      ],
+    },
+    {
+      "name": "Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Garin, Eugenio (1909–2004)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Gesù, di Nazaret (4 a.C.–29)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Giussani, Camillo (1879–1960)",
+        "Flaubert, Gustave (1821–1880)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Giustiniano I (482–565)",
+      "value": "",
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)",
+        "Bonfante, Pietro (1864–1932)"
+      ],
+    },
+    {
+      "name": "Giustino I (ca. 450–527)",
+      "value": "",
+      "linkWith":[
+        "Giustiniano I, imperatore d'Oriente (482–565)",
+        "Bonfante, Pietro (1864–1932)"
+      ],
+    },
+    {
+      "name": "Goethe, Johann Wolfgang von (1749–1832)",
+      "value": "",
+      "linkWith":[
+        "Carducci, Giosuè (1835–1907)"
+      ],
+    },
+    {
+      "name": "Gorbačev, Michail Sergeevič (1931–)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Gèllio, Aulo (125–180)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Hegel, Georg Wilhelm Friedrich (1770–1831)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Hesse, Herman (1877–1962)",
+      "value": "",
+      "linkWith":[
+        "Craig, Gordon Alexander (1913–2005)"
+      ],
+    },
+    {
+      "name": "Iseo, retore (ca. 420 a.C.–350 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Labriola, Antonio (1843–1904)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Croce, Benedetto (1866–1952)"
+      ],
+    },
+    {
+      "name": "Leopardi, Giacomo (1798–1837)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Lucrezio Caro, Tito (97–55 a.C)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Machiavelli, Niccolò (1469–1527)",
+      "value": "",
+      "linkWith":[
+        "Croce, Benedetto (1866–1952)"
+      ],
+    },
+    {
+      "name": "Malagrida, Gabriele (1689–1761)",
+      "value": "",
+      "linkWith":[
+        "Macchia, Giovanni (1912–2001)"
+      ],
+    },
+    {
+      "name": "Marco Aurelio, imperatore romano (121–180)",
+      "value": "",
+      "linkWith":[
+        "Flaubert, Gustave (1821–1880)"
+      ],
+    },
+    {
+      "name": "Mario, Gaio (ca. 157 a.C.–86 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Marri, Germano (1932–)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Marx, Karl (1818–1883)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Memmio, Gaio (ca. 99 a.C.–46 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Nerone, Claudio Cesare, imperatore romano (37–68)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Nerva, Marco Cocceio, imperatore romano (26/30–98)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Nevio, Gneo (ca. 264 a.C.–201 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Nietzsche, Elisabeth Förster (1846–1935)",
+      "value": "",
+      "linkWith":[
+        "Fertonani, Roberto (1925–2000)",
+        "Mann, Thomas (1875–1955)"
+      ],
+    },
+    {
+      "name": "Orazio Flacco, Quinto (65 a.C.–8 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Otone, Marco Salvio, imperatore romano (32–69)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Pananti, Filippo (1766–1837)",
+      "value": "",
+      "linkWith":[
+        "Giusti, Giuseppe (1809–1850)"
+      ],
+    },
+    {
+      "name": "Petroselli, Luigi (1932–1981)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Pilato, Ponzio (I sec.)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Pontano, Giovanni (1426–1503)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Carducci, Giosuè (1835–1907)"
+      ],
+    },
+    {
+      "name": "Rilke, Rainer Maria (1875–1926)",
+      "value": "",
+      "linkWith":[
+        "Craig, Gordon Alexander (1913–2005)"
+      ],
+    },
+    {
+      "name": "Schoenberg, Arnold (1874–1951)",
+      "value": "",
+      "linkWith":[
+        "Craig, Gordon Alexander (1913–2005)"
+      ],
+    },
+    {
+      "name": "Schopenhauer, Arthur (1788–1860)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Romagnoli, Alberto ()",
+        "Mann, Thomas (1875–1955)",
+        "Arzeni, Bruno (1905–1954)"
+      ],
+    },
+    {
+      "name": "Scipione, Publio Cornelio (235 a.C.–183 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Silla, Lucio Cornelio (138 a.C.–78 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Socrate (ca. 469 a.C.–399 a.C.)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Mann, Thomas (1875–1955)",
+        "Arzeni, Bruno (1905–1954)",
+        "Yourcenar, Marguerite (1903–1987)"
+      ],
+    },
+    {
+      "name": "Sorel, Julien, personaggio Stendhal, pseud. (1783–1842)",
+      "value": "",
+      "linkWith":[
+        "Mann, Thomas (1875–1955)",
+        "Arzeni, Bruno (1905–1954)",
+        "Macchia, Giovanni (1912–2001)"
+      ],
+    },
+    {
+      "name": "Stendhal, pseud. (1783–1842)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Macchia, Giovanni (1912–2001)"
+      ],
+    },
+    {
+      "name": "Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Tito, Flavio Vespasiano, imperatore romano (39–81)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Tocqueville, Alexis de (1805–1859)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Tommaseo, Niccolò (1802–1874)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)",
+        "Carducci, Giosuè (1835–1907)"
+      ],
+    },
+    {
+      "name": "Traiano, Marco Ulpio Nerva, imperatore romano (53–117)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Vespasiano, Tito Flavio, imperatore romano (9–79)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Vico, Giambattista (1668–1744)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Vigolo, Giorgio (1894–1983)",
+      "value": "",
+      "linkWith":[
+        "Bufalini, Paolo (1915–2001)"
+      ],
+    },
+    {
+      "name": "Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)",
+      "value": "",
+      "linkWith":[
+        "Horst, Eberhard (1924–2012)"
+      ],
+    },
+    {
+      "name": "Vitellio, Aulo, imperatore romano (15–69)",
+      "value": "",
+      "linkWith":[
+        "Giussani, Camillo (1879–1960)",
+        "Tacito, Publio Cornelio (ca. 55–120)"
+      ],
+    },
+    {
+      "name": "Wagner, Richard (1813–1883)",
+      "value": "",
+      "linkWith":[
+        "Nietzsche, Friedrich Wilhelm (1844–1900)",
+        "Bufalini, Paolo (1915–2001)",
+        "Romagnoli, Alberto ()",
+        "Mazzucchetti, Lavinia (1889–1965)"
+      ],
+    },
+    {
+      "name": "Zaratustra (IX–XVIII sec. a.C.?)",
+      "value": "",
+      "linkWith":[
+        "Mann, Thomas (1875–1955)",
+        "Arzeni, Bruno (1905–1954)"
+      ],
+    }
+  ];
+  }); // end am4core.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+  

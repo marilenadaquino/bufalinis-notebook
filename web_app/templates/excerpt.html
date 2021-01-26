@@ -8,18 +8,36 @@ $var cookies = '/static/script/cookies.js'
 $var maincss = '/static/css/notebook.css'
 $var mapifycss = '/static/css/jquery.mapify.css'
 
-		<section class="col-md-8 inline">
-			<h2><i class="far fa-gem"></i></h2>
-			<section id="uri"><h3>$:biblRef</h3><a href=$:source>$:source</a><p>$motivation</p></section>
+		<section class="col-md-12 section_header" id="introContainer" style="display: none;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 align_center">
+						<h2 id="digital_edition_header_title">Digital Edition</h2>
+						<a href="#metadata_title"><i class="fas fa-chevron-down intro_go"></i></a>
+					</div>
+				</div>
+			</div>
 		</section>
-		<section class="col-md-12 inline" id="textContainer">
+		
+		<section class="col-md-12 inline background_red_color">
+			<h2><i class="far fa-gem"></i></h2>
+			$if "verse" in biblRef:
+				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", verse")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
+			$elif 'Excerpt' in biblRef:
+				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", Excerpt")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
+			$elif 'page' in biblRef:
+				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", page")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
+			$else:
+				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
+		</section>
+		<section class="col-md-12 inline background_light" id="textContainer">
 			<h2><i class="fas fa-quote-left"></i></h2>
 			<section id="text">$:text</section>
 		</section>
 		<section class="col-md-8 inline">
-			<h2><i class="fas fa-bookmark"></i></h2>
+			<h2 class="text_red"><i class="fas fa-bookmark"></i></h2>
 			<section>
-				<a class="page_link">$page</a> (quaderno di Paolo Bufalini)
+				<span class="notebook_title">Il quaderno di Paolo Bufalini</span> <a class="page_link">$page</a>
 			</section>
 		</section>
 		$if len(workLabel) > 0:
@@ -29,9 +47,9 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 					<ul>
 						$for result in sameAs['results']['bindings']:
 							$if work == result['s']['value']:
-								<li class="externalLinkLi">
-									<i class="fas fa-external-link-alt"></i>
-									<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
+								<li class="externalLink">
+									<i class="glyphicon glyphicon-new-window"></i>
+										<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
 										$if 'dbpedia' in result['externalURI']['value']:
 											<span>dbpedia</span>
 										$elif 'viaf' in result['externalURI']['value']:
@@ -48,13 +66,16 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 			</section>
 		<section class="col-md-8 inline">
 			<h2></h2>
-			<section id="creator"><b id="i_author">autore</b> $:creator
+			$if '-' in creator:
+				<section id="creator"><b id="i_author">autore</b> Bufalini, Paolo (1915–2001)
+			$else:
+				<section id="creator"><b id="i_author">autore</b> $:creator
 				<ul>
 					$for result in sameAs['results']['bindings']:
 						$if creatorID == result['s']['value']:
 							<li class="externalLinkLi">
-								<i class="fas fa-external-link-alt"></i>
-								<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
+								<i class="glyphicon glyphicon-new-window"></i>
+									<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
 									$if 'dbpedia' in result['externalURI']['value']:
 										<span>dbpedia</span>
 									$elif 'viaf' in result['externalURI']['value']:
@@ -80,7 +101,7 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 					<section id="translator"><b id="related_text">testo collegato</b> $result['relatedBody']['value']</section>
 				</section>
 
-
+			
 		<script type="text/javascript">
 			// redirect from excerpts page (where the id of a single page number has to be substituted by an opening - 2 pages)
 			  $$('.page_link').each(function() {
@@ -88,14 +109,41 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 			    var prevPage = parseInt(singlePage)-1;
 			    var nextPage = parseInt(singlePage)+1;
 			    if (singlePage % 2 === 0 && singlePage != parseInt(148) ) {
-			      $$(this).attr('href','../viewer_'+singlePage+'-'+nextPage);
+				  $$(this).attr('href','../viewer_'+singlePage+'-'+nextPage);
+				  $$(this).attr('target','_blank');
 			    } else if (singlePage === parseInt(148) ) {
 			    	$$(this).attr('href','../viewer_148card');
+					$$(this).attr('target','_blank');
 			    } else if (singlePage === parseInt(149) ) {
 			    	$$(this).attr('href','../viewer_149');
+					$$(this).attr('target','_blank');
 			    } else {
 			      $$(this).attr('href','../viewer_'+prevPage+'-'+singlePage);
+				  $$(this).attr('target','_blank');
+				}
+			  });
+		</script>
+		
+<!--
+		<script type="text/javascript">
+			// redirect from excerpts page (where the id of a single page number has to be substituted by an opening - 2 pages)
+			  $$('.page_link').each(function() {
+			    var singlePage = $$(this).text().substring($$(this).text().indexOf(" ") + 1);
+			    var prevPage = parseInt(singlePage)-1;
+			    var nextPage = parseInt(singlePage)+1;
+			    if (singlePage % 2 === 0 && singlePage != parseInt(148) ) {
+			      $$(this).attr('href','../viewer');
+			      $$(this).attr('target','_blank');
+			    } else if (singlePage === parseInt(148) ) {
+			    	$$(this).attr('href','../viewer');
+					$$(this).attr('target','_blank');
+			    } else if (singlePage === parseInt(149) ) {
+			    	$$(this).attr('href','../viewer');
+					$$(this).attr('target','_blank');
+			    } else {
+			      $$(this).attr('href','../viewer');
+			      $$(this).attr('target','_blank');
 			    }
 			  });
 		</script>
-
+-->	

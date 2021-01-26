@@ -2,42 +2,82 @@ $def with (content)
 
 <html>
 	<head>
-	    <title>Il quaderno di Paolo Bufalini</title>
+	    <title id="url_title">Il quaderno di Paolo Bufalini</title>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-	    <link rel="icon" href="/static/favicon.ico" />
+	    <link rel="icon" href="static/img-web-app/favicon.ico" />
 	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	    
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"
+		></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-TM0DXTW19L"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-TM0DXTW19L');
+		</script>
+		<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
+	    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	    <script type="text/javascript" src=$content.get('mainjs','static/script/notebook.js')></script>
 	    <script type="text/javascript" src=$content.get('imgResizer','static/script/imageMapResizer.min.js')></script>
 	    <script type="text/javascript" src=$content.get('mapifyjs','static/script/jquery.mapify.js')></script>
 	    <script type="text/javascript" src=$content.get('fontawesome','static/script/fontawesome-all.js')></script>
 	    <script type="text/javascript" src=$content.get('i18n','static/script/jquery.i18n.properties.js')></script>
-	    <script type="text/javascript" src=$content.get('cookies','static/script/cookies.js')></script>
+		<script type="text/javascript" src=$content.get('cookies','static/script/cookies.js')></script>
+		<!-- <script type="text/javascript" src=$content.get('selectedbutton','static/script/selected_button.js')></script> -->
+		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 	    <link rel="stylesheet" type="text/css" href=$content.get('maincss','./static/css/notebook.css')>
 	    <link rel="stylesheet" type="text/css" href=$content.get('yasguicss','./static/css/yasgui.css')>
-	    <link rel="stylesheet" type="text/css" href=$content.get('mapifycss','./static/css/jquery.mapify.css')>
-	    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href=$content.get('mapifycss','./static/css/jquery.mapify.css')>
+	    <link rel="json" type="text/json" href=$content.get('json','./static/metadata.json')>
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700" rel="stylesheet">
 	</head>
-	<body class="container-fluid">
+	<body>
+
 		<div class="se-pre-con"></div>
-		<header class="row" id="title">
-			<h1><a href="./" id="i_title">Il quaderno di Paolo Bufalini</a></h1>
-			<nav>
-				<a href="/introduction" id="nav_intro">introduzione</a>
-				<a href="/viewer" id="nav_viewer">edizione</a>
-				<a href="/library" id="nav_library">biblioteca</a>
-				<a href="/indexes" id="nav_indexes">indici</a>
-				<a href="/bibliography" id="nav_biblio">bibliografia</a>
-				<a href="/sparql">endpoint</a>
-				<span id="lang"><a href="#it">it</a>|<a href="#en">en</a></span>
-			</nav>
-			
-		</header>
-		<section class="col-md-12 main_content">
+
+		<div class="navbar navbar-default navbar-fixed-top">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="./" id="i_title">
+				<img src="static/logo.png" alt="Logo, back home">
+			</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right" id="navbarList">
+					<!-- non togliere i valori dei tag li -->
+					<li><a href="./" id="nav_1">Home</a></li>
+					<li><a href="introduction" id="nav_2">Introduction</a></li>
+					<li><a href="viewer" id="nav_3">Digital Edition</a></li>
+					<li><a>|</a></li>
+					<li><a href="indexes" id="nav_4">People Semantic Index</a></li>
+					<li><a href="library" id="nav_5">Works Semantic Index</a></li>
+					<li>
+					<div id="lang">
+						<a href="#it" id="lang_button_it"><button class="button_small btn active" id="it-butt" onclick="specificIt()">it</button></a>
+						<a href="#en" id="lang_button_en"><button class="button_small btn" id="en-butt" onclick="specificEng()">en</button></a>
+					</div>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+
+		<div class="container-fluid main_content">
 			$:content
-		</section>
-		
+		</div>
+
 	</body>
+
 </html>

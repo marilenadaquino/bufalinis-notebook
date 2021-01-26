@@ -1,0 +1,103 @@
+$def with (quots, citations, authors, authorAndQuots)
+
+$ double = []
+
+<p style="background-color: yellow;">Works treemap</p>
+<p>var data = google.visualization.arrayToDataTable([</p>
+<p>['Work title', 'Author', 'Number of excerpts', 'Number of excerpts for color'],</p>
+<p>	['All cited works divided per author', null, 224, 224],</p>
+			
+<p style="background-color: yellowgreen;">// works</p>
+$for work in quots["results"]["bindings"]:
+	$ workTitleVal = work['workLabel']['value'].replace("'", "")
+	$ finalworkTitleVal = workTitleVal.replace('"', '')
+	$for cit in citations:
+		$if cit == work['work']['value']:
+			$ empty = []
+			<p>['$work['workLabel']['value']', '$citations[cit][0]['author']', '$work['count']['value']', '$work['count']['value']'],</p> <!-- remove the coma of the last line then use such JSON as a variable -->
+			
+<p style="background-color: yellowgreen;">// authors</p>
+$ empty = []
+$for work in quots["results"]["bindings"]:
+	$for cit in citations:
+		$if cit == work['work']['value']:
+			$for x in citations[cit]:
+				$if x['author'] not in empty:
+					$empty.append(x['author'])
+$empty.sort()
+$for el in empty:
+	$ auth = el.split(" ")[0:2]
+	$ finalAuth = " ".join(auth)
+	<p>['$el', 'All cited works divided per author', <p>
+
+<p>]);</p>
+
+<!-- Works sets --> <!-- clean up your data from colon, semicolon, etc. and remove , from last line-->
+$ cluster = []
+<p style="background-color: yellow;">Works sets</p>
+<p>var fsdata = [{<br>
+	"id": "Il quaderno di Paolo Bufalini",<br>
+	"text": "Il quaderno di Paolo Bufalini",<br>
+	"parent": ""<br>
+  },<br>
+  {<br>
+	"id": "analytics",<br>
+	"text": "analytics",<br>
+	"parent": "Il quaderno di Paolo Bufalini",<br>
+	"data-xx": "xx-analytics"<br>
+  },<br>
+  {<br>
+	"id": "cluster",<br>
+	"text": "cluster",<br>
+	"parent": "analytics",<br>
+	"data-xx": "xx-cluster"<br>
+  },</p>
+
+  $for work in quots["results"]["bindings"]:
+  $ workTitleVal = work['workLabel']['value'].replace("'", "")
+  $ finalworkTitleVal = workTitleVal.replace('"', '')
+  $for cit in citations:
+	  $if cit == work['work']['value']:
+		$if citations[cit][0]['author'] not in cluster:
+  			$cluster.append(citations[cit][0]['author'])
+			<p>{<br>
+				"id": "$citations[cit][0]['author']",<br>
+				"text": "$citations[cit][0]['author']",<br>
+				"parent": "cluster"<br>
+			},<br>
+			</p>
+
+$for work in quots["results"]["bindings"]:
+	$ workTitleVal = work['workLabel']['value'].replace("'", "")
+	$ finalworkTitleVal = workTitleVal.replace('"', '')
+	$for cit in citations:
+		$if cit == work['work']['value']:
+			$ empty = []
+			{<br>
+				"id": "$work['workLabel']['value'] by $citations[cit][0]['author']",<br>
+				"text": "$work['workLabel']['value']",<br>
+				"parent": "$citations[cit][0]['author']",<br>
+				"value": "$work['count']['value']"<br>
+			},
+			</p>
+<p>];</p>
+
+<!-- Play with data --> <!-- clean up your data from colon, semicolon, etc. and remove , from last line--><!-- join children under the same root -->
+<p style="background-color: yellow;">Play with data</p>
+
+<p>networkSeries.data = [</p>
+$for work in quots["results"]["bindings"]:
+	$ workTitleVal = work['workLabel']['value'].replace("'", "")
+	$ finalworkTitleVal = workTitleVal.replace('"', '')
+	$for cit in citations:
+		$if cit == work['work']['value']:
+			$ empty = []
+			<p>
+				{<br>
+					name: '$citations[cit][0]['author']',<br>
+					children: [{</br>
+						name: '$work['workLabel']['value']', value: $work['count']['value']<br>
+					}],<br>
+			</p>
+			<p>},</p>
+<p>];</p>
