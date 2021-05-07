@@ -1,4 +1,4 @@
-<?xml-model href="notebook.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="quaderno.rnc" type="application/relax-ng-compact-syntax"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
   <teiHeader>
     <fileDesc>
@@ -124,7 +124,7 @@
             <title type="Play" subtype="Book" level="m" sameAs="http://viaf.org/viaf/181048567 http://worldcat.org/entity/work/id/25309930">King Lear</title> 
             <biblScope unit="act" n="1">1</biblScope>
             <biblScope unit="scene" n="1">1</biblScope>  
-            <citedRange xml:id="bibl011" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl011" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Shakespeare, King Lear, 1.4 -->
           <bibl xml:id="king-lear-1-4" resp="#CSPC">
@@ -134,7 +134,7 @@
             <title type="Play" subtype="Book" level="m" sameAs="http://viaf.org/viaf/181048567 http://worldcat.org/entity/work/id/25309930">King Lear</title> 
             <biblScope unit="act" n="1">1</biblScope>
             <biblScope unit="scene" n="4">4</biblScope>
-            <citedRange xml:id="bibl012" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl012" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Hor., Epod., 15 -->
           <bibl xml:id="epodi-15" resp="#CSPC">
@@ -181,7 +181,7 @@
             <ref type="bibliographicCitation" xml:lang="en">T. Mann, La genesi del Doctor Faustus</ref>
             <author ref="#TM"/>
             <title type="Novel" subtype="Book" level="m" sameAs="http://viaf.org/viaf/182619494 http://worldcat.org/entity/work/id/1813212984">La genesi del Doctor Faustus</title>
-            <citedRange xml:id="bibl018" unit="Excerpt" n="sample">Excerpt</citedRange>
+            <citedRange xml:id="bibl018" unit="excerpt" n="sample">Excerpt</citedRange>
           </bibl>
           <!-- Juv., Sat., 2.6 -->
           <bibl xml:id="satire-2-6" resp="#CSPC">
@@ -239,7 +239,7 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/552045775">Noctes atticae</title>
             <biblScope unit="volume" n="7">7</biblScope>
             <biblScope unit="chapter">8</biblScope>
-            <citedRange xml:id="bibl031" unit="Excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl031" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Dante, Commedia: Purgatorio, 1 -->
           <bibl xml:id="commedia-purgatorio-1" resp="#CSPC">
@@ -264,7 +264,7 @@
             <author ref="#LAS"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/237146462546327771306 http://worldcat.org/entity/work/id/4535726765">Epistulae morales ad Lucilium</title>
             <title level="a" type="Work" subtype="Letter">14</title>
-            <citedRange xml:id="bibl033" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl033" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Targa alla memoria di Ludovica Vistarini, m. 1320 -->
           <bibl xml:id="targa-l-vistarini" resp="#MD">
@@ -272,7 +272,7 @@
             <ref type="bibliographicCitation" xml:lang="en">Plaque in memory of Ludovica Vistarini, d. 1320</ref>
             <author ref="#unknown"/>
             <title level="m" type='Work' subtype='Expression'>Targa Vistarini</title>
-            <citedRange xml:id="targa-vistarini" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="targa-vistarini" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Petrarca, Rer. vulg. frag., 272 -->
           <bibl xml:id="canzoniere-272" resp="#CSPC">
@@ -290,7 +290,7 @@
             <ref type="bibliographicCitation" xml:lang="en">T. Mann, La filosofia di Nietzsche alla luce della nostra esperienza</ref>
             <author ref="#TM"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/1629145424664086830134 http://worldcat.org/entity/work/id/8690996">La filosofia di Nietzsche alla luce della nostra esperienza</title>
-            <citedRange xml:id="bibl036" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl036" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Mayer, Thomas Mann -->
           <bibl xml:id="thomas-mann" resp="#FG">
@@ -360,7 +360,7 @@
             <ref type="bibliographicCitation" xml:lang="en">G. Flaubert, Correspondance</ref>  
             <author ref="#GF"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/312533292 http://worldcat.org/entity/work/id/3376006216">Correspondance</title>
-            <citedRange xml:id="bibl041" unit="Excerpt" n="sample">Excerpt</citedRange>
+            <citedRange xml:id="bibl041" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Yourcenar, Memorie di Adriano -->
           <bibl xml:id="memorie-di-adriano" resp="#CSPC" type="Expression" sameAs="http://viaf.org/viaf/158145424552386831046 http://worldcat.org/entity/work/id/3944136598"><!-- ok? -->
@@ -368,8 +368,8 @@
             <ref type="bibliographicCitation" xml:lang="en">M. Yourcenar, Memorie di Adriano</ref>
             <author ref="#MY"/>
             <title level="m" type="Novel" subtype="Book" xml:id="memorie-di-adriano-it">Memorie di Adriano</title>
-            <citedRange xml:id="bibl042" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl042a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl042" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl042a" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Cic., Tusc., 2.4 -->
           <bibl xml:id="tusculanae-quaestiones-2-4" resp="#CSPC">
@@ -379,7 +379,7 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/177007391 http://worldcat.org/entity/work/id/1151019064">Tusculanae disputationes</title>
             <biblScope unit="volume" n="2">2</biblScope>
             <biblScope unit="chapter" n="2">4</biblScope>
-            <citedRange xml:id="bibl046" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl046" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Cic., apud Quint., Inst., 6.3 -->
           <bibl xml:id="istitutiones" resp="#FG">
@@ -389,7 +389,7 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/313800246 http://worldcat.org/entity/work/id/393939867">Institutio oratoria</title>
             <biblScope unit="volume" n="6">6</biblScope>
             <biblScope unit="chapter" n="3">3</biblScope>
-            <citedRange xml:id="bibl046a" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl046a" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Suet., Aug., 99 -->
           <bibl xml:id="de-vita-caesarum-99" resp="#CSPC">
@@ -399,7 +399,7 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/177421616 http://worldcat.org/entity/work/id/2999285211">De vita Caesarum</title>
             <biblScope unit="volume">2</biblScope>
             <biblScope unit="chapter" n="99">99</biblScope>
-            <citedRange xml:id="bibl048" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl048" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Cic., Off., 1 -->
           <bibl xml:id="de-officiis-1" resp="#CSPC">
@@ -408,8 +408,8 @@
             <author ref="#MTC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/186224872 http://worldcat.org/entity/work/id/4020564955">De officiis</title>
             <biblScope unit="volume">1</biblScope>
-            <citedRange xml:id="bibl049" unit="Excerpt" n="sample-1">34</citedRange>
-            <citedRange xml:id="bibl049a" unit="Excerpt" n="sample-2">36</citedRange>
+            <citedRange xml:id="bibl049" unit="excerpt" n="sample-1">34</citedRange>
+            <citedRange xml:id="bibl049a" unit="excerpt" n="sample-2">36</citedRange>
           </bibl>
           <!-- Petrarca, Africa, 6 -->
           <bibl xml:id="africa-6" resp="#CSPC">
@@ -449,8 +449,8 @@
             <publisher>Mondadori</publisher>
             <pubPlace>Milano</pubPlace>
             <date>1949</date>
-            <citedRange xml:id="bibl052" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl168" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl052" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl168" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Nietzsche, F. Opere, a c. di A. Romagnoli. Roma, Casini, 1955. -->
           <bibl xml:id="nietzsche-opere-romagnoli" resp="#FG">
@@ -462,9 +462,9 @@
             <publisher>Casini</publisher>
             <pubPlace>Roma</pubPlace>
             <date>1955</date>
-            <citedRange xml:id="bibl055" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl055a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl055ab" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl055" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl055a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl055ab" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Fertonani, R. Introduzione. In Mann, T. Saggi su Goethe, a c. di R. Fertonani. Milano, Mondadori, 1982. -->
           <bibl xml:id="introduzione-t-mann-saggi" resp="#FG">
@@ -477,8 +477,8 @@
             <pubPlace>Milano</pubPlace>
             <date>1982</date>
             <biblScope unit="chapter">Introduzione</biblScope>
-            <citedRange xml:id="bibl056" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl056a" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl056" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl056a" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Mann, Disordine e dolore precoce -->
           <bibl xml:id="disordine-e-dolore-precoce" resp="#CSPC">
@@ -486,10 +486,10 @@
             <ref type="bibliographicCitation" xml:lang="en">T. Mann, Disordine e dolore precoce</ref>
             <author ref="#TM"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/180687556 http://worldcat.org/entity/work/id/3943343635">Disordine e dolore precoce</title>
-            <citedRange xml:id="bibl059" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl059ab" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl059a" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl059b" unit="Excerpt" n="sample-4">Excerpt 4</citedRange>
+            <citedRange xml:id="bibl059" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl059ab" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl059a" unit="excerpt" n="sample-3">3</citedRange>
+            <citedRange xml:id="bibl059b" unit="excerpt" n="sample-4">4</citedRange>
           </bibl>
 		      <!-- Campanella, Poesie filosofiche: 74, 4 -->
           <bibl xml:id="poesie-filosofiche-74-4" resp="#CSPC">
@@ -561,7 +561,7 @@
             <author ref="#FH"/>
             <title level="m" type="Work" subtype="ReferenceBook" sameAs="http://viaf.org/viaf/64145067282666630851 http://worldcat.org/entity/work/id/3769023668">Enciclopedia delle scienze filosofiche in compendio</title>
             <biblScope unit="chapter">Introduzione</biblScope>
-            <citedRange xml:id="bibl061" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl061" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Hegel, Introduzione alla storia della filosofia -->
           <bibl xml:id="introduzione-storia-filosofia" resp="#FG">
@@ -569,7 +569,7 @@
             <ref type="bibliographicCitation" xml:lang="en">F. Hegel, Introduzione alla storia della filosofia</ref>
             <author ref="#FH"/>
             <title level="m" type="Work" subtype="ReferenceBook" sameAs="http://viaf.org/viaf/64145067282666630851 http://worldcat.org/entity/work/id/3769023668">Introduzione alla storia della filosofia</title>
-            <citedRange xml:id="bibl061a" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl061a" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Shakespeare, Amleto, 3.1 -->
           <bibl xml:id="amleto-3-1" resp="#CSPC">
@@ -579,8 +579,8 @@
             <title level="m" type="Play" subtype="Book" sameAs="http://viaf.org/viaf/316638105 http://worldcat.org/entity/work/id/83885">Amleto</title>
             <biblScope unit="act" n="3">3</biblScope>
             <biblScope unit="scene" n="1">1</biblScope>
-            <citedRange xml:id="bibl062" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl062a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl062" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl062a" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Mann, La montagna incantata -->
           <bibl xml:id="la-montagna-incantata" resp="#CSPC">
@@ -588,9 +588,9 @@
             <ref type="bibliographicCitation" xml:lang="en">T. Mann, La montagna incantata</ref>
             <author ref="#TM"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/178614359 http://worldcat.org/entity/work/id/3856119171">La montagna incantata</title>
-            <citedRange xml:id="bibl063" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl063a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl063b" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl063" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl063a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl063b" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Shakespeare, Sonnets, 15 -->
           <bibl xml:id="sonetti-15" resp="#CSPC">
@@ -646,7 +646,7 @@
             <title level="m" type="Play" subtype="Book" sameAs="http://viaf.org/viaf/316638105 http://worldcat.org/entity/work/id/83885">Hamlet</title>
             <biblScope unit="act" n="3">3</biblScope>
             <biblScope unit="scene" n="2">2</biblScope>
-            <citedRange xml:id="bibl072" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl072" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Arzeni, B. Introduzione. In Mann, T. Giuseppe e i suoi fratelli, a c. di L. Mazzucchetti -->
           <bibl xml:id="mann-giuseppe-e-i-suoi-fratelli-arzeni-intro" resp="#CSPC">
@@ -655,7 +655,7 @@
             <author ref="#BA"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/174144629">Giuseppe e i suoi fratelli</title>
             <biblScope unit="chapter">Introduzione</biblScope>
-            <citedRange xml:id="bibl073" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl073" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Mann, Saggi: Schopenhauer, Nietzsche, Freud -->
           <bibl xml:id="saggi-sch-ni-freud" resp="#FG">
@@ -667,17 +667,17 @@
             <pubPlace>Milano</pubPlace>
             <publisher>Oscar Mondadori</publisher>
             <date>1948</date>
-            <citedRange xml:id="bibl074" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl074b" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl074c" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl074d" unit="Excerpt" n="sample-4">Excerpt 4</citedRange>
-            <citedRange xml:id="bibl074f" unit="Excerpt" n="sample-6">Excerpt 6</citedRange>
-            <citedRange xml:id="bibl074g" unit="Excerpt" n="sample-7">Excerpt 7</citedRange>
-            <citedRange xml:id="bibl074h" unit="Excerpt" n="sample-8">Excerpt 8</citedRange>
-            <citedRange xml:id="bibl074i" unit="Excerpt" n="sample-9">Excerpt 9</citedRange>
-            <citedRange xml:id="bibl074l" unit="Excerpt" n="sample-10">Excerpt 10</citedRange>
-            <citedRange xml:id="bibl074m" unit="Excerpt" n="sample-11">Excerpt 11</citedRange>
-            <citedRange xml:id="bibl074n" unit="Excerpt" n="sample-12">Excerpt 12</citedRange>
+            <citedRange xml:id="bibl074" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl074b" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl074c" unit="excerpt" n="sample-3">3</citedRange>
+            <citedRange xml:id="bibl074d" unit="excerpt" n="sample-4">4</citedRange>
+            <citedRange xml:id="bibl074f" unit="excerpt" n="sample-6">6</citedRange>
+            <citedRange xml:id="bibl074g" unit="excerpt" n="sample-7">7</citedRange>
+            <citedRange xml:id="bibl074h" unit="excerpt" n="sample-8">8</citedRange>
+            <citedRange xml:id="bibl074i" unit="excerpt" n="sample-9">9</citedRange>
+            <citedRange xml:id="bibl074l" unit="excerpt" n="sample-10">Excerpt 10</citedRange>
+            <citedRange xml:id="bibl074m" unit="excerpt" n="sample-11">Excerpt 11</citedRange>
+            <citedRange xml:id="bibl074n" unit="excerpt" n="sample-12">Excerpt 12</citedRange>
           </bibl>
           <!-- Croce, Storia d'Italia dal 1871 al 1915 -->
           <bibl xml:id="storia-d-italia" resp="#CSPC">
@@ -685,7 +685,7 @@
             <ref type="bibliographicCitation" xml:lang="en">B. Croce, Storia d'Italia dal 1871 al 1915</ref>
             <author ref="#BC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/292418655 http://worldcat.org/entity/work/id/428975305">Storia d'Italia dal 1871 al 1915</title>
-            <citedRange xml:id="bibl075" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl075" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Tac., Ann., 1.11 -->
           <bibl xml:id="annales-1-11" resp="#CSPC">
@@ -695,10 +695,10 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="11">11</biblScope>
-            <citedRange xml:id="bibl076" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl085" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl152c" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl154" unit="Excerpt" n="sample-4">Excerpt 4</citedRange>
+            <citedRange xml:id="bibl076" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl085" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl152c" unit="excerpt" n="sample-3">3</citedRange>
+            <citedRange xml:id="bibl154" unit="excerpt" n="sample-4">4</citedRange>
           </bibl>
           <!-- Tac., Ann., 1.7 -->
           <bibl xml:id="annales-1-7" resp="#CSPC">
@@ -708,8 +708,8 @@
             <title level="m" type="Work" subtype="Book"  sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="7">7</biblScope>
-            <citedRange xml:id="bibl152" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl152b" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl152" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl152b" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>         
           <!-- Tacito, Gli annali, trad. C. Giussani -->
           <bibl xml:id="c-giussani-translation-annali" resp="#CSPC" type="Expression">
@@ -718,9 +718,9 @@
             <author ref="#CT"/>
             <editor ref="#CG" role="translator"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Gli annali</title>
-            <citedRange xml:id="bibl077" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl077a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl077b" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl077" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl077a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl077b" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Sen., Ep., 4 -->
           <bibl xml:id="lettere-a-lucilio-4" resp="#CSPC">
@@ -729,7 +729,7 @@
             <author ref="#LAS"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/237146462546327771306 http://worldcat.org/entity/work/id/4535726765">Epistulae morales ad Lucilium</title>
             <title level="a" type="Work" subtype="Letter">4</title>
-            <citedRange xml:id="bibl080" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl080" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Mart., Epigr., 5.34 -->
           <bibl xml:id="epigrammi-34" resp="#CSPC">
@@ -777,9 +777,9 @@
             <ref type="bibliographicCitation" xml:lang="en">M. Yourcenar, Mémoires d'Hadrien</ref>
             <author ref="#MY"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/211736454 http://worldcat.org/entity/work/id/3944136598">Mémoires d'Hadrien</title>
-            <citedRange xml:id="bibl086" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl086a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl086b" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl086" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl086a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl086b" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Mart., Epigr., 1.88 -->
           <bibl xml:id="epigrammi-88" resp="#CSPC">
@@ -808,9 +808,9 @@
             <ref type="bibliographicCitation" xml:lang="en">F. Nietzsche, Scritti su Wagner</ref>
             <author ref="#FN"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/4535859474">Scritti su Wagner</title>
-            <citedRange xml:id="bibl090" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl090a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl090b" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl090" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl090a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl090b" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Mart., Epigr., 2.11 -->
           <bibl xml:id="epigrammi-11" resp="#PB">
@@ -830,9 +830,9 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/179765947 http://worldcat.org/entity/work/id/3769251849">De clementia</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="1">1</biblScope>
-            <citedRange xml:id="bibl093" unit="Excerpt" n="paragraph-3">3</citedRange>
-            <citedRange xml:id="bibl094" unit="Excerpt" n="paragraph-7">7</citedRange>
-            <citedRange xml:id="bibl095" unit="Excerpt" n="paragraph-8">8</citedRange>
+            <citedRange xml:id="bibl093" unit="excerpt" n="paragraph-3">3</citedRange>
+            <citedRange xml:id="bibl094" unit="excerpt" n="paragraph-7">7</citedRange>
+            <citedRange xml:id="bibl095" unit="excerpt" n="paragraph-8">8</citedRange>
           </bibl>
           <!-- Plin., Pan., 80 -->
           <bibl xml:id="panegyricus-80" resp="#CSPC">
@@ -841,7 +841,7 @@
             <author ref="#PG"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/185118296 http://worldcat.org/entity/work/id/3144987673">Panegyricus</title>
             <title level="a" type="Work" subtype="Book">80</title>
-            <citedRange xml:id="bibl096" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl096" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Tocqueville, L'ancien régime et la révolution -->
           <bibl xml:id="ancient-regime" resp="#CSPC">
@@ -849,7 +849,7 @@
             <ref type="bibliographicCitation" xml:lang="en">A. de Tocqueville, L'ancien régime et la révolution</ref>
             <author ref="#ADT"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/208060462 http://worldcat.org/entity/work/id/507361">L'ancien régime et la révolution</title>
-            <citedRange xml:id="bibl097" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl097" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Carducci, Odi barbare: Alla stazione in una mattina d'autunno -->
           <bibl xml:id="odi-barbare-alla-stazione" resp="#CSPC">
@@ -878,15 +878,15 @@
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/312353932 http://www.worldcat.org/oclc/859907068">La monaca di Monza (da Fermo e Lucia)</title>
             <publisher>Editori riuniti</publisher>
             <date>1985</date>
-            <citedRange xml:id="bibl103" unit="page" n="56">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl103a" unit="page" n="56">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl103b" unit="page" n="56">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl113" unit="page" n="56">Excerpt 4</citedRange>
-            <citedRange xml:id="bibl113a" unit="page" n="56">Excerpt 5</citedRange>
-            <citedRange xml:id="bibl113b" unit="page" n="56">Excerpt 6</citedRange>
-            <citedRange xml:id="bibl113d" unit="page" n="56">Excerpt 7</citedRange>
-            <citedRange xml:id="bibl113e" unit="page" n="56">Excerpt 8</citedRange>
-            <citedRange xml:id="bibl113f" unit="page" n="56">Excerpt 9</citedRange>
+            <citedRange xml:id="bibl103" unit="page" n="56">1</citedRange>
+            <citedRange xml:id="bibl103a" unit="page" n="56">2</citedRange>
+            <citedRange xml:id="bibl103b" unit="page" n="56">3</citedRange>
+            <citedRange xml:id="bibl113" unit="page" n="56">4</citedRange>
+            <citedRange xml:id="bibl113a" unit="page" n="56">5</citedRange>
+            <citedRange xml:id="bibl113b" unit="page" n="56">6</citedRange>
+            <citedRange xml:id="bibl113d" unit="page" n="56">7</citedRange>
+            <citedRange xml:id="bibl113e" unit="page" n="56">8</citedRange>
+            <citedRange xml:id="bibl113f" unit="page" n="56">9</citedRange>
           </bibl>
           <!-- Ripamonti, Alcuni brani delle storie patrie, trad. T. Dandolo -->
           <bibl xml:id="historiarum-patriae" resp="#CSPC">
@@ -895,7 +895,7 @@
             <author ref="#GR"/>
             <editor ref="#TD" role="translator"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/40138763">Alcuni brani delle storie patrie di Giuseppe Ripamonti</title>
-            <citedRange xml:id="bibl104" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl104" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Flaubert, Madame Bovary -->
           <bibl xml:id="madame-bovary" resp="#CSPC">
@@ -903,9 +903,9 @@
             <ref type="bibliographicCitation" xml:lang="en">G. Flaubert, Madame Bovary</ref>
             <author ref="#GF"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/186570439 http://worldcat.org/entity/work/id/460581">Madame Bovary</title>
-            <citedRange xml:id="bibl105" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl105a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl105b" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl105" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl105a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl105b" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
           <!-- Pontano, De laudibus divinis: Hymnus ad Virginem Dei matrem -->
           <bibl xml:id="hymnus-ad-virginem-dei-matrem" resp="#CSPC">
@@ -923,7 +923,7 @@
             <author ref="#GC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/2976718613">A proposito di alcuni giudizi su Alessandro Manzoni</title>
             <publisher>Zanichelli</publisher>
-            <citedRange xml:id="bibl109" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl109" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Thiers, Storia della Rivoluzione francese --> 
           <bibl xml:id="storia-della-riv-francese" resp="#CSPC">
@@ -931,7 +931,7 @@
             <ref type="bibliographicCitation" xml:lang="en">A. Thiers, Storia della Rivoluzione francese</ref>
             <author ref="#AT"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/292786872 http://worldcat.org/entity/work/id/3375557827">Storia della Rivoluzione francese</title>
-            <citedRange xml:id="bibl111" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl111" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Hegel, Scienza della logica, 1 -->
           <bibl xml:id="scienza-della-logica" resp="#CSPC">
@@ -952,7 +952,7 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
             <biblScope unit="volume" n="15">15</biblScope>
             <biblScope unit="chapter" n="44">44</biblScope>
-            <citedRange xml:id="bibl114" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl114" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
            <!-- Romano, S. "Cent'anni di dibattiti". Corriere della Sera, 10 agosto 1986. -->
           <bibl xml:id="s-romano-cds" resp="#FG">
@@ -962,7 +962,7 @@
             <title level="m" type="Work" subtype="Newspaper" sameAs="http://worldcat.org/entity/work/id/54710726">Corriere della Sera</title>
             <title level="a" type="Work" subtype="NewspaperArticle">Cent'anni di dibattiti</title>
             <date when="1986-08-10">10–08–1986</date>
-            <citedRange xml:id="bibl115" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl115" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Macchia, G. "La verità di Malagrida diavoleria o santità". Corriere della Sera, 9 agosto 1986. -->
           <bibl xml:id="g-macchia-cds" resp="#FG">
@@ -972,7 +972,7 @@
             <title level="m" type="Work" subtype="Newspaper" sameAs="http://worldcat.org/entity/work/id/54710726">Corriere della Sera</title>
             <title level="a" type="Work" subtype="NewspaperArticle">La verità di Malagrida diavoleria o santità</title>
             <date when="1986-08-09">09–08–1986</date>
-            <citedRange xml:id="bibl116" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl116" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Campanella, Poesie filosofiche: 80, 10 -->
           <bibl xml:id="poesie-filosofiche-80-10" resp="#MD">
@@ -1000,7 +1000,7 @@
             <title level="m" type="Play" subtype="Book" sameAs="http://viaf.org/viaf/196909096 http://worldcat.org/entity/work/id/4417278768">Re Torrismondo</title> 
             <biblScope unit="act" n="5">5</biblScope>
             <biblScope unit="scene" n="6">6</biblScope>
-            <citedRange xml:id="bibl119" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl119" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Bruno, Gli eroici furori -->
           <bibl xml:id="gli-eroici-furori" resp="#MD">
@@ -1008,7 +1008,7 @@
             <ref type="bibliographicCitation" xml:lang="en">G. Bruno, Gli eroici furori</ref>
             <author ref="#GB"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/192603944">Gli eroici furori</title>
-            <citedRange xml:id="bibl120" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl120" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Campanella, Poesie filosofiche: 80, 9 -->
           <bibl xml:id="poesie-filosofiche-80-9" resp="#MD">
@@ -1047,7 +1047,7 @@
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://viaf.org/viaf/187066890 http://worldcat.org/entity/work/id/2261383546">Epistulae ad familiares</title>
             <biblScope unit="volume" n="4">4</biblScope>
             <title level="a" n="9" type="Work" subtype="Letter">9</title>
-            <citedRange xml:id="bibl126" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl126" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Garin, Intellettuali italiani nel XX secolo --> 
           <bibl xml:id="intellettuali-italiani-xx-secolo" resp="#CSPC">
@@ -1063,7 +1063,7 @@
             <author ref="#BC"/>
             <title level="m" type="Work" subtype="Letter">Lettera a Francesco De Sarlo</title>
             <date when="1898">1898</date>
-            <citedRange xml:id="bibl128" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl128" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <bibl xml:id="letter-to-a-d-ancona" resp="#CSPC">
             <ref type="bibliographicCitation" xml:lang="it">B. Croce, Opera non identificata: Lettera ad Alessandro D'Ancona</ref>
@@ -1071,7 +1071,7 @@
             <author ref="#BC"/>
             <title level="m" type="Work" subtype="Letter" sameAs="http://worldcat.org/entity/work/id/3901278709">Lettera ad Alessandro D'Ancona</title>
             <date when="1899">1899</date>
-            <citedRange xml:id="bibl129" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl129" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Alfieri, Mirra, 1 -->
           <bibl xml:id="mirra" resp="#CSPC">
@@ -1080,7 +1080,7 @@
             <author ref="#VA"/>
             <title level="m" type="Play" subtype="Book" sameAs="http://viaf.org/viaf/207946706 http://worldcat.org/entity/work/id/2052000">Mirra</title>
             <biblScope unit="act" n="1">1</biblScope>
-            <citedRange xml:id="bibl130" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl130" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Manzoni, I promessi sposi -->
           <bibl xml:id="i-promessi-sposi" resp="#CSPC">
@@ -1088,8 +1088,8 @@
             <ref type="bibliographicCitation" xml:lang="en">A. Manzoni, I promessi sposi</ref>
             <author ref="#AM"/> 
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/185499102 http://worldcat.org/entity/work/id/2487678800">I promessi sposi</title>
-            <citedRange xml:id="bibl133" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl133a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl133" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl133a" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Croce, Storie e leggende napoletane -->
           <bibl xml:id="storie-e-leggende-napoletane" resp="#CSPC">
@@ -1097,8 +1097,8 @@
             <ref type="bibliographicCitation" xml:lang="en">B. Croce, Storie e leggende napoletane</ref>
             <author ref="#BC"/>
             <title level="m" type="WorkCollection" subtype="Book" sameAs="http://it.dbpedia.org/resource/Storie_e_leggende_napoletane http://worldcat.org/entity/work/id/4460860449">Storie e leggende napoletane</title>
-            <citedRange xml:id="bibl134" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl134a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl134" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl134a" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Tommaseo, Studi critici -->
           <bibl xml:id="studi-critici" resp="#MD">
@@ -1106,8 +1106,8 @@
             <ref type="bibliographicCitation" xml:lang="en">N. Tommaseo, Studi critici</ref>
             <author ref="#NT"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/2261129084">Studi critici</title>
-            <citedRange xml:id="bibl136" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl136a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl136" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl136a" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Carducci, Dell'inno La Risurrezione di Alessandro Manzoni e di S. Paolino D'Aquileia -->
           <bibl xml:id="dell-inno" resp="#CSPC">
@@ -1115,7 +1115,7 @@
             <ref type="bibliographicCitation" xml:lang="en">G. Carducci, Dell'inno La Risurrezione di Alessandro Manzoni e di S. Paolino D'Aquileia</ref>
             <author ref="#GC"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/3770495413">Dell'inno La Risurrezione di Alessandro Manzoni e di S. Paolino D'Aquileia</title>
-            <citedRange xml:id="bibl137" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl137" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Canticum canticorum, 6:9 -->
           <bibl xml:id="canticum-canticorum" resp="#FG">
@@ -1152,7 +1152,7 @@
             <ref type="bibliographicCitation" xml:lang="en">L. Tolstoj, Anna Karenina</ref>
             <author ref="#LT"/>
             <title level="m" type="Novel" subtype="Book" sameAs="http://viaf.org/viaf/179241967 http://worldcat.org/entity/work/id/8357">Anna Karenina</title>
-            <citedRange xml:id="bibl146" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl146" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Craig, Storia della Germania: 1866-1945 -->
           <bibl xml:id="la-repubblica-di-weimar" resp="#FG">
@@ -1160,7 +1160,7 @@
             <ref type="bibliographicCitation" xml:lang="en">G. Craig, Storia della Germania: 1866-1945</ref>
             <author ref="#GCR"/>
             <title level="m" type="Work" subtype="Book" sameAs="https://viaf.org/viaf/179882098 http://worldcat.org/entity/work/id/4020565740" cert="medium">Storia della Germania: 1866-1945</title>
-            <citedRange xml:id="bibl147" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl147" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Dante, Commedia: Paradiso, 5 -->
           <bibl xml:id="commedia-paradiso-5" resp="#CSPC">
@@ -1180,7 +1180,7 @@
             <title level="m" type="WorkCollection" subtype="Book" cert="low">Lettere</title>
             <title level='a' type='Work' subtype='Letter'>Lettera da Stresa</title>            
             <date notBefore="1947" notAfter="1948">1947–1948</date>
-            <citedRange xml:id="bibl149" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl149" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Iust., Inst. Iust. -->
           <bibl xml:id="institutionem-libri" resp="#CSPC">
@@ -1188,10 +1188,10 @@
             <ref type="bibliographicCitation" xml:lang="en">Iust. Inst. Iust.</ref> 
             <author ref="#IUST"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/1155883279">Institutiones Iustiniani</title>
-            <citedRange xml:id="bibl150" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl150a" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl150c" unit="Excerpt" n="sample-2">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl150d" unit="Excerpt" n="sample-3">Excerpt 4</citedRange>
+            <citedRange xml:id="bibl150" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl150a" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl150c" unit="excerpt" n="sample-2">3</citedRange>
+            <citedRange xml:id="bibl150d" unit="excerpt" n="sample-3">4</citedRange>
           </bibl>
            <!-- Bonfante, Istituzioni di diritto romano -->
           <bibl xml:id="istituzioni-di-diritto-romano" resp="#MD">
@@ -1199,7 +1199,7 @@
             <ref type="bibliographicCitation" xml:lang="en">P. Bonfante, Istituzioni di diritto romano</ref>
             <author ref="#PBONF"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://worldcat.org/entity/work/id/3342582">Istituzioni di diritto romano</title>
-            <citedRange xml:id="bibl150b" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl150b" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Verg., Aen., 1 -->
           <bibl xml:id="eneide-1" resp="#CSPC">
@@ -1218,8 +1218,8 @@
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/306068107 http://worldcat.org/entity/work/id/1153445091">Annales</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="28">28</biblScope>
-            <citedRange xml:id="bibl154a" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl154b" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
+            <citedRange xml:id="bibl154a" unit="excerpt" n="sample-1">1</citedRange>
+            <citedRange xml:id="bibl154b" unit="excerpt" n="sample-2">2</citedRange>
           </bibl>
           <!-- Tac. Hist. 1.1 -->
           <bibl xml:id="le-storie-1-1" resp="#CSPC">
@@ -1229,7 +1229,7 @@
             <title level="m" type="Work" subtype="Book" xml:id="ct-le-storie" sameAs="http://viaf.org/viaf/174131919">Historiae</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="1">1</biblScope>
-            <citedRange xml:id="bibl156" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl156" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Tac. Hist. 1.2 -->
           <bibl xml:id="le-storie-1-2" resp="#CSPC">
@@ -1239,7 +1239,7 @@
             <title level="m" type="Work" subtype="Book" xml:id="ct-le-storie-2" sameAs="http://viaf.org/viaf/174131919">Historiae</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="2">2</biblScope>
-            <citedRange xml:id="bibl156a" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl156a" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Tac. Hist. 1.3 -->
           <bibl xml:id="le-storie-1-3" resp="#CSPC">
@@ -1249,7 +1249,7 @@
             <title level="m" type="Work" subtype="Book" xml:id="ct-le-storie-3" sameAs="http://viaf.org/viaf/174131919">Historiae</title>
             <biblScope unit="volume" n="1">1</biblScope>
             <biblScope unit="chapter" n="3">3</biblScope>
-            <citedRange xml:id="bibl156b" unit="Excerpt" n="sample-1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl156b" unit="excerpt" n="sample-1">1</citedRange>
           </bibl>
           <!-- Tacito, Publio C. Opere: Storie, trad. C. Giussani. Torino, Einaudi, 1968. -->
           <bibl xml:id="c-giussani-translation-le-storie" resp="#CSPC" type="Expression">
@@ -1261,7 +1261,7 @@
             <publisher>Einaudi</publisher>
             <pubPlace xml:id="torino">Torino</pubPlace>
             <date when="1968">1968</date>
-            <citedRange xml:id="bibl157" unit="Excerpt" n="28">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl157" unit="excerpt" n="28">1</citedRange>
           </bibl>
           <!-- Hor., Od., 2.3 -->
           <bibl xml:id="carmina-2-3" resp="#CSPC">
@@ -1294,7 +1294,7 @@
             <ref type="bibliographicCitation" xml:lang="en">A. France, La rôtisserie de la reine Pédauque</ref>
             <author ref="#AF"/>
             <title level="m" type="Novel" subtype="Book" sameAs="https://viaf.org/viaf/219969949 http://worldcat.org/entity/work/id/373170">La rôtisserie de la reine Pédauque</title>
-            <citedRange xml:id="bibl160" unit="Excerpt" n="sample 1">Excerpt 1</citedRange>
+            <citedRange xml:id="bibl160" unit="excerpt" n="sample 1">1</citedRange>
           </bibl>
           <!-- Horst, Cesare -->                      
           <bibl xml:id="cesare" resp="#MD">
@@ -1302,11 +1302,11 @@
             <ref type="bibliographicCitation" xml:lang="en">E. Horst, Cesare</ref>
             <author ref="#EH"/>
             <title level="m" type="Work" subtype="Book" sameAs="http://viaf.org/viaf/309332989 http://worldcat.org/entity/work/id/3856327731">Cesare</title>
-            <citedRange xml:id="bibl161" unit="Excerpt" n="sample 1">Excerpt 1</citedRange>
-            <citedRange xml:id="bibl161a" unit="Excerpt" n="sample 2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl161b" unit="Excerpt" n="sample 3">Excerpt 3</citedRange>
-            <citedRange xml:id="bibl161c" unit="Excerpt" n="sample 4">Excerpt 4</citedRange>
-            <citedRange xml:id="bibl161d" unit="Excerpt" n="sample 5">Excerpt 5</citedRange>
+            <citedRange xml:id="bibl161" unit="excerpt" n="sample 1">1</citedRange>
+            <citedRange xml:id="bibl161a" unit="excerpt" n="sample 2">2</citedRange>
+            <citedRange xml:id="bibl161b" unit="excerpt" n="sample 3">3</citedRange>
+            <citedRange xml:id="bibl161c" unit="excerpt" n="sample 4">4</citedRange>
+            <citedRange xml:id="bibl161d" unit="excerpt" n="sample 5">5</citedRange>
           </bibl>
           <!-- Giusti, Epigrammi, 6 -->
           <bibl xml:id="epigrammi" resp="#CSPC">
@@ -1359,8 +1359,8 @@
             <ref type="bibliographicCitation" xml:lang="en">G. de Maupassant, Unidentified work</ref>
             <author ref="#GMAUP"/>
             <title level="m" type="Work" subtype="Expression">Opera non identificata</title>
-            <citedRange xml:id="bibl168b" unit="Excerpt" n="sample-2">Excerpt 2</citedRange>
-            <citedRange xml:id="bibl168c" unit="Excerpt" n="sample-3">Excerpt 3</citedRange>
+            <citedRange xml:id="bibl168b" unit="excerpt" n="sample-2">2</citedRange>
+            <citedRange xml:id="bibl168c" unit="excerpt" n="sample-3">3</citedRange>
           </bibl>
         </listBibl>
       </sourceDesc>
