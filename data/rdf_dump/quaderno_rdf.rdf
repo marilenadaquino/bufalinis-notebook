@@ -357,7 +357,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl011">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>King Lear, act 1, scene 1, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>King Lear, act 1, scene 1, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ws-king-lear/act-1/scene-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ws-king-lear">
@@ -381,7 +381,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl012">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>King Lear, act 1, scene 4, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>King Lear, act 1, scene 4, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ws-king-lear/act-1/scene-4"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/qof-epodi">
@@ -525,7 +525,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl018">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La genesi del Doctor Faustus, Excerpt Excerpt</rdfs:label>
+      <rdfs:label>La genesi del Doctor Faustus, excerpt Excerpt</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-la-genesi-del-doctor-faustus"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/dgg-satirae">
@@ -690,7 +690,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl031">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Noctes atticae, volume 7, chapter 8, Excerpt 1</rdfs:label>
+      <rdfs:label>Noctes atticae, volume 7, chapter 8, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ag-noctes-atticae/volume-7/chapter-8"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/da-commedia">
@@ -789,7 +789,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl033">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Epistulae morales ad Lucilium, 14, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Epistulae morales ad Lucilium, 14, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/las-epistulae-morales-ad-lucilium/14"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/unknown-targa-vistarini">
@@ -806,7 +806,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/targa-vistarini">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Targa Vistarini, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Targa Vistarini, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/unknown-targa-vistarini"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fp-rerum-vulgarium-fragmenta">
@@ -861,7 +861,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl036">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La filosofia di Nietzsche alla luce della nostra esperienza, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>La filosofia di Nietzsche alla luce della nostra esperienza, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-la-filosofia-di-nietzsche-alla-luce-della-nostra-esperienza"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fp-rerum-vulgarium-fragmenta">
@@ -1071,7 +1071,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl041">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Correspondance, Excerpt Excerpt</rdfs:label>
+      <rdfs:label>Correspondance, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gf-correspondance"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/my-memorie-di-adriano">
@@ -1088,12 +1088,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl042">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Memorie di Adriano, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Memorie di Adriano, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/my-memorie-di-adriano"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl042a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Memorie di Adriano, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Memorie di Adriano, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/my-memorie-di-adriano"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mtc-tusculanae-disputationes">
@@ -1117,7 +1117,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl046">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Tusculanae disputationes, volume 2, chapter 4, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Tusculanae disputationes, volume 2, chapter 4, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/mtc-tusculanae-disputationes/volume-2/chapter-4"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mfq-institutio-oratoria">
@@ -1141,7 +1141,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl046a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Institutio oratoria, volume 6, chapter 3, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Institutio oratoria, volume 6, chapter 3, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/mfq-institutio-oratoria/volume-6/chapter-3"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gst-de-vita-caesarum">
@@ -1165,7 +1165,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl048">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De vita Caesarum, volume 2, chapter 99, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>De vita Caesarum, volume 2, chapter 99, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gst-de-vita-caesarum/volume-2/chapter-99"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mtc-de-officiis">
@@ -1189,12 +1189,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl049">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De officiis, volume 1, Excerpt 34</rdfs:label>
+      <rdfs:label>De officiis, volume 1, excerpt 34</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/mtc-de-officiis/volume-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl049a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De officiis, volume 1, Excerpt 36</rdfs:label>
+      <rdfs:label>De officiis, volume 1, excerpt 36</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/mtc-de-officiis/volume-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fp-africa">
@@ -1308,12 +1308,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl052">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Doctor Faustus: la vita del compositore tedesco Adrian Leverkühn narrata da un amico, chapter Introduzione, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Doctor Faustus: la vita del compositore tedesco Adrian Leverkühn narrata da un amico, chapter Introduzione, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/lavm-doctor-faustus-la-vita-del-compositore-tedesco-adrian-leverkühn-narrata-da-un-amico/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl168">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Doctor Faustus: la vita del compositore tedesco Adrian Leverkühn narrata da un amico, chapter Introduzione, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Doctor Faustus: la vita del compositore tedesco Adrian Leverkühn narrata da un amico, chapter Introduzione, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/lavm-doctor-faustus-la-vita-del-compositore-tedesco-adrian-leverkühn-narrata-da-un-amico/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fnar-nietzsche-opere-a-c-di-a-romagnoli">
@@ -1332,17 +1332,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl055">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fnar-nietzsche-opere-a-c-di-a-romagnoli"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl055a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fnar-nietzsche-opere-a-c-di-a-romagnoli"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl055ab">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Nietzsche, Opere. A c. di A. Romagnoli, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fnar-nietzsche-opere-a-c-di-a-romagnoli"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tmrf-saggi-su-goethe-a-c-di-r-fertonani">
@@ -1366,12 +1366,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl056">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi su Goethe. A c. di R. Fertonani, chapter Introduzione, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Saggi su Goethe. A c. di R. Fertonani, chapter Introduzione, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmrf-saggi-su-goethe-a-c-di-r-fertonani/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl056a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi su Goethe. A c. di R. Fertonani, chapter Introduzione, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Saggi su Goethe. A c. di R. Fertonani, chapter Introduzione, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmrf-saggi-su-goethe-a-c-di-r-fertonani/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tm-disordine-e-dolore-precoce">
@@ -1390,22 +1390,22 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl059">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Disordine e dolore precoce, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Disordine e dolore precoce, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-disordine-e-dolore-precoce"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl059ab">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Disordine e dolore precoce, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Disordine e dolore precoce, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-disordine-e-dolore-precoce"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl059a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Disordine e dolore precoce, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Disordine e dolore precoce, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-disordine-e-dolore-precoce"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl059b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Disordine e dolore precoce, Excerpt Excerpt 4</rdfs:label>
+      <rdfs:label>Disordine e dolore precoce, excerpt 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-disordine-e-dolore-precoce"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tc-poesie-filosofiche">
@@ -1646,7 +1646,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl061">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Enciclopedia delle scienze filosofiche in compendio, chapter Introduzione, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Enciclopedia delle scienze filosofiche in compendio, chapter Introduzione, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fh-enciclopedia-delle-scienze-filosofiche-in-compendio/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fh-introduzione-alla-storia-della-filosofia">
@@ -1665,7 +1665,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl061a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Introduzione alla storia della filosofia, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Introduzione alla storia della filosofia, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fh-introduzione-alla-storia-della-filosofia"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ws-amleto">
@@ -1689,12 +1689,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl062">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Amleto, act 3, scene 1, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Amleto, act 3, scene 1, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ws-amleto/act-3/scene-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl062a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Amleto, act 3, scene 1, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Amleto, act 3, scene 1, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ws-amleto/act-3/scene-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tm-la-montagna-incantata">
@@ -1713,17 +1713,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl063">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La montagna incantata, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>La montagna incantata, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-la-montagna-incantata"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl063a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La montagna incantata, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>La montagna incantata, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-la-montagna-incantata"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl063b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La montagna incantata, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>La montagna incantata, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-la-montagna-incantata"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ws-sonnets">
@@ -1873,7 +1873,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl072">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Hamlet, act 3, scene 2, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Hamlet, act 3, scene 2, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ws-hamlet/act-3/scene-2"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ba-giuseppe-e-i-suoi-fratelli">
@@ -1896,7 +1896,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl073">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Giuseppe e i suoi fratelli, chapter Introduzione, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Giuseppe e i suoi fratelli, chapter Introduzione, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ba-giuseppe-e-i-suoi-fratelli/chapter-introduzione"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tmba-saggi-schopenhauer-nietzsche-freud">
@@ -1915,57 +1915,57 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074c">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074d">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 4</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074f">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 6</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 6</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074g">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 7</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 7</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074h">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 8</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 8</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074i">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 9</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt 9</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074l">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 10</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt Excerpt 10</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074m">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 11</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt Excerpt 11</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl074n">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, Excerpt Excerpt 12</rdfs:label>
+      <rdfs:label>Saggi. Schopenhauer, Nietzsche, Freud, excerpt Excerpt 12</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tmba-saggi-schopenhauer-nietzsche-freud"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/bc-storia-d'italia-dal-1871-al-1915">
@@ -1984,7 +1984,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl075">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Storia d'Italia dal 1871 al 1915, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Storia d'Italia dal 1871 al 1915, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/bc-storia-d'italia-dal-1871-al-1915"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ct-annales">
@@ -2008,22 +2008,22 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl076">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 11, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 11, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-11"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl085">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 11, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 11, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-11"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl152c">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 11, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 11, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-11"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl154">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 11, Excerpt Excerpt 4</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 11, excerpt 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-11"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ct-annales">
@@ -2047,12 +2047,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl152">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 7, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 7, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-7"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl152b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 7, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 7, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-7"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ctcg-gli-annali">
@@ -2072,17 +2072,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl077">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Gli annali, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Gli annali, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ctcg-gli-annali"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl077a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Gli annali, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Gli annali, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ctcg-gli-annali"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl077b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Gli annali, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Gli annali, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ctcg-gli-annali"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/las-epistulae-morales-ad-lucilium">
@@ -2113,7 +2113,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl080">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Epistulae morales ad Lucilium, 4, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Epistulae morales ad Lucilium, 4, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/las-epistulae-morales-ad-lucilium/4"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mvm-epigrammata">
@@ -2276,17 +2276,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl086">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Mémoires d'Hadrien, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Mémoires d'Hadrien, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/my-mémoires-d'hadrien"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl086a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Mémoires d'Hadrien, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Mémoires d'Hadrien, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/my-mémoires-d'hadrien"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl086b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Mémoires d'Hadrien, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Mémoires d'Hadrien, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/my-mémoires-d'hadrien"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mvm-epigrammata">
@@ -2378,17 +2378,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl090">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Scritti su Wagner, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Scritti su Wagner, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fn-scritti-su-wagner"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl090a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Scritti su Wagner, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Scritti su Wagner, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fn-scritti-su-wagner"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl090b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Scritti su Wagner, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Scritti su Wagner, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/fn-scritti-su-wagner"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/mvm-epigrammata">
@@ -2448,17 +2448,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl093">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De clementia, volume 1, chapter 1, Excerpt 3</rdfs:label>
+      <rdfs:label>De clementia, volume 1, chapter 1, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/las-de-clementia/volume-1/chapter-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl094">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De clementia, volume 1, chapter 1, Excerpt 7</rdfs:label>
+      <rdfs:label>De clementia, volume 1, chapter 1, excerpt 7</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/las-de-clementia/volume-1/chapter-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl095">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>De clementia, volume 1, chapter 1, Excerpt 8</rdfs:label>
+      <rdfs:label>De clementia, volume 1, chapter 1, excerpt 8</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/las-de-clementia/volume-1/chapter-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/pg-panegyricus">
@@ -2489,7 +2489,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl096">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Panegyricus, 80, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Panegyricus, 80, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/pg-panegyricus/80"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/adt-l'ancien-régime-et-la-révolution">
@@ -2508,7 +2508,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl097">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>L'ancien régime et la révolution, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>L'ancien régime et la révolution, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/adt-l'ancien-régime-et-la-révolution"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gc-odi-barbare">
@@ -2587,47 +2587,47 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl103">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 1</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl103a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 2</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl103b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 3</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 4</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 5</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 5</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 6</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 6</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113d">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 7</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 7</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113e">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 8</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 8</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl113f">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page Excerpt 9</rdfs:label>
+      <rdfs:label>La monaca di Monza (da Fermo e Lucia), page 9</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-la-monaca-di-monza-(da-fermo-e-lucia)"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/grtd-alcuni-brani-delle-storie-patrie-di-giuseppe-ripamonti">
@@ -2646,7 +2646,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl104">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Alcuni brani delle storie patrie di Giuseppe Ripamonti, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Alcuni brani delle storie patrie di Giuseppe Ripamonti, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/grtd-alcuni-brani-delle-storie-patrie-di-giuseppe-ripamonti"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gf-madame-bovary">
@@ -2665,17 +2665,17 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl105">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Madame Bovary, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Madame Bovary, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gf-madame-bovary"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl105a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Madame Bovary, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Madame Bovary, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gf-madame-bovary"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl105b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Madame Bovary, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Madame Bovary, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gf-madame-bovary"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gp-de-laudibus-divinis">
@@ -2722,7 +2722,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl109">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>A proposito di alcuni giudizi su Alessandro Manzoni, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>A proposito di alcuni giudizi su Alessandro Manzoni, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gc-a-proposito-di-alcuni-giudizi-su-alessandro-manzoni"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/at-storia-della-rivoluzione-francese">
@@ -2741,7 +2741,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl111">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Storia della Rivoluzione francese, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Storia della Rivoluzione francese, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/at-storia-della-rivoluzione-francese"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/fh-scienza-della-logica">
@@ -2789,7 +2789,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl114">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 15, chapter 44, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Annales, volume 15, chapter 44, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-15/chapter-44"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/sr-corriere-della-sera">
@@ -2819,7 +2819,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl115">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Corriere della Sera, Cent'anni di dibattiti, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Corriere della Sera, Cent'anni di dibattiti, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/sr-corriere-della-sera/cent'anni-di-dibattiti"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gmcc-corriere-della-sera">
@@ -2849,7 +2849,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl116">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Corriere della Sera, La verità di Malagrida diavoleria o santità, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Corriere della Sera, La verità di Malagrida diavoleria o santità, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gmcc-corriere-della-sera/la-verità-di-malagrida-diavoleria-o-santità"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tc-poesie-filosofiche">
@@ -2935,7 +2935,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl119">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Re Torrismondo, act 5, scene 6, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Re Torrismondo, act 5, scene 6, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tt-re-torrismondo/act-5/scene-6"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gb-gli-eroici-furori">
@@ -2953,7 +2953,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl120">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Gli eroici furori, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Gli eroici furori, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gb-gli-eroici-furori"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/tc-poesie-filosofiche">
@@ -3092,7 +3092,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl126">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Epistulae ad familiares, volume 4, 9, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Epistulae ad familiares, volume 4, 9, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/mtc-epistulae-ad-familiares/volume-4/9"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/bc-lettera-a-francesco-de-sarlo">
@@ -3109,7 +3109,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl128">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Lettera a Francesco De Sarlo, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Lettera a Francesco De Sarlo, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/bc-lettera-a-francesco-de-sarlo"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/bc-lettera-ad-alessandro-d'ancona">
@@ -3127,7 +3127,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl129">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Lettera ad Alessandro D'Ancona, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Lettera ad Alessandro D'Ancona, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/bc-lettera-ad-alessandro-d'ancona"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/va-mirra">
@@ -3151,7 +3151,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl130">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Mirra, act 1, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Mirra, act 1, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/va-mirra/act-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/am-i-promessi-sposi">
@@ -3170,12 +3170,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl133">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>I promessi sposi, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>I promessi sposi, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-i-promessi-sposi"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl133a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>I promessi sposi, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>I promessi sposi, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/am-i-promessi-sposi"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/bc-storie-e-leggende-napoletane">
@@ -3194,12 +3194,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl134">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Storie e leggende napoletane, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Storie e leggende napoletane, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/bc-storie-e-leggende-napoletane"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl134a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Storie e leggende napoletane, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Storie e leggende napoletane, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/bc-storie-e-leggende-napoletane"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/nt-studi-critici">
@@ -3217,12 +3217,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl136">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Studi critici, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Studi critici, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/nt-studi-critici"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl136a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Studi critici, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Studi critici, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/nt-studi-critici"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gc-dell'inno-la-risurrezione-di-alessandro-manzoni-e-di-s-paolino-d'aquileia">
@@ -3240,7 +3240,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl137">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Dell'inno La Risurrezione di Alessandro Manzoni e di S. Paolino D'Aquileia, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Dell'inno La Risurrezione di Alessandro Manzoni e di S. Paolino D'Aquileia, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gc-dell'inno-la-risurrezione-di-alessandro-manzoni-e-di-s-paolino-d'aquileia"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/-biblia-vulgata">
@@ -3346,7 +3346,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl146">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Anna Karenina, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Anna Karenina, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/lt-anna-karenina"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gcr-storia-della-germania-1866-1945">
@@ -3365,7 +3365,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl147">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Storia della Germania: 1866-1945, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Storia della Germania: 1866-1945, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gcr-storia-della-germania-1866-1945"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/da-commedia">
@@ -3432,7 +3432,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl149">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Lettere, Lettera da Stresa, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Lettere, Lettera da Stresa, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/tm-lettere/lettera-da-stresa"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/iust-institutiones-iustiniani">
@@ -3450,22 +3450,22 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl150">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Institutiones Iustiniani, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Institutiones Iustiniani, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/iust-institutiones-iustiniani"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl150a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Institutiones Iustiniani, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Institutiones Iustiniani, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/iust-institutiones-iustiniani"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl150c">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Institutiones Iustiniani, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Institutiones Iustiniani, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/iust-institutiones-iustiniani"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl150d">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Institutiones Iustiniani, Excerpt Excerpt 4</rdfs:label>
+      <rdfs:label>Institutiones Iustiniani, excerpt 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/iust-institutiones-iustiniani"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/pbonf-istituzioni-di-diritto-romano">
@@ -3483,7 +3483,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl150b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Istituzioni di diritto romano, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Istituzioni di diritto romano, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/pbonf-istituzioni-di-diritto-romano"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/pvm-aeneid">
@@ -3531,12 +3531,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl154a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 28, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 28, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-28"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl154b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Annales, volume 1, chapter 28, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Annales, volume 1, chapter 28, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-annales/volume-1/chapter-28"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ct-historiae">
@@ -3559,7 +3559,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl156">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Historiae, volume 1, chapter 1, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Historiae, volume 1, chapter 1, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-historiae/volume-1/chapter-1"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ct-historiae">
@@ -3582,7 +3582,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl156a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Historiae, volume 1, chapter 2, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Historiae, volume 1, chapter 2, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-historiae/volume-1/chapter-2"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ct-historiae">
@@ -3605,7 +3605,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl156b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Historiae, volume 1, chapter 3, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Historiae, volume 1, chapter 3, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ct-historiae/volume-1/chapter-3"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/ctcg-le-storie">
@@ -3624,7 +3624,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl157">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Le storie, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Le storie, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/ctcg-le-storie"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/qof-carmina">
@@ -3739,7 +3739,7 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl160">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>La rôtisserie de la reine Pédauque, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>La rôtisserie de la reine Pédauque, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/af-la-rôtisserie-de-la-reine-pédauque"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/eh-cesare">
@@ -3758,27 +3758,27 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl161">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Cesare, Excerpt Excerpt 1</rdfs:label>
+      <rdfs:label>Cesare, excerpt 1</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/eh-cesare"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl161a">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Cesare, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Cesare, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/eh-cesare"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl161b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Cesare, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Cesare, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/eh-cesare"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl161c">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Cesare, Excerpt Excerpt 4</rdfs:label>
+      <rdfs:label>Cesare, excerpt 4</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/eh-cesare"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl161d">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Cesare, Excerpt Excerpt 5</rdfs:label>
+      <rdfs:label>Cesare, excerpt 5</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/eh-cesare"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/work/gg-epigrammi">
@@ -3946,12 +3946,12 @@
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl168b">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Opera non identificata, Excerpt Excerpt 2</rdfs:label>
+      <rdfs:label>Opera non identificata, excerpt 2</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gmaup-opera-non-identificata"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/excerpt/bibl168c">
       <rdf:type rdf:resource="http://purl.org/spar/fabio/Excerpt"/>
-      <rdfs:label>Opera non identificata, Excerpt Excerpt 3</rdfs:label>
+      <rdfs:label>Opera non identificata, excerpt 3</rdfs:label>
       <frbr:partOf rdf:resource="https://w3id.org/bufalinis-notebook/text/gmaup-opera-non-identificata"/>
    </rdf:Description>
    <rdf:Description rdf:about="https://w3id.org/bufalinis-notebook/person/unknown">
