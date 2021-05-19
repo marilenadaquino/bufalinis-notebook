@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:frbr="http://purl.org/vocab/frbr/core#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:cito="http://purl.org/spar/cito/" xmlns:dc="http://purl.org/dc/terms/" xmlns:oa="http://www.w3.org/ns/oa#"
-    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:seq="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#" xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/">
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:seq="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#" xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/" xmlns:schema="http://schema.org/">
     <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
     <xsl:param name="uribase">https://w3id.org/bufalinis-notebook/</xsl:param>
     <xsl:param name="frbr">http://purl.org/vocab/frbr/core#</xsl:param>
@@ -19,7 +19,8 @@
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 xmlns:foaf="http://xmlns.com/foaf/0.1/"
                 xmlns:seq="http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#"
-                xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/">
+                xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+                xmlns:schema="http://schema.org/">
                 <xsl:apply-templates/>
             </rdf:RDF>
         </xsl:result-document>
@@ -34,6 +35,12 @@
             <rdfs:label><xsl:value-of select="tei:title[@level='m']"/> </rdfs:label>
             <xsl:for-each select="tokenize(tei:title[@level='m']/@sameAs, '\s')"><owl:sameAs rdf:resource="{.}"/></xsl:for-each>
             <xsl:for-each select="tei:author|tei:editor"><dcterms:creator rdf:resource="{concat($uribase, 'person/', lower-case(substring-after(@ref,'#')))}"/></xsl:for-each>
+            <dcterms:bibliographicCitation xml:lang="it">
+                <xsl:value-of select="tei:ref[@xml:lang='it']"/>
+            </dcterms:bibliographicCitation>
+            <dcterms:bibliographicCitation xml:lang="en">
+                <xsl:value-of select="tei:ref[@xml:lang='en']"/>
+            </dcterms:bibliographicCitation>
         </rdf:Description>
     </xsl:template>
     <xsl:template name="title_level_m_EXPRESSION">
@@ -278,15 +285,19 @@
             </xsl:for-each>
         </xsl:for-each>
     </xsl:template>
+    
     <!-- Persone -->
     <xsl:template match="//tei:listPerson">
         <xsl:for-each select="tei:person">
             <rdf:Description rdf:about="{concat($uribase, 'person/', lower-case(@xml:id))}">
                 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-                <rdfs:label>
-                    <xsl:value-of select="tei:persName"/>
+                <rdfs:label xml:lang="it">
+                    <xsl:value-of select="tei:persName[@xml:lang='it']"/>
                 </rdfs:label>
-                <xsl:for-each select="tokenize(tei:persName/@sameAs, '\s')">
+                <rdfs:label xml:lang="en">
+                    <xsl:value-of select="tei:persName[@xml:lang='en']"/>
+                </rdfs:label>
+                <xsl:for-each select="tokenize(@sameAs, '\s')">
                     <owl:sameAs rdf:resource="{.}"/>
                 </xsl:for-each>
             </rdf:Description>
