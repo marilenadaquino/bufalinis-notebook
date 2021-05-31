@@ -1,5 +1,5 @@
 <https://w3id.org/bufalinis-notebook/person/socr> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055-assertion/> .
-<https://w3id.org/bufalinis-notebook/person/fn> <http://purl.org/spar/cito/disagreesWith> <https://w3id.org/bufalinis-notebook/person/socr> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055> <http://www.w3.org/2000/01/rdf-schema#label> "T. Mann sottolinea la differenza di opinione fra F. Nietzsche e Socrate" <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/fn> <http://purl.org/spar/cito/disagreesWith> <https://w3id.org/bufalinis-notebook/person/socr> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-socr-quot-055-assertion/> .
 

@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/person/gl> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
-<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/as> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/as> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/gl> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/gl> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sulla relazione fra A. Schopenhauer e G. Leopardi" <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/as> <https://w3id.org/bufalinis-notebook/infl-as-citesAsRelated-gl-comm-024-assertion/> .
 

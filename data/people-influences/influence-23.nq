@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/person/gp> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/am> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
-<https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sull'influenza di G. Pontano su A. Manzoni" <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
-<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/gp> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110> <http://www.w3.org/2000/01/rdf-schema#label> "P. Bufalini sull'influenza di G. Pontano su A. Manzoni" <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/gp> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/am> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110> <https://w3id.org/bufalinis-notebook/infl-gp-citesAsRelated-am-comm-110-assertion/> .
 

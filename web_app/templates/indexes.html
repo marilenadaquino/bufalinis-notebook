@@ -1,395 +1,341 @@
-$def with (citedPeopleList, relationsList, citedPeopleListForm, quots, authors, workAutDict, quotsResults, citations)
+$def with (uris, mentions_list, translations_list, quotations_list, translatedby_list, citedPeopleList, resPeople)
 
 	<section class="col-md-12 section_header" id="introContainer" style="display: none;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 align_center">
-					<h2 id="semantic_indexes_header_title">People Indexes</h2>
-					<a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+					<!-- dont remove or change -->
+					<h2 id="semantic_indexes_header_title">Index of Persons</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- People Index -->
-	<div>
-		<div>
-			<!-- Layout -->
-			<section class="col-md-12" id="introContainer">
-				<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
-					<div class="row">
-						<!-- facets -->
-						<div class="col-md-2 col-sm-3 panel_tool facets_panel_box_people specific-height" id="facets_panel_box_people">
-							<div class="media">
-								<div class="media-left">
-									<button class="button_panel" onclick="closeFacetsPeople()" id="close-people-fac"><i class="glyphicon glyphicon-remove"></i></button>
+	<!-- intro.js tutorial step 1 -->
+	<section class="col-md-12 introContainer_facets_page_panel" id="introContainer" data-title="Index of Persons" data-intro="The Index of Persons includes all authors of cited works as well as persons who Bufalini mentions in his notes and comments." data-step="1">
+		<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+			<div class="row">
+				<!-- facets -->
+				<!-- intro.js tutorial step 4 -->
+				<div class="col-md-2 col-sm-3 vh-90 facets_panel_box_people reduced-window responsive-height filters-scroll-applied" id="facets_panel_box_people" data-title="Filters" data-intro="You can use the filters to filter the index contents according to specific parameters available: you can choose to see a single mentioned person and then specify the role she has to cover between author and mentioned person. By clicking on one of the two available roles, you will obtain the card of the selected person covering that specific role." data-step="4">
+					<div class="media">
+						<div class="media-left">
+							<button class="button_panel" onclick="closeFacetsPeople()" id="close-people-fac"><i class="glyphicon glyphicon-remove"></i></button>
+						</div>
+						<div class="media-body">
+							<h4 id="facets_title">Filters</h4>
+							<a class="seeEx" id="clear_res_ind" style="display:none;" onclick="removeCheck()"></a>
+						</div>
+						<!-- div to show only when the panel is closed -->
+						<div class="vertical-position-filters">
+							<span class="filters_category_title filters_placeholder" style="display: none;">Filters</span>
+						</div>
+						<div id="closeFacets_div_people">
+							<!-- intro.js tutorial step 5 -->
+							<div data-title="Persons" data-intro="Here you can find the filters to search for only one person at a time. The box to set roles will appear below after selecting a person." data-step="5">
+								<span class="panel-title" data-toggle="collapse"
+								data-target="#index-people" aria-expanded="true"
+								aria-controls="index-people">
+								<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">Persons</span>
+								</span>
+								<div class="collapse in filters-resize-plus filters_ipad_turn" id="index-people">
+									<form class="checkbox_margin">
+										$for list_pers in resPeople:
+											$ idPers = re.sub('[^A-Za-z0-9]+', '', list_pers[0])
+											<div>
+												<input type="radio" class="peopleCheckIndex" value="$idPers" persName="$list_pers[0]" data-label="$list_pers[1]">
+												<label class="labelInline">$list_pers[1]</label>
+											</div>
+									</form>
 								</div>
-								<div class="media-body">
-									<h4 class="margin-bottom-0" id="facets_title">Facets</h4>
-									<a class="seeEx" id="clear_res_ind" style="display:none;"></a>
-								</div>
-								<div id="closeFacets_div_people">
-									<div>
-										<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">People</span>
-										<div class="filters-resize-plus filters_ipad_turn">
-											<form class="checkbox_margin">
-												$for x in citedPeopleListForm:
-													$ arr = x.split(' ')[0:2]
-													$ str = ' '.join(arr)
-													<input type="checkbox" class="peopleCheckIndex" value="$str">
-													<label class="labelInline" id="name_space">$x</label><br>
-											</form>
-										</div>
-									</div>
-									<hr class="filters_category_title_nested">
-									<div>
-										<span class="filters_category_title filters_category_title_nested" id="filters_people_role_index">People role</span>
-										<div id="add-pers-role-index">
-											<div class="people-role-box">
-												<div class="row thumbnail person-role">
-													<div class="col-md-2">
-														<button class="filters_icon filters_people_role_button"><i class="far fa-user"></i></button>
-													</div>
-													<div class="col-md-10">
-														<div class="caption">
-															<h5 class="change_role_cap filters_people_role_caption" id="role_caption_name_index">Search for a person</h5>
-														</div>
-														<div class="role-check" style="display: none;">
-															<input type="checkbox" class="input-auth-check" role="auth-role">
-															<label class="labelInline" id="author_role_index">Author</label> <span class="dot dot-orchid"></span>
-															<br>
-															<input type="checkbox" class="input-auth-check" role="cited-role">
-															<label class="labelInline" id="cited_role_index">Mentioned person</label> <span class="dot dot-yellowgreen"></span>
-														</div>
-													</div>
+							</div>
+							<hr class="filters_category_title_nested">
+							<!-- intro.js tutorial step 6 -->
+							<!-- <div id="people-role-container" data-title="Person role" data-intro="You can select a specific role for the searched person. Quoted authors and persons who Bufalini mentions are highlighted in purple and yellow respectively." data-step="6" style="display: none;">
+								<span class="panel-title" data-toggle="collapse"
+								data-target="#add-pers-role-index" aria-expanded="true"
+								aria-controls="add-pers-role-index">
+								<span class="filters_category_title filters_category_title_nested" id="filters_people_role_index">Person role</span>
+								</span>
+								<div class="collapse in apply-scroll" id="add-pers-role-index">
+									<div class="people-role-box">
+										<div class="row thumbnail person-role">
+											<div class="col-md-10">
+												<div class="caption">
+													<span class="blocked-caption" id="role_caption_name_index">Seleziona una persona e ottieni il ruolo evidenziato nei risultati</span>
+												</div>
+												<div class="role-check">
+													<input type="checkbox" class="role-check" role="auth-role">
+													<label class="labelInline" id="author_role_index">Author</label> <span class="dot background_orchid"></span>
+													<br>
+													<input type="checkbox" class="role-check" role="cited-role">
+													<label class="labelInline" id="cited_role_index">Mentioned person</label> <span class="dot background_yellowgreen"></span>
 												</div>
 											</div>
 										</div>
 									</div>
-									<hr>
-									<div>
-										<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Type of excerpts</span>
-										<form class="checkbox_margin" id="check-excerpt-container">
-											<input type="checkbox" class="exCheckIndex" id="comment" value="comm-">
-											<label class="labelInline" id="comment"><span id="comment_checkbox">Comments</span> <span class="dot dot-green"></span></label><br>
-											<input type="checkbox" class="exCheckIndex" id="quotation" value="quot-">
-											<label class="labelInline" id="quotation"><span id="quotation_checkbox">Quotations</span> <span class="dot dot-pink"></span></label><br>
-											<input type="checkbox" class="exCheckIndex" id="translation" value="tra-">
-											<label class="labelInline" id="translation"><span id="translation_checkbox">Translations</span> <span class="dot dot-yellow"></span></label><br>
-										</form>
-									</div>
-									<hr class="filters_category_title_nested">
-									<div>
-										<span class="filters_category_title filters_category_title_nested" id="filters_works">Works</span>
-										<div class="people_list_height filters_ipad_turn" id="filters_checkbox_people">
-											<form class="checkbox_margin">
-												$ listWork = []
-												$for work in quotsResults["results"]["bindings"]:
-												$ workTitleVal = work['workLabel']['value'].replace("'", "")
-												$ finalworkTitleVal = workTitleVal.replace('"', '')
-												$for cit in citations:
-													$if cit == work['work']['value']:
-														$ empty = []
-														$ author = citations[cit][0]['author'].split("(")[0]
-														$ workRaw = work['workLabel']['value'].replace('"', "")
-														$ finalWork = workRaw.replace("'", "")
-														$ str = work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork
-														$if str not in listWork:
-															$ listWork.append(work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork)
-											$listWork.sort()
-											$for x in listWork:
-												$ name = x.split("__")[0]
-												$ finalWorkCheck  = x.split("__")[1]
-												$ authNameRaw = name.split("-")[1]
-												$ authNameList = authNameRaw.split(", ")
-												$ authSurname = authNameList[0]
-												$ persAuthNameRaw = authNameList[1:]
-												$ persAuthName = "".join(persAuthNameRaw)
-												$ checkVal = finalWorkCheck.replace(" ", "").upper()
-												$if "Dellinno La Risurrezione in A. Manzoni e in S. Paolino dAquileja" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="DELLINNOLARISURREZIONEINAMANZONIEINSPAOLINODAQUILEJA">
-													<label class="labelInline">Dell'inno "La Risurrezione" in A. Manzoni e in S. Paolino dAquileja, $persAuthName $authSurname</label><br>
-												$elif "Albini" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-												$elif "Marziale" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="no-results-marziale">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												$elif "Ennio" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="no-results-ennio">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												$elif "Parrella" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="no-results-ennio">
-													<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-												$elif "Giussani" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="no-results-ennio">
-													<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-												$elif "1945" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="GERMANIA18661945">
-													<label class="labelInline">Germania 1866-1945, Gordon Alexander Craig</label><br>
-												$elif "Institutionem Iustiniani" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">$finalWorkCheck, Giustiniano I</label><br>
-												$elif "Enciclopedia delle scienze filosofiche in compendio, Introduzione" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="ENCICLOPEDIADELLESCIENZEFILOSOFICHEINCOMPENDIOINTRODUZIONE">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												$elif "Lancien r" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">L'ancien régime et la Révolution, $persAuthName $authSurname</label><br>
-												$elif "La Sacra Biblia secondo la volgata" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">$finalWorkCheck, Antonio Martini</label><br>
-												$elif "moires dHadrien" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="MEMOIRESDHADRIEN">
-													<label class="labelInline">Mémoires d'Hadrien, $persAuthName $authSurname</label><br>
-												$elif "Opere. A cura di A. Romagnoli" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="OPEREACURADIAROMAGNOLI">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												$elif "Saggi, Introduzione" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="SAGGIINTRODUZIONE">
-													<label class="labelInline">Saggi, Introduzione, $persAuthName $authSurname</label><br>
-												$elif "SAGGI.SCHOPENHAUER,NIETZCHE,FREUD" in checkVal:
-													<input type="checkbox" class="worksPersIndex" value="SAGGISCHOPENHAUERNIETZCHEFREUD">
-													<label class="labelInline">Saggi. Schopenhauer, Nietzsche, Freud, $persAuthName $authSurname</label><br>
-												$elif "Storia dItalia dal 1871 al 1915" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">Storia d'Italia dal 1871 al 1915, $persAuthName $authSurname</label><br>
-												$elif "Maitan" in authSurname:
-													<input type="checkbox" class="worksPersIndex" value="no-results-maitan">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												$elif "lettera ad Alessandro DAncona, in morte della figlia" in finalWorkCheck:
-													<input type="checkbox" class="worksPersIndex" value="LETTERAADALESSANDRODANCONAINMORTEDELLAFIGLIA">
-													<label class="labelInline">lettera ad Alessandro D'Ancona, in morte della figlia, $persAuthName $authSurname</label><br>
-												$else:
-													<input type="checkbox" class="worksPersIndex" value="$checkVal">
-													<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-											</form>
-										</div>
-									</div>
 								</div>
-							</div>
-						</div>
-						<!-- page -->
-						<div class="col-md-10 col-sm-9 panel_tool panel_tool_page page_panel_tool_people padding-top-0 specific-height" id="page_panel_tool_people">
-							<div class="row">
-								<div class="col-md-12 col-sm-12">
-									<div class="media">
-										<div class="media-left">
-											<button class="button_panel" onclick="openPagePeople()"><i class="glyphicon glyphicon-fullscreen"></i></button>
-										</div>
-										<div class="media-body">
-											<ul class="nav nav-pills">
-												<li role="presentation" class="filters_category_title active"><a href="#" id="people_list">List</a></li>
-												<li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
-												<li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
-												<li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
-												<li role="presentation"><a class="no-active-tab">|</a></li>
-												<li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 page_bars">
-									<form>
-										<input type="text" placeholder="Cerca una persona..." class="col-md-9 change-placeholder-indexes search_bar index-search-input" onkeyup="searchIndex()">
+								<hr>
+							</div> -->
+							<!-- intro.js tutorial step 7 -->
+							<div data-title="Types of excerpts" data-intro="Here there is a legenda: buttons corresponding comments, quotations, and translations are highlighted in green, orange, and yellow respectively." data-step="6">
+								<span class="panel-title" data-toggle="collapse"
+								data-target="#people-index-legenda" aria-expanded="true"
+								aria-controls="people-index-legenda">
+								<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Type of excerpts</span>
+								</span>
+								<div class="collapse in" id="people-index-legenda">
+									<form class="checkbox_margin" id="check-excerpt-container">
+										<!-- type of excerps legend only -->
+										<label class="labelInline comm_label" id="comment">Comments</label> <span class="dot background_green"></span>
+										<br>
+										<label class="labelInline quot_label" id="quotation">Quotations</label> <span class="dot background_pink"></span>
+										<br>
+										<label class="labelInline tra_label" id="translation">Translations</label> <span class="dot background_yellow"></span>
+										<br>
 									</form>
-								</div>
-								<div>
-								<!-- authors list -->
-								<section id="listPeople" class="scrollPanel padding-index">
-									$ emptyPeople = set()
-									$ authName = ""
-									$for citedPerson in citedPeopleList['results']['bindings']:
-										$ pers = citedPerson['person']['value'].split(' ')[0:2]
-										$ persVal = ' '.join(pers)
-										<div class="people-index-div" value="$persVal">
-											$ person = citedPerson['s']['value']
-											$if person not in emptyPeople:
-												$ authorSet = set()
-												$ emptyExcerpt = set()
-												$ emptyPeople.add(person)
-													<hr class="yes-display">
-													<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title cited-pers" data-uri=$person> $citedPerson['person']['value']</span>
-													$if 'externalURI' in citedPerson.keys():
-														<a href=$citedPerson['externalURI']['value'] class="authority-file-link" target="_blank">
-															<i class="glyphicon glyphicon-new-window"></i>
-															$if 'dbpedia' in citedPerson['externalURI']['value']:
-																<span class="authority-file">dbpedia</span>
-															$elif 'viaf' in citedPerson['externalURI']['value']:
-																<span class="authority-file">VIAF</span>
-														</a>
-													<!-- <h4 class="work-aut" id="cited_by">in</h4> -->
-
-											$if person == citedPerson['s']['value']:
-												$if ('realizerLabel' in citedPerson.keys()) and (citedPerson['realizerLabel']['value'] not in authorSet):
-													$authorSet.add(citedPerson['realizerLabel']['value'])
-													<div class="index-div col-md-12 person-who-cites" value="$persVal">
-														$ authName = citedPerson['realizerLabel']['value']
-														<span class="author-name">$authName</span>
-														<span class="no-display">$citedPerson['person']['value']</span>
-													</div>
-												$elif ('realizerLabel' not in citedPerson.keys()) and ('authorLabel' in citedPerson.keys()) and (citedPerson['authorLabel']['value'] not in authorSet):
-													$authorSet.add(citedPerson['authorLabel']['value'])
-													<div class="index-div col-md-12 person-who-cites" value="$persVal">
-														$ authName = citedPerson['authorLabel']['value']
-														<span class="author-name">$authName</span>
-														<span class="no-display">$citedPerson['person']['value']</span>
-													</div>
-
-												$if ('body' in citedPerson.keys()) and (citedPerson['body']['value'] not in emptyExcerpt):
-													$emptyExcerpt.add(citedPerson['body']['value'])
-													$if 'comm-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
-														$if 'work' in citedPerson.keys():
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt comm-but margin-bottom-10" value="comm-">
-																		<span>$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																	</button>
-																</a>
-																$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
-																$ workButt = " ".join(workName).upper()
-																$ workFinalPoint = "".join(workName).upper().replace("'", "")
-																$ workFinal = workFinalPoint.replace(".", "")
-																$ authRaw = authName.split("(")[0]
-																$ auth = authRaw.replace(" ", "")
-																$ authComa = auth.replace(",", ", ")
-																$ authSplit = auth.split(",")
-																$ authSplitName = authSplit[1]
-																$ authSplitSurname = authSplit[0]
-
-
-																<span class="font-size-16 thin trans_comment">Commento che cita</span>
-																$if "DELL'INNO LA RISURREZIONE IN A MANZONI E IN S PAOLINO D'AQUILEJA" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> DELL'INNO "LA RISURREZIONE" IN A. MANZONI E IN S. PAOLINO D'AQUILEJA <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "GERMANIA 1866 1945" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> GERMANIA 1866-1945 <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "OPERE A CURA DI A ROMAGNOLI" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> OPERE. A CURA DI A. ROMAGNOLI <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "SAGGI INTRODUZIONE" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> SAGGI, INTRODUZIONE <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "SAGGI SCHOPENHAUER NIETZCHE FREUD" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> SAGGI. SCHOPENHAUER, NIETZCHE, FREUD <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "SCRITTI SU WAGNER" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">Friedrich Wilhelm $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>$workButt</em> <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$else:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>$workButt</em> <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-															</span>
-
-														$else:
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt comm-but margin-bottom-10" value="comm-">
-																		<span>$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																	</button>
-																</a>
-
-																<span class="font-size-16 thin trans_comment">Commento che menziona</span>
-																<span class="font-size-16 workInfo">$citedPerson['person']['value']<span class="no-display">. Commento di $authName</span></span>
-															</span>
-													$elif 'quot-' in citedPerson['body']['value'].rsplit('/',1)[-1]:
-														$if 'work' in citedPerson.keys():
-															$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
-															$ workButt = " ".join(workName).upper()
-															$ workFinalPoint = "".join(workName).upper().replace("'", "")
-															$ workFinal = workFinalPoint.replace(".", "")
-															$ authWithComa = authName.split("(")[0]
-															$ authComa = authWithComa.strip()
-															$ authSplit = authComa.split(",")
-															$ authSplitName = authSplit[1]
-															$ authSplitSurname = authSplit[0]
-															$ codeRaw = citedPerson['body']['value'].rsplit('/',1)[-1]
-															$ nCode = codeRaw.split('quot-')[1]
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt quot-but margin-bottom-10" value="quot-">
-																		<span class="no-display">$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																		<span class="n_quot">cit-</span><span>$nCode</span>
-																	</button>
-																</a>
-
-																<span class="font-size-16 thin trans_cit">Citazione di</span>
-																$if "DELL'INNO LA RISURREZIONE IN A MANZONI E IN S PAOLINO D'AQUILEJA" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>DELL'INNO "LA RISURREZIONE" IN A. MANZONI E IN S. PAOLINO D'AQUILEJA</em> <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "GERMANIA 1866 1945" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>GERMANIA 1866-1945</em> <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "MEMOIRES D'HADRIEN" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">, </span><em>MÉMOIRES D'HADRIAN</em> <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "OPERE A CURA DI A ROMAGNOLI" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>OPERE. A CURA DI A. ROMAGNOLI</em> <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "SAGGI INTRODUZIONE" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>SAGGI, INTRODUZIONE</em> <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$elif "SAGGI SCHOPENHAUER NIETZCHE FREUD" in workButt:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">,</span> <em>SAGGI. SCHOPENHAUER, NIETZCHE, FREUD</em> <span class="no-display"><em>$workButt</em></span><span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																$else:
-																	<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span class="font-size-16 thin">, </span><em>$workButt</em> <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-															</span>
-
-														$else:
-															$ codeRaw = citedPerson['body']['value'].rsplit('/',1)[-1]
-															$ nCode = codeRaw.split('quot-')[1]
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt quot-but margin-bottom-10" value="quot-">
-																		<span class="no-display">$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																		<span class="n_quot">cit-</span><span>$nCode</span>
-																	</button>
-																</a>
-
-																<span class="font-size-16 thin trans_cit">Citazione di</span>
-																<span class="font-size-16 workInfo">$authName <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-															</span>
-
-													$else:
-														$if 'work' in citedPerson.keys():
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt tra-but margin-bottom-10" value="tra-">
-																		<span>$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																	</button>
-																</a>
-																$ workName = citedPerson['work']['value'].split("/")[-1].split("-")[1:]
-																$ workButt = " ".join(workName).upper()
-																$ workFinalPoint = "".join(workName).upper().replace("'", "")
-																$ workFinal = workFinalPoint.replace(".", "")
-
-
-																<span class="font-size-16 thin trans_tra">Traduzione di</span>
-																	$ authRaw = authName.split("(")[0]
-																	$ auth = authRaw.replace(" ", "")
-																	$ authSplit = auth.split(",")
-																	$ authSplitName = authSplit[1]
-																	$ authSplitSurname = authSplit[0]
-																	$ authComa = auth.replace(",", ", ")
-																	$if "DELL'INNO LA RISURREZIONE IN A MANZONI E IN S PAOLINO D'AQUILEJA" in workButt:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> DELL'INNO "LA RISURREZIONE" IN A. MANZONI E IN S. PAOLINO D'AQUILEJA <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																	$elif "GERMANIA 1866 1945" in workButt:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> GERMANIA 1866-1945 <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																	$elif "OPERE A CURA DI A ROMAGNOLI" in workButt:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> OPERE. A CURA DI A. ROMAGNOLI <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																	$elif "SAGGI INTRODUZIONE" in workButt:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> SAGGI, INTRODUZIONE <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																	$elif "SAGGI SCHOPENHAUER NIETZCHE FREUD" in workButt:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> SAGGI. SCHOPENHAUER, NIETZCHE, FREUD <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-																	$else:
-																		<span class="font-size-16 workInfo" value="$workFinal">$authSplitName $authSplitSurname<span class="no-display">$authComa</span><span>,</span> <em>$workButt</em> <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-															</span>
-														$else:
-															<span class="inline_button">
-																<a href=./excerpt/$citedPerson['body']['value'].rsplit('/',1)[-1] target="_blank" class="quotRef text_black_exc">
-																	<button class="checkButt tra-but margin-bottom-10" value="tra-">
-																		<span>$citedPerson['body']['value'].rsplit('/',1)[-1]</span>
-																	</button>
-																</a>
-
-																<span class="font-size-16 thin trans_tra">Traduzione di</span>
-																<span class="font-size-16 workInfo">$authName <span class="font-size-16 thin trans_mentioning">che menziona</span> $citedPerson['person']['value']</span>
-															</span>
-										</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+				<!-- page -->
+				<div class="col-md-10 col-sm-9" id="page_panel_tool_people">
+					<!-- intro js -->
+					<div class="row">
+						<div class="col-md-12">
+							<button class="button_snippet button_reset float-right margin-top-15" id="intro-js-indexes"><i class="fas fa-question"></i></button>
+						</div>
+					</div>
+					<div class="row panel_tool panel_tool_page page_panel_tool_people padding-top-0 responsive-height">
+						<div class="col-md-12 col-sm-12">
+							<div class="media">
+								<div class="media-left">
+									<button class="button_panel" onclick="openPagePeople()"><i class="glyphicon glyphicon-fullscreen"></i></button>
+								</div>
+								<div class="media-body">
+									<ul class="nav nav-pills">
+										<!-- intro.js tutorial step 2 -->
+										<li role="presentation" class="filters_category_title active" data-title="List" data-intro="This view shows you a list of all persons. Once you click on one of the people who mention other people, you will have the possibility to click on coloured tags to go to the notebook fragment where they appear." data-step="2"><a href="#" id="people_list">List</a></li>
+										<!-- intro.js tutorial step 8 -->
+										<!--<li role="presentation" data-title="Treemap" data-intro="This view shows you all persons in a Treemap chart." data-step="8"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
+										<li role="presentation" data-title="Sets" data-intro="This view shows you all persons as grouped sets." data-step="9"><a href="./setsPeople" id="people_sets">Sets</a></li>
+										<li role="presentation" data-title="Graph" data-intro="This view shows you all persons as networked nodes." data-step="10"><a href="./graphPeople" id="people_graph">Graph</a></li>
+										<li role="presentation"><a class="no-active-tab">|</a></li>
+										<li role="presentation" data-title="Play with data" data-intro="This view allows you to browse the data and play with them." data-step="11"><a href="./playWithPeople" id="data_play">Play with data</a></li>-->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- intro.js tutorial step 3 -->
+						<div class="col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 page_bars">
+							<form>
+								<input type="text" class="col-md-9 change-placeholder-indexes search_bar index-search-input margin-bottom-25" onkeyup="searchIndex()"  data-title="Search bar" data-intro="You can search for any keyword in the index by using this free-text search bar." data-step="3">
+							</form>
+						</div>
+						<div>
+
+						<!-- NEW -->
+						<section id="listPeople" class="scrollPanel padding-index">
+
+							$for pers_list in resPeople:
+								$ person = pers_list[0]
+								$ pers = re.sub('[^A-Za-z0-9]+', '', pers_list[0])
+								$ keylabel = pers_list[1]
+								$ collapseId = re.sub('[^A-Za-z0-9]+', '', pers_list[0])
+								<!-- SINGLE PERSON -->
+								<div class="col-md-12 people-index-div md" value="$pers" data-person="$keylabel">
+										<hr class="yes-display"/>
+										<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button>
+										<span class="filters_category_title cited-pers" data-label="$keylabel"> $keylabel</span>
+										<!-- <span class='cited_role_tag background_yellowgreen' data-label="$keylabel" style="display: none;">Mentioned person</span> -->
+
+										<!-- EXTERNAL URIS -->
+										$if person in uris.keys():
+											$for uri in uris[person]:
+												<a href="$uri" class="authority-file-link" target="_blank">
+													<i class="glyphicon glyphicon-new-window"></i>
+													$if 'dbpedia' in uri:
+														<span class="authority-file">dbpedia</span>
+													$elif 'viaf' in uri:
+														<span class="authority-file">VIAF</span>
+												</a>
+
+										<!-- MENTIONS -->
+										$if person in mentions_list:
+											<h4 class="author-name work-aut work-aut-collapse caret-library"
+													data-toggle="collapse" data-target=".$collapseId" role="button"
+													aria-expanded="false" aria-controls="$collapseId" data-label="$keylabel">
+													<span class="is_mentioned_by"></span>
+													<span class='cited_role_tag background_orchid' data-label="$keylabel" style="display: none;">mentioned</span>
+											</h4>
+											$ sources_clean = []
+											$for mention in mentions_list[person]:
+												$ authName = mention['citing']
+												$ work = mention['work']
+												$ bibref = "Paolo Bufalini" if work == '-' and authName == '-' else work+', '+authName
+												$ id = authName + person
+												$ collapseGroupId = re.sub('[^A-Za-z0-9]+', '', id)
+												$ source = mention['source']
+												$ type = source.split('-')[0]
+												$if source not in sources_clean:
+													<div class="person-citations collapse $collapseId" aria-expanded="false">
+														<div class="row ex-butt panel_tool_metadata padding-21">
+															<div class="col-md-2">
+																<a href="excerpt-$source" target="_blank" class="quotRef text_black_exc">
+																	<button class="checkButt $type-but margin-bottom-10" value="$type-">
+																		<span>$source</span>
+																	</button>
+																</a>
+															</div>
+															<div class="col-md-10">
+																<div class="justify">
+																	<span class="font-size-15 thin"><b>$person</b><br>
+																		<span class="font-size-15 thin is_mentioned">è menzionato</span>
+																		<span class="font-size-15 thin cit_in_$type">in </span>
+																		<span class="font-size-15 thin from_work">di</span> <em>$bibref</em><br>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													$sources_clean.append(source)
+
+										<!-- TRANSLATIONS OF OTHERS (MADE BY THE PERSON AT HAND) -->
+										$if person in translations_list:
+											<h4 class="author-name work-aut work-aut-collapse caret-library"
+													data-toggle="collapse" data-target=".$collapseId-translations" role="button"
+													aria-expanded="false" aria-controls="$collapseId-translations" data-label="$keylabel">
+													<span class="is_translator_of"></span>
+													<span class='translator_role_tag background_orchid' data-label="$keylabel" style="display: none;"></span>
+											</h4>
+											$ translations_clean = []
+											$for translation in translations_list[person]:
+												$ authName = translation['cited']
+												$ work = translation['work']
+												$ bibref = "Paolo Bufalini" if work == '-' and authName == '-' else work+', '+authName
+												$ source = translation['source']
+												$ type = source.split('-')[0]
+												$if source not in translations_clean:
+													<div class="person-citations collapse $collapseId-translations" aria-expanded="false">
+														<div class="row ex-butt panel_tool_metadata padding-21">
+															<div class="col-md-2">
+																<a href="excerpt-$source" target="_blank" class="quotRef text_black_exc">
+																	<button class="checkButt $type-but margin-bottom-10" value="$type-">
+																		<span>$source</span>
+																	</button>
+																</a>
+															</div>
+															<div class="col-md-10">
+																<div class="justify">
+																	<span class="font-size-15 thin">
+																		<b>$person</b><br>
+																		<span class="font-size-15 thin is_translator_of">translator</span>
+																		<em> $bibref</em><br>
+																		<!-- <span class="font-size-15 thin cit_in_$type">in </span> -->
+																		<!-- <span class="font-size-15 thin from_work">di</span>  -->
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													$translations_clean.append(source)
+
+
+										<!-- TRANSLATED BY (others)-->
+										$if person in translatedby_list:
+											<h4 class="author-name work-aut work-aut-collapse "
+													data-toggle="collapse" data-target=".$collapseId-translatedby" role="button"
+													aria-expanded="false" aria-controls="$collapseId-translatedby" data-label="$keylabel">
+													<span class="is_translated_by"></span>
+													<span class='cited_role_tag background_orchid' data-label="$keylabel" style="display: none;"></span>
+											</h4>
+											$ translatedby_clean = []
+											$for translation in translatedby_list[person]:
+												$ authName = translation['translator']
+												$ work = translation['work']
+												$ bibref = "Paolo Bufalini" if work == '-' and authName == '-' else work+', '+authName
+												$ source = translation['source']
+												$ type = source.split('-')[0]
+												$if source not in translatedby_clean:
+													<div class="person-citations collapse $collapseId-translatedby" aria-expanded="false">
+														<div class="row ex-butt panel_tool_metadata padding-21">
+															<div class="col-md-2">
+																<a href="excerpt-$source" target="_blank" class="quotRef text_black_exc">
+																	<button class="checkButt $type-but margin-bottom-10" value="$type-">
+																		<span>$source</span>
+																	</button>
+																</a>
+															</div>
+															<div class="col-md-10">
+																<div class="justify">
+																	<span class="font-size-15 thin">
+																		<b>$person</b>, $work<br>
+																		<span class="font-size-15 thin is_translated_by">translated by</span>
+																		<em> $authName</em><br>
+																		<!-- <span class="font-size-15 thin cit_in_$type">in </span> -->
+																		<!-- <span class="font-size-15 thin from_work">di</span>  -->
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													$translatedby_clean.append(source)
+
+										<!-- QUOTATIONS -->
+										$if person in quotations_list:
+											<h4 class="author-name work-aut work-aut-collapse caret-library"
+													data-toggle="collapse" data-target=".$collapseId-quotations" role="button"
+													aria-expanded="false" aria-controls="$collapseId-quotations" data-label="$keylabel">
+													<span class="quot_by"></span>
+													<span class='author_role_tag background_orchid' data-label="$keylabel" style="display: none;"></span>
+											</h4>
+											$ quotations_clean = []
+											$for quotation in quotations_list[person]:
+												$ work = quotation['work']
+												$ source = quotation['source']
+												$ type = source.split('-')[0]
+												$if source not in quotations_clean:
+													<div class="person-citations collapse $collapseId-quotations" aria-expanded="false">
+														<div class="row ex-butt panel_tool_metadata padding-21">
+															<div class="col-md-2">
+																<a href="excerpt-$source" target="_blank" class="quotRef text_black_exc">
+																	<button class="checkButt $type-but margin-bottom-10" value="$type-">
+																		<span>$source</span>
+																	</button>
+																</a>
+															</div>
+															<div class="col-md-10">
+																<div class="justify">
+																	<span class="font-size-15 thin">
+
+																		<span class="font-size-15 thin"><b>$person</b>, $work</span><br>
+																		<span class="font-size-15 thin quot_by"></span>
+																		<span class="font-size-15 thin"> <em>Paolo Bufalini</em></span>
+																			<!-- <span class="font-size-15 thin cit_in_$type">in </span> -->
+																			<!-- <span class="font-size-15 thin from_work">di</span>  -->
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													$quotations_clean.append(source)
+								</div>
+						</section>
+
+
+
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-indexes").click(function () {
+			introJs().start();
+		});
+	</script>

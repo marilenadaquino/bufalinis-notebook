@@ -4,41 +4,53 @@ $def with ()
     <div class="container">
         <div class="row">
             <div class="col-md-12 align_center">
-                <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
-                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+				<!-- dont remove or change -->
+                <h2 id="semantic_indexes_header_title">Index of Persons</h2>
             </div>
         </div>
     </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-treemap-people"><i class="fas fa-question"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- treemap -->
+<!-- intro.js step 1 -->
+<div class="col-md-12 col-sm-12 background_white responsive-height-datavis" data-title="Treemap" data-intro="In this chart each block corresponds to a person mentioned in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each person is mentioned. By hovering/clicking on each block, you get the following information: names and number of persons who mention each person represented in a block and number of extracts in which that person is mentioned.">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+                <!--<li role="presentation"><a href="./indexes" id="people_list">List</a></li>
                 <li role="presentation" class="filters_category_title active"><a href="#" id="people_treemap">Treemap</a></li>
-                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseTreemap" role="button" aria-expanded="false" aria-controls="collapseTreemap"><i class="glyphicon glyphicon-info-sign"></i></a></li>
                 <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
                 <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
                 <li role="presentation"><a class="no-active-tab">|</a></li>
-                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>-->
             </ul>
         </div>
         <div class="container-fluid">
             <div class="col-md-12">
                 <div class="collapse" id="collapseTreemap">
                     <h3 class="text_black" id="explain_treemap_people_h3">Treemap</h3>
-                    <p class="justify text_grey" id="explain_treemap_people_p">In the chart below each block corresponds to a person mentioned in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each person is mentioned. By hovering/clicking on each block, you get the following information: <span class="bold">names and number of people who mention each person</span> represented in a block and <span class="bold">number of extracts</span> in which that person is mentioned.</p>                </div>
+                    <p class="justify text_grey" id="explain_treemap_people_p">In the chart below each block corresponds to a person mentioned in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each person is mentioned. By hovering/clicking on each block, you get the following information: <span class="bold">names and number of persons who mention each person</span> represented in a block and <span class="bold">number of extracts</span> in which that person is mentioned.</p>                </div>
                 </div>
             </div>
         </div>
     <div id="chart_div"></div>
 </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {'packages':['treemap']});
     google.charts.setOnLoadCallback(drawChart);
@@ -514,4 +526,12 @@ $def with ()
         }
 
     }
+</script>-->
+
+<!-- intro.js tutorial js -->
+<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+<script>
+    $$("#intro-js-treemap-people").click(function () {
+        introJs().start();
+    });
 </script>

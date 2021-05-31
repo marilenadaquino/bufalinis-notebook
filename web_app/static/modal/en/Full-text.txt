@@ -1,2 +1,2 @@
-The full-text of Paolo Bufalini's notebook is available in the "Digital Edition" section in a dedicated panel.
+The full-text of Paolo Bufalini's notebook is available in the <span class="italic">Digital Edition</span> section in a dedicated panel.
 By choosing to scroll the text or to use the page selector, it is possible to read the transcription of the notebook alongside with its corresponding facsimile or individually, closing the panel containing the facsimile.

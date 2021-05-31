@@ -1,4 +1,5 @@
 function loadBundles(lang,gotohash) {
+
         jQuery.i18n.properties({
             name: 'Messages',
             path: 'static/script/bundle/',
@@ -57,31 +58,43 @@ function loadBundles(lang,gotohash) {
               $("#intro_header_title").html($.i18n.prop('intro_header_title'));
               // edition
               $("#digital_edition_header_title").html($.i18n.prop('digital_edition_header_title'));
-              $("#metadata_title").html($.i18n.prop('metadata_title'));
+              $(".metadata_title").html($.i18n.prop('metadata_title'));
               $("#facets_title").html($.i18n.prop('facets_title'));
               $("#filters_people").html($.i18n.prop('filters_people'));
               $("#filters_people_role").html($.i18n.prop('filters_people_role'));
               $("#author_role").html($.i18n.prop('author_role'));
               $("#cited_role").html($.i18n.prop('cited_role'));
+              // relations filters
+              $("#rel_title").html($.i18n.prop('rel_title'));
+              //$("#person_rel_caption").html($.i18n.prop('person_rel_caption'));
+              $("#agree_rel").html($.i18n.prop('agree_rel'));
+              $("#disagree_rel").html($.i18n.prop('disagree_rel'));
+              $("#cited_as_rel").html($.i18n.prop('cited_as_rel'));
+              $("#filtered_people_title").html($.i18n.prop('filtered_people_title'));
               $("#filters_excerpts").html($.i18n.prop('filters_excerpts'));
               $("#filters_works").html($.i18n.prop('filters_works'));
+              $("#ex_caption").html($.i18n.prop('ex_caption'));
               $("#filters_people_role_caption_name").html($.i18n.prop('filters_people_role_caption_name'));
               $("#apply_facets_button").html($.i18n.prop('apply_facets_button'));
               $("#comment_val").html($.i18n.prop('comment_val'));
               $("#quotation_val").html($.i18n.prop('quotation_val'));
               $("#translation_val").html($.i18n.prop('translation_val'));
-              $("#comment_checkbox").html($.i18n.prop('comment_checkbox'));
-              $("#quotation_checkbox").html($.i18n.prop('quotation_checkbox'));
-              $("#translation_checkbox").html($.i18n.prop('translation_checkbox'));
+              $(".comm_label").html($.i18n.prop('comm_label'));
+              $(".quot_label").html($.i18n.prop('quot_label'));
+              $(".tra_label").html($.i18n.prop('tra_label'));
               $("#results_title_list").html($.i18n.prop('results_title_list'));
               $("#clear_res").html($.i18n.prop('clear_res'));
               $("#apply_facets_edition").html($.i18n.prop('apply_facets_edition'));
-              $("#openSans").html($.i18n.prop('openSans'));
+              $("#defaultFont").html($.i18n.prop('defaultFont'));
               $("#size_20").html($.i18n.prop('size_20'));
               $("#dark_page").html($.i18n.prop('dark_page'));
               $("#sepia_page").html($.i18n.prop('sepia_page'));
               $("#white_page").html($.i18n.prop('white_page'));
-              $("#reset_button").html($.i18n.prop('reset_button'));
+              // panel placeholders
+              $(".filters_placeholder").html($.i18n.prop('filters_placeholder'));
+              $(".tra_placeholder").html($.i18n.prop('tra_placeholder'));
+              $(".fac_placeholder").html($.i18n.prop('fac_placeholder'));
+              //$("#reset_button").html($.i18n.prop('reset_button'));
               $(".results_in").html($.i18n.prop('results_in'));
               // go to specific page
               $(".go_to_pages_edition").html($.i18n.prop('go_to_pages_edition'));
@@ -109,10 +122,27 @@ function loadBundles(lang,gotohash) {
               $(".meta_permalink_val").html($.i18n.prop('meta_permalink_val'));
               // trad. > trans. translation
               $(".trad").html($.i18n.prop('trad'));
+              // person values filters
+              $(".appears_as").html($.i18n.prop('appears_as'));
+              $(".assign_author").html($.i18n.prop('assign_author'));
+              $(".assign_mentioned").html($.i18n.prop('assign_mentioned'));
+              $(".cit_in_comm").html($.i18n.prop('cit_in_comm'));
+              $(".cit_in_quot").html($.i18n.prop('cit_in_quot'));
+              $(".cit_in_tra").html($.i18n.prop('cit_in_tra'));
+              $(".cit_quot").html($.i18n.prop('cit_quot'));
+              $(".by_author").html($.i18n.prop('by_author'));
+              $(".from_work").html($.i18n.prop('from_work'));
+              $(".by_bufalini").html($.i18n.prop('by_bufalini'));
+              $(".occurs_as_mentioned").html($.i18n.prop('occurs_as_mentioned'));
+              $(".appears_mentioned_as").html($.i18n.prop('appears_mentioned_as'));
+              // work values filters
+              $(".comm_res").html($.i18n.prop('comm_res'));
+              $(".quot_res").html($.i18n.prop('quot_res'));
+              $(".tra_res").html($.i18n.prop('tra_res'));
               // introduction
               $("#page_title").html($.i18n.prop('page_title'));
               $("#transcription_title").html($.i18n.prop('transcription_title'));
-              $("#search_string").html($.i18n.prop('search_string'));
+              //$("#search_string").html($.i18n.prop('search_string'));
               $("#pages_select").html($.i18n.prop('pages_select'));
               $("#transcription_tab").html($.i18n.prop('transcription_tab'));
               $("#authors_tab").html($.i18n.prop('authors_tab'));
@@ -133,6 +163,13 @@ function loadBundles(lang,gotohash) {
               $("#intro_title31").html($.i18n.prop('intro_title31'));
               $("#intro_title32").html($.i18n.prop('intro_title32'));
               $("#intro_title33").html($.i18n.prop('intro_title33'));
+
+              $("#intro_title_note").html($.i18n.prop('intro_title_note'));
+              $("#note_1").html($.i18n.prop('note_1'));
+              $("#note_2").html($.i18n.prop('note_2'));
+              $("#note_3").html($.i18n.prop('note_3'));
+              $("#note_4").html($.i18n.prop('note_4'));
+
               $("#p_1").html($.i18n.prop('p_1'));
               $("#p_2").html($.i18n.prop('p_2'));
               $("#p_3").html($.i18n.prop('p_3'));
@@ -163,14 +200,9 @@ function loadBundles(lang,gotohash) {
               $("#list_title").html($.i18n.prop('list_title'));
               $("#clear_res_ind").html($.i18n.prop('clear_res_ind'));
               // indexes buttons
-              $(".trans_comment").html($.i18n.prop('trans_comment'));
-              $(".trans_mentioning").html($.i18n.prop('trans_mentioning'));
               $(".n_quot").html($.i18n.prop('n_quot'));
-              $(".trans_cit").html($.i18n.prop('trans_cit'));
-              $(".trans_tra").html($.i18n.prop('trans_tra'));
-              $(".comm_on").html($.i18n.prop('comm_on'));
-              $(".quot_of").html($.i18n.prop('quot_of'));
-              $(".tra_of").html($.i18n.prop('tra_of'));
+              $(".is_mentioned_by").html($.i18n.prop('is_mentioned_by'));
+              $(".is_mentioned").html($.i18n.prop('is_mentioned'));
               // people index
               $("#filters_people_role_index").html($.i18n.prop('filters_people_role_index'));
               $("#author_role_index").html($.i18n.prop('author_role_index'));
@@ -190,6 +222,10 @@ function loadBundles(lang,gotohash) {
               $("#explain_sets_people_p").html($.i18n.prop('explain_sets_people_p'));
               $("#explain_graph_people_p").html($.i18n.prop('explain_graph_people_p'));
               $("#explain_play_people_p").html($.i18n.prop('explain_play_people_p'));
+              $(".author_role_tag").html($.i18n.prop('author_role_tag'));
+              $(".cited_role_tag").html($.i18n.prop('cited_role_tag'));
+              $(".translator_role_tag").html($.i18n.prop('translator_role_tag'));
+              $(".is_translator_of").html($.i18n.prop('is_translator_of'));
               // works index
               $("#apply_facets_works").html($.i18n.prop('apply_facets_works'));
               $("#explain_treemap_works_h3").html($.i18n.prop('explain_treemap_works_h3'));
@@ -200,6 +236,13 @@ function loadBundles(lang,gotohash) {
               $("#explain_sets_works_p").html($.i18n.prop('explain_sets_works_p'));
               $("#explain_graph_works_p").html($.i18n.prop('explain_graph_works_p'));
               $("#explain_play_works_p").html($.i18n.prop('explain_play_works_p'));
+              $(".occurrences_ex").html($.i18n.prop('occurrences_ex'));
+              $(".comm_on").html($.i18n.prop('comm_on'));
+              $(".quot_of").html($.i18n.prop('quot_of'));
+              $(".quot_by").html($.i18n.prop('quot_by'));
+              $(".tra_of").html($.i18n.prop('tra_of'));
+              $(".is_translated_by").html($.i18n.prop('is_translated_by'));
+
               // footer
               $("#footer_title_1").html($.i18n.prop('footer_title_1'));
               $("#footer_documentation_1").html($.i18n.prop('footer_documentation_1'));
@@ -406,6 +449,9 @@ function loadBundles(lang,gotohash) {
               $("#fac_input_4").html($.i18n.prop('fac_input_4'));
               $("#fac_input_5").html($.i18n.prop('fac_input_5'));
               $("#fac_input_6").html($.i18n.prop('fac_input_6'));
+              $("#fac_input_semantics_1").html($.i18n.prop('fac_input_semantics_1'));
+              $("#fac_input_semantics_2").html($.i18n.prop('fac_input_semantics_2'));
+              $("#fac_input_semantics_3").html($.i18n.prop('fac_input_semantics_3'));
               // processing
               $("#fac_pro").html($.i18n.prop('fac_pro'));
               $("#fac_pro_1").html($.i18n.prop('fac_pro_1'));
@@ -494,16 +540,20 @@ function loadBundles(lang,gotohash) {
               $("#web_fac_18").html($.i18n.prop('web_fac_18'));
               $("#web_fac_19").html($.i18n.prop('web_fac_19'));
               $("#web_fac_20").html($.i18n.prop('web_fac_20'));
+              $("#web_fac_21").html($.i18n.prop('web_fac_21'));
               // other tools
               $(".other_tools_1").html($.i18n.prop('other_tools_1'));
               $("#other_tools_2").html($.i18n.prop('other_tools_2'));
               $("#other_tools_3").html($.i18n.prop('other_tools_3'));
+              $("#other_tools_4").html($.i18n.prop('other_tools_4'));
+              $("#other_tools_5").html($.i18n.prop('other_tools_5'));
               // specifications semantic indexes
               $(".semantic_ind_1").html($.i18n.prop('semantic_ind_1'));
               $("#semantic_ind_2").html($.i18n.prop('semantic_ind_2'));
               $("#semantic_ind_3").html($.i18n.prop('semantic_ind_3'));
               $("#semantic_ind_4").html($.i18n.prop('semantic_ind_4'));
               // list mode
+              $("#list_mode").html($.i18n.prop('list_mode'));
               $("#list_mode_1").html($.i18n.prop('list_mode_1'));
               $("#list_mode_2").html($.i18n.prop('list_mode_2'));
               $("#list_mode_3").html($.i18n.prop('list_mode_3'));
@@ -601,8 +651,9 @@ function loadBundles(lang,gotohash) {
               // other components
               // excerpt title of the notebook
               $(".notebook_title").html($.i18n.prop('notebook_title'));
+              // curator
+              $(".is_curator").html($.i18n.prop('is_curator'));
               // people role box
-              $(".change_role_cap").html($.i18n.prop('change_role_cap'));
               if (gotohash && location.hash) {
                         var l=location.hash; location.hash=''; location.hash=l;};
             }
@@ -610,10 +661,6 @@ function loadBundles(lang,gotohash) {
 };
 
 jQuery(document).ready(function($) {
-  // get the current year footer
-  //currentYear();
-  // window height
-  windowHeight();
   // active item in navbar
   navItemActive();
   // language button
@@ -627,9 +674,15 @@ jQuery(document).ready(function($) {
   // get a side section active
   activeSideSec();
   // go from side text list to the right document and active side section
-  getDocActive()
+  getDocActive();
   // loader
   $(".se-pre-con").fadeOut("slow");
+
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  };
 
   // i18n
   $('#lang').find('a').click(function(e){
@@ -638,7 +691,10 @@ jQuery(document).ready(function($) {
         $.cookie( 'language', lang, { expires: 7, path: '/' } );
         loadBundles(lang,false);
     });
-    loadBundles($.cookie( 'language'),true);
+
+  loadBundles($.cookie( 'language'),true);
+  $("#lang_button_"+getCookie('language')+"> button").addClass('active');
+
 
   //////////////
   // Edizione //
@@ -750,7 +806,7 @@ jQuery(document).ready(function($) {
     var nextElement = $('#pages > option:selected').next('option');
     var num = nextElement.attr('value');
     if (nextElement.length > 0) {
-      $('#pages > option:selected').removeAttr('selected').next('option').attr('selected', 'selected');
+      $('#pages > option:selected').removeAttr('selected').next('option').prop('selected', 'selected');
       $( "#viewer" ).load('static/images_coords.html div:has(img[src="'+num+'"])', mapifyAndRdf );
       tieTrasFac();
     }
@@ -820,6 +876,8 @@ jQuery(document).ready(function($) {
     var numPb = $(this).data('n');
     $(this).append('<span>'+numPb+'</span>');
   });
+
+
   // library boxes
   $('p:contains(indicator)').remove();
   // $(".ellipsis").each(function () {
@@ -831,6 +889,10 @@ jQuery(document).ready(function($) {
   // });
   // notebook text AJAX mode
   loadNotebook();
+  // print page numbers
+  setTimeout(printPageNum, 1000)
+  printPageNum(pbindex,mapifyAndRdf);
+  //PROVA PER CAMBIARE PAGINA
   // modify font dimensions
   changeFontSize();
   // modify font style
@@ -848,35 +910,51 @@ jQuery(document).ready(function($) {
   // wrap div with the same value
   wrapDiv();
   // people semantic index facets
-  peopleIndexFacets();
+  peopleIndexFilters();
   // search bar in works semantic index
   searchWorksBar();
   // works semantic index
-  worksIndexFacets();
-  // transcription-facsimile linking scroll
-  tieScroll();
+  worksIndexFilters();
   // expand the facsimile in the specific excerpt page
   openFacEx();
+  // from a single excerpt to edition
+  goToEx();
+  // collapse buttons
+  //#removeAfter();
 });
 
-// get the current year in footer
-/*function currentYear() {
-  var d = new Date();
-  var n = d.getFullYear();
-  document.getElementById("current-year").innerHTML = n;
-}*/
+// caret
+// function removeAfter() {
+//
+//   // remove caret for editors
+//   $(".people-index-div:not(:has('.person-citations')):has('.work-aut-collapse')").find(".work-aut-collapse").each(function() {
+//     var exVal = $(this).attr("data-target").split(".")[1];
+//     if ($("." + exVal).attr("class") == undefined) {
+//       $(".work-aut-collapse[data-target='." + exVal + "']").removeClass("caret-library").removeClass("work-aut-collapse").prepend("<span class='font-size-15 is_curator'></span>");
+//     }
+//   })
+//
+//   $(".work-aut-collapse").click(function(e) {
+//     var x = e.target;
+//     if ($(x).next(".person-citations").attr("aria-expanded") == "false") {
+//       $(x).removeClass("caret-library").addClass("collapse-caret-true");
+//     } else {
+//       $(x).removeClass("collapse-caret-true").addClass("caret-library");
+//     }
+//   })
+//
+// }
 
-// window height for setting the panels height
-function windowHeight() {
-  var facetsHeight = $(".container_fluid_facets_page_panel").height() - 5;
-  $("#facets_panel_box").css("height", facetsHeight);
-  $(window).resize(function(){
-    $("#facets_panel_box").css("height", facetsHeight);
+// change page and transcription
+function detectChange(){
+ // $(".pageN").appear();
+ setTimeout(function(){
+  $(document).on("appear",".pageN", function(){
+    var temp = $(this)
+    temp = 1;
   })
-  $("#page_panel_tool").css("height", facetsHeight);
-  $(window).resize(function(){
-    $("#page_panel_tool").css("height", facetsHeight);
-  })
+  },3000)
+
 }
 
 // active item in navbar
@@ -885,9 +963,9 @@ function navItemActive() {
     $("#nav_2").addClass("text_red");
   } else if ($("#digital_edition_header_title").text() == "Digital Edition") {
     $("#nav_3").addClass("text_red");
-  } else if ($("#semantic_indexes_header_title").text() == "Semantic Indexes") {
+  } else if ($("#semantic_indexes_header_title").text() == "Index of Persons") {
     $("#nav_4").addClass("text_red");
-  } else if ($("#works_indexes_header_title").text() == "Works Semantic Indexes") {
+  } else if ($("#works_indexes_header_title").text() == "Index of Works") {
     $("#nav_5").addClass("text_red");
   } else {
     $("#nav_1").addClass("text_red");
@@ -923,21 +1001,6 @@ function tooltip() {
   $('[data-toggle="tooltip"]').tooltip();
 }
 
-// change placeholders in search bars
-function specificEng() {
-  // digital edition search bar
-  $(".change-placeholder-edition").attr("placeholder", "Insert text...");
-  // digital edition search bar
-  $(".change-placeholder-indexes").attr("placeholder", "Search for a person, a work...");
-}
-
-function specificIt() {
-  // digital edition search bar
-  $(".change-placeholder-edition").attr("placeholder", "Inserisci testo...");
-  // digital edition search bar
-  $(".change-placeholder-indexes").attr("placeholder", "Cerca una persona, un'opera...");
-}
-
 ////////////////////////
 // EDIZIONE DIGITALE //
 //////////////////////
@@ -947,29 +1010,69 @@ function openPage() {
     if ($("#page_panel_tool").hasClass("col-md-10")) {
       $("#facets_panel_box").css("display", "none");
       $("#page_panel_tool").removeClass("col-md-10").addClass("col-md-12");
-      $(".nested_panel_tool").removeClass("nested_panel_tool_plus"); // add
+      $(".nested_panel_tool").removeClass("nested_panel_tool_plus");
+      // hide the fullscreen icon
+      $("#page-fullscreen-icon").css("display", "none");
+      // show the close icon
+      $("#page-close-icon").css("display", "block");
+
     } else if ($("#page_panel_tool").hasClass("col-md-11")) {
       $("#facets_panel_box").css("display", "none");
       $("#page_panel_tool").removeClass("col-md-11").addClass("col-md-12");
-      $(".nested_panel_tool").removeClass("nested_panel_tool_plus"); // add
+      $(".nested_panel_tool").removeClass("nested_panel_tool_plus");
+      // hide the close icon
+      $("#page-close-icon").css("display", "none");
+      // show the fullscreen icon
+      $("#page-fullscreen-icon").css("display", "block");
+
+    // the page panel is col-md-12 and the filters panel col-md-1
+    } else if ($("#facets_panel_box").hasClass("col-md-1") && $("#page_panel_tool").hasClass("col-md-12")) {
+      $("#facets_panel_box").css("display", "block");
+      $("#page_panel_tool").removeClass("col-md-12").addClass("col-md-11");
+
     } else {
       $("#facets_panel_box").css("display", "block");
       $("#page_panel_tool").removeClass("col-md-12").addClass("col-md-10");
-      $(".nested_panel_tool").removeClass("nested_panel_tool_plus"); // add
+      $(".nested_panel_tool").removeClass("nested_panel_tool_plus");
+      // hide the close icon
+      $("#page-close-icon").css("display", "none");
+      // show the fullscreen icon
+      $("#page-fullscreen-icon").css("display", "block");
+
     }
 }
 
 // transcription + facsimile page panel - semantic indexes
 function openPagePeople() {
-  if ($(".page_panel_tool_people").hasClass("col-md-10")) {
+  if ($("#page_panel_tool_people").hasClass("col-md-10")) {
     $(".facets_panel_box_people").css("display", "none");
-    $(".page_panel_tool_people").removeClass("col-md-10").addClass("col-md-12");
-  } else if ($(".page_panel_tool_people").hasClass("col-md-11")) {
+    $("#page_panel_tool_people").removeClass("col-md-10").addClass("col-md-12");
+    // hide the fullscreen icon
+    $("#page-fullscreen-icon").css("display", "none");
+    // show the close icon
+    $("#page-close-icon").css("display", "block");
+  } else if ($("#page_panel_tool_people").hasClass("col-md-11")) {
     $(".facets_panel_box_people").css("display", "none");
-    $(".page_panel_tool_people").removeClass("col-md-11").addClass("col-md-12");
+    $("#page_panel_tool_people").removeClass("col-md-11").addClass("col-md-12");
+    // hide the fullscreen icon
+    $("#page-fullscreen-icon").css("display", "none");
+    // show the close icon
+    $("#page-close-icon").css("display", "block");
+    // the page panel is col-md-12 and the filters panel col-md-1
+  } else if ($("#facets_panel_box_people").hasClass("col-md-1") && $("#page_panel_tool_people").hasClass("col-md-12")) {
+    $(".facets_panel_box_people").css("display", "block");
+    $("#page_panel_tool_people").removeClass("col-md-12").addClass("col-md-11");
+    // hide the fullscreen icon
+    $("#page-fullscreen-icon").css("display", "block");
+    // show the close icon
+    $("#page-close-icon").css("display", "none");
   } else {
     $(".facets_panel_box_people").css("display", "block");
-    $(".page_panel_tool_people").removeClass("col-md-12").addClass("col-md-10");
+    $("#page_panel_tool_people").removeClass("col-md-12").addClass("col-md-10");
+    // hide the fullscreen icon
+    $("#page-fullscreen-icon").css("display", "block");
+    // show the close icon
+    $("#page-close-icon").css("display", "none");
   }
 }
 
@@ -981,11 +1084,28 @@ function closeFacets() {
       $("#facets_panel_box").addClass("col-md-1");
       $("#page_panel_tool").removeClass("col-md-10");
       $("#page_panel_tool").addClass("col-md-11");
+      // hide the filters title
+      $("#facets_title").css("visibility", "hidden");
+      // show the filters placeholder
+      $(".filters_placeholder").show();
+      // hide the close icon
+      $("#facets-close-icon").hide();
+      // show the fullscreen icon
+      $("#facets-fullscreen-icon").show();
     } else {
       $("#facets_panel_box").removeClass("col-md-1");
       $("#facets_panel_box").addClass("col-md-2");
       $("#page_panel_tool").removeClass("col-md-11");
       $("#page_panel_tool").addClass("col-md-10");
+      // hide the filters title
+      $("#facets_title").css("visibility", "visible");
+      // hide the filters placeholder
+      $(".filters_placeholder").hide();
+      // hide the fullscreen icon
+      $("#facets-fullscreen-icon").hide();
+      // show the close icon
+      $("#facets-close-icon").show();
+
     }
   });
 }
@@ -1000,6 +1120,13 @@ function closeFacetsPeople() {
       $("#facets_panel_box_people").addClass("specific-height-sx");
       $("#page_panel_tool_people").removeClass("col-md-10");
       $("#page_panel_tool_people").addClass("col-md-11");
+      // change icon x
+      $(".index-fullscreen-icon").show();
+      $(".index-close-icon").hide();
+      // hide the filters title
+      $("#facets_title").css("visibility", "hidden");
+      // show the filters placeholder
+      $(".filters_placeholder").show();
     } else {
       $("#facets_panel_box_people").removeClass("col-md-1");
       $("#facets_panel_box_people").addClass("col-md-2");
@@ -1007,22 +1134,102 @@ function closeFacetsPeople() {
       $("#facets_panel_box_people").addClass("specific-height");
       $("#page_panel_tool_people").removeClass("col-md-11");
       $("#page_panel_tool_people").addClass("col-md-10");
+      // change icon x
+      $(".index-fullscreen-icon").hide();
+      $(".index-close-icon").show();
+      // hide the filters placeholder
+      $(".filters_placeholder").hide();
+      // show the filters title
+      $("#facets_title").css("visibility", "visible");
     }
   })
 }
 
-// results panel - digital edition
+// clean results and close the panel
 function closeResults() {
-  $(".move-facets").toggleClass("move-facets-reduced");
-  $("#print-results").toggleClass("no-display");
-  $("#edition-search-tool").toggleClass("no-display");
-}
 
-// clear results
-function clearRes() {
-  $("#clear_res").click(function() {
-    location.reload();
-  })
+  // HIDE THE RESULTS BOX
+  $("#res-box").hide();
+
+  // HIDE ROLE CATEGORY
+  $("#role-box").hide();
+
+  // EMPTY ROLE CATEGORY
+  $(".len-pers-role").remove();
+
+  // HIDE RELATION CATEGORY
+  $("#relation-box").hide();
+
+  // HIDE FILTERED CATEGORY
+  $("#filtered-people-box").hide();
+
+  // HIDE TYPE OF EXCERPTS
+  $("#type-ex-box").hide();
+
+  // SHOW PERSON CATEGORY
+  $("#filters_checkbox_people").addClass("in");
+
+  // CHANGE PANEL TOOL HEIGHT
+  $(".index-section .panel_tool").css("height", "85vh");
+  $("#facets_panel_box").removeClass("vh-70");
+  $("#facets_panel_box").addClass("vh-90");
+
+  // REMOVE SCROLL
+  $("#facets_panel_box").removeClass("scroll-open-filters");
+
+  // 0 ROLE > SHOW ALL WORKS
+  if ($("input.role:checked").length == 0) {
+    $(".single-work-filter").removeClass("corresponding-work").removeClass("corresponding-work-in").show();
+  }
+
+  // CLOSE WORKS BOX
+  $("#filters_checkbox_works").removeClass("in");
+
+  // remove people role box
+  if ($(".peopleCheck:checked").length > 0) {
+    $(":radio[class=peopleCheck]:checked").each(function() {
+      var idPers = ($(this).attr("id"));
+      $(".len-pers-role:contains('" + idPers + "')").remove();
+    })
+    if ($(".len-pers-role").length == 0) {
+      $("#add-pers-role").removeClass("scroll-height").removeClass("scroll");
+    }
+  }
+  // /
+
+  // clear the transcription removing colors
+  $('input').each(function() {
+    // uncheck boxes and display none
+    this.checked = false;
+    $("#results-container").hide();
+    // fix the height of filters
+    $("#facets_panel_box").removeClass("vh-70");
+    $("#facets_panel_box").addClass("vh-90");
+    // remove highRes to reset the counter of results
+    $("#list-results li").each(function() {
+      var idRes = ($(this).attr("value"));
+      $("#transcriptionViewer #"+idRes).removeClass("highRes").removeClass("background_blue").removeClass("background_orchid").removeClass("background_yellowgreen").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow");
+      // remove the list item in results
+      $(this).remove();
+    });
+  });
+
+  // remove excerpts results
+  $("#ex-to-hide").show();
+  $("#ex-to-show").hide();
+  // /
+
+  // remove titles of works in the transcription
+  $(".provWork").remove();
+  // /
+
+  // EMPTY THE LIST OF RESULTS
+  $("#list-results li").remove();
+  // UNBLOCK PEOPLE when one person is checked
+  $("span[data-target='#filters_checkbox_people']").attr("data-toggle", "collapse").attr("aria-expanded", "true").addClass("panel-title");
+  // UNBLOCK WORKS when one role is checked
+  $("span[data-target='#filters_checkbox_works']").attr("data-toggle", "collapse").attr("aria-expanded", "false").addClass("panel-title");
+
 }
 
 // results panel - indexes
@@ -1033,26 +1240,84 @@ function closeResultsPeople() {
 // transcription panel
 function closeTranscription() {
   $("#text-transcription").toggle(function() {
+
     if ($("#close_transcription_div").hasClass("col-md-4")) {
       $("#close_transcription_div").removeClass("col-md-4");
       $("#close_transcription_div").addClass("col-md-1");
       $("#close_facsimile_div").removeClass("col-md-8");
       $("#close_facsimile_div").addClass("col-md-11");
       $(".nested_panel_tool").addClass("nested_panel_tool_plus");
+      // hide the transcription title
+      $("#transcription_title").hide();
+      // show the filters placeholder
+      $(".placeholder-container").show();
+      $(".tra_placeholder").show();
+      // hide the close icon
+      $("#tra-close-icon").hide();
+      // show the fullscreen icon
+      $("#tra-fullscreen-icon").show();
+      // close the custom tools
+      $(".custom-tools").hide();
+      // fix transcription position
+      $(".tra-placeholder-position").addClass("margin-top-10");
+
     } else if ($("#close_transcription_div").hasClass("col-md-1") && $("close_facsimile_div").hasClass("col-md-11")) {
       $("#close_transcription_div").removeClass("col-md-1");
       $("#close_transcription_div").addClass("col-md-4");
       $("#close_facsimile_div").removeClass("col-md-11");
       $("#close_facsimile_div").addClass("col-md-8");
       $(".nested_panel_tool").removeClass("nested_panel_tool_plus");
+      // show the transcription title
+      $("#transcription_title").show();
+      // hide the filters placeholder
+      $(".placeholder-container").hide();
+      $(".tra_placeholder").hide();
+      // hide the fullscreen icon
+      $("#tra-fullscreen-icon").hide();
+      // show the close icon
+      $("#tra-close-icon").show();
+      // open the custom tools
+      $(".custom-tools").show();
+      // fix transcription position
+      $(".tra-placeholder-position").removeClass("margin-top-10");
+
     } else {
+      // both transcription and facsimile panel are closed = col-md-1 for both
       $("#close_transcription_div").removeClass("col-md-1");
       $("#close_transcription_div").addClass("col-md-4");
       $("#close_facsimile_div").removeClass("col-md-1");
       $("#close_facsimile_div").addClass("col-md-8");
-      $("#text-transcription").css("display", "block");
-      $("#viewerContainer").css("display", "block");
+      $("#text-transcription").show();
+      $("#viewerContainer").show();
       $(".nested_panel_tool").removeClass("nested_panel_tool_plus");
+      // transcription elements
+      // show the transcription title
+      $("#transcription_title").show();
+      // hide the filters placeholder
+      $(".placeholder-container").hide();
+      $(".tra_placeholder").hide();
+      // hide the fullscreen icon
+      $("#tra-fullscreen-icon").hide();
+      // show the close icon
+      $("#tra-close-icon").show();
+      // open the custom tools
+      $(".custom-tools").show();
+      // fix transcription position
+      $(".tra-placeholder-position").removeClass("margin-top-10");
+
+      // facsimile elements
+      // show the facsimile title
+      $("#panel_title").show();
+      // show the filters placeholder
+      $(".placeholder-fac-container").hide();
+      $(".fac_placeholder").hide();
+      // show the iiif icon
+      $(".iiif").show();
+      // hide the fullscreen icon
+      $("#fac-fullscreen-icon").hide();
+      // show the close icon
+      $("#fac-close-icon").show();
+
     }
   });
 }
@@ -1065,18 +1330,76 @@ function closeFacsimile() {
       $("#close_facsimile_div").addClass("col-md-1");
       $("#close_transcription_div").removeClass("col-md-4");
       $("#close_transcription_div").addClass("col-md-11");
+      // hide the facsimile title
+      $("#panel_title").hide();
+      // show the filters placeholder
+      $(".placeholder-fac-container").show();
+      $(".fac_placeholder").show();
+      // fix facsimile position
+      $(".fac-placeholder-position").addClass("margin-top-10");
+
+      // hide the iiif icon
+      $(".iiif").hide();
+      // hide the close icon
+      $("#fac-close-icon").hide();
+      // show the fullscreen icon
+      $("#fac-fullscreen-icon").show();
+
     } else if ($("#close_facsimile_div").hasClass("col-md-1") && $("close_transcription_div").hasClass("col-md-11")) {
       $("#close_facsimile_div").removeClass("col-md-1");
       $("#close_facsimile_div").addClass("col-md-8");
       $("#close_transcription_div").removeClass("col-md-11");
       $("#close_transcription_div").addClass("col-md-4");
+      // show the facsimile title
+      $("#panel_title").show();
+      // hide the filters placeholder
+      $(".placeholder-fac-container").hide();
+      $(".fac_placeholder").hide();
+      // fix facsimile position
+      $(".fac-placeholder-position").removeClass("margin-top-10");
+
+      // show the iiif icon
+      $(".iiif").show();
+      // hide the fullscreen icon
+      $("#fac-fullscreen-icon").hide();
+      // show the close icon
+      $("#fac-close-icon").show();
+
     } else {
+      // both transcription and facsimile panel are closed = col-md-1 for both
       $("#close_transcription_div").removeClass("col-md-1");
       $("#close_transcription_div").addClass("col-md-4");
       $("#close_facsimile_div").removeClass("col-md-1");
       $("#close_facsimile_div").addClass("col-md-8");
-      $("#text-transcription").css("display", "block");
-      $("#viewerContainer").css("display", "block");
+      $("#text-transcription").show();
+      $("#viewerContainer").show();
+      // facsimile elements
+      // show the facsimile title
+      $("#panel_title").show();
+      // hide the filters placeholder
+      $(".placeholder-fac-container").hide();
+      $(".fac_placeholder").hide();
+      // show the iiif icon
+      $(".iiif").show();
+      // hide the fullscreen icon
+      $("#fac-fullscreen-icon").hide();
+      // show the close icon
+      $("#fac-close-icon").show();
+      // fix facsimile position
+      $(".fac-placeholder-position").removeClass("margin-top-10");
+
+      // transcription elements
+      // show the transcription title
+      $("#transcription_title").show();
+      // hide the filters placeholder
+      $(".placeholder-container").hide();
+      $(".tra_placeholder").hide();
+      // hide the fullscreen icon
+      $("#tra-fullscreen-icon").hide();
+      // show the close icon
+      $("#tra-close-icon").show();
+      // open the custom tools
+      $(".custom-tools").show();
     }
   });
 }
@@ -1093,8 +1416,10 @@ function loadNotebook() {
 
 // style button
 function changeStyleButton() {
-  jQuery("#change_style_button").click(function(){
-    jQuery(".toggle_tooltip_style").slideToggle("slow");
+  $("#change_style_button").click(function(){
+    $(".tooltip_style").slideToggle(function() {
+      $("#transcriptionViewer").toggleClass("scroll_transcription_reduced");
+    })
   });
 }
 
@@ -1103,21 +1428,21 @@ function changeFontStyle() {
   $(".font").change(function () {
     $(".font option:selected").each(function() {
       if ($(".font option:selected").text() === "Arial") {
-        $("#transcriptionViewer").addClass("arial-font");
-        $("#transcriptionViewer").removeClass("times-font");
-        $("#transcriptionViewer").removeClass("verdana-font");
+        $("#transcriptionViewer *").addClass("arial-font");
+        $("#transcriptionViewer *").removeClass("times-font");
+        $("#transcriptionViewer *").removeClass("verdana-font");
       } else if ($(".font option:selected").text() === "Times New Roman") {
-        $("#transcriptionViewer").removeClass("arial-font");
-        $("#transcriptionViewer").addClass("times-font");
-        $("#transcriptionViewer").removeClass("verdana-font");
+        $("#transcriptionViewer *").removeClass("arial-font");
+        $("#transcriptionViewer *").addClass("times-font");
+        $("#transcriptionViewer *").removeClass("verdana-font");
       } else if (jQuery(".font option:selected").text() === "Verdana") {
-        $("#transcriptionViewer").removeClass("arial-font");
-        $("#transcriptionViewer").removeClass("times-font");
-        $("#transcriptionViewer").addClass("verdana-font");
+        $("#transcriptionViewer *").removeClass("arial-font");
+        $("#transcriptionViewer *").removeClass("times-font");
+        $("#transcriptionViewer *").addClass("verdana-font");
       } else {
-        $("#transcriptionViewer").removeClass("arial-font");
-        $("#transcriptionViewer").removeClass("times-font");
-        $("#transcriptionViewer").removeClass("verdana-font");
+        $("#transcriptionViewer *").removeClass("arial-font");
+        $("#transcriptionViewer *").removeClass("times-font");
+        $("#transcriptionViewer *").removeClass("verdana-font");
       }
     })
   })
@@ -1127,28 +1452,46 @@ function changeFontStyle() {
 function changeFontSize() {
   $(".font_size").change(function () {
     $(".font_size option:selected").each(function() {
-      if ($(".font_size option:selected").text() === "18") {
-        $("#transcriptionViewer").css("font-size", "18");
-        $("blockquote").css("font-size", "18");
-      } else if ($(".font_size option:selected").text() === "22") {
-        $("#transcriptionViewer").css("font-size", "22");
-        $("blockquote").css("font-size", "22");
-      } else if ($(".font_size option:selected").text() === "24") {
-        $("#transcriptionViewer").css("font-size", "24");
-        $("blockquote").css("font-size", "24");
-      } else if ($(".font_size option:selected").text() === "26") {
-        $("#transcriptionViewer").css("font-size", "26");
-        $("blockquote").css("font-size", "26");
-      } else if ($(".font_size option:selected").text() === "28") {
-        $("#transcriptionViewer").css("font-size", "28");
-        $("blockquote").css("font-size", "28");
-      } else if ($(".font_size option:selected").text() === "30") {
-        $("#transcriptionViewer").css("font-size", "30");
-        $("blockquote").css("font-size", "30");
-      } else {
-        $("#transcriptionViewer").css("font-size", "20");
-        $("blockquote").css("font-size", "20");
+      if ($(".font_size option:selected").attr("id") == "size_18") {
+        $(".tei_transcription *").removeClass("font-size-20");
+        $(".tei_transcription *").removeClass("font-size-22");
+        $(".tei_transcription *").removeClass("font-size-24");
+        $(".tei_transcription *").removeClass("font-size-26");
+        $(".tei_transcription *").addClass("font-size-18");
       }
+
+      else if ($(".font_size option:selected").attr("id") == "size_20") {
+        $(".tei_transcription *").removeClass("font-size-18");
+        $(".tei_transcription *").removeClass("font-size-22");
+        $(".tei_transcription *").removeClass("font-size-24");
+        $(".tei_transcription *").removeClass("font-size-26");
+        $(".tei_transcription *").addClass("font-size-20");
+      }
+
+      else if ($(".font_size option:selected").attr("id") == "size_22") {
+        $(".tei_transcription *").removeClass("font-size-18");
+        $(".tei_transcription *").removeClass("font-size-20");
+        $(".tei_transcription *").removeClass("font-size-24");
+        $(".tei_transcription *").removeClass("font-size-26");
+        $(".tei_transcription *").addClass("font-size-22");
+      }
+
+      else if ($(".font_size option:selected").attr("id") == "size_24") {
+        $(".tei_transcription *").removeClass("font-size-18");
+        $(".tei_transcription *").removeClass("font-size-20");
+        $(".tei_transcription *").removeClass("font-size-22");
+        $(".tei_transcription *").removeClass("font-size-26");
+        $(".tei_transcription *").addClass("font-size-24");
+      }
+
+      else {
+        $(".tei_transcription *").removeClass("font-size-18");
+        $(".tei_transcription *").removeClass("font-size-20");
+        $(".tei_transcription *").removeClass("font-size-22");
+        $(".tei_transcription *").removeClass("font-size-24");
+        $(".tei_transcription *").addClass("font-size-26");
+      }
+
     });
   })
 }
@@ -1160,6 +1503,7 @@ function changePageColor() {
     $("#transcription_title").css("color", "#FEFEFE");
     $("#transcriptionViewer").css("color", "#FEFEFE");
     $(".highRes").css("color", "#0D0D0D");
+    //$(".pageN").css("color", "#0D0D0D");
   });
   $("#sepia_page").click(function(){
     $("#close_transcription_div").css("background-color", "#ECDED1");
@@ -1253,7 +1597,7 @@ function nextQueryResult() {
     var temp = $(".p_" + indexOccurrences);
     $("#transcriptionViewer").animate({
       scrollTop: $(temp).position().top - $("#transcriptionViewer").position().top
-    }, 2000);
+    }, 500);
     // /
   })
   $("#prev-string").click(function() {
@@ -1262,7 +1606,7 @@ function nextQueryResult() {
       var temp = $(".p_"+indexOccurrences);
       $("#transcriptionViewer").animate({
         scrollTop: $(temp).position().top
-      }, 2000);
+      }, 500);
     }
   })
 }
@@ -1288,396 +1632,812 @@ function changeLang() {
   }
 }
 
-// DIGITAL EDITION FACETS
-function editionFacets() {
-  $("input[type=checkbox]").change(function(e) {
-    var inputTxt = $(e.target).attr("id");
-    var idQuotStart = "quot-";
-    var quots = $("*[id*=" + idQuotStart + "]:visible");
+// DIGITAL EDITION FILTERS
+function editionFilters() {
+
+
+
+  $("input").change(function(e) {
+
+    // SHOW THE LIST OF RESULTS
+    $("#list-results li").empty().show();
+    $("#results-container").show();
+    // fix the height of filters
+    $("#facets_panel_box").removeClass("vh-90");
+    $("#facets_panel_box").addClass("vh-70");
+
+    var inputTxt = $(e.target);
     var idName;
     var persLab;
-    var idPers;
-    var nameWork;
-    var captWork;
     var n = 0;
-    // specific id to each person to be used to scroll the text
+
+    // assign specific id to each person in the transcription
+    // to be used to scroll the text when a checkbox in Persons is selected
     $(".peopleCheck").each(function() {
       idName = $(this).attr("id");
-      persLab = $("label[for='" + idName + "']").text();
+      persLab = $("input[id='" + idName + "']").val();
       $("#transcriptionViewer span:contains('" + persLab + "')").each(function() {
         $(this).attr("id", idName + "-" + n);
         n++;
       })
     })
-    if ($("#" + inputTxt).prop("checked") == true) {
-      // people
+
+    // I CLICK ON ANY CHECK
+    if ($(inputTxt).prop("checked") == true) {
+
+      // I CLICK ON A PERSON
+      // PERSON
+      // assign a color to the person in the text
       if ($(this).hasClass("peopleCheck")) {
-        idName = $(this).attr("id");
-        persLab = $("label[for='" + idName + "']").text();
-        idPers = idName + "_" + n;
-        $("#transcriptionViewer span:contains('" + persLab + "')").addClass("background_blue").addClass("highRes");
-        $(".tooltiptext").removeClass("highRes");
-        // people role - show the box for each person
-        $(".people-role-box").clone().removeClass("people-role-box").prependTo("#add-pers-role").attr("id", "" + idPers + "").addClass("len-pers-role");
-        $("#add-pers-role").addClass("scroll-height").addClass("scroll");
-        // solve the bug by which personal names are translated in "Search for a person"
-        $("#role_caption_name_index").removeClass("change_role_cap");
-        var persCapt = "#" + idPers + " .filters_people_role_caption";
-        var persBack = "#" + idPers + " .filters_people_role_button";
-        var persCheck = "#" + idPers + " .role-check";
-        $(persCapt).text(persLab);
-        $(persBack).css("background-color", "#CCEEF5");
-        $(persCheck).show();
-        // assign an id to a person with author role in the text
-        var persInp = "#" + idPers + " .role-check .input-auth-check";
-        $(persInp).attr("id", idName + "-auth");
-        $("#" + idName + "-auth").click(function() {
-          $(".author:contains('" + idName + "')").toggleClass("background_orchid");
-        })
-        // assign an id to a person with mentioned person role in the text
-        var persCited = "#" + idPers + " .role-check .input-cited-check";
-        $(persCited).attr("id", idName + "-cited");
-        $("#" + idName + "-cited").click(function() {
-          $(".highRes:not('.author'):contains('" + idName + "')").toggleClass("background_yellowgreen");
-        })
-      }
-      // comments
-      if ($("#comment").prop("checked") == true) {
-        $("[data-type='comment']").css("background-color", "#C4D4CA").addClass("highRes");
-      }
-      // translations
-      if ($("#translation").prop("checked") == true) {
-        $("[data-type='translation']").css("background-color", "#F0E29C").addClass("highRes");
-      }
-      // quots
-      if ($("#quotation").prop("checked") == true) {
-        quots.css("background-color", "#F4B49C").addClass("highRes");
-      }
-      // works
-      if ($(this).hasClass("workCheck")) {
-        var excerpts = $(this).attr("data-excerpts").split(" ");
-        nameWork = $(this).next().text();
-        titlCaptWork = $("#filters_works").text();
-        if (titlCaptWork == "Opere") {
-          titlCaptWork = "Opera";
-        } else {
-          titlCaptWork = "Work";
-        }
-        for (var i = 0; i < excerpts.length; i++) {
-          captWork = "<div class='provWork'><button class='filters_icon filter_background_pink button-check'><i class='glyphicon glyphicon-book icon-check'> </i></button><span class='labelInline'> " + titlCaptWork + ":</span> <span class='filters_category_title'>" + nameWork + "</br></span></div>";
-          $("*[data-source='#" + excerpts[i] + "']").prepend(captWork).addClass("highRes");
-          var exVal = $("*[data-source='#" + excerpts[i] + "']").attr("id"); // associate a color to each type of excerpt
-          if (exVal.indexOf("comm-") != -1) {
-            $("*[data-source='#" + excerpts[i] + "']").css("background-color", "rgb(196, 212, 202)");
-          } else if (exVal.indexOf("quot-") != -1) {
-            $("*[data-source='#" + excerpts[i] + "']").css("background-color", "rgb(244, 180, 156)");
-          } else {
-            $("*[data-source='#" + excerpts[i] + "']").css("background-color", "rgb(240, 226, 156)");
+
+        var persToSearch = $(this).val();
+
+        // person name label in the form surname, name
+        var persLabel = $(this).attr("data-label");
+
+        // BLOCK PEOPLE when one person is checked
+        $("span[data-target='#filters_checkbox_people']").removeAttr("data-toggle");
+        $("#filters_checkbox_people").removeClass("in");
+        $(".panel-title[data-target='#filters_checkbox_people']").removeClass("panel-title");
+        // BLOCK WORKS when one person is checked
+        $("span[data-target='#filters_checkbox_works']").removeAttr("data-toggle");
+        $("#filters_checkbox_works").removeClass("in");
+        $(".panel-title[data-target='#filters_checkbox_works']").removeClass("panel-title");
+
+        // HIGHLIGHT THE PERSON IN THE TRANSCRIPTION
+        $("#transcriptionViewer .tooltiptext:contains('" + persToSearch + "')").parent().addClass("background_blue").addClass("highRes").attr("mentionedperson", persToSearch);
+
+        // PRINT THE EXCERPT CODE THE PERSON APPEARS IN
+        var citInRaw = $(this).attr("semantics").split("----"); // divide the different attribute values
+
+        $(citInRaw).each(function() {
+
+          var x = this;
+          // excerpt
+          var cit = x.split("#")[1];
+          // work
+          var work = x.split("#")[0]
+
+          if (cit !== undefined) {
+            // ex
+            $("#" + cit + ":contains('" + persToSearch + "')").find(".highRes").attr("cit", cit);
+            // work
+            $("#" + cit + ":contains('" + persToSearch + "')").find(".highRes").attr("work", work);
           }
-        }
+
+        })
+
+        // SHOW THE RESULTS IN THE LIST
+        getRes();
+
+        // CLOSE THE PEOPLE AND WORKS BOX TEMP
+        $("#filters_checkbox_people").removeClass("show");
+        $("#filters_checkbox_people").removeClass("in");
+        $("#filters_checkbox_works").removeClass("in");
+        $("#facets_panel_box").addClass("scroll-open-filters");
+
+        // OPEN THE ROLE BOX
+        $("#role-box").show();
+
+        // SHOW THE BOX FOR EACH PERSON
+        $(".people-role-box").hide();
+        var orig = $("#add-pers-role").find(".people-role-box");
+        var cloned = $(orig).clone().removeClass("people-role-box").prependTo("#add-pers-role").attr("value", "" + persToSearch + "").addClass("len-pers-role").show();
+        //$("#add-pers-role").addClass("scroll-height").addClass("scroll");
+        $("#role_caption_name_index").text(persLabel);
+        $(".len-pers-role:contains('" + persLabel + "') input").attr("person", persToSearch);
+
       }
-      var idRes;
-      var res = $("#transcriptionViewer .highRes");
-      if ($("input").hasClass("highRes")) {
-        $(this).removeClass("highRes");
+
+      // IF I CLICK ANOTHER PERSON
+      var people = $(".peopleCheck:checked");
+      if (people.length > 1) {
+
+        // SHOW THE RESULTS IN THE LIST
+        getRes();
+
       }
-      // list of results
-      for (var i = 0; i < res.length; i++) {
-        idRes = $(res[i]).prop("id");
-        // print person name in results list
-        var idPers = idRes.split("-")[0]; // id of each person
-        if ($("#" + idPers).hasClass("peopleCheck") == true) {
-          $("#list-results").append("<li value='" + idRes + "'>&rarr; " + idRes.split("-")[0] + "</li>");
-          // exceptions - id that does not correspont to person name
-          $("li[value='" + idRes + "']:contains('De')").text("De Sarlo");
-          $("li[value='" + idRes + "']:contains('Förster')").text("Elisabeth Förster Nietzsche");
-          // /
-        } else if ($("#" + idRes).attr("data-source")) {
-          // excerpt code
-          var codeEx = idRes.split("quot-")[1]
-          // print citations and works
-          // works
-          if ($("#" + idRes + " .provWork .filters_category_title").length > 0) {
-            // quots
-            if (idRes.indexOf("quot-") != -1) {
-              if ($("#filters_people").text() == "Persone") {
-                $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'><span class='n_quot' value='" + idRes + "'>cit-</span>" + codeEx + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</span></li>");
-              }
-              if ($("#filters_people").text() == "People") {
-                $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'><span class='n_quot' value='" + idRes + "'>quot-</span>" + codeEx + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</span></li>");
-              }
-            } else {
-              // other types of excerpts
-              $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'>" + idRes + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</span></li>");
+
+      // THEN I CLICK ON A ROLE
+      $('.role').change(function(){
+        if (this.checked) {
+
+          // UNBLOCK WORKS when one role is checked
+          $("#filters_checkbox_works").addClass("in");
+          $("span[data-target='#filters_checkbox_works']").attr("data-toggle", "collapse").attr("aria-expanded", "true").addClass("panel-title");
+
+
+          var pers = $(this).attr("person");
+
+          // SHOW THE RELATION BOX FOR EACH PERSON
+          $(".person-relation-box").clone(true, true).removeClass("person-relation-box").prependTo("#add-person-relation-box").attr("value", "" + pers + "").addClass("len-rel-role");
+          //$("#add-person-relation-box").addClass("scroll-height").addClass("scroll");
+          $("#person-rel-caption").text(pers);
+          $(".len-rel-role:contains('" + pers + "') input").attr("person", pers);
+
+          // AUTHOR ROLE
+          if ($(this).val() == "author") {
+            // assign a color to the person with the author role in the text
+            $("#transcriptionViewer .highRes.author:contains('" + pers + "')").not(".data-notebook-author").addClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='author']:contains('" + pers + "')").not(".data-notebook-author").addClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='editor']:contains('" + pers + "')").not(".data-notebook-author").addClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='translator']:contains('" + pers + "')").not(".data-notebook-author").addClass("background_orchid");
+
+
+            // REMOVE PEOPLE WITHOUT AUTHOR ROLE
+            // only if only author checkbox is selected
+            if ($("#cited-role").prop("checked") == false) {
+              $("#transcriptionViewer .highRes:contains('" + pers + "')").not(".background_orchid").removeClass("background_blue");
             }
 
-          } else {
-            // quots
-            // quot- > cit- excerpt code translation
-            if (idRes.indexOf("quot-") != -1) {
-              if ($("#filters_people").text() == "Persone") {
-                $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'><span class='n_quot' value='" + idRes + "'>cit-</span>" + codeEx + "</li>"); // ADD CIT
-              }
-              if ($("#filters_people").text() == "People") {
-                $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'><span class='n_quot' value='" + idRes + "'>quot-</span>" + codeEx + "</li>"); // ADD CIT
-              }
-            }
-            if (idRes.indexOf("tra-") != -1) {
-              // other types of excerpts
-              $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'>" + idRes +"</li>");
-            }
-            if (idRes.indexOf("comm-") != -1) {
-              // other types of excerpts
-              $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'>" + idRes +"</li>");
-            }
-          }
-        } else {
-          // print any other result
-          $("#list-results").append("<li value='" + idRes + "'>" + idRes + "</li>");
-        }
-        //
-        // solve a bug by which if Nietzsche is checked some Wagner results appear
-        if (idName === "Nietzsche") {
-          if ($("#Wagner").prop("checked") == false) {
-            $("#list-results li:contains('Wagner')").remove();
-          }
-        }
-        // /
-        // remove duplicates in the list of results
-        if ($("#list-results li[value='" + idRes + "']").length > 1) {
-          $("#list-results li[value='" + idRes + "']").first().remove();
-        }
-        //
-        // add link to each li in list
-        $("#list-results li[value='" + idRes + "']").addClass(idRes.split("-")[0]).addClass("link").addClass("pointer");
-        //
-      }
-      // n of results
-      $("#n-results").text($(".highRes").length);
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      //////////////////////////////////////////////////ELSE///////////////////////////////////////////////////////////////
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else {
-      // people
-      if ($(this).hasClass("peopleCheck")) {
-        idName = $(this).attr("id");
-        // solve a bug by which if Nietzsche is checked some Wagner results appear
-        if (idName === "Nietzsche") {
-          if ($("#Wagner").prop("checked") == false) {
-            $("#list-results li:contains('Wagner')").remove();
-          }
-        }
-        // / people role box
-        $("p:contains('" + idName + "')").removeClass("background_blue").removeClass("highRes");
-        $("span:contains('" + idName + "')").removeClass("background_blue").removeClass("highRes");
-        // remove author role
-        $("p:contains('" + idName + "')").removeClass("background_orchid");
-        $("span:contains('" + idName + "')").removeClass("background_orchid");
-        // /
-        // remove mentioned person role
-        $("p:contains('" + idName + "')").removeClass("background_yellowgreen");
-        $("span:contains('" + idName + "')").removeClass("background_yellowgreen");
-        // /
-        // remove people role box
-        idPers = idName + "_" + n;
-        $("#" + idPers).remove();
-        if ($(".len-pers-role").length == 0) {
-          $("#add-pers-role").removeClass("scroll-height").removeClass("scroll");
-        }
-        if ($("#filters_people_role").text() == "People role") {
-          $(persCapt).text("Searched person");
-        } else {
-          $(persCapt).text("Persona cercata");
-        }
-        // remove background from people cited in text
-        $(persBack).css("background-color", "#E6E6E6");
-        // remove code title regarding people
-        $("#title-id").text("");
-        // remove a single person result from list of results
-        $("#list-results li:contains('" + idName + "')").remove();
-      }
-      // /
-      // comments
-      if ($("#comment").prop("checked") == false) {
-        $("[data-type='comment']").css("background-color", "rgba(244, 180, 156, 0)").removeClass("highRes");
-        $("#title-id").text("");
-        $(".comm").remove();
-      }
-      // translations
-      if ($("#translation").prop("checked") == false) {
-        $("[data-type='translation']").css("background-color", "rgba(244, 180, 156, 0)").removeClass("highRes");
-        $("#title-id").text("");
-        $(".tra").remove();
-        // + works
-        if ($(":checkbox[class=workCheck]:checked").length > 0) {
-          $(":checkbox[class=workCheck]:checked").each(function() {
-            var excerpts = $(this).attr("data-excerpts").split(" ");
-            for (var i = 0; i < excerpts.length; i++) {
-              // id of each highlight excerpt
-              var idEx = $("*[data-source='#" + excerpts[i] + "']").attr("id");
-              // give color to translation excerpts
-              if (idEx.indexOf("tra-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(240, 226, 156)");
-              }
-              if (idEx.indexOf("quot-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(244, 180, 156)");
-              }
-              if (idEx.indexOf("comm-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(196, 212, 202)");
-              }
-              // /
-              $("*[data-source='#" + excerpts[i] + "']").prepend(captWork).addClass("highRes");
-            }
-          })
-          // list results
-          getRes();
-          // /
-        }
-        // /
-      }
-      // quots
-      if ($("#quotation").prop("checked") == false) {
-        quots.css("background-color", "rgba(244, 180, 156, 0)").removeClass("highRes");
-        $("#title-id").text("");
-        $(".quot").remove();
-        if ($(":checkbox[class=workCheck]:checked").length > 0) {
-          $(":checkbox[class=workCheck]:checked").each(function() {
-            var excerpts = $(this).attr("data-excerpts").split(" ");
-            for (var i = 0; i < excerpts.length; i++) {
-              // id of each highlight excerpts
-              var idEx = $("*[data-source='#" + excerpts[i] + "']").attr("id");
-              // give color to translation excerpts
-              if (idEx.indexOf("tra-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(240, 226, 156)");
-              }
-              if (idEx.indexOf("quot-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(244, 180, 156)");
-              }
-              if (idEx.indexOf("comm-") != -1) {
-                $("#" + idEx).css("background-color", "rgb(196, 212, 202)");
-              }
-              // /
-              $("*[data-source='#" + excerpts[i] + "']").prepend(captWork).addClass("highRes");
-            }
-          })
-          // list results
-          getRes();
-          // /
-        }
-        // 0 works
-        if ($(":checkbox[class=workCheck]:checked").length == 0) {
-          getRes();
-        }
-        // /
-      }
-      // works
-      if ($(this).hasClass("workCheck")) {
-        nameWork = $(this).next().text();
-        var excerpts = $(this).attr("data-excerpts").split(" ");
-        for (var i = 0; i < excerpts.length; i++) {
-          $(".provWork:contains('" + nameWork + "')").parent().removeAttr("background_red").removeClass("highRes");
-          $(".provWork:contains('" + nameWork + "')").remove();
-          $(".provWork:not(:contains('" + nameWork + "'))").parent().css("background-color", "#F4B49C").addClass("highRes");
-          var idRes;
-          var res = $("#transcriptionViewer .highRes");
-          if ($("input").hasClass("highRes")) {
-            $(this).removeClass("highRes");
-          }
-          //
-        }
-        // 0 works, 0 check
-        if ($(".workCheck:checked").length == 0) {
-          if ($(".peopleCheck:checked").length == 0) {
-            if ($("#comment:checked").length == 0) {
-              if ($("#quotation:checked").length == 0) {
-                if ($("#translation:checked").length == 0) {
-                  countChecked();
+
+
+            // authors whose name does not occur
+            if (pers == "Paolo Bufalini") {
+              $("*[data-resp='#PB']").each(function() {
+                if ($(this).attr("id") !== undefined) {
+                  var idEx = $(this).attr("id");
+                  if (idEx.indexOf("comm-") != -1) {
+                    $("#" + idEx).addClass("highRes").addClass("background_green").addClass("workEx").addClass("data-notebook-author");
+                  }
+                  if (idEx.indexOf("quot-") != -1) {
+                    $("#" + idEx).addClass("highRes").addClass("background_pink").addClass("workEx").attr("data-notebook-author");
+                  }
+                  if (idEx.indexOf("tra-") != -1) {
+                    $("#" + idEx).addClass("highRes").addClass("background_yellow").addClass("workEx").addClass("data-notebook-author");
+                  }
                 }
-              }
+              })
+            }
+
+
+
+            // SHOW THE WORKS WRITTEN BY THE SELECTED AUTHORS
+            $("#filters_checkbox_works").addClass("in");
+            $(".single-work-filter:not([data-author='" + pers + "'])").not(".corresponding-work-in").hide();
+            $(".single-work-filter[data-author='" + pers + "']").addClass("corresponding-work").show();
+            $(".corresponding-work").show();
+            $(".corresponding-work-in").show();
+
+            // SHOW THE RESULTS IN THE LIST
+            getRes();
+
+
+
+          }
+
+          // MENTIONED ROLE
+          if ($(this).val() == "mentioned") {
+
+
+            // assign a color to the person with the author role in the text
+            $("#transcriptionViewer .highRes:not('.author')[data-role!='author'][data-role!='translator'][data-role!='editor']:contains('" + pers + "')").not(".data-notebook-author").addClass("background_yellowgreen");
+
+            // REMOVE PEOPLE WITHOUT AUTHOR ROLE
+            // only if only author checkbox is selected
+            if ($("#author-role").prop("checked") == false) {
+              $("#transcriptionViewer .highRes:contains('" + pers + "')").not(".background_yellowgreen").removeClass("background_blue");
+            }
+
+            // SHOW THE WORKS THE SELECTED PEOPLE ARE MENTIONED IN
+            $("#filters_checkbox_works").addClass("in");
+            var work = $("#transcriptionViewer .highRes:not('.author')[data-role!='author'][data-role!='translator'][data-role!='editor']:contains('" + pers + "')");
+
+            if (work.length == 0) {
+              $(".single-work-filter").hide();
+              $(".corresponding-work-in").show();
+              $(".corresponding-work").show();
+            } else {
+              $(work).each(function() {
+                var citWork = $(this).attr("cit");
+                $(".single-work-filter > input[semantics*='" + citWork + "']").parent().addClass("corresponding-work-in");
+                $(".single-work-filter > input").not("[semantics*='" + citWork + "']").parent().hide();
+                $(".corresponding-work-in").show();
+                $(".corresponding-work").show();
+              })
+            }
+
+            // SHOW THE RESULTS IN THE LIST
+            getRes();
+
+          }
+
+          // REMOVE RELATION BOX DUPLICATES
+          if ($(".len-rel-role[value='" + pers + "']").length > 1) {
+            $(".len-rel-role[value='" + pers + "']").first().remove();
+          }
+
+          // AS A CONSEQUENCE, OPEN THE FILTERED PERSON BOX
+          $("#relation-box").show();
+
+        } else {
+          var pers = $(this).attr("person");
+
+          // AUTHOR ROLE
+          if ($(this).val() == "author") {
+
+            // remove the color to the person with the author role in the text
+            $("#transcriptionViewer .highRes.author:contains('" + pers + "')").removeClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='author']:contains('" + pers + "')").removeClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='editor']:contains('" + pers + "')").removeClass("background_orchid");
+            $("#transcriptionViewer .highRes[data-role='translator']:contains('" + pers + "')").removeClass("background_orchid");
+
+            // authors whose name does not occur
+            if (pers == "Paolo Bufalini") {
+              $(".highRes.data-notebook-author").removeClass("highRes").removeClass("background_pink").removeClass("background_green").removeClass("background_yellow").removeClass("data-notebook-author");
+            }
+
+
+
+            // HIDE THE WORKS WRITTEN BY THE SELECTED AUTHORS
+            $(".corresponding-work:not([data-author='" + pers + "'])").show();
+            $(".corresponding-work input").prop("checked", false);
+            $(".corresponding-work[data-author='" + pers + "']").removeClass("corresponding-work").removeClass("highRes").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow").hide();
+            // SHOW WORKS IN WHICH THE PERSON IS MENTIONED
+            $(".corresponding-work-in").show();
+            // HIDE THE WORKS WRITTEN BY THE SELECTED AUTHOR IN THE TEXT
+            $("#transcriptionViewer .highRes[title-author*='" + pers + "']").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow").removeClass("highRes");
+
+            // SHOW THE RELATION BOX FOR EACH PERSON
+            if ($("input[person='" + pers + "']:checked").length == 0) {
+              // REMOVE EACH PERSON BOX
+              $(".len-rel-role:contains('" + pers + "')").remove();
+            }
+
+            // SHOW THE RESULTS IN THE LIST
+            getRes();
+
+          }
+
+          // MENTIONED ROLE
+          if ($(this).val() == "mentioned") {
+            // remove a color to the person with the author role in the text
+            $("#transcriptionViewer .highRes:not('.author')[data-role!='author'][data-role!='editor'][data-role!='translator']:contains('" + pers + "')").removeClass("background_yellowgreen");
+            // REMOVE MENTIONED ROLE
+            var work = $("#transcriptionViewer .highRes:not('.author')[data-role!='author'][data-role!='editor'][data-role!='translator']:contains('" + pers + "')");
+            $(work).each(function() {
+              var citWork = $(this).attr("cit");
+              $(".corresponding-work-in input").prop("checked", false);
+              $(".single-work-filter > input[semantics*='" + citWork + "']").parent().removeClass("corresponding-work-in").hide();
+              //$(".highRes[id='" + citWork + "']").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow").removeClass("highRes");
+            })
+            // REMOVE WORKS IN WHICH THE PERSON IS MENTIONED
+            $("#transcriptionViewer .highRes.workEx:contains('" + pers + "')").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow").removeClass("highRes").removeClass("workEx");
+            // SHOW THE WORKS BY THE AUTHOR
+            $(".corresponding-work").show();
+            // SHOW THE RESULTS IN THE LIST
+            getRes();
+            // SHOW THE RELATION BOX FOR EACH PERSON
+            if ($("input[person='" + pers + "']:checked").length == 0) {
+              // REMOVE EACH PERSON BOX
+              $(".len-rel-role:contains('" + pers + "')").remove();
             }
           }
-          // /
-          // 0 works, + check
-          if ($(":checked").length > 0) {
+
+          // 0 ROLE > SHOW ALL WORKS AND PEOPLE OCCURRENCES
+          if ($("input.role:checked").length == 0) {
+            // SHOW PEOPLE OCCURRENCES
+            $(".highRes:contains('" + persToSearch + "')").addClass("background_blue");
+            // UNCHECK WORKS CHECKBOX
+            $(".workCheck").prop('checked', false);
+            // REMOVE ALL WORKS
+            $(".highRes.workEx").removeClass("highRes").removeClass("workEx").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow");
+            // CLOSE WORKS BOX
+            $("#filters_checkbox_works").removeClass("in");
+            $("span[data-target='#filters_checkbox_works']").removeClass("panel-title");
+            // SHOW THE RESULTS IN THE LIST
             getRes();
           }
-          // /
+
         }
-        // + works, + check
-        if ($(".workCheck:checked").length > 0) {
-          getRes();
+
+      })
+
+      // THEN I CLICK ON A RELATION
+      $('.relation').change(function(){
+        if (this.checked) {
+
+          // OPEN THE BOX OF TYPE OF EXCERPTS
+          $("#filtered-people-box").show();
+
         }
-        // /
+      })
+
+      // THEN I CLICK ON A FILTERED PERSON
+      $('.filteredPeople').change(function(){
+        if (this.checked) {
+
+          // CLOSE THE BOX OF FILTERED PEOPLE
+          $("#filtered-people").removeClass("show");
+          $("#filtered-people").removeClass("in");
+
+          // OPEN THE BOX OF TYPE OF EXCERPTS
+          $("#type-ex-box").show();
+
+        }
+      })
+
+      // I CLICK ON A WORK
+      if ($(this).hasClass("workCheck")) {
+
+        // TEMP CLOSE PEOPLE BOX
+        // BLOCK PEOPLE when one person is checked
+        $("span[data-target='#filters_checkbox_people']").removeAttr("data-toggle");
+        $("#filters_checkbox_people").removeClass("in");
+        $(".panel-title[data-target='#filters_checkbox_people']").removeClass("panel-title");
+
+        // IDENTIFY THE EXCERPTS FROM THE SELECTED WORK AND THEIR ATTRIBUTES
+        var excerpts = $(this).attr("semantics").split("____");
+        var titleAuthor = $(this).attr("title-author");
+
+
+        $(excerpts).each(function() {
+
+          var x = this;
+          var exId = x.split("#")[1];
+          var exVV = x.split("#")[0];
+
+          // ASSIGN A COLOR FOR EACH EXCERPT DEPENDING ON THE TYPE OF EXCERPT
+          // comment
+          if (exId.indexOf("comm-") != -1) {
+            $("#" + exId).addClass("highRes").addClass("background_green workEx").attr("title-author", titleAuthor).attr("vv", exVV);
+          }
+          // quotation
+          if (exId.indexOf("quot-") != -1) {
+            $("#" + exId).addClass("highRes").addClass("background_pink workEx").attr("title-author", titleAuthor).attr("vv", exVV);;
+          }
+          // translation
+          if (exId.indexOf("tra-") != -1) {
+            $("#" + exId).addClass("highRes").addClass("background_yellow workEx").attr("title-author", titleAuthor).attr("vv", exVV);;
+          }
+
+          // IF MENTIONED PERSON ROLE IS CHECKED
+          if ($("input#cited-role").is(":checked")) {
+
+            var citedPers = $("input#cited-role").attr("person");
+            // comment
+            if (exId.indexOf("comm-") != -1) {
+              $("#" + exId + ":not(:contains('" + citedPers + "'))").removeClass("highRes").removeClass("background_green workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").addClass("highRes").addClass("background_green workEx").attr("title-author", titleAuthor).attr("vv", exVV);
+            }
+            // quotation
+            if (exId.indexOf("quot-") != -1) {
+              $("#" + exId + ":not(:contains('" + citedPers + "'))").removeClass("highRes").removeClass("background_pink workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").addClass("highRes").addClass("background_pink workEx").attr("title-author", titleAuthor).attr("vv", exVV);
+            }
+            // translation
+            if (exId.indexOf("tra-") != -1) {
+              $("#" + exId + ":not(:contains('" + citedPers + "'))").removeClass("highRes").removeClass("background_yellow workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").addClass("highRes").addClass("background_yellow workEx").attr("title-author", titleAuthor).attr("vv", exVV);
+            }
+            // BUT ALSO AUTHOR ROLE
+            if ($("input#author-role").is(":checked")) {
+              // ASSIGN A COLOR FOR EACH EXCERPT DEPENDING ON THE TYPE OF EXCERPT
+              // comment
+              if (exId.indexOf("comm-") != -1) {
+                $("#" + exId + "[title-author*='" + citedPers + "']").addClass("highRes").addClass("background_green workEx").attr("title-author", titleAuthor).attr("vv", exVV);
+              }
+              // quotation
+              if (exId.indexOf("quot-") != -1) {
+                $("#" + exId + "[title-author*='" + citedPers + "']").addClass("highRes").addClass("background_pink workEx").attr("title-author", titleAuthor).attr("vv", exVV);;
+              }
+              // translation
+              if (exId.indexOf("tra-") != -1) {
+                $("#" + exId + "[title-author*='" + citedPers + "']").addClass("highRes").addClass("background_yellow workEx").attr("title-author", titleAuthor).attr("vv", exVV);;
+              }
+            }
+          }
+
+
+        })
+
+        // SHOW THE RESULTS IN THE LIST
+        getRes();
+
       }
-      // /
-      $("." + inputTxt).remove();
-      $("#n-results").text($(".highRes").length);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////// ELSE //////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////
+    } else {
+
+      // IF I UNCHECK A PERSON
+      if ($(this).hasClass("peopleCheck")) {
+
+        // REMOVE HIGHLIGHT FROM TEXT
+        var persToSearch = $(this).val();
+        $("#transcriptionViewer .tooltiptext:contains('" + persToSearch + "')").parent().removeClass("background_blue").removeClass("highRes").removeClass("background_orchid").removeClass("background_yellowgreen");
+        $("#transcriptionViewer .tooltiptext:contains('" + persToSearch + "')").removeClass("highRes");
+
+        // AUTHORS WHOSE NAME IS NOT MENTIONED
+        if (persToSearch == "Paolo Bufalini") {
+          $(".highRes.data-notebook-author").removeClass("highRes").removeClass("background_green").removeClass("background_pink").removeClass("background_yellow").removeClass("data-notebook-author");
+        }
+
+        // SHOW THE RESULTS IN THE LIST
+        getRes();
+
+        // HIDE THE WORKS WRITTEN BY THE SELECTED AUTHORS
+        $(".corresponding-work:not(:contains('" + persToSearch + "'))").show();
+        $(".corresponding-work:contains('" + persToSearch + "')").removeClass("corresponding-work").hide();
+        // HIDE THE WORKS IN WHICH THE PERSON APPERS
+        var citWork = $(this).attr("semantics").split("----");
+        $(citWork).each(function() {
+          var ex = this.split("#")[1];
+          $(".single-work-filter > input[semantics*='" + ex + "']").parent().removeClass("corresponding-work-in").hide();
+        })
+
+        // REMOVE CORRESPONDING ROLE BOX
+        $(".len-pers-role[value='" + persToSearch + "']").remove();
+
+        // IF OTHER PEOPLE ARE CHECKED
+        if ($(".peopleCheck:checked").length >= 1) {
+
+          // SHOW THE RESULTS IN THE LIST
+          getRes();
+
+        }
+
+        // CLOSE IF THE PEOPLE ARE 0
+        if ($(".peopleCheck:checked").length == 0) {
+
+          // fix the height of filters
+          $("#facets_panel_box").removeClass("vh-70");
+          $("#facets_panel_box").addClass("vh-90");
+
+          // CLOSE THE ROLE BOX
+          $("#role-box").hide();
+
+          // CLOSE THE FILTERED PERSON BOX
+          $("#relation-box").hide();
+
+          // SHOW WORKS
+          $(".single-work-filter").removeClass("corresponding-work").removeClass("corresponding-work-in").show();
+          // CLOSE WORKS BOX
+          $("#filters_checkbox_works").removeClass("in");
+
+        }
+
+      }
+
+      // IF I UNCHECK A WORK
+      // I CLICK ON A WORK
+      if ($(this).hasClass("workCheck")) {
+
+        // IDENTIFY THE EXCERPTS FROM THE SELECTED WORK
+        var excerpts = $(this).attr("semantics").split("____");
+
+        $(excerpts).each(function() {
+          var x = this;
+          var exId = x.split("#")[1];
+          // ASSIGN A COLOR FOR EACH EXCERPT DEPENDING ON THE TYPE OF EXCERPT
+          // comment
+          if (exId.indexOf("comm-") != -1) {
+            $("#" + exId).removeClass("highRes").removeClass("background_green");
+          }
+          // quotation
+          if (exId.indexOf("quot-") != -1) {
+            $("#" + exId).removeClass("highRes").removeClass("background_pink");
+          }
+          // translation
+          if (exId.indexOf("tra-") != -1) {
+            $("#" + exId).removeClass("highRes").removeClass("background_yellow");
+          }
+
+          // IF THERE ARE CHECKED ROLES
+          if ($("input#cited-role").is(":checked")) {
+            var citedPers = $("input#cited-role").attr("person");
+            // comment
+            if (exId.indexOf("comm-") != -1) {
+              $("#" + exId).removeClass("highRes").removeClass("background_green workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").removeClass("highRes").removeClass("background_green workEx");
+            }
+            // quotation
+            if (exId.indexOf("quot-") != -1) {
+              $("#" + exId).removeClass("highRes").removeClass("background_pink workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").removeClass("highRes").removeClass("background_pink workEx");
+            }
+            // translation
+            if (exId.indexOf("tra-") != -1) {
+              $("#" + exId).removeClass("highRes").removeClass("background_yellow workEx");
+              $("#" + exId + ":contains('" + citedPers + "')").removeClass("highRes").removeClass("background_yellow workEx");
+            }
+          }
+
+        })
+
+        // SHOW THE RESULTS IN THE LIST
+        getRes();
+
+        // IF 0 CHECKED
+        if (($(".workCheck:checked").length == 0) && ($(".peopleCheck:checked").length == 0)) {
+          closeResults();
+        }
+
+      }
+
+      // IF 0 CHECKED
+      if ($(":checked").length == 0) {
+        $("#list-results").clear();
+
+        // fix the height of filters
+        $("#facets_panel_box").removeClass("vh-70");
+        $("#facets_panel_box").addClass("vh-90");
+
+        // REMOVE SCROLL
+        $("#facets_panel_box").removeClass("scroll-open-filters");
+
+        // CLOSE WORKS BOX
+        $("#filters_checkbox_works").removeClass("in");
+
+      }
+
     }
   })
-  clearRes();
 }
 
-// create list of results
+function activeScroll() {
+  $("#facets_panel_box").addClass("scroll-open-filters");
+}
+
+// LIST OF RESULTS
 function getRes() {
-  // list of results
+  // EMPTY THE LIST
+  $("#list-results").empty()
+
+  // RESULTS
   var highRes = $(".highRes");
-  var idRes;
+
+  // CREATE THE LIST
   for (var i = 0; i < highRes.length; i++) {
-    idRes = $(highRes[i]).prop("id");
-    // modify li depending on the id input
-    if (idRes.indexOf("comm-") != -1) {
-      if ($("#" + idRes + " .provWork .filters_category_title").text() == "") {
-        $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'>" + idRes + "</li>");
+
+    // VAR FOR EACH TYPE OF LI
+    var item = $(highRes[i]).attr("id");
+
+    // VAR FOR PEOPLE
+    var mentionedPerson = $(highRes[i]).attr("mentionedperson");
+    var cit = $(highRes[i]).attr("cit");
+    var author = $(highRes[i]).attr("author");
+    var work = $(highRes[i]).attr("work");
+
+    // VAR FOR WORKS
+    var vv = $(highRes[i]).attr("vv");
+
+    if ($(highRes[i]).hasClass("persName") == true) {
+      if (cit !== undefined) {
+
+        // AUTHOR
+        if ($(".highRes[id='" + item + "']").hasClass("background_orchid") == true) {
+          // IN A COMMENT
+          if (cit.indexOf("comm-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim' value='" + item + "''>in</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+          // IN A QUOTATION
+          if (cit.indexOf("quot-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" +  " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" +  " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+          // IN A TRANSLATION
+          if (cit.indexOf("tra-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            // if the work does not
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+        }
+        // MENTIONED PERSON
+        else if ($(".highRes[id='" + item + "']").hasClass("background_yellowgreen") == true) {
+          // IN A COMMENT
+          if (cit.indexOf("comm-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim' value='" + item + "''>in</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+          // IN A QUOTATION
+          if (cit.indexOf("quot-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" +  " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" +  " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+          // IN A TRANSLATION
+          if (cit.indexOf("tra-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            // if the work does not
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson +  " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+        } else {
+        // NO ROLE
+          // IN A COMMENT
+          if (cit.indexOf("comm-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim' value='" + item + "''>in</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+              loadBundles($.cookie( 'language'),true);
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_comm' value='" + item + "'>in un commento</span>" + " <span class='superslim background_green' value='" + item + "'>" + cit + "</span>" + "</li>");
+              loadBundles($.cookie( 'language'),true);
+            }
+          }
+
+          // IN A QUOTATION
+          if (cit.indexOf("quot-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            // if the work does not exist
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_quot' value='" + item + "'>in una citazione</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + cit.split("-")[1] + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+
+          // IN A TRANSLATION
+          if (cit.indexOf("tra-") != -1) {
+            // if the work exists
+            if (work !== "") {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim from_work' value='" + item + "''>di</span>" + " <span class='superslim' value='" + item + "''>" + work.replace("__", " ") + "</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            // if the work does not
+            } else {
+              $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim cit_in_tra' value='" + item + "'>in una traduzione</span>" + " <span class='superslim background_yellow' value='" + item + "'>" + cit + "</span>" + "</li>");
+            }
+            loadBundles($.cookie( 'language'),true);
+          }
+        }
+
       } else {
-        $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'>" + idRes + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</li>");
-      }
-    } else if (idRes.indexOf("quot-") != -1) {
-      // excerpt code
-      var codeEx = idRes.split("quot-")[1]
-      if ($("#" + idRes + " .provWork .filters_category_title").text() == "") {
-        // quot- > cit- excerpt code translation
-        // quots
-        if ($("#filters_people").text() == "Persone") {
-          $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'><span class='n_quot' value='" + idRes + "'>cit-</span>" + codeEx + "</li>"); // ADD CIT
+
+        // AUTHOR
+        if ($(".highRes[id='" + item + "']").hasClass("background_orchid") == true) {
+          $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span class='superslim appears_mentioned_as' value='" + item + "'>è menzionato come</span> <span class='append-role background_orchid superslim assign_author' value='" + item + "'>autore</span>" + " <span class='superslim by_author' value='" + item + "'>da</span>" + " <span class='superslim' value='" + item + "'>Paolo Bufalini</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
         }
-        if ($("#filters_people").text() == "People") {
-          $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'><span class='n_quot' value='" + idRes + "'>quot-</span>" + codeEx + "</li>"); // ADD CIT
+        // MENTIONED PERSON
+        else if ($(".highRes[id='" + item + "']").hasClass("background_yellowgreen") == true) {
+          $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span class='superslim appears_as' value='" + item + "'>compare come</span> <span class='append-role background_yellowgreen superslim assign_mentioned' value='" + item + "'>persona menzionata</span>" + " <span class='superslim by_author' value='" + item + "'>da</span>" + " <span class='superslim' value='" + item + "'>Paolo Bufalini</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
+        } else {
+        // NO ROLE
+          $("#list-results").append("<li class='bold pointer' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + mentionedPerson + " <span id='is_mentioned' class='superslim is_mentioned' value='" + item + "'>è menzionato</span> " + " <span class='superslim by_author' value='" + item + "'>da</span>" + " <span class='superslim' value='" + item + "'>Paolo Bufalini</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
+        }
+
+      }
+    // WORKS
+    } else if ($(highRes[i]).hasClass("workEx") == true) {
+      if (vv !== undefined) {
+        // THE EXCERPT IS A COMMENT
+        if (item.indexOf("comm-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim comm_res' value='" + item + "'>Commento</span>" + " <span class='superslim from_work' value='" + item + "'>di</span>" + " <span value='" + item + "'>" + vv + "</span>" + " <span class='superslim background_green' value='" + item + "'>comm-" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
+        }
+
+        // THE EXCERPT IS A QUOTATION
+        if (item.indexOf("quot-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim quot_res' value='" + item + "'>Citazione</span>" + " <span class='superslim from_work' value='" + item + "'>di</span>" + " <span value='" + item + "'>" + vv + "</span>" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
+        }
+
+        // THE EXCERPT IS A TRANSLATION
+        if (item.indexOf("tra-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim tra_res' value='" + item + "'>Traduzione</span>" + " <span class='superslim from_work' value='" + item + "'>di</span>" + " <span value='" + item + "'>" + vv + "</span>" + " <span class='superslim background_yellow' value='" + item + "'>tra-" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
         }
       } else {
-        // quot- > cit- excerpt code translation
-        // works
-        if ($("#filters_people").text() == "Persone") {
-          $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'><span class='n_quot' value='" + idRes + "'>cit-</span>" + codeEx + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</span></li>");
+        // THE EXCERPT IS A COMMENT
+        if (item.indexOf("comm-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim comm_res' value='" + item + "'>Commento</span>" + " <span class='superslim from_work' value='" + item + "'>di</span> Paolo Bufalini" + " <span class='superslim background_green' value='" + item + "'>comm-" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
         }
-        if ($("#filters_people").text() == "People") {
-          $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'><span class='n_quot' value='" + idRes + "'>quot-</span>" + codeEx + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</span></li>");
+
+        // THE EXCERPT IS A QUOTATION
+        if (item.indexOf("quot-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim quot_res' value='" + item + "'>Citazione</span>" + " <span class='superslim from_work' value='" + item + "'>di</span> Paolo Bufalini" + " <span class='cit_quot superslim background_pink' value='" + item + "'>cit-</span><span class='superslim background_pink' value='" + item + "'>" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
+        }
+
+        // THE EXCERPT IS A TRANSLATION
+        if (item.indexOf("tra-") != -1) {
+          $("#list-results").append("<li class='bold pointer workLi' value='" + item + "'><span class='list-results-marker'>&#9679;</span> " + "<span class='superslim tra_res' value='" + item + "'>Traduzione</span>" + " <span class='superslim from_work' value='" + item + "'>di</span> Paolo Bufalini" + " <span class='superslim background_yellow' value='" + item + "'>tra-" + item.split("-")[1] + "</span>" + "</li>");
+          loadBundles($.cookie( 'language'),true);
         }
       }
-    } else if (idRes.indexOf("tra-") != -1) {
-      if ($("#" + idRes + " .provWork .filters_category_title").text() == "") {
-        $("#list-results").append("<li value='" + idRes + "' class='quot link pointer'>" + idRes + "</li>");
-      } else {
-        $("#list-results").append("<li value='" + idRes + "' class='quot link pointer underline'>" + idRes + " - " + $("#" + idRes + " .provWork .filters_category_title").text() + "</li>");
-      }
+
     }
-    // remove duplicates
-    if ($("#list-results li[value='" + idRes + "']").length > 1) {
-      $("#list-results li[value='" + idRes + "']").first().remove();
-    }
+
   }
-  // /
+
+
+  // REMOVE DUPLICATES
+  if ($("#list-results li[value='" + item + "']").length > 1) {
+    $("#list-results li[value='" + item + "']").first().remove();
+  }
+
+  $("#n-results").text($("#list-results li").length);
+  console.log($("#list-results li").length)
+
+
+  // IF AUTHOR, LEAVE ONLY WORKS BY THAT AUTHOR AND AUTHOR OCCURRENCES
+  if (($("#author-role").prop("checked") == true) && ($("#cited-role").prop("checked") == false)) {
+    $("#list-results li:not(:has('.background_orchid'))").hide();
+    $("#list-results li.workLi").show();
+    // COUNT THE NUMBER OF RESULTS
+    $("#n-results").text($("#list-results li:visible").length);
+  }
+  // IF MENTIONED PERSON, LEAVE ONLY WORKS IN WHICH THE MENTIONED PERSON IS IN AND THAT PERSON OCCURRENCES
+  else if (($("#author-role").prop("checked") == false) && ($("#cited-role").prop("checked") == true)) {
+    $("#list-results li:not(:has('.background_yellowgreen'))").hide();
+    $("#list-results li.workLi").show();
+    // COUNT THE NUMBER OF RESULTS
+    //$("#n-results").text($("#list-results li:visible").length);
+
+    // filter the people in results depending on the selected work
+    $("#list-results li.workLi").each(function() {
+      var work = ($(this).attr("value"));
+      $("#list-results li:not(:contains('" + work.split("-")[1] + "'))").hide();
+      $("#list-results li:contains('" + work.split("-")[1] + "')").addClass("contain");
+      $(".contain").show();
+      $("#n-results").text($("#list-results li:visible").length);
+    })
+
+  }
+
 }
 
 // excerpt codes print and scroll to corresponding id
 function printCode() {
   $("#list-results").click(function(e) {
     var valEx = $(e.target).attr("value");
-    var title = $("#list-results li[value='" + valEx + "']").text();
-    var titleN = $("#list-results li[value='" + valEx + "']").index() + 1;
-    $("#title-id").text(titleN + ". " + title);
+
+    //var title = $("#list-results li[value='" + valEx + "']").text();
+    //var titleN = $("#list-results li[value='" + valEx + "']").index() + 1;
+    //$("#title-id").text(title); //titleN + ". " +
+
     $("#transcriptionViewer").animate({
-      scrollTop: $("#" + valEx).position().top
-    }, 2000);
+      scrollTop: $("#" + valEx).position().top - 25
+    }, 500);
+
   });
 }
 
@@ -1685,13 +2445,31 @@ function printCode() {
 function countChecked() {
   var n = $("input:checked").length;
   if (n > 0) {
-    //$("#moreResultsButton").show();
-    $("#results-container").show();
+
+    // SHOW THE RESULTS BOX
+    $("#res-box").show();
+    // SHOW THE BUTTON TO REMOVE RESULTS
+    $("#close-results").show();
+    // SHOW THE LIST OF RESULTS
+    $("#print-results").show();
+
+    // CHANGE PANEL TOOL HEIGHT
+    $(".index-section .panel_tool").css("height", "65vh");
+
     $("#print-results").removeClass("no-display");
-    $(".move-facets").addClass("move-facets-reduced");
+
   } else {
-    $("#results-container").hide();
-    $(".move-facets").removeClass("move-facets-reduced");
+
+    // SHOW THE RESULTS BOX
+    $("#res-box").hide();
+    // HIDE THE BUTTON TO REMOVE RESULTS
+    $("#close-results").hide();
+    // EMPTY THE LIST OF RESULTS
+    $("#list-results").empty();
+
+    // CHANGE PANEL TOOL HEIGHT
+    $(".index-section .panel_tool").css("height", "85vh");
+
   }
 }
 
@@ -1707,9 +2485,9 @@ function searchRes() {
 
 // function containing all the functions regarding facets - digital edition
 function useCheckbox() {
-  editionFacets();
+  editionFilters();
   countChecked();
-  $("input[type=checkbox]").on("change", countChecked);
+  $("input").on("change", countChecked);
   printCode();
   searchRes();
 }
@@ -1720,7 +2498,7 @@ function tieTrasFac() {
   var pageToShow = $("[data-n=" + pageN + "]")
   $(".scroll_transcription").animate({
     scrollTop: $(pageToShow).position().top
-  }, 2000);
+  }, 500);
 }
 
 
@@ -1759,385 +2537,214 @@ function searchIndex() {
   })
 }
 
+// REMOVE CHECK PEOPLE
+function removeCheck() {
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// PEOPLE INDEX FACETS ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function peopleIndexFacets() {
-  // add
-  $("input").change(function(e) {
-    if ($(":checkbox:checked").length > 0) {
-      showEx();
-    }
-  })
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // PERSONE /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  $("input[class=peopleCheckIndex]").change(function(e) {
-    var checkVal = $(e.target).val();
-    if ($(e.target).prop("checked") == true) {
-      $(".index-div[value!='" + checkVal + "']").hide().removeClass("filter");
-      $(".index-div[value='" + checkVal + "']").addClass("contain");
-      $(".index-div[value!='" + checkVal + "']:contains('" + checkVal + "')").addClass("contain");
-      $(".person-who-cites").show();
-      // people role
-      $("#add-pers-role-index").addClass("scroll-height").addClass("scroll");
-      $(".people-role-box").clone().removeClass("people-role-box").prependTo("#add-pers-role-index").attr("value", checkVal).addClass("specific-role-box").addClass("contain");
-      // solve a bug for which a personal name is translated in search for a person
-      $("#role_caption_name_index").removeClass("change_role_cap");
-      // /
-      $(".specific-role-box[value='" + checkVal + "'] .filters_people_role_button").css("background-color", "#CCEEF5");
-      $(".specific-role-box[value='" + checkVal + "'] .filters_people_role_caption").text(checkVal);
-      $(".specific-role-box[value='" + checkVal + "'] .role-check").show();
-      $(".specific-role-box[value='" + checkVal + "'] .role-check .input-auth-check").attr("value", checkVal);
-      $(".filters-resize-plus").removeClass("filters-resize-plus").addClass("filters-resize-minus"); // resize dell'altezza delle faccette delle persone
-      // /
-      // author role
-      $("input[role=auth-role]").change(function(e) {
-        if ($(e.target).prop("checked") == true) {
-          var authRoleVal = $(this).val();
-          if ($(".input-auth-check[value='" + authRoleVal + "']").attr("role") === "auth-role") {
-            var contAuth = $(".author-name:contains('" + authRoleVal + "')");
-            for (var i = 0; i < contAuth.length; i++) {
-              $(".author-name:contains('" + authRoleVal + "')").addClass("background_orchid_padd");
-            }
-            if ($(".author-name:contains('" + authRoleVal + "')").length == 0) {
-              if ($("#en-butt").hasClass("active")) {
-                alert("There is no " + authRoleVal + " with author role.")
-              } else {
-                alert(authRoleVal + " non riveste mai il ruolo di autore.")
+  // PEOPLE INDEX
+  $(".index-div").removeClass("contain").addClass("filter").removeClass("dontremove-auth").removeClass("dontremove-cited").show();
+  $("input[class=peopleCheckIndex]").prop("checked", false);
+  $("#clear_res_ind").hide();
+
+  // author and mentioned person highlight
+  $(".author-name").removeClass("background_orchid");
+  $(".cited-pers").removeClass("background_yellowgreen");
+
+  // close person citations cards
+  $(".person-citations").removeClass("in").attr("aria-expanded", "false");
+  $(".work-aut-collapse").attr("aria-expanded", "false");
+  $(".work-aut-collapse").removeClass("collapse-caret-true").addClass("collapse-caret");
+
+  // REMOVE SCROLL
+  $("#facets_panel_box_people").removeClass("scroll-open-filters");
+
+  // HIDE ROLE BOX
+  $("#people-role-container").hide();
+
+  // EMPTY ROLE BOX
+  $(".specific-role-box").removeClass("contain").removeClass("filter").remove();
+
+  // SHOW THE PEOPLE RADIO
+  $("#index-people").show();
+  $("span[data-target='#index-people']").addClass("panel-title");
+
+  // REMOVE ROLES
+  $(".author_role_tag").hide();
+  $(".cited_role_tag").hide();
+
+}
+
+// REMOVE CHECK WORKS
+function removeCheckWorks() {
+  $(".works-index-div").removeClass("contain").addClass("filter").show();
+  $("input[class=worksCheckIndex]").prop("checked", false);
+  $(".seeWorks").hide();
+  // close work cards
+  $(".work-card-collapse").removeClass("in");
+}
+
+// INDEX OF PEOPLE FACETS
+function peopleIndexFilters() {
+
+  $("input[class=peopleCheckIndex]").click(function() {
+
+    // IF I CHECK A PERSON
+    if (this.checked) {
+
+      // remove check button
+      $("#clear_res_ind").show()
+
+      // person
+      if ($(this).hasClass("peopleCheckIndex")) {
+
+        // check the checked people
+        var value = $(this).attr("value");
+        var persToSearch = $(this).attr("persname");
+
+        // name of mentioned person
+        var persLabel = $(this).attr("data-label");
+
+        // show the profiles containing at least an occurrence of the checked people
+        $(".index-div[value!='" + value + "']").removeClass("filter").hide();
+        $(".index-div[value='" + value + "']").addClass("filter").show();
+
+        //$(".index-div.contain").show().addClass("filter");
+
+        // IF AT LEAST 1 PERSON CHECKED
+        // ADD ROLE
+        // add a role for each person
+        if ($(".peopleCheckIndex:checked").length > 0) {
+
+          // HIDE THE PEOPLE RADIO
+          $("#index-people").hide();
+          $("span[data-target='#index-people']").removeClass("panel-title");
+
+          // apply scroll
+          reduceFilters();
+
+          // show the role container
+          $("#people-role-container").show();
+          // clone the role box for each checked person
+          //$("#add-pers-role-index").addClass("scroll-height").addClass("scroll");
+
+          // SHOW THE BOX FOR EACH PERSON
+          $(".people-role-box").hide();
+          var orig = $("#add-pers-role-index").find(".people-role-box");
+          var cloned = $(orig).clone().removeClass("people-role-box").prependTo("#add-pers-role-index").attr("value", "" + persLabel + "").addClass("specific-role-box").show();
+          //$("#add-pers-role-index").addClass("scroll-height").addClass("scroll");
+          $("#role_caption_name_index").text(persLabel);
+          $(".len-pers-role:contains('" + persLabel + "') input").attr("person", persLabel);
+
+          // fill in with specific checked person information
+          $(".specific-role-box[value='" + persLabel + "'] #role_caption_name_index").text(persLabel);
+          $(".specific-role-box[value='" + persLabel + "'] .role-check > input").attr("person", persToSearch);
+          $(".specific-role-box[value='" + persLabel + "'] .role-check > input").attr("value", value);
+          // name of mentioned person
+          $(".specific-role-box[value='" + persLabel + "'] .role-check > input").attr("data-label", persLabel);
+
+          // ROLES
+          // search for the role in the index list
+          $(".role-check > input").change(function(e) {
+            var role = $(e.target).attr("role");
+            // name of mentioned person
+            var label = $(e.target).attr("data-label");
+
+            // check
+            if (this.checked) {
+
+              // if only 1 person is checked
+              if ($(".specific-role-box").length == 1) {
+
+                // check on author
+                if (role == "auth-role") {
+                  // show the authors tags
+                  $(".author_role_tag[data-label='" + label + "']").show();
+
+                  // language setting
+                  loadBundles($.cookie( 'language'),true);
+                  // /
+
+                  // show the cards containing the author
+                  $(".index-div:has(.author-name[data-label='" + label + "'])").addClass("filter").show();
+
+                  // open the citations cards
+                  $(".background_orchid[data-label='" + label + "']").closest(".person-citations").addClass("in");
+
+                  // hide mentioned person if unchecked
+                  if ($("input[role='cited-role']").prop("checked") == false) {
+                    $(".index-div:not(:has(.author_role_tag[data-label='" + label + "']))").removeClass("filter").hide();
+                  }
+
+                }
+
+                // check on mentioned person
+                if (role == "cited-role") {
+
+                  // show the mentioned people
+                  $(".cited_role_tag[data-label='" + label + "']").show();
+
+                  // show the card containing the mentioned person
+                  $(".index-div:has(.cited_role_tag[data-label='" + label + "'])").addClass("filter").show();
+
+                  // hide author if unchecked
+                  if ($("input[role='auth-role']").prop("checked") == false) {
+                    $(".index-div:not(:has(.cited_role_tag[data-label='" + label + "']))").removeClass("filter").hide();
+                  }
+
+                }
+
               }
-            }
-          }
-        } else {
-          var authRoleVal = $(this).val();
-          var contAuth = $(".author-name:contains('" + authRoleVal + "')");
-          for (var i = 0; i < contAuth.length; i++) {
-            $(".author-name:contains('" + authRoleVal + "')").removeClass("background_orchid_padd");
-          }
-        }
-      })
-      // /
-      // mentioned person
-      $("input[role=cited-role]").change(function(e) {
-        if ($(e.target).prop("checked") == true) {
-          var citedRoleVal = $(this).val();
-          var contCited = $(".cited-pers:contains('" + citedRoleVal + "')");
-          for (var i = 0; i < contCited.length; i++) {
-            $(".cited-pers:contains('" + citedRoleVal + "')").addClass("background_yellowgreen");
-          }
-          if ($(".cited-pers:contains('" + citedRoleVal + "')").length == 0) {
-            if ($("#en-butt").hasClass("active")) {
-              alert("There is no " + citedRoleVal + " with cited person role.")
+
+
             } else {
-              alert(citedRoleVal + " non riveste mai il ruolo di persona citata.")
+
+
+              // uncheck author
+              if (role == "auth-role") {
+
+                // hide the authors tags
+                $(".author_role_tag[data-label='" + label + "']").hide();
+
+                // show the cards containing the author
+                $(".index-div:has(.author-name[data-label='" + label + "'])").removeClass("filter").hide();
+
+                // hide the citations cards
+                $(".background_orchid[data-label='" + label + "']").closest(".person-citations").removeClass("in");
+
+                // IF 0 CHECK ON ROLES
+                if ($("input[role='cited-role']").prop("checked") == false) {
+                  $(".index-div:has(.people-index-div[data-person='" + label + "'])").addClass("filter").show();
+                }
+
+              }
+
+              // uncheck mentioned person
+              if (role == "cited-role") {
+
+                // hide the mentioned person tag
+                $(".cited_role_tag[data-label='" + label + "']").hide();
+
+                // hide the cards containing the mentioned person
+                $(".index-div:has(.cited_role_tag[data-label='" + label + "'])").removeClass("filter").hide();
+
+                // IF 0 CHECK ON ROLES
+                if ($("input[role='auth-role']").prop("checked") == false) {
+                  $(".index-div:has(.people-index-div[data-person='" + label + "'])").addClass("filter").show();
+                }
+
+              }
+
+
             }
-          }
-        } else {
-          var citedRoleVal = $(this).val();
-          var contAuth = $(".cited-pers:contains('" + citedRoleVal + "')");
-          for (var i = 0; i < contAuth.length; i++) {
-            $(".cited-pers:contains('" + citedRoleVal + "')").removeClass("background_yellowgreen");
-          }
+          })
+
         }
-      })
-      // /
-      $(".contain").show().addClass("filter");
-      $(".specific-role-box").removeClass("filter"); // people role boxes never have to have filter class
-    } else {
-      $(".specific-role-box").removeClass("filter"); // people role boxes never have to have filter class
-      $(".contain[value='" + checkVal + "']").removeClass("contain").hide().removeClass("filter");
-      $(".contain[value!='" + checkVal + "']:contains('" + checkVal + "')").removeClass("contain").hide().removeClass("filter");
-      // + works
-      $(".slideWork:contains('" + checkVal + "')").removeClass("slideWork");
-      // /
-      // people role box
-      $(".specific-role-box[value='" + checkVal + "']").removeClass("contain").hide();
-      if ($(":checkbox[class=peopleCheckIndex]:checked").length == 0) {
-        $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-        $(".filters-resize-minus").removeClass("filters-resize-minus").addClass("filters-resize-plus"); // facets resize
+
       }
-      // /
-      // remove people role
-      if ($(":checkbox[class=input-auth-check]:checked").length > 0) {
-        // remove author role
-        var orchtoHide = $(".background_orchid_padd:contains('" + checkVal + "')");
-        for (var i = 0; i < orchtoHide.length; i++) {
-          var orchToFind = $(orchtoHide[i]).attr("value");
-          $(".index-div[value='" + orchToFind + "']").hide().removeClass("filter");
-          $(".background_orchid_padd:contains('" + checkVal + "')").removeClass("background_orchid_padd");
-        }
-        // remove mentioned person role
-        var bluetoHide = $(".background_blue_padd:contains('" + checkVal + "')");
-        for (var i = 0; i < bluetoHide.length; i++) {
-          var blueToFind = $(bluetoHide[i]).attr("value");
-          $(".index-div[value='" + blueToFind + "']").hide().removeClass("filter");
-          $(".background_blue_padd:contains('" + checkVal + "')").removeClass("background_blue_padd");
-        }
-        // + people role, 0 people
-        if ($(":checkbox[class=peopleCheckIndex]:checked").length == 0) {
-          $(".index-div").show().addClass("filter");
-        }
-      }
-      // /
-      // 0 pers, + check
-      if ($(":checkbox[class=peopleCheckIndex]:checked").length == 0) {
-        var yetCheck = $(":checkbox:checked");
-        $(".index-div").show();
-        $("hr").show();
-      }
-      // /
     }
-    // 0 check
-    if ($(":checkbox:checked").length == 0) {
-      // hide button to remove check
-      hideEx();
-      // /
-      $(".index-div").show().addClass("filter");
-      $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-      $(".checkButt").show();
-    }
-    // /
+
   })
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // EXCERPTS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  $("input[class=exCheckIndex]").change(function(e) {
-     // works from people
-     $(".slideWork").removeClass("slideWork");
-     // /
-    if ($(e.target).prop("checked") == true) {
-      var valExInd = $(e.target).val();
-      $(".index-div .checkButt[value!='" + valExInd + "']").addClass("exHidden").hide();
-      // + types of excerpts, 0 works
-      var checkedPersVal = $(":checkbox:checked");
-      if ($(":checkbox[class=worksPersIndex]:checked").length == 0) {
-        for (var i = 0; i < checkedPersVal.length; i++) {
-          var checkedPersValFind = $(checkedPersVal[i]).attr("value");
-          $(".exHidden[value='" + checkedPersValFind + "']").show();
-        }
-      }
-      // /
-      // + works
-      if ($(":checkbox[class=worksPersIndex]:checked").length > 0) {
-        var checkedEx = $(":checkbox[class=exCheckIndex]:checked");
-        for (var i = 0; i < checkedEx.length; i++) {
-          var singleEx = $(checkedEx[i]).attr("value");
-          $(".forEx:contains('" + singleEx + "')").addClass("show");
-          $(".show:contains('" + singleEx + "')").show();
-          $(".forEx:not(:contains('" + singleEx + "'))").hide();
-        }
-      }
-      // /
-    } else {
-      var targetEx = $(e.target).attr("value");
-      $(".index-div .checkButt[value='" + targetEx + "']").hide();
-      // + works
-      $(".forEx:contains('" + targetEx + "')").removeClass("show").hide();
-      //
-      // 0 ex, + check
-      if ($(":checkbox[class=exCheckIndex]:checked").length == 0) {
-        $(".workInfo").show();
-        var checkedYet = $(":checkbox:checked");
-        for (var i = 0; i < checkedYet.length; i++) {
-          var toCheck = $(checkedYet[i]).attr("value");
-          $(".index-div[value='" + toCheck + "']").show().addClass("filter");
-          $(".checkButt[value='" + toCheck + "']").show();
-          $(".workInfo[value='" + toCheck + "']").parent().show();
-        }
-        // /
-        // 0 check
-        if ($(":checkbox:checked").length == 0) {
-          // hide button to remove check
-          hideEx();
-          // /
-          $(".index-div").show().addClass("filter");
-          $(".checkButt").show();
-          $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-        }
-        // /
-      }
-      // + works
-      if ($(":checkbox[class=worksPersIndex]:checked").length > 0) {
-        var checkedEx = $(":checkbox[class=worksCheckIndex]:checked");
-        for (var i = 0; i < checkedEx.length; i++) {
-          var singleEx = $(checkedEx[i]).attr("value");
-          $(".forEx:contains('" + singleEx + "')").addClass("show");
-          $(".show:contains('" + singleEx + "')").show();
-          $(".forEx:not(:contains('" + singleEx + "'))").hide();
-        }
-      }
-      // /
-    }
-  })
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  // WORKS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  $("input[class=worksPersIndex]").change(function(e) {
-    // works from people
-    $(".slideWork").removeClass("slideWork");
-    // /
-    var workPersInd = $(e.target).attr("value");
-    if ($(e.target).prop("checked") == true) {
-      // there are some results - + works
-      $(".workInfo[value!=" + workPersInd + "]").parent().hide().removeClass("filter");
-      $(".workInfo[value='" + workPersInd + "']").parent().show().addClass("forEx");
-      $(".forEx[value='" + workPersInd + "']").show();
-      // /
-      // if there are other results
-      var checkedWorkVal = $(":checkbox:checked");
-      for (var i = 0; i < checkedWorkVal.length; i++) {
-        var checkedWork = $(checkedWorkVal[i]).attr("value");
-        $(".workInfo[value='" + checkedWork + "']").parent().show();
-      }
-      // /
-      // + type of excerpts
-      if ($(":checkbox[class=exCheckIndex]:checked").length > 0) {
-        var ex = $(":checkbox[class=exCheckIndex]:checked");
-        for (var i = 0; i < ex.length; i++) {
-          var singleEx = $(ex[i]).attr("value");
-          $(".forEx[value='" + singleEx + "']").addClass("showEx");
-          $(".showEx[value='" + singleEx + "']").show();
-          // if an excerpt is not of the specific type of excerpt
-          $(".forEx:not(.showEx)").hide();
-          //
-        }
-      }
-      // /
-    } else {
-      // uncheck work
-      $(".forEx:contains('" + workPersInd + "')").hide().removeClass("forEx");
-      $(".showEx:contains('" + workPersInd + "')").removeClass("showEx");
-      // class from excerpt check
-      $(".show:contains('" + workPersInd + "')").removeClass("show").hide();
-      // /
-      var yetChecked = $(":checkbox:checked");
-      for (var i = 0; i < yetChecked.length; i++) {
-        var checkedAtt = $(yetChecked[i]).attr("value");
-        $(".checkButt[value='" + checkedAtt + "']").show();
-        $(".workInfo:contains('" + checkedAtt + "')").parent().show().addClass("filter");
-      }
-      // + work, + pers
-      if ($(":checkbox[class=worksPersIndex]:checked").length > 0) {
-        var works =  $(":checkbox[class=worksPersIndex]:checked");
-        for (var i = 0; i < works.length; i++) {
-          var checkedWork = $(works[i]).attr("value");
-          $(".workInfo[value!='" + checkedWork + "']").parent().hide().removeClass("filter").removeClass("forEx").removeClass("showEx").removeClass("show");
-          $(".workInfo[value='" + checkedWork + "']").parent().show().addClass("filter");
-        }
-      }
-      // /
-      // 0 works
-      if ($(":checkbox[class=worksPersIndex]:checked").length == 0) {
-        // + ex
-        if ($(":checkbox[class=exCheckIndex]:checked").length > 0) {
-          var ex = $(":checkbox[class=exCheckIndex]:checked");
-          for (var i = 0; i < ex.length; i++) {
-            var singleEx = $(ex[i]).attr("value");
-            $(".forEx[value='" + singleEx + "']").addClass("showEx");
-            $(".showEx[value='" + singleEx + "']").show();
-            // if an excerpt is not of the specific type of excerpt
-            $(".forEx:not(.showEx)").hide();
-            //
-          }
-          // + pers
-          if ($(":checkbox[class=peopleCheckIndex]:checked").length > 0) {
-            for (var i = 0; i < ex.length; i++) {
-              var singleEx = $(ex[i]).attr("value");
-              $(".checkButt[value='" + singleEx + "']").addClass("show");
-              $(".show[value='" + singleEx + "']").show();
-              // if an excerpt is not of the specific type of excerpt
-              $(".checkButt:not([value='" + singleEx + "'])").hide();
-              //
-            }
-          }
-          // /
-        }
-        // /
-        else {
-          $(".workInfo").show();
-        }
-      }
-      // /
-      // 0 check
-      if ($(":checkbox:checked").length == 0) {
-        // hide button to remove check
-        hideEx();
-        // /
-        $(".index-div").show().addClass("filter");
-        $(".checkButt").show();
-        $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-        $(".containPlus").removeClass("filter").removeClass("containPlus");
-      }
-      // /
-    }
-  })
+
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-// go from an index to the other
-function refreshIndex() {
-  $(".index-div").show();
-  if ($("input[type=checkbox]").is(":checked")) {
-    $("input[type=checkbox]").prop("checked", false);
-  }
-  $(".index-search-input").val("");
-}
-
-// show all the excepts
-function showEx() {
-  $(".seeEx").show();
-  $(".seeEx").click(function() {
-    $(".slideWork").removeClass("slideWork");
-    $(".index-div").show();
-    $(".checkButt").show();
-    $(".contain").removeClass('contain');
-    $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-    $(".filters-resize-minus").removeClass("filters-resize-minus").addClass("filters-resize-plus"); // facets resize
-    $(".containPlus").removeClass("containPlus").hide();
-    $(".workInfo").show();
-    // remove all check
-    $("input[type=checkbox]").each(function() {
-      this.checked = false;
-    })
-    // /
-    // remove people role boxes
-    $(".specific-role-box").removeClass("contain").hide();
-    $("#add-pers-role-index").removeClass("scroll-height").removeClass("scroll");
-    // /
-    // remove author background
-    $(".background_orchid_padd").removeClass("background_orchid_padd");
-    // remove mentioned person background
-    $(".background_blue_padd").removeClass("background_blue_padd");
-    // + people role, 0 people
-    if ($(":checkbox[class=peopleCheckIndex]:checked").length == 0) {
-      $(".index-div").show();
-      $(".containPlus").removeClass("containPlus").hide(); //
-    }
-    // /
-    hideEx();
-  })
-}
-
-// hide all the excerpts
-function hideEx() {
-  $(".seeEx").hide();
-}
-
 
 /////////////////////////
 // INDICE DELLE OPERE //
@@ -2156,200 +2763,40 @@ function searchWorksBar() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // WORKS INDEX FACETS ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function worksIndexFacets() {
-  // filter class for search bar - it search only on elements with class filter
-  $("input").change(function(e) {
-    if ($(":checkbox:checked").length > 0) {
-      showDivWorks();
-    }
-    if ($(":checkbox:checked").length == 0) {
-      $(".works-index-div").addClass("filter");
-      hideWorksRemove();
-    }
-  })
-  // /
-  // people
-  $("input[class=worksPersFilters]").change(function(e) {
-    var checkVal = $(e.target).attr("workvalue");
-    if ($(e.target).prop("checked") == true) {
-      $(".shown-work-4").removeClass("shown-work-4").hide().removeClass("filter");
-      // 0 works
-      if ($(":checkbox[class=workSingleFilters]:checked").length == 0) {
-        $(".works-index-div:contains('" + checkVal + "')").show().addClass("shown-div").addClass("filter");
-        $(".works-index-div:not(:contains('" + checkVal + "'))").hide().removeClass("filter");
-        $(".shown-div").show().addClass("filter");
-      }
-      // /
-      // + works
-      if ($(":checkbox[class=workSingleFilters]:checked").length > 0) {
-        $(".shown-work:contains('" + checkVal + "')").show().addClass("plus-work").addClass("filter");
-        $(".shown-div-work:contains('" + checkVal + "')").show().addClass("plus-work").addClass("filter");
-        $(".shown-work:not(:contains('" + checkVal + "'))").hide().removeClass("filter");
-        $(".shown-div-work:not(:contains('" + checkVal + "'))").hide().removeClass("filter");
-        $(".plus-work").show().addClass("filter");
-      }
-      // /
-      // other results from previous searches
-      var checkedWorkVal = $(":checkbox[class=workSingleFilters]:checked");
-      for (var i = 0; i < checkedWorkVal.length; i++) {
-        var checkedWork = $(checkedWorkVal[i]).attr("workvalue");
-        $(".shown-work:contains('" + checkedWork + "')").show().addClass("plus-work").addClass("filter");
-        $(".shown-div-work:contains('" + checkedWork + "')").show().addClass("plus-work").addClass("filter");
-        $(".shown-work:not(:contains('" + checkedWork + "'))").hide().removeClass("filter");
-        $(".shown-div-work:not(:contains('" + checkedWork + "'))").hide().removeClass("filter");
-        $(".plus-work").show().addClass("filter");
-        $(".works-index-div:contains('" + checkedWork + "')").show().addClass("tempWork");
-        $(".tempWork").show();
-      }
-      /////////////////////////////////////////////////////////////////////////////////////
+function worksIndexFilters() {
+  $("input[class=worksCheckIndex]").click(function() {
+
+    // IF I CHECK A WORK
+    if (this.checked) {
+
+      // show the button to remove results
+      $(".seeWorks").show();
+
+      var work = $(this).attr("work");
+
+      $(".works-index-div[value!='" + work + "']").removeClass("filter").hide();
+      $(".works-index-div[value='" + work + "']").addClass("filter").addClass("contain");
+      $(".contain").addClass("filter").show();
+
+    // IF I UNCHECK A WORK
     } else {
-      $(".tempWork:contains('" + checkVal + "')").hide().removeClass("tempWork").removeClass("filter");
-      $(".shown-pers:contains('" + checkVal + "')").hide().removeClass("shown-pers").removeClass("filter");
-      $(".shown-div:contains('" + checkVal + "')").hide().removeClass("shown-div").removeClass("filter");
-      $(".shown-div-work:contains('" + checkVal + "')").hide().removeClass("shown-div-work").removeClass("filter");
-      $(".works-index-div:hidden").removeClass("filter"); // tutti gli el che sono in hide non devono mai comparire se si fa una ricerca
-      // 0 works
-      if ($(":checkbox[class=workSingleFilters]:checked").length == 0) {
-        $(".shown-div:contains('" + checkVal + "')").hide().removeClass("filter");
+
+      var work = $(this).attr("work");
+
+      $(".works-index-div[value='" + work + "']").removeClass("filter").removeClass("contain").hide();
+
+      // IF 0 PEOPLE CHECKED
+      if ($(".worksCheckIndex:checked").length == 0) {
+        // show all the profiles
+        $(".works-index-div").removeClass("contain").addClass("filter").show();
+        // hide the button to remove results
+        $(".seeWorks").hide();
+        // close work cards
+        $(".work-card-collapse").removeClass("in");
       }
-      // /
-      // + works
-      if ($(":checkbox[class=workSingleFilters]:checked").length > 0) {
-        $(".plus-work:contains('" + checkVal + "')").removeClass("plus-work");
-        $(".works-index-div:contains('" + checkVal + "')").hide().removeClass("filter");
-        if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-          var pers = $(":checkbox[class=workSingleFilters]:checked");
-          for (var i = 0; i < pers.length; i++) {
-            var checkedPers = $(pers[i]).attr("workvalue");
-            $(".works-index-div:contains('" + checkedPers + "')").show().addClass("shown-work-4").addClass("filter");
-            $(".works-index:not(:contains('" + checkedPers + "'))").hide().removeClass("filter");
-            $(".shown-work-4").show().addClass("filter");
-          }
-        }
-      }
-      //
-      // other results from previous searches
-      var checkPers = $(":checkbox[class=worksPersFilters]:checked");
-      for (var i = 0; i < checkPers.length; i++) {
-        var pers = $(checkPers[i]).attr("workvalue");
-        $(".tempWork:not(:contains('" + pers + "'))").hide().removeClass("tempWork").removeClass("filter");
-      }
-      // 0 works, 0 people, + excerpts
-      if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-        if ($(":checkbox[class=workSingleFilters]:checked").length == 0) {
-          if ($(":checkbox[class=worksExFilters]:checked").length > 0) {
-            $(".works-index-div").show().addClass("filter");
-            $(".shown-div").removeClass("show-div");
-            $(".shown-pers").removeClass("show-pers");
-          }
-        }
-      }
-      // /
-      // 0 check
-      if ($(":checkbox:checked").length == 0) {
-        $(".works-index-div").show().addClass("filter");
-        $(".shown-div").removeClass("show-div");
-        $(".shown-pers").removeClass("show-pers");
-        $(".tempWork").removeClass("tempWork");
-        $(".tempPers").removeClass("tempPers");
-        hideWorksRemove(); // hide button to remove all check
-      }
-      // /
+
     }
-  })
-  // type of excerpts
-  $("input[class=worksExFilters]").change(function(e) {
-    var checkVal = $(e.target).attr("workvalue");
-    if ($(e.target).prop("checked") == true) {
-      // 0 people
-      if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-        $(".ex-butt:contains('" + checkVal + "')").show().addClass("shown-ex").addClass("filter");
-        $(".ex-butt:not(:contains('" + checkVal + "'))").hide().addClass("no-ex-butt");
-        $(".shown-ex").show().addClass("filter");
-      }
-      // + people
-      if ($(":checkbox[class=worksPersFilters]:checked").length > 0) {
-        $(".ex-butt:contains('" + checkVal + "')").show().addClass("shown-ex").addClass("filter");
-        $(".ex-butt:not(:contains('" + checkVal + "'))").hide().addClass("no-ex-butt");
-        $(".shown-ex").show();
-        $(".works-index-div:hidden").removeClass("filter"); // hidden elements do not have to appear when performing a search
-      }
-    } else {
-      $(".ex-butt:contains('" + checkVal + "')").removeClass("shown-ex").hide();
-      $(".works-index-div:hidden").removeClass("filter"); // hidden elements do not have to appear when performing a search
-      if ($(":checkbox[class=worksExFilters]:checked").length == 0) {
-        $(".ex-butt").show();
-        $(".works-index-div:hidden").removeClass("filter"); // hidden elements do not have to appear when performing a search
-      }
-    }
-  })
-  // works
-  $("input[class=workSingleFilters]").change(function(e) {
-    var checkVal = $(e.target).attr("workvalue");
-    if ($(e.target).prop("checked") == true) {
-      $(".shown-pers").removeClass("shown-pers").hide().removeClass("filter");
-      if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-        $(".works-index-div:contains('" + checkVal + "')").show().addClass("shown-work").addClass("filter");
-        $(".works-index-div:not(:contains('" + checkVal + "'))").hide().removeClass("filter");
-        $(".shown-work").show().addClass("filter");
-      }
-      if ($(":checkbox[class=worksPersFilters]:checked").length > 0) {
-        var pers = $(":checkbox[class=worksPersFilters]:checked");
-        for (var i = 0; i < pers.length; i++) {
-          var checkedPers = $(pers[i]).attr("workvalue");
-          $(".works-index-div:contains('" + checkedPers + "'):contains('" + checkVal + "')").show().addClass("tempPers").addClass("filter");
-          $(".works-index-div:not(:contains('" + checkedPers + "'))").hide().removeClass("filter");
-          $(".tempPers").show().addClass("filter");
-        }
-        $(".shown-div:contains('" + checkVal + "')").show().addClass("shown-div-work").addClass("filter");
-        $(".shown-div:not(:contains('" + checkVal + "'))").hide().removeClass("filter");
-        $(".shown-div-work").show().addClass("filter");
-      }
-      /////////////////////////////////////////////////////////////////////////////////
-    } else {
-      $(".shown-div-work:contains('" + checkVal + "')").hide().removeClass("shown-div-work").removeClass("filter");
-      $(".tempWork:contains('" + checkVal + "')").hide().removeClass("tempWork").removeClass("filter");
-      $(".tempPers:contains('" + checkVal + "')").hide().removeClass("tempPers").removeClass("filter");
-      $(".works-index-div:hidden").removeClass("filter"); // hidden elements do not have to appear when performing a search
-      if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-        $(".works-index-div:contains('" + checkVal + "')").removeClass("shown-work").hide().removeClass("filter");
-      }
-      if ($(":checkbox[class=worksPersFilters]:checked").length > 0) {
-        if ($(":checkbox[class=workSingleFilters]:checked").length > 0) {
-          $(".works-index-div:contains('" + checkVal + "')").removeClass("shown-work").removeClass("shown-div-work").hide().removeClass("filter");
-        }
-      }
-      if ($(":checkbox[class=worksPersFilters]:checked").length > 0) {
-        if ($(":checkbox[class=workSingleFilters]:checked").length == 0) {
-          var pers = $(":checkbox[class=worksPersFilters]:checked");
-          for (var i = 0; i < pers.length; i++) {
-            var checkedPers = $(pers[i]).attr("workvalue");
-            $(".works-index-div:contains('" + checkedPers + "')").show().addClass("shown-pers").addClass("filter");
-            $(".works-index:not(:contains('" + checkedPers + "'))").hide().removeClass("filter");
-            $(".shown-pers").show().addClass("filter");
-          }
-        }
-      }
-      // 0 works, 0 people, + excerpts
-      if ($(":checkbox[class=worksPersFilters]:checked").length == 0) {
-        if ($(":checkbox[class=workSingleFilters]:checked").length == 0) {
-          if ($(":checkbox[class=worksExFilters]:checked").length > 0) {
-            $(".works-index-div").show().addClass("filter");
-            $(".shown-div").removeClass("show-div");
-            $(".shown-pers").removeClass("show-pers");
-          }
-        }
-      }
-      // 0 check
-      if ($(":checkbox:checked").length == 0) {
-        $(".works-index-div").show().addClass("filter");
-        $(".shown-div").removeClass("show-div");
-        $(".shown-pers").removeClass("show-pers");
-        $(".tempWork").removeClass("tempWork");
-        $(".tempPers").removeClass("tempPers");
-      }
-      // /
-    }
+
   })
 }
 
@@ -2393,13 +2840,71 @@ function openFacEx() {
 
 // go to the specific excerpt in the transcription
 function goToEx() {
-  var pages = $("#pages option:selected").text();
-  var page = pages.split("-")[0];
-  $("#transcriptionViewer").animate({
-    scrollTop: $("span[data-n='" + page + "']").position().top
-  }, 2000);
-  $(".hide-butt").hide();
+  var pages = window.location.href.split("#")[1];
+  var urlValues = window.location.href.split("/viewer")[1];
+  var regEX = /#[0-9]+-[0-9]+/;
+  if (regEX.test(urlValues)) {
+    $(".hide-butt").html("<span class='superslim'>Vai alle pagine</span> " + pages);
+    $(".hide-butt").show();
+    $(".hide-butt").click(function() {
+      var page = pages.split("-")[0];
+      $("#transcriptionViewer").animate({
+        scrollTop: $("span[data-n='" + page + "']").position().top
+      }, 500);
+      $(".hide-butt").hide();
+    })
+  }
 }
+
+// print page numbers
+function printPageNum(pbindex,mapifyAndRdf) {
+  // set an empty counter
+  var count = '0'
+  var counter = '<div class = "pageN">p. '+count+'</div>'
+  $("#transcriptionViewer").prepend(counter);
+
+  var dataN = $("span.pb[data-n]");
+  for (var i = 0; i < dataN.length; i++) {
+    var x = $(dataN[i]).attr("data-n");
+    $(dataN[i]).html(x);
+  };
+
+  var object = pbindex,
+    key;
+
+  // change page number on scroll
+  $("#transcriptionViewer").scroll(function(){
+  	var scrollTop = $(window).scrollTop();
+  	var windowHeight = $(window).height();
+  	var first = false;
+  	$("span.pb[data-n]").each( function() {
+  		var offset = $(this).offset();
+  		if (scrollTop <= offset.top && ($(this).height() + offset.top) < (scrollTop + windowHeight - 400) && first == false) {
+        var num = $(this).data('n');
+        $(".pageN").html("p. "+num);
+  			first=true;
+        // align facsimile
+        for (key in object) {
+            if (key.startsWith(num+'-') || key.endsWith('-'+num)) {
+              var page = object[key];
+              $( "#viewer" ).load('static/images_coords.html div:has(img[src="'+page+'"])', mapifyAndRdf );
+              $('#pages > option:selected').removeAttr('selected');
+              $("#pages option[value='"+page+"']").prop('selected','selected');
+            }
+        }
+
+
+  		} else {
+  			$(this).removeClass("first");
+  			first=false;
+  		}
+  	});
+
+  });
+
+
+};
+
 
 //////////////////////////
 // data visualisation ///
@@ -2413,95 +2918,9 @@ function expandTreemap() {
   })
 }
 
-// temp
-function temp() {
-  var list = [
-    'Antonio, Marco (82 a.C.–30 a.C.)',
-    'Arzeni, Bruno (1905–1954)',
-    'Augusto, Gaio Giulio Cesare Ottaviano, imperatore romano (63 a.C.–14)',
-    'Belli, Giuseppe Gioachino (1791–1863)',
-    'Berlinguer, Enrico (1922–1985)',
-    'Briganti, Giuliano (1918–1992)',
-    'Bruto, Marco Iunio (85 a.C.–42 a.C.)',
-    'Bufalini, Paolo (1915–2001)',
-    'Campanella, Tommaso (1568–1639)',
-    'Carducci, Giosuè (1835–1907)',
-    'Carmide, zio di Platone (ca. V sec. a.C.–403 a.C.)',
-    'Cesare, Gaio Giulio (100 a.C.–44 a.C.)',
-    'Cicerone, Marco Tullio (106 a.C.–43 a.C.)',
-    'De Sarlo, Francesco (1864–1937)',
-    'Dioniso, divinità greca Domiziano, Tito Flavio, imperatore romano (51–96)',
-    'Döblin, Alfred (1878–1957)',
-    'Fertonani, Roberto (1925–2000)',
-    'Fidia (ca. 500–430)',
-    'Flaubert, Gustave (1821–1880)',
-    'Freud, Sigmund (1856–1939)',
-    'Galba, Servio Sulpicio, imperatore romano (3 a.C.–69)',
-    'Garin, Eugenio (1909–2004)',
-    'Gesù, di Nazaret (4 a.C.–29)',
-    'Giustiniano I (482–565)',
-    'Giustino I (ca. 450–527)',
-    'Goethe, Johann Wolfgang von (1749–1832)',
-    'Gorbačev, Michail Sergeevič (1931–)',
-    'Guttuso, Renato (1911–1987)',
-    'Gèllio, Aulo (125–180)',
-    'Hegel, Georg Wilhelm Friedrich (1770–1831)',
-    'Hesse, Herman (1877–1962)',
-    'Iseo, retore (ca. 420 a.C.–350 a.C.)',
-    'Labriola, Antonio (1843–1904)',
-    'Leopardi, Giacomo (1798–1837)',
-    'Lucrezio Caro, Tito (97–55 a.C)',
-    'Machiavelli, Niccolò (1469–1527)',
-    'Malagrida, Gabriele (1689–1761)',
-    'Mann, Thomas (1875–1955)',
-    'Manzoni, Alessandro (1785–1873)',
-    'Marco Aurelio, imperatore romano (121–180)',
-    'Mario, Gaio (ca. 157 a.C.–86 a.C.)',
-    'Marri, Germano (1932–)',
-    'Marx, Karl (1818–1883)',
-    'Memmio, Gaio (ca. 99 a.C.–46 a.C.)',
-    'Nerone, Claudio Cesare, imperatore romano (37–68)',
-    'Nerva, Marco Cocceio, imperatore romano (26/30–98)',
-    'Nevio, Gneo (ca. 264 a.C.–201 a.C.)',
-    'Nietzsche, Elisabeth Förster (1846–1935)',
-    'Nietzsche, Friedrich Wilhelm (1844–1900)',
-    'Orazio Flacco, Quinto (65 a.C.–8 a.C.)',
-    'Otone, Marco Salvio, imperatore romano (32–69)',
-    'Pananti, Filippo (1766–1837)',
-    'Petroselli, Luigi (1932–1981)',
-    'Pilato, Ponzio (I sec.)',
-    'Pontano, Giovanni (1426–1503)',
-    'Rilke, Rainer Maria (1875–1926)',
-    'Schoenberg, Arnold (1874–1951)',
-    'Schopenhauer, Arthur (1788–1860)',
-    'Scipione, Publio Cornelio (235 a.C.–183 a.C.)',
-    'Silla, Lucio Cornelio (138 a.C.–78 a.C.)',
-    'Socrate (ca. 469 a.C.–399 a.C.)',
-    'Sorel, Julien, personaggio  Stendhal, pseud. (1783–1842)',
-    'Tacito, Publio Cornelio (ca. 55–120)',
-    'Tiberio, Giulio Cesare Augusto, imperatore romano (43 a.C.–37)',
-    'Tito, Flavio Vespasiano, imperatore romano (39–81)',
-    'Tocqueville, Alexis de (1805–1859)',
-    'Tommaseo, Niccolò (1802–1874)',
-    'Traiano, Marco Ulpio Nerva, imperatore romano (53–117)',
-    'Vespasiano, Tito Flavio, imperatore romano (9–79)',
-    'Vico, Giambattista (1668–1744)',
-    'Vigolo, Giorgio (1894–1983)',
-    'Vipsania Giulia Agrippina, detta Giulia minore, nipote di Augusto (ca. 19 a.C.–29)',
-    'Vitellio, Aulo, imperatore romano (15–69)',
-    'Wagner, Richard (1813–1883)',
-    'Zaratustra (IX–XVIII sec. a.C.?)',
-  ]
-
-  $.each(list, function(index, value){
-    $("#result").append('{<br>"name": "' + value + '",<br>"n-people": "",<br>"n-ex": "",<br>"linkWith":[<br>""<br>],<br>},<br>');
-  });
-}
-
-
-///////////////
-// side bar //
-//////////////
+////////////////////////
+// side bar specifics //
+////////////////////////
 
 // hover on each section of the side bar
 function styleSideSec() {
@@ -2562,4 +2981,11 @@ function getDocActive() {
     $(".side-text-paragraph[id!='" + attrActive + "']").hide();
     $(".side-text-paragraph[id='" + attrActive + "']").show();
   })
+}
+
+// reduce filters
+function reduceFilters() {
+  var facetsHeight = $(".panel_tool").height();
+  $(".filters-scroll-applied").css("height", facetsHeight); // panel height
+  $(".filters-scroll-applied").addClass("scroll-open-filters"); // facets scroll
 }

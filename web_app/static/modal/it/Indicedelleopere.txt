@@ -1,5 +1,5 @@
-Nella sezione "Indice semantico delle opere" sono disponibili quattro diverse modalità di accesso all'elenco delle opere citate nel quaderno.
+Nella sezione <span class="italic">Indice delle opere</span> sono disponibili quattro diverse modalità di accesso all'elenco delle opere citate nel quaderno.
 <br>
-In modalità "Lista", l'indice viene rappresentato nella sua forma tradizionale: ogni opera citata è associata al suo autore e agli estratti in cui compare tale citazione. Cliccando su ciascun estratto, si viene reindirizzati al testo integrale corrispondente.
+In modalità <span class="italic">Lista</span>, l'indice viene rappresentato nella sua forma tradizionale: ogni opera citata è associata al suo autore e agli estratti in cui compare tale citazione. Cliccando su ciascun estratto, si viene reindirizzati al testo integrale corrispondente.
 <br>
-Nelle modalità Treemap, Insiemi e Gioca con i dati le opere citate e le loro relazioni sono rappresentate graficamente per mezzo di diversi tipi di Data Visualization.
+Nelle modalità <span class="italic">Treemap</span>, <span class="italic">Insiemi</span> e <span class="italic">Gioca con i dati</span> le opere citate e le loro relazioni sono rappresentate graficamente per mezzo di diversi tipi di Data Visualization.

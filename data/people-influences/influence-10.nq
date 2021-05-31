@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/person/tm> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
-<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/fn> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054> <http://www.w3.org/2000/01/rdf-schema#label> "R. Fertonani sulla relazione fra T. Mann e F. Nietzsche" <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/tm> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/tm> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-tm-citesAsRelated-fn-quot-054-assertion/> .
 

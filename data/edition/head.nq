@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/edition-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/edition-head/> .
-<https://w3id.org/bufalinis-notebook/edition-np> <http://www.nanopub.org/nschema#hasProvenance> <https://w3id.org/bufalinis-notebook/edition-provenance/> <https://w3id.org/bufalinis-notebook/edition-head/> .
-<https://w3id.org/bufalinis-notebook/edition-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/edition/> <https://w3id.org/bufalinis-notebook/edition-head/> .
 <https://w3id.org/bufalinis-notebook/edition-np> <http://www.nanopub.org/nschema#hasPublicationInfo> <https://w3id.org/bufalinis-notebook/edition-pubinfo/> <https://w3id.org/bufalinis-notebook/edition-head/> .
+<https://w3id.org/bufalinis-notebook/edition-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/edition/> <https://w3id.org/bufalinis-notebook/edition-head/> .
+<https://w3id.org/bufalinis-notebook/edition-np> <http://www.nanopub.org/nschema#hasProvenance> <https://w3id.org/bufalinis-notebook/edition-provenance/> <https://w3id.org/bufalinis-notebook/edition-head/> .
+<https://w3id.org/bufalinis-notebook/edition-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/edition-head/> .
 

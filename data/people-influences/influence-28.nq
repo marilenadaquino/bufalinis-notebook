@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/jwg> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/am> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/jwg> <http://purl.org/spar/cito/likes> <https://w3id.org/bufalinis-notebook/person/am> <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164> <http://www.w3.org/2000/01/rdf-schema#label> "G. Carducci sull'apprezzamento per A. Manzoni da parte di J. W. Goethe" <https://w3id.org/bufalinis-notebook/infl-jwg-likes-am-quot-164-assertion/> .
 

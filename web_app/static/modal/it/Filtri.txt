@@ -1,0 +1,2 @@
+Il testo del quaderno di Paolo Bufalini può essere analizzato dal punto di vista delle relazioni intratestuali e intertestuali utilizzando i filtri.
+Scegliendo determinati valori presentati nelle categorie <span class="italic">Persone</span>, <span class="italic">Ruolo delle persone</span>, <span class="italic">Tipi di estratto</span> e <span class="italic">Opere</span>, è possibile visualizzare direttamente nella trascrizione del testo tutte le occorrenze dei valori impostati.

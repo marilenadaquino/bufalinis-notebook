@@ -6,7 +6,8 @@ $def with (content)
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
 	    <link rel="icon" href="static/img-web-app/favicon.ico" />
-	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href=$content.get('bootstrapcss','static/css/bootstrap.min.css')>
+			<link rel="stylesheet" type="text/css" href=$content.get('fontawesomecss','static/css/fontawesome.min.css')>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.min.js"
 			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -21,7 +22,7 @@ $def with (content)
 		  gtag('config', 'G-TM0DXTW19L');
 		</script>
 		<!--<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
-	    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src=$content.get('bootstrapjs','static/script/bootstrap.min.js')></script>
 	    <script type="text/javascript" src=$content.get('mainjs','static/script/notebook.js')></script>
 	    <script type="text/javascript" src=$content.get('imgResizer','static/script/imageMapResizer.min.js')></script>
 	    <script type="text/javascript" src=$content.get('mapifyjs','static/script/jquery.mapify.js')></script>
@@ -29,15 +30,18 @@ $def with (content)
 	    <script type="text/javascript" src=$content.get('i18n','static/script/jquery.i18n.properties.js')></script>
 		<script type="text/javascript" src=$content.get('cookies','static/script/cookies.js')></script>
 		<!-- <script type="text/javascript" src=$content.get('selectedbutton','static/script/selected_button.js')></script> -->
-		<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-	    <link rel="stylesheet" type="text/css" href=$content.get('maincss','./static/css/notebook.css')>
-	    <link rel="stylesheet" type="text/css" href=$content.get('yasguicss','./static/css/yasgui.css')>
-		<link rel="stylesheet" type="text/css" href=$content.get('mapifycss','./static/css/jquery.mapify.css')>
-	    <link rel="json" type="text/json" href=$content.get('json','./static/metadata.json')>
+		<script src=$content.get('zingchart','static/script/zingchart.js')></script>
+	    <link rel="stylesheet" type="text/css" href=$content.get('maincss','static/css/notebook.css')>
+	    <link rel="stylesheet" type="text/css" href=$content.get('yasguicss','static/css/yasgui.css')>
+		<link rel="stylesheet" type="text/css" href=$content.get('mapifycss','static/css/jquery.mapify.css')>
+	    <link rel="json" type="text/json" href=$content.get('json','static/metadata.json')>
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:700" rel="stylesheet">
+
+		<!-- intro.js tutorial css -->
+		<link href=$content.get('introjs','static/css/introjs.min.css') rel="stylesheet">
 	</head>
 	<body>
-
+		<script src="static/script/node_modules/jquery-appear-original/index.js"></script>
 		<div class="se-pre-con"></div>
 
 		<div class="navbar navbar-default navbar-fixed-top">
@@ -62,12 +66,12 @@ $def with (content)
 					<li><a href="introduction" id="nav_2">Introduction</a></li>
 					<li><a href="viewer" id="nav_3">Digital Edition</a></li>
 					<li><a>|</a></li>
-					<li><a href="indexes" id="nav_4">People Semantic Index</a></li>
-					<li><a href="library" id="nav_5">Works Semantic Index</a></li>
+					<li><a href="indexes" id="nav_4">Index of Persons</a></li>
+					<li><a href="library" id="nav_5">Index of Works</a></li>
 					<li>
 					<div id="lang">
-						<a href="#it" id="lang_button_it"><button class="button_small btn active" id="it-butt" onclick="specificIt()">it</button></a>
-						<a href="#en" id="lang_button_en"><button class="button_small btn" id="en-butt" onclick="specificEng()">en</button></a>
+						<a href="#it" id="lang_button_it"><button class="button_small btn" id="it-butt">it</button></a>
+						<a href="#en" id="lang_button_en"><button class="button_small btn" id="en-butt">en</button></a>
 					</div>
 					</li>
 				</ul>

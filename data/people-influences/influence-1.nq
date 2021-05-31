@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017> <http://www.w3.org/2000/01/rdf-schema#label> "F. Nietzsche esprime disaccordo rispetto alle posizioni di R. Wagner" <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
-<https://w3id.org/bufalinis-notebook/person/fn> <http://purl.org/spar/cito/disagreesWith> <https://w3id.org/bufalinis-notebook/person/rw> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/rw> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
+<https://w3id.org/bufalinis-notebook/person/fn> <http://purl.org/spar/cito/disagreesWith> <https://w3id.org/bufalinis-notebook/person/rw> <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
+<https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017> <http://www.w3.org/2000/01/rdf-schema#label> "F. Nietzsche esprime disaccordo rispetto alle posizioni di R. Wagner" <https://w3id.org/bufalinis-notebook/infl-fn-disagreesWith-rw-comm-017-assertion/> .
 

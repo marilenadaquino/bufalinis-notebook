@@ -4,26 +4,38 @@ $def with ()
   <div class="container">
     <div class="row">
       <div class="col-md-12 align_center">
-        <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
-        <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+				<!-- dont remove or change -->
+        <h2 id="works_indexes_header_title">Index of Works</h2>
       </div>
     </div>
   </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+            <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-play-works"><i class="fas fa-question"></i></button>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- play with works -->
+<!-- intro.js tutorial step 1 -->
+<div class="col-md-12 col-sm-12 background_white" data-title="Play with data" data-intro="This chart is designed as an environment in which users can explore the data in a funny way and discover new relationships. Each author of works cited in the notebook is represented as a circle with a white margin, while the works cited by that same author as smaller circles without margin. By hovering on each circle with margin, the name of the author associated with the circle is displayed. By hovering on each circle without margin, the name of the work associated with each circle is displayed." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
           <ul class="nav nav-pills tab-works">
-              <li role="presentation"><a href="./library" id="people_list">List</a></li>
+              <!--<li role="presentation"><a href="./library" id="people_list">List</a></li>
               <li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
               <li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
               <li role="presentation"><a class="no-active-tab">|</a></li>
-              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>
-              <li role="presentation"><a class="info-vis padding-21" data-toggle="collapse" href="#collapsePlay" role="button" aria-expanded="false" aria-controls="collapsePlay"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>-->
           </ul>
         </div>
         <div class="container-fluid">
@@ -43,7 +55,7 @@ $def with ()
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <!-- Chart code -->
-<script>
+<!--<script>
 am4core.ready(function() {
 
 // Themes begin
@@ -432,8 +444,18 @@ nodeTemplate.events.on("out", function (event) {
   networkSeries.links.template.strokeOpacity = 0;
   
   }); // end am4core.ready()
-  </script>
+  </script>-->
   
     <!-- HTML -->
-    <div id="chartdiv"></div>
+    <!-- intro.js tutorial step 2 -->
+    <div id="chartdiv" data-title="Play with data" data-intro="The size of the circles is proportional to the frequency with which each work in the notebook is cited. The user exploring the chart will be able to search which and how many works of a certain author are cited and who and how many authors these works refer. To facilitate the search, each node with margin can be open and close. By closing all the nodes, you will discover who are all the authors of which at least one work is cited in the notebook." data-step="2"></div>
   </div>
+
+  <!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-play-works").click(function () {
+			introJs().start();
+		});
+	</script>
+  

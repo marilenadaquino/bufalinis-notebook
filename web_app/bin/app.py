@@ -4,259 +4,57 @@ import urlparse
 from rdflib.namespace import OWL, DC , RDF , RDFS
 from rdflib.plugins.sparql import prepareQuery
 from SPARQLWrapper import SPARQLWrapper, JSON
-from collections import defaultdict
-
+from collections import defaultdict , OrderedDict
+from queries import allExcerptsQuery, allWorksQueryQuotation, allSameAsQuery, singleExcerptQuery, citedPeopleQuery, allPeopleRelationsQuery, query_excerpts, query_quotes, query_sameas , query_cited_people, query_relations, query_resource, query_mentioned_people, query_translated_people, query_quotations_people, query_translatedby, temp_remove_text
 
 # namespaces
 PROV = Namespace("http://www.w3.org/ns/prov#")
 CITO = Namespace("http://purl.org/spar/cito/")
 
-# TO BE CHANGED
-# SPARQL endpoint
-# endpoint = 'http://51.15.52.21:9999/blazegraph/sparql'
-endpoint = 'http://localhost:9999/blazegraph/sparql'
-dbpediaEndpoint = 'http://it.dbpedia.org/sparql'
-
-# preprare queries
-allExcerptsQuery = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX oa: <http://www.w3.org/ns/oa#>
-	PREFIX owl: <http://www.w3.org/2002/07/owl#>
-	PREFIX cito: <http://purl.org/spar/cito/>
-	PREFIX frbr: <http://purl.org/vocab/frbr/core#>
-	PREFIX dcterms: <http://purl.org/dc/terms/>
-	PREFIX prism: <http://prismstandard.org/namespaces/1.2/basic/>
-	SELECT *
-	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE {
-
-			?source a oa:Annotation ; oa:hasBody ?body .
-      		?body rdf:value ?text ; prism:startingPage ?page . ?page rdfs:label ?pageLabel .
-      		OPTIONAL {?body rdfs:label ?biblRef .}
-      		OPTIONAL {?source oa:motivatedBy ?motivationURI . ?motivationURI rdfs:label ?motivation .}
-			OPTIONAL {?body dcterms:references ?entity . ?entity rdfs:label ?entityLabel . }
-			OPTIONAL {?body frbr:partOf+ ?exp . ?exp frbr:realizationOf ?work . ?work dcterms:creator ?creatorURI ; rdfs:label ?workLabel . ?creatorURI rdfs:label ?creator . } .
-			OPTIONAL {?body frbr:translationOf ?original ; frbr:realizer ?translatorURI . ?translatorURI rdfs:label ?translator .
-                     OPTIONAL {?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel.  }
-                     OPTIONAL {?originalBody frbr:partOf+ ?originalExp . ?originalExp frbr:realizationOf ?originalWork . ?originalWork rdfs:label ?originalWorkLabel ; dcterms:creator ?originalCreatorURI . ?originalCreatorURI rdfs:label ?originalCreator}
-                     }
-            OPTIONAL {?body dcterms:relation ?relatedExcerpt . ?relatedExcerpt oa:hasBody ?relatedBody . }
-			OPTIONAL {?body dcterms:complementOf ?otherExcerpt . ?otherExcerpt oa:hasBody ?otherBody . }
-    }
-
-"""
-
-
-allWorksQueryQuotation = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX oa: <http://www.w3.org/ns/oa#>
-	PREFIX frbr: <http://purl.org/vocab/frbr/core#>
-	PREFIX fabio: <http://purl.org/spar/fabio/>
-	PREFIX dcterms: <http://purl.org/dc/terms/>
-	SELECT ?work ?workLabel (COUNT(?excerpt) AS ?count) (GROUP_CONCAT(?excerpt; separator=" ") as ?excerpts_uris)
-	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE {
-		{ ?work a fabio:WorkCollection} UNION
-		{ ?work a fabio:Work } UNION
-		{ ?work a fabio:Play } UNION
-		{ ?work a fabio:Poem } UNION
-		{ ?work a fabio:Novel }
-		?work rdfs:label ?workLabel .
-		FILTER NOT EXISTS {?work frbr:partOf ?anotherWork }
-		OPTIONAL {?excerpt a fabio:Excerpt ; frbr:partOf+ ?expr. ?expr frbr:realizationOf ?work .}
-	}
-	GROUP BY ?work ?workLabel ?creator ?excerpts_uris
-	ORDER BY DESC(?count) ?workLabel
-"""
-
-allSameAsQuery = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX oa: <http://www.w3.org/ns/oa#>
-	PREFIX owl: <http://www.w3.org/2002/07/owl#>
-	SELECT *
-	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE {
-		?s owl:sameAs ?externalURI .
-	}
-"""
-
-singleExcerptQuery = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX oa: <http://www.w3.org/ns/oa#>
-	PREFIX owl: <http://www.w3.org/2002/07/owl#>
-	PREFIX cito: <http://purl.org/spar/cito/>
-	PREFIX frbr: <http://purl.org/vocab/frbr/core#>
-	PREFIX dcterms: <http://purl.org/dc/terms/>
-	SELECT *
-	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE { ?source a oa:Annotation ; oa:hasBody ?body . ?body rdf:value ?text .
-			OPTIONAL {?body dcterms:references ?entity . ?entity rdfs:label ?entityLabel . }
-			OPTIONAL {?source oa:hasBody ?traslatedBody ; oa:motivatedBy ?motivationURI . ?motivationURI rdfs:label ?motivation . ?traslatedBody frbr:translationOf ?original ; frbr:realizer ?translatorURI .
-					?original oa:hasBody ?originalBody . ?originalBody rdf:value ?translatedText ; rdfs:label ?originalLabel. ?translatorURI rdfs:label ?translator .
-					?originalBody frbr:partOf+ ?originalExp . ?originalExp frbr:realizationOf ?originalWork . ?originalWork dcterms:creator ?originalCreatorURI . ?originalCreatorURI rdfs:label ?originalCreator }
-			OPTIONAL {?body dcterms:relation ?relatedExcerpt . ?relatedExcerpt oa:hasBody ?relatedBody . }
-			OPTIONAL {?body dcterms:complementOf ?otherExcerpt . ?otherExcerpt oa:hasBody ?otherBody . }
-	}"""
-
-
-citedPeopleQuery = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX oa: <http://www.w3.org/ns/oa#>
-	PREFIX owl: <http://www.w3.org/2002/07/owl#>
-	PREFIX dcterms: <http://purl.org/dc/terms/>
-	PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-	PREFIX frbr: <http://purl.org/vocab/frbr/core#>
-	SELECT *
-	FROM <https://w3id.org/bufalinis-notebook/edition/>
-	WHERE {
-			?s a foaf:Person ; rdfs:label ?person ; owl:sameAs ?externalURI .
-	  		?excerpt dcterms:references ?s . ?body oa:hasBody ?excerpt .
-	  		OPTIONAL {?excerpt frbr:partOf+ ?exp . ?exp frbr:realizationOf ?work . ?work dcterms:creator ?author . ?author rdfs:label ?authorLabel .}
-	  		OPTIONAL {?excerpt frbr:realizer ?realizer . ?realizer rdfs:label ?realizerLabel . }
-	}
-	ORDER BY ?person
-	"""
-
-allPeopleRelationsQuery = """
-	PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-	PREFIX cito: <http://purl.org/spar/cito/>
-	PREFIX prov: <http://www.w3.org/ns/prov#>
-	PREFIX hico: <http://purl.og/emmedi/hico/>
-	SELECT *
-	WHERE {
-			graph ?influenceGraph {
-              ?passive prov:qualifiedInfluence ?influence .
-              ?influence prov:agent ?active ; rdfs:label ?influenceLabel .
-              ?active ?relation ?passive .
-            }
-
-            ?influenceGraph prov:wasGeneratedBy ?intAct .
-      		?intAct prov:wasAssociatedWith ?interpreter ; hico:isExtractedFrom ?excerpt .
-      		OPTIONAL {?intAct cito:citesAsAuthority ?author .}
-
-      		?active rdfs:label ?activeLabel .
-      		?passive rdfs:label ?passiveLabel .
-	}
-"""
-
-
-# add author of translated text; add entities cited in translations ;
-
 # run queries against the SPARQL endpoint before the homepage loads
-try:
-	sparql = SPARQLWrapper(endpoint)
-	sparql.setTimeout(55)
-	sparql.setQuery(allExcerptsQuery)
-	sparql.setReturnFormat(JSON)
-	results = sparql.query().convert()
-	# preparing JSONs to serve it client-side (viewer) including texts and metadata
-	dictExcerpts = {}
-	metadata = {}
-	for result in results["results"]["bindings"]:
-		dictExcerpts[result["source"]["value"].rsplit('/', 1)[-1]] = result["text"]["value"]
-		# variable outputs
-		if "motivation" in result.keys():
-			motivation = "<p>"+result["motivation"]["value"]+"</p>"
-		else:
-			motivation = '<p>not defined</p>'
-		if "originalCreator" in result.keys():
-			originalCreator = "<p>"+result["originalCreator"]["value"]+"</p>"
-		else:
-			originalCreator = '<p>unknown</p>'
-		# quotations
-		if "biblRef" in result.keys() and "creator" in result.keys():
-			if "entityLabel" in result.keys():
-				entities = "<p>"+result["entityLabel"]["value"]+"</p>"
-			else:
-				entities = '<p>-</p>'
-			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation+"<h4>Testo citato</h4><i>"+result["biblRef"]["value"]+"</i><p>"+result["creator"]["value"]+"</p><h4>entit&#224; citate</h4>"+entities
-		# comments
-		if "biblRef" in result.keys() and "creator" not in result.keys():
-			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation+"<i>"+result["biblRef"]["value"]+"</i>"
-		if "biblRef" not in result.keys() and "creator" not in result.keys():
-			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation
-		# ?
-		if "biblRef" not in result.keys() and "creator" in result.keys():
-			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = "<p>"+result["creator"]["value"]+"</p>"
-		# translations
-		if "biblRef" not in result.keys() and "creator" not in result.keys() and "translator" in result.keys() and "translatedText" in result.keys():
-			metadata[result["source"]["value"].rsplit('/', 1)[-1]] = motivation+"<h4>Traduzione dall'originale</h4><p>"+result["translatedText"]["value"]+"</p><i>"+result['originalLabel']['value']+"</i><p>"+originalCreator+"</p><h4>Traduttore</h4><p>"+result["translator"]["value"]+"</p>"
+results, dictExcerpts, metadata = query_excerpts()
+quotsResults = query_quotes()
+sameAsResults = query_sameas()
+citedPeopleResults = query_cited_people()
+mentions = query_mentioned_people()
+translations = query_translated_people()
+quotations = query_quotations_people()
+#translatedby = query_translatedby()
+#relationsResults = query_relations()
 
-except:
-	print('oooops, something went wrong with allExcerptsQuery')
 
-try:
-	sparql = SPARQLWrapper(endpoint)
-	sparql.setTimeout(55)
-	sparql.setQuery(allWorksQueryQuotation)
-	sparql.setReturnFormat(JSON)
-	quotsResults = sparql.query().convert()
-except:
-	print('oooops something went wrong with allWorksQueryQuotation')
-
-try:
-	sparql = SPARQLWrapper(endpoint)
-	sparql.setTimeout(55)
-	sparql.setQuery(allSameAsQuery)
-	sparql.setReturnFormat(JSON)
-	sameAsResults = sparql.query().convert()
-except:
-	print('oooops something went wrong with allSameAsQuery')
-
-try:
-	sparql = SPARQLWrapper(endpoint)
-	sparql.setTimeout(55)
-	sparql.setQuery(citedPeopleQuery)
-	sparql.setReturnFormat(JSON)
-	citedPeopleResults = sparql.query().convert()
-except:
-	print('oooops something went wrong with citedPeopleQuery')
-
-try:
-	sparql = SPARQLWrapper(endpoint)
-	sparql.setTimeout(55)
-	sparql.setQuery(allPeopleRelationsQuery)
-	sparql.setReturnFormat(JSON)
-	relationsResults = sparql.query().convert()
-except:
-	print('oooops something went wrong with allPeopleRelationsQuery')
-
-# WEB APP
 # routing
+prefix = ''
 urls = (
-	'/resource/(.*)','resource',
-	'/','home',
-	'/introduction','intro',
-	'/viewer', 'index',
-	'/viewer_(.*)', 'index_page',
-	'/excerpt/(.*)', 'excerpt',
-	'/indexes','indexes',
-	'/library','library',
-	'/static/bufalini_quaderno.xml', 'xml',
-	'/worksJSON','worksJSON',
-	'/peopleJSON','peopleJSON',
-	'/treemapPeople','treemapPeople',
-	'/treemapWorks','treemapWorks',
-	'/setsPeople','setsPeople',
-	'/setsWorks','setsWorks',
-	'/graphPeople','graphPeople',
-	'/playWithPeople','playWithPeople',
-	'/playWithWorks','playWithWorks',
-	'/(sparql)','sparql',
-	'/specifications','specifications',
-	'/webApplication','webApplication',
-	'/downloadDataset','downloadDataset',
-	'/publications','publications',
-	'/credits','credit',
-	'/licences','licences'
+	prefix + '/resource/(.*)','resource',
+	prefix + '/','home',
+	prefix + '/introduction','intro',
+	prefix + '/viewer', 'index',
+	prefix + '/excerpt-(.*)', 'excerpt',
+	prefix + '/indexes','indexes',
+	prefix + '/library','library',
+	prefix + '/static/bufalini_quaderno.xml', 'xml',
+	prefix + '/treemapPeople','treemapPeople',
+	prefix + '/treemapWorks','treemapWorks',
+	prefix + '/setsPeople','setsPeople',
+	prefix + '/setsWorks','setsWorks',
+	prefix + '/graphPeople','graphPeople',
+	prefix + '/playWithPeople','playWithPeople',
+	prefix + '/playWithWorks','playWithWorks',
+	prefix + '/(sparql)','sparql',
+	prefix + '/specifications','specifications',
+	prefix + '/webApplication','webApplication',
+	prefix + '/downloadDataset','downloadDataset',
+	prefix + '/publications','publications',
+	prefix + '/credits','credit',
+	prefix + '/licences','licences'
 )
 
-
-# templates
-render = web.template.render('templates/', base="layout", globals={'re':re})
-renderRDF = web.template.render('templates/', globals={'re':re})
-renderXML = web.template.render('templates/', globals={'re':re})
-
+# templating
+render = web.template.render('templates/', base="layout", globals={'re':re, 'sorted':sorted})
+renderNest = web.template.render('templates/', globals={'re':re,'sorted':sorted})
+renderRDF = web.template.render('templates/', globals={'re':re,'sorted':sorted})
+renderXML = web.template.render('templates/', globals={'re':re,'sorted':sorted})
 
 # render xml
 class xml:
@@ -264,32 +62,17 @@ class xml:
 		web.header('Content-Type', 'text/xml')
 		return renderXML.resource()
 
-
-# any RDF resource: content negotiation
+# render RDF resource: content negotiation
 class resource(object):
 	def GET(self, idRes):
 		entityTBD = 'https://w3id.org/bufalinis-notebook/'+idRes
-		describeEntityQuery = """
-			DESCRIBE <"""+entityTBD+""">
-		"""
-		try:
-			sparql = SPARQLWrapper(endpoint)
-			sparql.setTimeout(55)
-			sparql.setQuery(describeEntityQuery)
-			sparql.setReturnFormat(JSON)
-			describeResults = sparql.query().convert()
-			print(describeEntityQuery)
-			print(describeResults)
-		except:
-			print('oooops something went wrong with describeEntityQuery')
+		describeResults= query_resource(entityTBD)
 		return renderRDF.resource(data=describeResults, entity=entityTBD)
 
-
-# home
+# homepage
 class home(object):
     def GET(self):
         return render.home()
-
 
 # introduction
 class intro(object):
@@ -301,394 +84,289 @@ class intro(object):
 class index(object):
 	def GET(self):
 		web.header("Cache-Control", "public, max-age=2592000")
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
 		# dict for citations
 		excerptsDict = defaultdict(list)
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "workLabel" in result.keys():
-				workLabel = result["workLabel"]["value"]
-			else:
-				workLabel = '-'
-			if "creator" in result.keys():
-				creatorURI = result["creatorURI"]["value"]
-				creatorText = result["creator"]["value"]
-			else:
-				creatorURI = ''
-				creatorText = '-'
+		for result in results['results']['bindings']:
+			biblRef = result['biblRef']['value'] if 'biblRef' in result.keys() else '-'
+			workLabel = result['workLabel']['value'] if 'workLabel' in result.keys() else '-'
+			creator = result['creator']['value'] if 'creator' in result.keys() else '-'
+			originalCreator = result['originalCreator']['value'] if 'originalCreator' in result.keys() else '-'
+
 			# excerptsDict - work : {excerptID , biblRef}
 			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
+				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'creator': creator, 'originalCreator' : originalCreator, 'source': result['source']['value'].rsplit('/',1)[-1] , 'bibref' : biblRef})
 			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
-				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
+				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'creator': creator, 'originalCreator' : originalCreator, 'source': result['source']['value'].rsplit('/',1)[-1] , 'bibref' : biblRef}]
 
-		# authorsList TO BE REVISED - IT TAKES TOO LONG
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsList:
-				authorsList[result["creatorURI"]["value"]] = [{'name': result["creator"]["value"]}]
-				for person in sameAsResults["results"]["bindings"]:
-					if result['creatorURI']['value'] == person['s']['value']:
-						authorsList[result["creatorURI"]["value"]].append({'sameAs': person['externalURI']['value']})
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsList:
-				pass
+		# list work, author
+		listTitles = list({quot['workLabel']['value'] for quot in quotsResults['results']['bindings']})
 
-			# authorsQuots
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]] = [(result["source"]["value"].rsplit('/',1)[-1] , biblRefText)]
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]].append( (result["source"]["value"].rsplit('/',1)[-1] , biblRefText) )
-
-		# people cited formatter
 		resPeople=[]
-		inList=citedPeopleResults['results']['bindings']
-		for people in inList:
+		listWorkAuth = []
+		for cit in excerptsDict:
+			cits = excerptsDict[cit]
+			for y in cits:
+
+				##################################################################################################################
+				# TEMP remove verse/excerpt/volume/sample/etc. work labels
+				bibRef= temp_remove_text(y['bibref'])
+				##################################################################################################################
+
+				for title in listTitles:
+					if y['workLabel'] == title:
+						if y['originalCreator'] != '-':
+							if y['originalCreator'] != y['creator']:
+								work = title + '=' + y['originalCreator'] + ', tra. ' + y['creator'] + '__' + bibRef + ', ' + y['originalCreator'] + ', tra. ' + y['creator'] + '#' + y['source']
+								if work not in listWorkAuth:
+									listWorkAuth.append(work)
+								# to add to mentioned people list
+								author = y['creator']
+								if author not in resPeople:
+									resPeople.append(author)
+						else:
+							work = title + '=' + y['creator'] + '__' + bibRef + ', ' + y['creator'] + '#' + y['source']
+							if work not in listWorkAuth:
+								listWorkAuth.append(work)
+							# to add to mentioned people list
+							author = y['creator']
+							if author not in resPeople:
+								resPeople.append(author)
+
+		listWorkAuth = sorted(listWorkAuth)
+
+		# dict work, author, further information
+		dictWorks = {}
+		for work in listWorkAuth:
+			work = work.split('__')[0]
+			dictWorks[work] = ''
+
+		for key in dictWorks.keys():
+			listTemp = []
+			for item in listWorkAuth:
+				keyListCit = item.split('__')[0]
+				valueListCit = item.split('__')[1]
+				if keyListCit == key:
+					listTemp.append(valueListCit)
+				dictWorks[key] = listTemp
+			listTemp = []
+
+		dictWorks = dict(sorted(dictWorks.items(), key = lambda value: re.sub("Il |Lo |La |I |Gli |Le |Un |Un\'|Una |L\'|Dell\'","", value[0].lower(),  flags=re.IGNORECASE)))
+
+		# list of works and attributes to be used to develop the dictionary of mentioned people
+		listWorksAttr = []
+		for key in dictWorks:
+			for value in dictWorks[key]:
+				if value not in listWorksAttr:
+					listWorksAttr.append(value)
+
+		# list of mentioned person, person who makes the citation, work the citation appears in, excerpt code
+		for people in citedPeopleResults['results']['bindings']:
 			if people['person']['value'] not in resPeople:
 				resPeople.append(people['person']['value'])
 		resPeople=sorted(resPeople)
 
-		# books formatter
-		resQuotes=[]
-		inList=quotsResults['results']['bindings']
-		for book in inList:
-			if book['workLabel']['value'] not in resQuotes:
-				if "excerpts_uris" in book:
-					listEx=book['excerpts_uris']['value'].split()
-					excerpts = " ".join([x.rsplit('/',1)[-1] for x in listEx])
-					resQuotes.append((book['workLabel']['value'], book['work']['value'].rsplit('/',1)[-1], excerpts))
-				else:
-					resQuotes.append((book['workLabel']['value'], book['work']['value'].rsplit('/',1)[-1]))
-		resQuotes=sorted(resQuotes)
 
-		return render.index(dict=json.dumps(dictExcerpts), metadataDict=json.dumps(metadata), citedPeopleList=resPeople, quots=resQuotes, citations=excerptsDict)
+		listCit = []
+		for pers in citedPeopleResults['results']['bindings']:
+			person = pers['person']['value']
+			ex = pers['body']['value'].rsplit('/',1)[-1]
+			for work in listWorksAttr:
+				if 'authorLabel' in pers.keys():
+					if ex in work:
+						cit = person + '----' + work
+						if cit not in listCit:
+							listCit.append(cit)
 
+				elif ('authorLabel' in pers.keys()) and ('realizerLabel' in pers.keys()):
+					if ex in work:
+						cit = person + '----' + work
+						if cit not in listCit:
+							listCit.append(cit)
 
-# digital edition - permalink for openings
-class index_page(object):
-	def GET(self, pageNum):
-		web.header("Cache-Control", "public, max-age=2592000")
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
-		# authorsList TO BE REVISED - IT TAKES TOO LONG
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsList:
-				authorsList[result["creatorURI"]["value"]] = [{'name': result["creator"]["value"]}]
-				for person in sameAsResults["results"]["bindings"]:
-					if result['creatorURI']['value'] == person['s']['value']:
-						authorsList[result["creatorURI"]["value"]].append({'sameAs': person['externalURI']['value']})
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsList:
-				pass
+				elif ('authorLabel' not in pers.keys()) and ('realizerLabel' in pers.keys()):
+					cit = person + '----' + pers['realizerLabel']['value'] + '#' + ex
+					if cit not in listCit:
+						listCit.append(cit)
 
-			# authorsQuots
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]] = [(result["source"]["value"].rsplit('/',1)[-1] , biblRefText)]
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]].append( (result["source"]["value"].rsplit('/',1)[-1] , biblRefText) )
+		# dict pers, related people, works and excerpts
+		dictPersCit = {}
+		for pers in resPeople:
+			dictPersCit[pers] = ''
 
-		# authors formatter
-		resPeople=[]
-		inList=citedPeopleResults['results']['bindings']
-		for people in inList:
-			if people['person']['value'] not in resPeople:
-				resPeople.append(people['person']['value'])
-		resPeople=sorted(resPeople)
+		for key in dictPersCit.keys():
+			listTemp = []
+			for item in listCit:
+				keyListCit = item.split('----')[0]
+				valueListCit = item.split('----')[1]
+				if keyListCit == key:
+					listTemp.append(valueListCit)
+				dictPersCit[key] = listTemp
+			listTemp = []
 
-		# books formatter
-		resQuotes=[]
-		inList=quotsResults['results']['bindings']
-		for book in inList:
-			if book['workLabel']['value'] not in resQuotes:
-				if "excerpts_uris" in book:
-					listEx=book['excerpts_uris']['value'].split()
-					excerpts = " ".join([x.rsplit('/',1)[-1] for x in listEx])
-					resQuotes.append((book['workLabel']['value'], book['work']['value'].rsplit('/',1)[-1], excerpts))
-				else:
-					resQuotes.append((book['workLabel']['value'], book['work']['value'].rsplit('/',1)[-1]))
-		resQuotes=sorted(resQuotes)
+		return render.index(dict=json.dumps(dictExcerpts), metadataDict=json.dumps(metadata), dictWorks=dictWorks, dictPersCit=dictPersCit)
 
-		return render.index_page(dict=json.dumps(dictExcerpts), metadataDict=json.dumps(metadata), num=pageNum, citedPeopleList=resPeople, quots=resQuotes)
-
-
-# people semantic indexes
+# people index
 class indexes(object):
 	def GET(self):
-		# dict for citations tab
-		excerptsDict = defaultdict(list)
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "workLabel" in result.keys():
-				workLabel = result["workLabel"]["value"]
-			else:
-				workLabel = '-'
-			if "creator" in result.keys():
-				creatorURI = result["creatorURI"]["value"]
-				creatorText = result["creator"]["value"]
-			else:
-				creatorURI = ''
-				creatorText = '-'
-			# excerptsDict - work : {excerptID , biblRef}
-			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
-			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
-				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
 
-		# people formatter
-		resPeople=[]
+		# list all people
 		inList=citedPeopleResults['results']['bindings']
+		people=list({people['person']['value'] for people in inList})
+
+		resPeople = [] # sorting by last name
+		for pers in people:
+			splitkeylist = pers.strip().rpartition(' ')
+			keylabel = splitkeylist[2]+', '+splitkeylist[0] if (len(splitkeylist[0]) > 2 and splitkeylist[0] != ', ' and "Autore" not in splitkeylist[0] and "(" not in splitkeylist[0] and "(" not in splitkeylist[2]) else splitkeylist[0]+' '+splitkeylist[2] if len(splitkeylist[2]) == 1  else pers
+			resPeople.append([pers,keylabel])
+		resPeople = sorted(resPeople, key=lambda x: x[1] )
+		print(resPeople)
+		# external uris
+		externalURI = defaultdict(list)
 		for people in inList:
-			if people['person']['value'] not in resPeople:
-				resPeople.append(people['person']['value'])
-		resPeople=sorted(resPeople)
+			if 'externalURI' in people.keys():
+				externalURI[people['person']['value']].append(people['externalURI']['value'])
+		externalURI = {k:list(set(v)) for k,v in externalURI.items()}
 
-		# books formatter
-		resQuotes=[]
-		inList=quotsResults['results']['bindings']
-		for book in inList:
-			if book['workLabel']['value'] not in resQuotes:
-				resQuotes.append(book['workLabel']['value'])
-		resQuotes=sorted(resQuotes)
+		# mentions
+		mentions_list = defaultdict(list)
+		for mention in mentions["results"]["bindings"]:
+			name = mention['person']['value']
+			excerpt = mention['source']['value'].rsplit('/',1)[-1]
+			work = mention['workLabel']['value'] if 'workLabel' in mention.keys() else '-'
+			citing = mention['authorLabel']['value'] if 'authorLabel' in mention.keys() else '-'
+			mentions_list[name].append( {'source':excerpt, 'work':work, 'citing':citing } )
+		mentions_list = dict(mentions_list)
 
-		# count
-		authorsList = sorted(authorsList)
+		# excerpts tranlsated by the person at hand
+		translations_list = defaultdict(list)
+		for translation in translations["results"]["bindings"]:
+			name = translation['person']['value']
+			excerpt = translation['source']['value'].rsplit('/',1)[-1]
+			work = translation['workLabel']['value'] if 'workLabel' in translation.keys() else '-'
+			cited = translation['authorLabel']['value'] if 'authorLabel' in translation.keys() else '-'
+			translations_list[name].append( {'source':excerpt, 'work':work, 'cited':cited } )
+		translations_list = dict(translations_list)
 
-		sortedKeys=[]
-		workCountDict={}
-		temp = {}
-		for raw in quotsResults['results']['bindings']:
-			temp[raw["workLabel"]["value"]]=raw['count']['value']
-		sortedKeys = sorted(temp.keys())
-		for x in sortedKeys:
-			workCountDict[x]=temp[x]
+		# excerpts tranlsated by other people
+		translatedby_list = defaultdict(list)
+		for translatedby in translations["results"]["bindings"]:
+			name = translatedby['person']['value']
+			excerpt = translatedby['source']['value'].rsplit('/',1)[-1]
+			work = translatedby['workLabel']['value'] if 'workLabel' in translatedby.keys() else '-'
+			citing = translatedby['authorLabel']['value'] if 'authorLabel' in translatedby.keys() else None
+			if citing:
+				translatedby_list[citing].append( {'source':excerpt, 'work':work, 'translator':name } )
+		translatedby_list = dict(translatedby_list)
 
-		workAutDict={}
-		temp={}
-		sortedKeys=[]
-		for x in excerptsDict:
-			if excerptsDict[x][0]["author"] not in temp and excerptsDict[x][0]["workLabel"] in workCountDict:
-				temp[excerptsDict[x][0]["workLabel"]]=(excerptsDict[x][0]["author"])
+		# quotations
+		quotations_list = defaultdict(list)
+		for quotation in quotations["results"]["bindings"]:
+			name = quotation['person']['value']
+			excerpt = quotation['source']['value'].rsplit('/',1)[-1]
+			work = quotation['workLabel']['value'] if 'workLabel' in quotation.keys() else '-'
+			if 'tra' not in excerpt: # remove quotations of translations, which are already in translations_list
+				quotations_list[name].append( {'source':excerpt, 'work':work } )
+		quotations_list = dict(quotations_list)
 
-		sortedKeys = sorted(temp.keys())
-		for x in sortedKeys:
-			workAutDict[x]=temp[x]
 
-		return render.indexes(citedPeopleList=citedPeopleResults, relationsList=relationsResults, citedPeopleListForm=resPeople, quots=workCountDict, authors=authorsList, workAutDict=workAutDict, quotsResults=quotsResults, citations=excerptsDict)
 
-# works semantic index
+		# dict for citations tab
+		# excerptsDict = defaultdict(list)
+		# for result in results["results"]["bindings"]:
+		# 	biblRefText = result["biblRef"]["value"] if "biblRef" in result.keys() else  '-'
+		# 	workLabel = result["workLabel"]["value"] if "workLabel" in result.keys() else '-'
+		# 	creatorURI = result["creatorURI"]["value"] if "creator" in result.keys() else ''
+		# 	creatorText = result["creator"]["value"] if "creator" in result.keys() else '-'
+		# 	originalCreator = result['originalCreator']['value'] if 'originalCreator' in result.keys() else '-'
+		#
+		# 	# excerptsDict - work : {excerptID , biblRef}
+		# 	if 'work' in result.keys() and result['work']['value'] in excerptsDict:
+		# 		excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'originalCreator': originalCreator, 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
+		# 	elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
+		# 		excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'originalCreator': originalCreator, 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
+		#
+		# # list works, excerpts
+		# inList=quotsResults['results']['bindings']
+		# #resQuotes=sorted(list({book['workLabel']['value'] for book in inList}))
+		#
+		# # list works verses, excerpts
+		# listWorsCit = []
+		# for cit in excerptsDict.keys():
+		# 	for x in excerptsDict[cit]:
+		# 		bibRef= temp_remove_text(x['bibref']) # TODO remove
+		#
+		# 		if x['originalCreator'] != '-':
+		# 			work =  bibRef + ', ' + x['originalCreator'] + ', tra. ' + '#' + x['source']
+		# 			if work not in listWorsCit:
+		# 				listWorsCit.append(work)
+		# 		else:
+		# 			work =  bibRef + ', #' + x['source']
+		# 			if work not in listWorsCit:
+		# 				listWorsCit.append(work)
+		#print("\nlistWorsCit",listWorsCit,"\n\ncitedPeopleResults",citedPeopleResults)
+		return render.indexes(uris=externalURI, mentions_list=mentions_list, translations_list=translations_list, quotations_list=quotations_list,translatedby_list=translatedby_list, citedPeopleList=citedPeopleResults, resPeople=resPeople ) #, citations=excerptsDict, listWorsCit=listWorsCit
+
+# works index
 class library(object):
 	def GET(self):
 		# dict for citations tab
 		excerptsDict = defaultdict(list)
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "workLabel" in result.keys():
-				workLabel = result["workLabel"]["value"]
-			else:
-				workLabel = '-'
-			if "creator" in result.keys():
-				creatorURI = result["creatorURI"]["value"]
-				creatorText = result["creator"]["value"]
-			else:
-				creatorURI = ''
-				creatorText = '-'
+		listWorkAuth = []
+
+		for result in results['results']['bindings']:
+			work = result['work']['value'] if 'work' in result.keys() else None
+			biblRef = result['biblRef']['value'] if 'biblRef' in result.keys() else '-'
+			workLabel = result['workLabel']['value'] if 'workLabel' in result.keys() else '-'
+			creator = result['creator']['value'] if ('creator' in result.keys() and 'translator' not in result.keys()) \
+				else result['translator']['value'] if ('translator' in result.keys()) else '-'
+			originalCreator = result['originalCreator']['value'] if 'originalCreator' in result.keys() else '-'
+
 			# excerptsDict - work : {excerptID , biblRef}
-			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
-			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
-				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
+			if work:
+				unique_key = work+'_'+workLabel+'=#'+creator
+				excerptsDict[unique_key].append(
+					{'source': result['source']['value'].rsplit('/',1)[-1] ,
+					'bibRef' : temp_remove_text(biblRef) })
 
-			# authorsList TO BE REVISED - IT TAKES TOO LONG
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsList:
-				authorsList[result["creatorURI"]["value"]] = [{'name': result["creator"]["value"]}]
-				for person in sameAsResults["results"]["bindings"]:
-					if result['creatorURI']['value'] == person['s']['value']:
-						authorsList[result["creatorURI"]["value"]].append({'sameAs': person['externalURI']['value']})
-						# if 'dbpedia' in person['externalURI']['value']:
+		# list work, author
+		for k,v in excerptsDict.items():
+			string_work_author_excerpt = ''
+			string_work_author_excerpt += k.split('_')[1]
+			for excerpt_dict in v:
+				string_work_author_excerpt += '____'+excerpt_dict['source']+ '----' + excerpt_dict['bibRef'] + ', ' + k.split('#')[1]
+			listWorkAuth.append(string_work_author_excerpt)
 
-						# 	try:
-						# 		sparql = SPARQLWrapper(dbpediaEndpoint)
-						# 		sparql.setTimeout(55)
-						# 		sparql.setQuery("""
-						# 			SELECT DISTINCT ?abstract
-						# 			WHERE {
-						# 				<"""+person['externalURI']['value']+"""> <http://dbpedia.org/ontology/abstract> ?abstract .
-						# 			}
-						# 			""")
-						# 		sparql.setReturnFormat(JSON)
-						# 		personResults = sparql.query().convert()
-						# 	except:
-						# 		print 'oooops something went wrong with allWorksQueryQuotation'
-						# 	for resultSameAs in personResults['results']['bindings']:
-						# 		authorsList[result["creatorURI"]["value"]].append({'abstract':resultSameAs['abstract']['value']})
-						# else:
-						# 	pass
+		# FILTERS: "work, author"
+		sortedWorkAuth = list({work.split('____')[0] for work in listWorkAuth} )
+		sortedWorkAuth = sorted(sortedWorkAuth, key = lambda value: re.sub("Il |Lo |La |I |Gli |Le |Un |Un\'|Una |L\'|Dell\'","", value.lower(),  flags=re.IGNORECASE))
 
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsList:
-				pass
+		# CONTENT: dict work, author, further information
+		dictIndexWorks = defaultdict(list)
 
-			# authorsQuots
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]] = [(result["source"]["value"].rsplit('/',1)[-1] , biblRefText)]
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]].append( (result["source"]["value"].rsplit('/',1)[-1] , biblRefText) )
+		for work in listWorkAuth:
+			new_key = work.split('____')[0] # title=#author
+			for result in results['results']['bindings']:
+				source = result['source']['value'].rsplit('/',1)[-1]
+				biblRef = result['biblRef']['value'] if 'biblRef' in result.keys() else '-'
+				creator = result['creator']['value'] if 'creator' in result.keys() else '-'
+				translator = result['translator']['value'] if 'translator' in result.keys() else '-'
+				originalWorkLabel = temp_remove_text(result['originalLabel']['value']) if 'originalLabel' in result.keys() else result['originalWorkLabel']['value'] if 'originalWorkLabel' in result.keys() else '-'
+				if 'work' in result.keys() \
+					and result['workLabel']['value'] == new_key.split('=')[0] \
+					and result['creator']['value'] == new_key.split('#')[1]: # quotations
+					if source+'----'+temp_remove_text(biblRef)+', '+creator not in dictIndexWorks[new_key]:
+						dictIndexWorks[new_key].append( source+'----'+temp_remove_text(biblRef)+', '+creator )
+				elif 'originalWork' in result.keys() \
+					and result['originalWorkLabel']['value'] == new_key.split('=')[0]\
+					and result['originalCreator']['value'] == new_key.split('#')[1] : # translations or comments
+					if source+'----'+temp_remove_text(originalWorkLabel)+', tr. '+translator not in dictIndexWorks[new_key]:
+						dictIndexWorks[new_key].append( source+'----'+temp_remove_text(originalWorkLabel)+', tr. '+translator )
 
-		authorsList = sorted(authorsList)
-		return render.library(quots=quotsResults, citations=excerptsDict, authors=authorsList, authorAndQuots=authorsQuots)
+		dictIndexWorks = dict(dictIndexWorks)
+		dictIndexWorks = { k:sorted(v) for k,v in dictIndexWorks.items()}
+		sortedDictIndexWorks = dict(OrderedDict(sorted(dictIndexWorks.items())))
 
-# people JSON generator
-class peopleJSON(object):
-	def GET(self):
-		# dict for citations tab
-		excerptsDict = defaultdict(list)
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "workLabel" in result.keys():
-				workLabel = result["workLabel"]["value"]
-			else:
-				workLabel = '-'
-			if "creator" in result.keys():
-				creatorURI = result["creatorURI"]["value"]
-				creatorText = result["creator"]["value"]
-			else:
-				creatorURI = ''
-				creatorText = '-'
-			# excerptsDict - work : {excerptID , biblRef}
-			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
-			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
-				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
-
-		# people formatter
-		resPeople=[]
-		inList=citedPeopleResults['results']['bindings']
-		for people in inList:
-			if people['person']['value'] not in resPeople:
-				resPeople.append(people['person']['value'])
-		resPeople=sorted(resPeople)
-
-		# books formatter
-		resQuotes=[]
-		inList=quotsResults['results']['bindings']
-		for book in inList:
-			if book['workLabel']['value'] not in resQuotes:
-				resQuotes.append(book['workLabel']['value'])
-		resQuotes=sorted(resQuotes)
-
-		# count
-		authorsList = sorted(authorsList)
-
-		sortedKeys=[]
-		workCountDict={}
-		temp = {}
-		for raw in quotsResults['results']['bindings']:
-			temp[raw["workLabel"]["value"]]=raw['count']['value']
-		sortedKeys = sorted(temp.keys())
-		for x in sortedKeys:
-			workCountDict[x]=temp[x]
-
-		workAutDict={}
-		temp={}
-		sortedKeys=[]
-		for x in excerptsDict:
-			if excerptsDict[x][0]["author"] not in temp and excerptsDict[x][0]["workLabel"] in workCountDict:
-				temp[excerptsDict[x][0]["workLabel"]]=(excerptsDict[x][0]["author"])
-
-		sortedKeys = sorted(temp.keys())
-		for x in sortedKeys:
-			workAutDict[x]=temp[x]
-
-		return render.peopleJSON(citedPeopleList=citedPeopleResults, relationsList=relationsResults, citedPeopleListForm=resPeople, quots=workCountDict, authors=authorsList, workAutDict=workAutDict)
-
-# works JSON generator
-class worksJSON(object):
-	def GET(self):
-		# dict for citations tab
-		excerptsDict = defaultdict(list)
-		authorsList = defaultdict(list)
-		authorsQuots = defaultdict(list)
-		for result in results["results"]["bindings"]:
-			if "biblRef" in result.keys():
-				biblRefText = result["biblRef"]["value"]
-			else:
-				biblRefText = '-'
-			if "workLabel" in result.keys():
-				workLabel = result["workLabel"]["value"]
-			else:
-				workLabel = '-'
-			if "creator" in result.keys():
-				creatorURI = result["creatorURI"]["value"]
-				creatorText = result["creator"]["value"]
-			else:
-				creatorURI = ''
-				creatorText = '-'
-			# excerptsDict - work : {excerptID , biblRef}
-			if 'work' in result.keys() and result['work']['value'] in excerptsDict:
-				excerptsDict[result['work']['value']].append( {'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText})
-			elif 'work' in result.keys() and result['work']['value'] not in excerptsDict:
-				excerptsDict[result['work']['value']] = [{'workLabel': workLabel , 'authorURI': creatorURI , 'author' : creatorText, 'source': result["source"]["value"].rsplit('/',1)[-1] , 'bibref' : biblRefText}]
-
-			# authorsList TO BE REVISED - IT TAKES TOO LONG
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsList:
-				authorsList[result["creatorURI"]["value"]] = [{'name': result["creator"]["value"]}]
-				for person in sameAsResults["results"]["bindings"]:
-					if result['creatorURI']['value'] == person['s']['value']:
-						authorsList[result["creatorURI"]["value"]].append({'sameAs': person['externalURI']['value']})
-						# if 'dbpedia' in person['externalURI']['value']:
-
-						# 	try:
-						# 		sparql = SPARQLWrapper(dbpediaEndpoint)
-						# 		sparql.setTimeout(55)
-						# 		sparql.setQuery("""
-						# 			SELECT DISTINCT ?abstract
-						# 			WHERE {
-						# 				<"""+person['externalURI']['value']+"""> <http://dbpedia.org/ontology/abstract> ?abstract .
-						# 			}
-						# 			""")
-						# 		sparql.setReturnFormat(JSON)
-						# 		personResults = sparql.query().convert()
-						# 	except:
-						# 		print 'oooops something went wrong with allWorksQueryQuotation'
-						# 	for resultSameAs in personResults['results']['bindings']:
-						# 		authorsList[result["creatorURI"]["value"]].append({'abstract':resultSameAs['abstract']['value']})
-						# else:
-						# 	pass
-
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsList:
-				pass
-
-			# authorsQuots
-			if "creator" in result.keys() and result['creatorURI']['value'] not in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]] = [(result["source"]["value"].rsplit('/',1)[-1] , biblRefText)]
-			elif "creator" in result.keys() and result['creatorURI']['value'] in authorsQuots:
-				authorsQuots[result["creatorURI"]["value"]].append( (result["source"]["value"].rsplit('/',1)[-1] , biblRefText) )
-
-		authorsList = sorted(authorsList)
-		return render.worksJSON(quots=quotsResults, citations=excerptsDict, authors=authorsList, authorAndQuots=authorsQuots)
+		return render.library(sortedWorkAuth=sortedWorkAuth, dictIndexWorks=sortedDictIndexWorks)
 
 # people treemap
 class treemapPeople(object):
@@ -822,10 +500,10 @@ class sparql:
         if accept is None or accept == "*/*" or accept == "":
             accept = "application/sparql-results+xml"
         if is_post:
-            req = requests.post('http://localhost:9999/blazegraph/sparql', data=data,
+            req = requests.post('http://localhost:9989/blazegraph/sparql', data=data,
                                 headers={'content-type': content_type, "accept": accept})
         else:
-            req = requests.get("%s?%s" % ('http://localhost:9999/blazegraph/sparql', data),
+            req = requests.get("%s?%s" % ('http://localhost:9989/blazegraph/sparql', data),
                                headers={'content-type': content_type, "accept": accept})
 
         if req.status_code == 200:
@@ -840,7 +518,7 @@ class sparql:
 
     def __run_query_string(self, active, query_string, is_post=False,
                            content_type="application/x-www-form-urlencoded"):
-        parsed_query = urlparse.parse_qs(query_string)
+        parsed_query =urlparse.parse_qs(query_string)
         if query_string is None or query_string.strip() == "":
 
             return render.sparql(active)
@@ -854,7 +532,10 @@ class sparql:
                 "403", {"Content-Type": "text/plain"}, "SPARQL Update queries are not permitted.")
 
 
+
 if __name__ == "__main__":
 	app = web.application(urls, globals())
 	app.internalerror = web.debugerror
 	app.run()
+
+# off key

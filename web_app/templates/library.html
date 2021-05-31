@@ -1,215 +1,221 @@
-$def with (quots, citations, authors, authorAndQuots)
+$def with (sortedWorkAuth, dictIndexWorks)
 
 	<section class="col-md-12 section_header" id="introContainer" style="display: none;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 align_center">
-					<h2 id="works_indexes_header_title">Works Indexes</h2>
-					<a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+					<!-- dont remove or change -->
+					<h2 id="works_indexes_header_title">Index of Works</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- People Index -->
-	<div >
-		<div>
-			<!-- Layout -->
-			<section class="col-md-12" id="introContainer">
-				<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
-					<div class="row">
-						<!-- facets -->
-						<div class="col-md-2 col-sm-3 panel_tool facets_panel_box_people specific-height" id="facets_panel_box_people">
-							<div class="media">
-								<div class="media-left">
-									<button class="button_panel" onclick="closeFacetsPeople()" id="close-people-fac"><i class="glyphicon glyphicon-remove"></i></button>
-								</div>
-								<div class="media-body">
-									<h4 class="margin-bottom-0" id="facets_title">Filters</h4>
-									<a class="seeWorks" id="clear_res_ind" style="display:none;"></a>
-								</div>
-								<div id="closeFacets_div_people">
-									<div>
-										<button class="filters_icon filter_background_blue"><i class="far fa-user"></i></button><span class="filters_category_title" id="filters_people">People</span>
-										<div id="filters_checkbox_works">
-											<form class="checkbox_margin">
-												$ empty = []
-												$for work in quots["results"]["bindings"]:
-													$for cit in citations:
-														$if cit == work['work']['value']:
-															$for x in citations[cit]:
-																$if x['author'] not in empty:
-																	$empty.append(x['author'])
-												$empty.sort()
-												$for el in empty:
-													$ auth = el.split(" ")[0:2]
-													$ finalAuth = " ".join(auth)
-													<input type="checkbox" class="worksPersFilters" workvalue="$finalAuth">
-													<label for="" class="labelInline">$el</label><br>
-											</form>
-										</div>
-										<hr class="filters_category_title">
-										<div>
-											<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_excerpts">Type of excerpts</span>
-											<form class="checkbox_margin" id="check-excerpt-container">
-												<input type="checkbox" class="worksExFilters" id="comment" workvalue="comm-">
-												<label for="" class="labelInline" id="comment"><span id="comment_checkbox">Comments</span> <span class="dot dot-green"></span></label><br>
-												<input type="checkbox" class="worksExFilters" id="quotation" workvalue="quot-">
-												<label for="" class="labelInline" id="quotation"><span id="quotation_checkbox">Quotations</span> <span class="dot dot-pink"></span></label><br>
-												<input type="checkbox" class="worksExFilters" id="translation" workvalue="tra-">
-												<label for="" class="labelInline" id="translation"><span id="translation_checkbox">Translations</span> <span class="dot dot-yellow"></span></label><br>
-											</form>
-										</div>
-										<hr class="filters_category_title_nested">
-										<div>
-											<span class="filters_category_title filters_category_title_nested" id="filters_works">Works</span>
-											<div id="filters_checkbox_works">
-												<form class="checkbox_margin">
-													$ listWork = []
-													$for work in quots["results"]["bindings"]:
-													$ workTitleVal = work['workLabel']['value'].replace("'", "")
-													$ finalworkTitleVal = workTitleVal.replace('"', '')
-													$for cit in citations:
-														$if cit == work['work']['value']:
-															$ empty = []
-															$ author = citations[cit][0]['author'].split("(")[0]
-															$ workRaw = work['workLabel']['value'].replace('"', "")
-															$ finalWork = workRaw.replace("'", "")
-															$ str = work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork
-															$if str not in listWork:
-																$ listWork.append(work['workLabel']['value'] + ", " + "-" + author + "__" + finalWork)
-												$listWork.sort()
-												$for x in listWork:
-													$ name = x.split("__")[0]
-													$ finalWorkCheck  = x.split("__")[1]
-													$ authNameRaw = name.split("-")[1]
-													$ authNameList = authNameRaw.split(", ")
-													$ authSurname = authNameList[0]
-													$ persAuthNameRaw = authNameList[1:]
-													$ persAuthName = "".join(persAuthNameRaw)
-													$if "Dellinno La Risurrezione in A. Manzoni e in S. Paolino dAquileja" in finalWorkCheck:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">Dell'inno "La Risurrezione" in A. Manzoni e in S. Paolino dAquileja, $persAuthName $authSurname</label><br>
-													$elif "Albini" in authSurname:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-													$elif "Giussani" in authSurname:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-													$elif "Parrella" in authSurname:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, <span class="trad">trad.</span> $persAuthName $authSurname</label><br>
-													$elif "1945" in authSurname:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">Germania 1866-1945, Gordon Alexander Craig</label><br>
-													$elif "Institutionem Iustiniani" in finalWorkCheck:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, Giustiniano I</label><br>
-													$elif "La Sacra Biblia secondo la volgata" in finalWorkCheck:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, Antonio Martini</label><br>
-													$elif "Lancien r" in finalWorkCheck:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">L'ancien régime et la Révolution, $persAuthName $authSurname</label><br>
-													$elif "moires dHadrien" in finalWorkCheck:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">Mémoires d'Hadrien, $persAuthName $authSurname</label><br>
-													$else:
-														<input type="checkbox" class="workSingleFilters" workvalue="$finalWorkCheck">
-														<label class="labelInline">$finalWorkCheck, $persAuthName $authSurname</label><br>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+	<!-- intro.js tutorial step 1 -->
+	<section class="col-md-12" id="introContainer" data-title="Index of Works" data-intro="The Index of Works includes all cited works." data-step="1">
+		<div class="container-fluid" style="padding-right: 0px; padding-left: 0px;">
+			<div class="row">
+				<!-- filters -->
+				<!-- intro.js tutorial step 4 -->
+				<div class="col-md-2 col-sm-3 panel_tool facets_panel_box_people reduced-window responsive-height" id="facets_panel_box_people" data-title="Filters" data-intro="You can use the filters to filter the index contents according to specific parameters available below." data-step="4">
+					<div class="media">
+						<div class="media-left">
+							<button class="button_panel" onclick="closeFacetsPeople()" id="close-people-fac">
+								<i class="glyphicon glyphicon-remove index-close-icon"></i>
+								<i class="glyphicon glyphicon-fullscreen index-fullscreen-icon" style="display: none;"></i>
+							</button>
 						</div>
-						<div class="col-md-10 col-sm-9 panel_tool panel_tool_page page_panel_tool_people padding-top-0 specific-height" id="page_panel_tool_people">
-							<div class="row">
-								<div class="col-md-12 col-sm-12">
-									<div class="media">
-										<div class="media-left">
-											<button class="button_panel" onclick="openPagePeople()"><i class="glyphicon glyphicon-fullscreen"></i></button>
-										</div>
-										<div class="media-body">
-											<ul class="nav nav-pills tab-works">
-												<li role="presentation" class="filters_category_title active"><a href="#" id="people_list">List</a></li>
-												<li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
-												<li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
-												<li role="presentation"><a class="no-active-tab">|</a></li>
-												<li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 page_bars">
-									<form>
-										<input type="text" placeholder="Cerca una persona..." class="col-md-9 change-placeholder-indexes search_bar index-search-input margin-bottom-35" onkeyup="workSearch()">
+						<div class="media-body">
+							<h4 id="facets_title">Filters</h4>
+							<a class="seeWorks pointer" id="clear_res_ind" style="display:none;" onclick="removeCheckWorks()"></a>
+						</div>
+						<!-- div to show only when the panel is closed -->
+						<div class="vertical-position-filters">
+							<span class="filters_category_title filters_placeholder" style="display: none;">Filters</span>
+						</div>
+						<div id="closeFacets_div_people">
+							<div data-title="Works" data-intro="Specifically, you can filter one or more works using these checkboxes." data-step="5">
+								<span class="panel-title" data-toggle="collapse"
+								data-target="#index-works" aria-expanded="true"
+								aria-controls="index-works">
+								<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title" id="filters_works">Works</span>
+								</span>
+								<div class="collapse in filters-resize-plus filters_ipad_turn" id="index-works">
+
+									<!-- work and author -->
+									<form class="checkbox_margin">
+											$for work in sortedWorkAuth:
+											<div>
+												$ dataTarget = re.sub('[^A-Za-z0-9]+', '', work)
+												<input type="radio" class="worksCheckIndex" work="$dataTarget">
+												<label class="labelInline">$work.replace('=', ', ').replace('#', '')</label>
+											</div>
 									</form>
 								</div>
-								<!-- authors list -->
-								<div id="listWorks" class="scrollPanel padding-index col-md-12">
-									<div id="listBibl">
-										$for work in quots["results"]["bindings"]:
-										<div class="work">
-											<div class="row">
-												<div class="col-md-12 works-index-div filter">
-													$ workTitleVal = work['workLabel']['value'].replace("'", "")
-													$ finalworkTitleVal = workTitleVal.replace('"', '')
-													<button class="filters_icon filter_background_pink"><i class="glyphicon glyphicon-book"></i></button><span class="filters_category_title cited-pers"> $work['workLabel']['value'] <span class="no-display">$finalworkTitleVal</span></span>
-													<div>
-														$for cit in citations:
-															$if cit == work['work']['value']:
-																$ empty = []
-																<h4 class="work-aut">$citations[cit][0]['author']</h4>
-																<h4 class="work-aut"><span class="filters_icon"><i class="far fa-chart-bar"></i></span> $work['count']['value'] <span class="font-size-16">cit:</span></h4>
-														<div>
-															$for cit in citations:
-																$if cit == work['work']['value']:
-																	$ empty = []
-																	$for x in citations[cit]:
-																		$if x['source'] + "__" + x['bibref'] not in empty:
-																			$empty.append(x['source'] + "__" + x['bibref'])
-															$for y in empty:
-																$ code = y.split("__")[0]
-																$ book = "".join(y.split("__")[1:])
-																$if "comm-" in code:
-																	<p class="ex-butt inline_button">
-																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
-																			<button class="checkButt comm-but"><span>$code</span>
-																			</button>
-																		</a>
-																		<span class="font-size-16 thin comm_on">Commento su</span>
-																		<span class="bold font-size-16">$book</span>
-																	</p>
-																$if "quot-" in code:
-																	$ itQuot = code.split("quot-")[1]
-																	<p class="ex-butt inline_button">
-																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
-																			<button class="checkButt quot-but"><span class="n_quot">cit-</span><span>$itQuot</span>
-																			</button>
-																		</a>
-																		<span class="no-display">$code</span>
-																		<span class="font-size-16 thin quot_of">Citazione da</span>
-																		<span class="bold font-size-16">$book</span>
-																	</p>
-																$if "tra-" in code:
-																	<p class="ex-butt inline_button">
-																		<a href=./excerpt/$code class="quotRef text_black_exc" target="_blank">
-																			<button class="checkButt tra-but"><span>$code</span>
-																			</button>
-																		</a>
-																		<span class="font-size-16 thin tra-of">Traduzione di</span> <span class="bold font-size-16">$book</span>
-																	</p>
-													</div>
-													<hr>
-												</div>
-											</div>
-										</div>
-									</div>
+							</div>
+							<hr class="filters_category_title_nested">
+							<!-- intro.js tutorial step 5 -->
+							<div data-title="Types of excerpts" data-intro="Here instead there is a legenda: buttons corresponding comments, quotations, and translations are highlighted in green, orange, and yellow respectively." data-step="5">
+								<span class="panel-title" data-toggle="collapse"
+								data-target="#index-works-legenda" aria-expanded="true"
+								aria-controls="index-works-legenda">
+								<span class="filters_category_title" id="filters_excerpts">Type of excerpts</span>
+								</span>
+								<div class="collapse in" id="index-works-legenda">
+									<form class="checkbox_margin" id="check-excerpt-container">
+										<!-- Comment -->
+										<label class="labelInline comm_label" id="comment">Comments</label> <span class="dot background_green"></span>
+										<br>
+										<!-- Quotation -->
+										<label class="labelInline quot_label" id="quotation">Quotations</label> <span class="dot background_pink"></span>
+										<br>
+										<!-- Translation -->
+										<label class="labelInline tra_label" id="translation">Translations</label> <span class="dot background_yellow"></span>
+									</form>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+				<div class="col-md-10 col-sm-9" id="page_panel_tool_people">
+					<!-- intro js -->
+					<div class="row">
+						<div class="col-md-12">
+							<!-- change id -->
+							<button class="button_snippet button_reset float-right margin-top-15" id="intro-js-library"><i class="fas fa-question"></i></button>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12 panel_tool panel_tool_page page_panel_tool_people padding-top-0 responsive-height">
+							<div class="col-md-12 col-sm-12">
+								<div class="media">
+									<div class="media-left">
+										<button class="button_panel" onclick="openPagePeople()">
+											<i class="glyphicon glyphicon-remove" id="page-close-icon" style="display: none;"></i>
+											<i class="glyphicon glyphicon-fullscreen" id="page-fullscreen-icon"></i>
+										</button>
+									</div>
+									<div class="media-body">
+										<ul class="nav nav-pills tab-works">
+											<!-- intro.js tutorial step 2 -->
+											<li role="presentation" class="filters_category_title active" data-title="List" data-intro="This view shows you a list of all cited works. Once you click on the occurrences related to a work, you will have the possibility to click on coloured tags to go to the corresponding notebook fragment." data-step="2"><a href="#" id="people_list">List</a></li>
+											<!--<li role="presentation" data-title="Treemap" data-intro="This view shows you all cited works in a  Treemap chart." data-step="7"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
+											<li role="presentation" data-title="Sets" data-intro="This view shows you all cited works as grouped sets." data-step="8"><a href="./setsWorks" id="people_sets">Sets</a></li>
+											<li role="presentation"><a class="no-active-tab">|</a></li>
+											<li role="presentation" data-title="Play with data" data-intro="This view allows you to browse the data and play with them." data-step="9"><a href="./playWithWorks" id="data_play">Play with data</a></li>-->
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 col-md-offset-4 col-sm-12 col-sm-offset-0 page_bars">
+								<form>
+									<!-- intro.js tutorial step 3 -->
+									<input type="text" class="col-md-9 change-placeholder-indexes search_bar index-search-input margin-bottom-25" data-title="Search bar" data-intro="You can search for any keyword in the index by using this free-text search bar." data-step="3">
+								</form>
+							</div>
+
+							<!-- authors list -->
+							<div id="listWorks" class="scrollPanel padding-index col-md-12">
+								<div id="listBibl">
+									$for auth in dictIndexWorks:
+									<!-- works index -->
+									<div class="work">
+										<div class="row">
+											$ dataTarget = re.sub('[^A-Za-z0-9]+', '', auth.split('=')[0] + auth.split('=')[1])
+											<div class="col-md-12 works-index-div filter" value="$dataTarget">
+												<button class="filters_icon filter_background_pink">
+													<i class="glyphicon glyphicon-book"></i></button>
+													<span class="filters_category_title cited-pers">$auth.split('=')[0]</span>
+												<div class="row">
+													<div class="col-md-12">
+														<!-- author -->
+														<h4 class="work-aut">$auth.split('=')[1].replace('#', '')</h4>
+														<!-- number of citations -->
+														<!-- id for collapse -->
+														<h4 class="work-aut caret-library" data-toggle="collapse" data-target="#$dataTarget" aria-expanded="false" aria-expanded="false"><span class="filters_icon"><i class="far fa-chart-bar"></i></span> <b>$len(dictIndexWorks[auth])</b> <span class="font-size-15 occurrences_ex">occorrenze</span></h4>
+														<!-- collapsible excerpts container -->
+														<div class="collapse work-card-collapse" id="$dataTarget" aria-expanded="false">
+															<div class="row">
+																$for cit in dictIndexWorks[auth]:
+																	$if 'comm-' in cit:
+																		<!-- comm -->
+																		<div class="row ex-butt panel_tool_metadata padding-21">
+																			<div class="col-md-2">
+																				<a href="./excerpt-$cit.split('----')[0]" class="quotRef text_black_exc" target="_blank">
+																					<button class="checkButt comm-but">
+																						<span>$cit.split('----')[0]</span>
+																					</button>
+																				</a>
+																			</div>
+																			<div class="col-md-10">
+																				<div class="margin-top-10 justify">
+																					<span class="font-size-15 thin comm_on">Commento su</span>
+																					<span class="bold font-size-15">$cit.split('----')[1]</span>
+																				</div>
+																			</div>
+																		</div>
+																	$elif 'quot-' in cit:
+																		$ ex = cit.split('----')[0]
+																		$ code = ex.split('-')[1]
+																		<!-- quot -->
+																		<div class="row ex-butt panel_tool_metadata padding-21">
+																			<div class="col-md-2">
+																				<a href="./excerpt-$ex" class="quotRef text_black_exc" target="_blank">
+																					<button class="checkButt quot-but">
+																						<span class="n_quot">cit-</span>
+																						<span>$code</span>
+																					</button>
+																				</a>
+																			</div>
+																			<div class="col-md-10">
+																				<div class="margin-top-10 justify">
+																					<span class="font-size-15 thin quot_of">Citazione da</span>
+																					<span class="bold font-size-15">$cit.split('----')[1]</span>
+																				</div>
+																			</div>
+																		</div>
+																	$else:
+																		<!-- tra -->
+																		<div class="row ex-butt panel_tool_metadata padding-21">
+																			<div class="col-md-2">
+																				<a href="./excerpt-$cit.split('----')[0]" class="quotRef text_black_exc" target="_blank">
+																					<button class="checkButt tra-but">
+																						<span>$cit.split('----')[0]</span>
+																					</button>
+																				</a>
+																			</div>
+																			<div class="col-md-10">
+																				<div class="margin-top-10 justify">
+																					<span class="font-size-15 thin tra_of">Traduzione di</span>
+																					<span class="bold font-size-15">$cit.split('----')[1]</span>
+																				</div>
+																			</div>
+																		</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<hr>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-library").click(function () {
+			introJs().start();
+		});
+	</script>

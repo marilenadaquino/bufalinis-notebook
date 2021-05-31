@@ -1,5 +1,5 @@
-<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
+<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-assertion/> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
 <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.nanopub.org/nschema#hasPublicationInfo> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-pubinfo/> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
 <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.nanopub.org/nschema#hasProvenance> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-provenance/> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
-<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.nanopub.org/nschema#hasAssertion> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-assertion/> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
+<https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-np> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.nanopub.org/nschema#Nanopublication> <https://w3id.org/bufalinis-notebook/infl-nt-likes-am-quot-162a-head/> .
 

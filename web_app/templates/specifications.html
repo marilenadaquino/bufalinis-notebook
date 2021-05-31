@@ -4,6 +4,7 @@ $def with ()
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 align_center">
+				<!-- dont remove or change -->
 				<h2 id="specs_header_title">Specifiche tecniche</h2>
 			</div>
 		</div>
@@ -29,15 +30,15 @@ $def with ()
 				<h4 class="doc_dev_tra filters_category_title text_grey">Web application development</h4>
 			</div>
 			<div class="side-section" color="yellow" id="doc-facets">
-				<h4 class="doc_facets_tra filters_category_title text_grey">Facets for semantic queries</h4>
+				<h4 class="doc_facets_tra filters_category_title text_grey">Filters for semantic queries</h4>
 			</div>
-			<div class="side-section" color="blue" id="doc-datavis">
+			<!--<div class="side-section" color="blue" id="doc-datavis">
 				<h4 class="doc_datavis_tra filters_category_title text_grey">Data Visualisation charts</h4>
-			</div>
+			</div>-->
 			<hr>
-			<!-- Go to Web application section -->
+			<!-- Go to web application section -->
 			<div class="side-section" color="rosy" id="doc-overview">
-				<a href="/webApplication" class="doc_to_app margin-top-30 rosy" target="_blank" alt="Go to Web application section"><h4 class="go_to_web_app filters_category_title text_grey">Go to Web application section</h4></a>
+				<a href="webApplication" class="doc_to_app margin-top-30 rosy" alt="Go to web application section"><h4 class="go_to_web_app filters_category_title text_grey">Go to web application section</h4></a>
 			</div>
 		</div>
 		<div class="col-md-10 hate-full-height scroll side-text">
@@ -46,16 +47,16 @@ $def with ()
 				<h3 class="align_center">Overview</h3>
 				<p id="overview_1"><span class="italic">Paolo Bufalini’s notebook</span> Scholarly Semantic Digital Edition (SSDE) project is based on the notebook of handwritten notes by Paolo Bufalini, member of the Italian Communist Party, latinist and translator.</p>
 				<p id="overview_2">Between 1981 and 1991, Bufalini kept a private notebook which he titled <span class="italic">Appunti 1981–1991</span> (transl. <span class="italic">Notes 1981–1991</span>). The contents of the notebook reflect Bufalini's intellectual and social life: excerpts from literary works, personal notes and comments, narrations of events, unpublished translations from Latin into Italian. Given the private nature of the notebook, the relationships between the various textual components (text-text, text-comment, text-translation, translation-translation) are not explicitly declared. The same applies to the sources of the cited texts. Due to its complexity in terms of conceptualisation, Paolo Bufalini’s notebook has been chosen as a starting point on which to elaborate a non-linear reading.</p>
-				<p id="overview_3">The project resulted in a Semantic Scholarly Digital Edition (SSDE) Web application which aims to provide tools to access, browse, visualise, study and preserve the notebook and to contextualise it in a semantically-rich and metatextual framework.</p>
+				<p id="overview_3">The project resulted in a Semantic Scholarly Digital Edition (SSDE) web application which aims to provide tools to access, browse, visualise, study and preserve the notebook and to contextualise it in a semantically-rich and metatextual framework.</p>
 				<p id="overview_4">The project documentation is organised as follows:</p>
 				<p>
 					<ul>
 						<li class="doc-li" color="green-yellow"><span class="doc_objectives_tra bold pointer green-yellow text_grey">Project objectives</span> - <span id="doc_obj">This section introduces the specific objectives underlying the SSDE project.</span></li>
-						<li class="doc-li" color="orchid"><span class="doc_methodology_tra bold pointer orchid text_grey">Methodology</span> - <span id="doc_met">This section explains the methodology used to develop the SSDE Web application. Specifically, the development workflow and the reused data models.</span></li>
+						<li class="doc-li" color="orchid"><span class="doc_methodology_tra bold pointer orchid text_grey">Methodology</span> - <span id="doc_met">This section explains the methodology used to develop the SSDE web application. Specifically, the development workflow and the reused data models.</span></li>
 						<li class="doc-li" color="green"><span class="doc_rdf_tra bold pointer green text_grey">RDF dataset components</span> - <span id="doc_rdf_comp">This section explains the structure of the RDF graph by dividing it into a series of smaller models.</span></li>
-						<li class="doc-li" color="pink"><span class="doc_dev_tra bold pointer pink text_grey">Web application development</span> - <span id="doc_web_dev">This section explains the various steps to develop the SSDE Web application.</span></li>
-						<li class="doc-li" color="yellow" id="doc-facets"><span class="doc_facets_tra bold pointer yellow text_grey">Facets for semantic queries</span> - <span id="doc_facets">This section illustrates the main SSDE Web application features in terms of user interaction and data visualisation, specifically focusing on the design of <span class="italic">Facets</span>, a user-friendly tools to access, extract, browse and visualise semantic data.</span></li>
-						<li class="doc-li" color="blue" id="doc-facets"><span class="doc_datavis_tra bold pointer blue text_grey">Data Visualisation charts</span> - <span id="doc_vis">This section illustrates the main Data Visualisation charts available in the SSDE Web application.</span></li>
+						<li class="doc-li" color="pink"><span class="doc_dev_tra bold pointer pink text_grey">web application development</span> - <span id="doc_web_dev">This section explains the various steps to develop the SSDE web application.</span></li>
+						<li class="doc-li" color="yellow" id="doc-facets"><span class="doc_facets_tra bold pointer yellow text_grey">Filters for semantic queries</span> - <span id="doc_facets">This section illustrates the main SSDE web application features in terms of user interaction and data visualisation, specifically focusing on the design of <span class="italic">Filters</span>, a user-friendly tools to access, extract, browse and visualise semantic data.</span></li>
+						<!--<li class="doc-li" color="blue" id="doc-facets"><span class="doc_datavis_tra bold pointer blue text_grey">Data Visualisation charts</span> - <span id="doc_vis">This section illustrates the main Data Visualisation charts available in the SSDE web application.</span></li>-->
 					</ul>
 				</p>
 			</div>
@@ -80,7 +81,7 @@ $def with ()
 					<!-- #markup-toggle -->
 					<div class="collapse margin-top-15" id="markup-toggle">
 						<!-- TEI person -->
-						<p><span class="bold person_entity">Person.</span></p>
+						<p><span class="bold person_entity">Person</span></p>
 						<p id="mark_up_3">In <code>&lt;teiHeader&gt;</code> each personal name is included in a <code>&lt;person&gt;</code> element and uniquely identified by an <code>@xml:id</code>. Corresponding <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a> records are included via the attribute <code>@sameAs</code>. Each person’s name occurrence in the document is linked to the corresponding identifier in <code>&lt;teiHeader&gt;</code> via the attribute <code>@ref</code> pointing at the ID assigned to the person in <code>&lt;teiHeader&gt;</code>.</p>
 						<div>
 							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet4" aria-expanded="false" aria-controls="snippet4">Snippet <span class="caret"></span></button>
@@ -111,7 +112,7 @@ $def with ()
 						</div>
 
 						<!-- TEI comments -->
-						<p class="comment_entity margin-top-30"><span class="bold">Comments by Bufalini or other authors.</span></p>
+						<p class="comment_entity margin-top-30"><span class="bold">Comments by Bufalini or other authors</span></p>
 						<p id="mark_up_5"><code>&lt;note&gt;</code> encloses the excerpt corresponding to a comment. <code>@type="comment"</code> specifies that the given excerpt corresponds to a comment.</p>
 						<p id="mark_up_6"><code>@corresp</code> points to the <code>@xml:id</code> attribute of the referenced excerpt, i.e., a quotation or a translation (see below).</p>
 						<div>
@@ -181,7 +182,7 @@ $def with ()
 
 						<!-- Works -->
 						<p class="margin-top-30 works_entity"><span class="bold">Works.</span></p>
-						<p id="mark_up_12">Like people, works described in the <code>&lt;teiHeader&gt;</code> are linked to the corresponding <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a>/<a href="https://www.worldcat.org/" target="_blank" alt="WorldCat website">WorldCat</a> records by <code>@sameAs</code>. An example is reported below.</p>
+						<p id="mark_up_12">Like persons, works described in the <code>&lt;teiHeader&gt;</code> are linked to the corresponding <a href="http://viaf.org/" target="_blank" alt="VIAF website">VIAF</a>/<a href="https://wiki.dbpedia.org/" target="_blank" alt="DBpedia website">DBpedia</a>/<a href="https://www.worldcat.org/" target="_blank" alt="WorldCat website">WorldCat</a> records by <code>@sameAs</code>. An example is reported below.</p>
 						<div>
 							<!-- snippet -->
 							<button class="button_medium button_snippet button_placeholder snippet-orchid" type="button" data-toggle="collapse" data-target="#snippet-xml-work" aria-expanded="false" aria-controls="snippet-xml-work">Snippet <span class="caret"></span></button>
@@ -216,7 +217,7 @@ $def with ()
 					<div class="collapse margin-top-15" id="html-toggle">
 						<p id="html_4">The selected information is represented in the HTML as follows.</p>
 						<!-- HTML person -->
-						<p><span class="bold person_entity">Person.</span></p>
+						<p><span class="bold person_entity">Persons</span></p>
 						<p id="html_5">A <code>&lt;span class="persName"&gt;</code> identifies a person’s name in the transcription, whether it is reported as a full name or as an abbreviation. To each identified person, a <code>&lt;span class="tooltiptext"&gt;</code> is nested to make the person’s full name explicit.</p>
 						<p id="html_6"><code>@data-ref</code> specifies the ID assigned to the person, as formalised in the XML/TEI encoding.</p>
 						<p id="html_7">The class <code>author</code> is added to <code>&lt;span class="persName"&gt;</code> in the case the person is the author of a specific excerpt. An example is reported below.</p>
@@ -254,7 +255,7 @@ $def with ()
 							<!-- /snippet -->
 						</div>
 						<!-- HTML quotations -->
-						<p class="margin-top-30 quot_entity"><span class="bold">Quotations.</span></p>
+						<p class="margin-top-30 quot_entity"><span class="bold">Quotations</span></p>
 						<p id="html_10">Quotations are included in a <code>&lt;blockquote&gt;</code> element.</p>
 						<p id="html_11">Each quotation is uniquely identified by an <code>@id</code>. Each assigned ID contains the string <code>"quot-"</code> at its beginning.</p>
 						<p id="html_12"><code>@data-source</code> identifies each quotation source work. Its value corresponds to the <code>@source</code> values, as assigned in the XML/TEI document. An example is reported below.</p>
@@ -273,7 +274,7 @@ $def with ()
 							<!-- /snippet -->
 						</div>
 						<!-- HTML translations -->
-						<p class="margin-top-30 trans_entity"><span class="bold">Translations.</span></p>
+						<p class="margin-top-30 trans_entity"><span class="bold">Translations</span></p>
 						<p id="html_13">Translations are included in a <code>&lt;section class="note" data-type="translation"&gt;</code> element and in <code>&lt;blockquote class="note" data-type="translation"&gt;</code></p>
 						<p id="html_14">Each translation is uniquely identified by a specific <code>@id</code>. Each assigned ID contains the string <code>"tra-"</code> at its beginning.</p>
 						<p id="html_15"><code>@data-corresp</code> identifies the ID of the translated excerpt, while <code>@data-resp</code> the ID of the translator. An example is reported below.</p>
@@ -300,7 +301,7 @@ $def with ()
 							<!-- /snippet -->
 						</div>
 						<!-- HTML works -->
-						<p class="margin-top-30 works_entity"><span class="bold">Works.</span></p>
+						<p class="margin-top-30 works_entity"><span class="bold">Works</span></p>
 						<p id="html_16">Works are identified by <code>@data-source</code> in <code>&lt;blockquote&gt;</code> and <code>&lt;section&gt;</code> elements. Their values correspond to the <code>@source</code> values, as assigned in the XML/TEI document.</p>
 						<div>
 							<!-- snippet -->
@@ -336,12 +337,12 @@ $def with ()
 						<p id="rdf_7">In addition, <span class="bold">intratextual relations</span> (i.e. the relations between a comment/quotation/translation and its author) and <span class="bold">intertextual relations</span> (i.e. the relations between an excerpt and its translations and comments) are extracted from the XML/TEI document <code>body</code>.</p>
 						<p id="rdf_8">A further encoding level defines the provenance of the assertions, describing if a phenomenon has been identified by Bufalini or by the editors, and what information support the assessment of that phenomenon, according to the <span class="italic">nanopublication</span> data model.</p>
 						<div>
-							<img src="static/img-web-app/nanopub.png" class="img_center img-small-width">
-							<p class="align_center" id="rdf_9">Fig 1. Khun, T., <span class="bold">Nanopublications. Provenance-Aware Linked Data Publishing</span>, 2015.</p>
+							<img src="/static/img-web-app/nanopub.png" class="img_center img-small-width">
+							<p class="align_center" id="rdf_9"><span class="bold">Fig 1. Khun, T., Nanopublications. Provenance-Aware Linked Data Publishing, 2015.</span></p>
 						</div>
 						<p id="rdf_10">Finally, <span class="bold">links to the authority files and external datasets</span> are included to enrich the RDF knowledge base.</p>
 						<p id="rdf_11">The final dataset contains the resulting named graphs composed of a graph including all the textual elements and 64 graphs related to the assertions, their provenance and editorial information, as formalised by the text editors.</p>
-						<p id="rdf_12">RDF graphs are used to serve data in user interface, and to build <span class="italic">user-friendly</span> tools to allow their browsing on the user-side. Specifically, they are used to support the browsing of Facsimiles, to develop the <span class="italic">Facets</span> sidebar in the Indexes and the Data Visualisation charts.</p>
+						<p id="rdf_12">RDF graphs are used to serve data in user interface, and to build <span class="italic">user-friendly</span> tools to allow their browsing on the user-side. Specifically, they are used to support the browsing of Facsimiles, to develop the <span class="italic">Filters</span> sidebar in the Indexes and the Data Visualisation charts.</p>
 					</div>
 				</div>
 
@@ -386,7 +387,7 @@ $def with ()
 				<h3 class="doc_rdf_tra align_center" id="rdf_data">RDF dataset components</h3>
 				<!-- SUBSECTION: PEOPLE -->
 				<div>
-					<h4 class="person_entity margin-bottom-0 text_grey">People</h4>
+					<h4 class="person_entity margin-bottom-0 text_grey">Persons</h4>
 					<p id="rdf_data_pers">Each mentioned person in the notebook is formalised by including a <span class="bold">URI</span> to uniquely identify the specific person and <code>rdf:resource="http://xmlns.com/foaf/0.1/Person"</code> to identify the specific entity as a person. Its VIAF/DBpedia identifiers URI are associated at this level respectively by <code>owl:sameAs</code>. An example is reported below.</p>
 					<!-- snippet -->
 					<button class="button_medium button_snippet button_placeholder snippet-green" type="button" data-toggle="collapse" data-target="#snippet-rdf-people" aria-expanded="false" aria-controls="snippet-rdf-people">Snippet <span class="caret"></span></button>
@@ -591,7 +592,7 @@ $def with ()
 					<p id="rdf_works_1">The works cited in the notebook are formalised using FaBiO.</p>
 					<p id="rdf_works_2">According to the reference model, each literary work cited in the notebook is formalised as follows.</p>
 					<!-- FRBR work -->
-					<p><span class="bold" id="frbr_work">FRBR Work.</span></p>
+					<p><span class="bold" id="frbr_work">FRBR Work</span></p>
 					<p>
 						<ul>
 							<li id="frbr_work_1">A <span class="bold">URI</span> to uniquely identify the work.</li>
@@ -603,7 +604,7 @@ $def with ()
 						</ul>
 					</p>
 					<!-- FRBR expression -->
-					<p><span class="bold" id="frbr_ex">FRBR Expression.</span></p>
+					<p><span class="bold" id="frbr_ex">FRBR Expression</span></p>
 					<p>
 						<ul>
 							<li id="frbr_ex_1">A <span class="bold">URI</span> to uniquely identify the specific work Expression.</li>
@@ -612,7 +613,7 @@ $def with ()
 						</ul>
 					</p>
 					<!-- FRBR volume -->
-					<p><span class="bold" id="frbr_vol">Volume.</span></p>
+					<p><span class="bold" id="frbr_vol">Volume</span></p>
 					<p>
 						<ul>
 							<li id="frbr_vol_1">A <span class="bold">URI</span> to uniquely identify a specific work Expression volume.</li>
@@ -621,7 +622,7 @@ $def with ()
 						</ul>
 					</p>
 					<!-- FRBR further information -->
-					<p><span class="bold" id="frbr_info">Further information.</span></p>
+					<p><span class="bold" id="frbr_info">Further information</span></p>
 					<p>
 						<ul>
 							<li id="frbr_info_1">A <span class="bold">URI</span> to uniquely identify a specific work subtype of Expression.</li>
@@ -687,9 +688,9 @@ $def with ()
 			</div>
 
 
-			<!-- Web application development -->
+			<!-- web application development -->
 			<div class="side-text-paragraph justify margin-bottom-30" id="doc-app" style="display: none;">
-				<!-- Web application general development -->
+				<!-- web application general development -->
 				<div>
 					<h3 class="doc_dev_tra align_center" id="doc_web_app">Web application development</h3>
 					<p id="doc_web_app_1">Web application development is the last SSDE development stage which is based on the following resources:</p>
@@ -698,9 +699,9 @@ $def with ()
 						<li id="doc_web_app_3"><span class="bold">HTML document</span>, obtained from the XSL conversion, named <span class="bold">quaderno.html</span>.</li>
 						<li id="doc_web_app_4"><span class="bold">RDF/XML dataset</span>, named <span class="bold">quaderno_rdf.rdf</span>.</li>
 					</ul>
-					<p id="doc_web_app_5">The development of the SSDE Web application requires:</p>
+					<p id="doc_web_app_5">The development of the SSDE web application requires:</p>
 					<ul>
-						<li id="doc_web_app_6"><a href="https://webpy.org/" target="_blank" alt="web.py website">web.py</a> to develop a server-side Web application and manage the RDF data available on the triplestore.</li>
+						<li id="doc_web_app_6"><a href="https://webpy.org/" target="_blank" alt="web.py website">web.py</a> to develop a server-side web application and manage the RDF data available on the triplestore.</li>
 						<li id="doc_web_app_7"><a href="https://blazegraph.com/" target="_blank" alt="blazegraph website">blazegraph</a> to store the dataset, including the aforementioned RDF document of the edition and the annotations included in bespoke named graphs.</li>
 					</ul>
 					<p id="doc_web_app_8">To load data on blazegraph, it is necessary to install the <a href="https://rdflib.readthedocs.io/en/stable/" target="_blank" alt="RDFLib website">rdflib</a> library, run <span class="bold">nquads.py</span> and load <span class="bold">rdf_dump/all.nq</span> on blazegraph.</p>
@@ -716,112 +717,102 @@ $def with ()
 				<!-- Translation system -->
 				<div>
 					<h4 class="margin-bottom-0 margin-top-30 text_grey" id="doc_web_app_tra">Web pages translation</h4>
-					<p id="doc_web_app_tra_1">The texts of the Web application are bilingual, thanks to the JS library <a href="https://www.i18next.com/" target="_blank" alt="i18n documentation">i18n</a>.</p>
+					<p id="doc_web_app_tra_1">The texts of the web application are bilingual, thanks to the JS library <a href="https://www.i18next.com/" target="_blank" alt="i18n documentation">i18n</a>.</p>
 					<p id="doc_web_app_tra_2">The library allows to assign class/ID to HTML elements to be translated, and the translation is stored in dedicated files, such as <span class="bold">Messages_en.properties</span> and <span class="bold">Messages_it.properties</span>.</p>
 					<p id="doc_web_app_tra_3">The file <span class="bold">notebook.js</span> reads the translations in the method <span class="bold">loadBundles()</span> and serves the client-side translation when clicking on the language buttons in the menu.</p>
 				</div>
 			</div>
 
 
-			<!-- Facets -->
+			<!-- Filters -->
 			<div class="side-text-paragraph justify margin-bottom-30" id="doc-facets" style="display: none;">
-				<!-- Facets intro -->
+				<!-- Filters intro -->
 				<div>
-					<h3 class="doc_facets_tra align_center" id="doc_fac">Facets for semantic queries</h3>
-					<p id="doc_fac_1"><span class="bold">Facets</span> are a client-side query tool completely developed in <a href="https://api.jquery.com/" target="_blank" alt="jQuery API documentation">jQuery</a> aimed at analysing the text of the edition from the point of view of its inter and intratextual relationships, as formalised in the SSDE back-end LOD dataset.</p>
-					<p id="doc_fac_2"><span class="bold">Facets</span> make available a set of checkboxes divided into categories reflecting the actual SSDE dataset organisation and structure. The categories are <span class="bold">People</span>, under which all the people mentioned in the notebook are collected; <span class="bold">People role</span>, through which it is possible to assign a specific role to a mentioned person between <span class="italic">Mentioned person</span> and <span class="italic">Author</span>; <span class="bold">Type of excerpts</span>, which identifies the notebook <span class="italic">comments</span>, <span class="italic">quotations</span> and <span class="italic">translations</span>; <span class="bold">Works</span>, which lists the works cited in the notebook.</p>
-					<p id="doc_fac_3">Three functions in <span class="bold">notebook.js</span> implement the functionalities of Facets: <span class="bold">editionFacets()</span> for managing the facets in the <span class="italic">Digital Edition</span> section, <span class="bold">peopleIndexFacets()</span> for managing the facets in the <span class="italic">People Semantic Index</span> section, and <span class="bold">worksIndexFacets()</span> for managing the facets in the <span class="italic">Works Semantic Index</span> section.</p>
+					<h3 class="doc_facets_tra align_center" id="doc_fac">Filters for semantic queries</h3>
+					<p id="doc_fac_1"><span class="bold">Filters</span> are a client-side query tool completely developed in <a href="https://api.jquery.com/" target="_blank" alt="jQuery API documentation">jQuery</a> aimed at analysing the text of the edition from the point of view of its inter and intratextual relationships, as formalised in the SSDE back-end LOD dataset.</p>
+					<p id="doc_fac_2"><span class="bold">Filters</span> make available a set of checkboxes divided into categories reflecting the actual SSDE dataset organisation and structure. The categories are <span class="bold">Persons</span>, under which all the persons mentioned in the notebook are collected; <span class="bold">Role of persons</span>, through which it is possible to assign a specific role to a mentioned person between <span class="italic">Mentioned person</span> and <span class="italic">Author</span>; <span class="bold">Works</span>, which lists the works cited in the notebook.</p>
+					<p id="doc_fac_3">Three functions in <span class="bold">notebook.js</span> implement the functionalities of Filters: <span class="bold">editionFilters()</span> for managing the filters in the <span class="italic">Digital Edition</span> section, <span class="bold">peopleIndexFilters()</span> for managing the filters in the <span class="italic">Index of Persons</span> section, and <span class="bold">worksIndexFilters()</span> for managing the filters in the <span class="italic">Index of Works</span> section.</p>
 					<p id="doc_fac_4">These are based on the same algorithm adapted to the needs of each section. The basic algorithm works as follows.</p>
 				</div>
-				<!-- Facets input -->
+				<!-- Filters input -->
 				<div>
 					<h4 class="margin-bottom-0 margin-top-30 text_grey">Input</h4>
-					<p id="fac_input">The algorithm takes as input the category assigned as a <code>@class</code> to each checkbox <code>&lt;input&gt;</code> element and its univocal <code>@id</code>.</p>
-					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-input-toggle" aria-expanded="false" aria-controls="facets-input-toggle" alt="Read more">Read more <span class="caret"></span></a>
-					<!-- #facets-input-toggle -->
-					<div class="collapse margin-top-15" id="facets-input-toggle">
-						<p id="fac_input_1">To assign each checkbox with a specific category it is necessary to set a univocal attribute for each category and assign it to the checkbox <code>&lt;input&gt;</code> element.</p>
-						<p id="fac_input_2">For instance, <code>@class="peopleCheck"</code> is assigned to distinguish <span class="italic">People category</span>. Developers may change the assigned categories and create new ones.</p>
-						<p id="fac_input_3">Each checkbox under each category is assigned also with an input value which works as a query parameter. To assign an input value it is necessary to set a univocal <code>@id</code> to assign to the checkbox <code>&lt;input&gt;</code> element. Only in the case of <span class="italic">People category</span>, the same attribute value is to be set in <code>@for</code> to assign to the checkbox <code>&lt;label&gt;</code> element.</p>
-						<p id="fac_input_4">In case of homonyms, a <code>-i</code> string, where <code>i=0</code> at the beginning of a cycle, may be added in advance to avoid malfunctioning.</p>
-						<p id="fac_input_5">An example is reported below where <code>@id="Mann"</code> and <code>@for="Mann"</code> are assigned to <span class="italic">Mann, Thomas (1875-1955)</span>.</p>
+					<p id="fac_input">The algorithm takes as input the category assigned as a <code>@class</code> to each checkbox <code>&lt;input&gt;</code> element and its univocal <code>@value</code> to run the functions related to the Filters widget.</p>
+					<p id="fac_input_semantics_1">In addition, each input filter is assigned with specific attributes to express the semantic relationships between that filter and the other entities formalised in the dataset. For instance, each person filter <code>&lt;input&gt;</code> is assigned with the attribute <code>@semantics</code> which reports all the entities having a relation with the entity represented in the filter - directly extracted from the RDF dataset - according to a specific syntax:</p>
+					<p id="fac_input_semantics_2"><code>person who mentions the input person__fragment of the work in which the citation is present, author#unique code assigned to the fragment in the dataset</code></p>
+					<p id="fac_input_semantics_3">The values assigned to specific attributes express the relationships between entites as set in the dataset. They are useful to represent the same relationships at the user interface level.</p>
+					<p id="fac_input_4">(In case of homonyms, a <code>-i</code> string, where <code>i=0</code> at the beginning of a cycle of data extraction, may be added in advance to avoid malfunctioning)</p>
+						<p id="fac_input_5"> An example is reported below where <code>@value="Thomas Mann"</code> and other attributes are assigned to <span class="italic">Thomas Mann</span> entity filter</p>
 						<!-- snippet -->
 						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-id" aria-expanded="false" aria-controls="snippet-facets-id">Snippet <span class="caret"></span></button>
 						<div class="collapse" id="snippet-facets-id">
 						<div class="card card-body">
 							<pre><code>
-&lt;input type="checkbox" class="peopleCheck" id="Mann"&gt;
-&lt;label for="Mann"&gt;Mann, Thomas (1875–1955)&lt;/label&gt;
+&lt;input type="checkbox" class="peopleCheck" value="Thomas Mann" semantics:"Bruno Arzeni__Saggi. Schopenhauer, Nietzche, Freud, Bruno Arzeni#quot-060"&gt;
+&lt;label&gt;Mann Thomas&lt;/label&gt;
 							</code></pre>
 						</div>
 						</div>
-						<!-- /snippet -->
-						<p class="margin-top-30" id="fac_input_6">The attribute values to set must have a correspondent in the attributes values assigned to the elements of the text on which to perform the queries, as further explained.</p>
-					</div>
-					<!-- / #facets-input-toggle -->
+						<!-- /snippet -->					
 				</div>
-				<!-- Facets processing -->
+				<!-- Filters processing -->
 				<div>
 					<h4 class="margin-bottom-0 margin-top-30 text_grey">Processing</h4>
-					<p id="fac_pro">On input change of the given checkboxes, the algorithm searches for an input value that matches the attributes values assigned to the elements of the reference text on which the query is performed. When the attributes in the reference text are not available, the algorithm search for occurrences of the input value in the text body.</p>
+					<p id="fac_pro">On input change of the given checkboxes, the algorithm searches for specific attributes values assigned to the elements of the reference text in edition/cards in indexes on which the query is performed that matches the input <code>@value</code>.</p>
 					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-comment-toggle" aria-expanded="false" aria-controls="facets-comment-toggle" alt="Read more">Read more <span class="caret"></span></a>
-					<!-- #facets-input-toggle -->
+					<!-- #filters-input-toggle -->
 					<div class="collapse margin-top-15" id="facets-comment-toggle">
-						<p id="fac_pro_1">For instance, in the <span class="italic">Digital Edition</span> section, in the HTML file <span class="bold">quaderno.html</span>, which is uploaded on <span class="bold">index.html</span> by using an AJAX method, and on which the queries are performed, a <span class="italic">comment</span> entity is represented as follows. Specifically the attribute value <code>comment</code> is associated with <code>@data-type</code> in order to distinguish that particular excerpt as a comment.</p>
+						<p id="fac_pro_1">For instance, in the <span class="italic">Digital Edition</span> section, in the HTML file <span class="bold">quaderno.html</span>, which is uploaded on <span class="bold">index.html</span> by using an AJAX method, and on which the queries are performed, a <span class="italic">comment</span> entity is represented as follows.</p>
 						<!-- snippet -->
 						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-comment" aria-expanded="false" aria-controls="snippet-facets-comment">Snippet <span class="caret"></span></button>
 						<div class="collapse" id="snippet-facets-comment">
 						<div class="card card-body">
 							<pre><code>
-&lt;section class="note" data-type="comment" id="comm-002" data-corresp="#quot-001-1" data-resp="#PB"&gt;
-	&lt;p&gt;Gettare olio sulle acque torbide&lt;/p&gt;
-	&lt;p&gt;Gettare olio sulle acque burrascose&lt;/p&gt;
-	&lt;p&gt;Gettare olio sulle acque inasprite.&lt;/p&gt;
-	&lt;p&gt;E si adagiano anzi in placida lentezza&lt;/p&gt;
-&lt;/section&gt;
+&lt;span class="tooltip persName" data-role="author" data-ref="#TM"&gt;
+	&lt;span class="tooltiptext">Mann, Thomas (1875–1955)&lt;/span&gt;
+	Th. Mann
+&lt;/span&gt;
 							</code></pre>
 						</div>
 						</div>
-						<!-- /snippet -->
-						<p class="margin-top-30" id="fac_pro_2">The checkbox corresponding to <span class="italic">comment</span>, instead, is represented as follows. The attribute value <code>comment</code> is associated with <code>@id</code> in order to assign that specific input value to the input.</p>
+						<p class="margin-top-30" id="fac_pro_3"> By clicking on the checkbox corresponding to <span class="italic">Thomas Mann</span>, the algorithm takes as input the checkbox assigned <code>@value</code> corresponding to <span class="italic">Thomas Mann</span> and searches for it in <code>.tooltiptext</code> values in <span class="bold">quaderno.html</span>. In Digital Edition section, each DOM element containing each <span class="italic">match</span> is assigned with specific attributes which contain the same semantic values of filters <code>&lt;input&gt;</code> to show them in the list of results (<b>getRes()</b> function).</p>
 						<!-- snippet -->
-						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-facets-input-label" aria-expanded="false" aria-controls="snippet-facets-input-label">Snippet <span class="caret"></span></button>
-						<div class="collapse" id="snippet-facets-input-label">
+						<button class="button_medium button_snippet button_placeholder snippet-yellow" type="button" data-toggle="collapse" data-target="#snippet-filters-values" aria-expanded="false" aria-controls="snippet-filters-values">Snippet <span class="caret"></span></button>
+						<div class="collapse" id="snippet-filters-values">
 						<div class="card card-body">
 							<pre><code>
-&lt;input type="checkbox" id="comment"&gt;
-&lt;label class="labelInline" id="comment_val"&gt;Comment&lt;/label&gt;
+&lt;span class="tooltip persName" data-role="author" data-ref="#TM" data-role="author" id="ThomasMann-346" mentionedperson="Thomas Mann" cit="quot-060" work="Saggi. Schopenhauer, Nietzche, Freud, Arzeni, Bruno (1905–1954)" author="Arzeni, Bruno (1905–1954)"&gt;
+	&lt;span class="tooltiptext">Mann, Thomas (1875–1955)&lt;/span&gt;
+	Th. Mann
+&lt;/span&gt;
 							</code></pre>
 						</div>
 						</div>
-						<!-- /snippet -->
-						<p class="margin-top-30" id="fac_pro_3">By clicking on the checkbox corresponding to <span class="italic">comment</span>, the algorithm takes as input the checkbox assigned ID corresponding to <span class="italic">comment</span> and searches for it in <code>@data-type</code> attribute values in <span class="bold">quaderno.html</span>.</p>
 					</div>
 				</div>
-				<!-- Facets output -->
+				<!-- Filters output -->
 				<div>
 					<h4 class="margin-bottom-0 margin-top-30 text_grey">Output</h4>
-					<p id="fac_out">Depending on the Web application section, a specific output is returned.</p>
+					<p id="fac_out">Depending on the web application section, a specific output is returned.</p>
 					<a class="read_more text_red" data-toggle="collapse" data-target="#facets-output-toggle" aria-expanded="false" aria-controls="facets-output-toggle" alt="Read more">Read more <span class="caret"></span></a>
-					<!-- #facets-input-toggle -->
+					<!-- #filters-input-toggle -->
 					<div class="collapse margin-top-15" id="facets-output-toggle">
-						<p class="sec_de"><span class="bold">Digital Edition</span>.</p>
-						<p id="fac_out_1">In the <span class="italic">Digital Edition</span>, when an input value is matched, a specific CSS class which applies the property <code>background-color</code> is added to the HTML DOM element object which contains the input value occurrence in its attributes or in its content.</p>
-						<p class="sec_si"><span class="bold">Semantic Indexes</span>.</p>
+						<p class="sec_de"><span class="bold">Digital Edition</span></p>
+						<p id="fac_out_1">In the <span class="italic">Digital Edition</span>, when an input value is matched, a specific CSS class which applies the property <code>background-color</code> is added to the HTML DOM element object which contains the input value occurrence in its attributes or in its content. The attributes assigned to each DOM element are then used to build the results in the list of results.</p>
+						<p class="sec_si"><span class="bold">Semantic Indexes</span></p>
 						<p id="fac_out_2">In <span class="italic">Semantic Indexes</span>, when an input value is matched, the matched HTML DOM element object is displayed by using jQuery <code>.show()</code> method. On the contrary, the DOM element objects which are not matched are hidden by using jQuery <code>.hide()</code> method.</p>
 					</div>
 				</div>
-				<!-- Facets final explanation -->
+				<!-- Filters final explanation -->
 				<div class="margin-top-30">
 					<p id="fac_fin_1">As explained, the algorithm is completely based on the matching between the attributes values assigned both to the inputs and to the reference corpus HTML DOM elements.</p>
-					<p id="fac_fin_2">It is worth noting that the <span class="italic">Semantic Indexes</span> Facets engine behaviour is completely different from the <span class="italic">Digital Edition</span> one. In the <span class="italic">Semantic Indexes</span> Facets engine any input value affects the behavior of any other input value, performing filtering operations on the index. Consequently, every set parameter added in users’ query completely modifies the results obtained from the previous query results. On the contrary, in the <span class="italic">Digital Edition</span> section input values do not affect each other. This implies that the sum of the results of every input are returned, without filtering operations.</p>
 				</div>
 			</div>
 
 
 			<!-- Data visualisation -->
 			<div class="side-text-paragraph justify margin-bottom-30" id="doc-datavis" style="display: none;">
-				<!-- Facets intro -->
+				<!-- Filters intro -->
 				<div>
 					<h3 class="doc_datavis_tra align_center">Data Visualisation charts</h3>
 					<p id="datavis_1">Different tools are used to develop Data Visualization charts:</p>
@@ -845,7 +836,7 @@ $def with ()
 					</p>
 					<p id="data_ex">To check Data Visualisation charts in <span class="italic">Paolo Bufalini&#39;s notebook</span> web application, it is possible to check the following web application sections:</p>
 					<p>
-						<span class="bold" id="data_ex_people">People Semantic Index</span>
+						<span class="bold" id="data_ex_people">Index of Persons</span>
 						<ul>
 							<li><span class="bold"><a onclick="window.location = '/treemapPeople'" id="data_ex_treemap_people">Treemap mode section</a></span>.</li>
 							<li><span class="bold"><a onclick="window.location = '/setsPeople'" id="data_ex_sets_people">Sets mode section</a></span>.</li>
@@ -854,7 +845,7 @@ $def with ()
 						</ul>
 					</p>
 					<p>
-						<span class="bold" id="data_ex_works">Works Semantic Index</span>
+						<span class="bold" id="data_ex_works">Index of Works</span>
 						<ul>
 							<li><span class="bold"><a onclick="window.location = '/treemapWorks'" id="data_ex_treemap_works">Treemap mode section</a></span>.</li>
 							<li><span class="bold"><a onclick="window.location = '/setsWorks'" id="data_ex_sets_works">Sets mode section</a></span>.</li>
@@ -874,15 +865,15 @@ $def with ()
     <div class="row">
       <div class="col-md-5 col-sm-6 justify">
         <h4 class="text_light" id="footer_title_1"></h4>
-        <p class="text_light footer_text"><a href="/sparql" target="_black" class="link_footer">SPARQL endpoint</a></p>
-        <p class="text_light footer_text"><a href="/downloadDataset" target="_blank" class="link_footer" id="footer_download"></a></p>
+        <p class="text_light footer_text"><a href="sparql" class="link_footer">SPARQL endpoint</a></p>
+        <p class="text_light footer_text"><a href="downloadDataset" class="link_footer" id="footer_download"></a></p>
       </br>
-        <p class="text_light footer_text"><a href="/specifications" target="_blank" class="link_footer" id="footer_documentation_1"></a></p>
-        <p class="text_light footer_text"><a href="/webApplication" target="_blank" class="link_footer" id="footer_web_app"></a></p>
-        <!--<p class="text_light footer_text"><a href="/publications" target="_blank" class="link_footer" id="footer_pub"></a></p>-->
+        <p class="text_light footer_text"><a href="specifications" class="link_footer" id="footer_documentation_1"></a></p>
+        <p class="text_light footer_text"><a href="webApplication" class="link_footer" id="footer_web_app"></a></p>
+        <!--<p class="text_light footer_text"><a href="publications" class="link_footer" id="footer_pub"></a></p>-->
       </br>
-        <p class="text_light footer_text"><a href="/credits" target="_blank" class="link_footer">Credits</a></p>
-        <p class="text_light footer_text"><a href="/licences" target="_blank" class="link_footer" id="footer_licences"></a></p>
+        <p class="text_light footer_text"><a href="credits" class="link_footer">Credits</a></p>
+        <p class="text_light footer_text"><a href="licences" class="link_footer" id="footer_licences"></a></p>
       </div>
       <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
         <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
@@ -900,7 +891,7 @@ $def with ()
   <div class="container">
     <div class="row">
       <div class="col-md-12 justify">
-        <p class="align_center footer_copyright text_light">© Copyright (c) 2020 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
+        <p class="align_center footer_copyright text_light">© Copyright (c) 2021 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
       </div>
     </div>
   </div>

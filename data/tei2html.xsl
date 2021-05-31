@@ -2,7 +2,8 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:tei="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="tei">
     <xsl:output method="html" indent="yes" omit-xml-declaration="yes" encoding="UTF-8"/>
     <xsl:template match="/">
-        <xsl:result-document href="xml/quaderno.html">
+        <!-- <xsl:result-document href="xml/quaderno.html"> -->
+        <xsl:result-document>
             <section class="tei_transcription">
                 <xsl:copy>
                     <xsl:apply-templates select="//tei:text"/>
@@ -128,7 +129,7 @@
         <span class="tooltip persName">
             <xsl:apply-templates select="@*"/>
             <span class="tooltiptext">
-                <xsl:value-of select="//tei:person[@xml:id = $pers-id]/tei:persName"/>
+                <xsl:value-of select="//tei:person[@xml:id = $pers-id]/tei:persName[1]"/>
             </span>
             <xsl:value-of select="node()"/>
         </span>
@@ -140,7 +141,19 @@
         <span class="author persName tooltip">
             <xsl:apply-templates select="@*"/>
             <span class="tooltiptext">
-                <xsl:value-of select="//tei:person[@xml:id = $pers-id]/tei:persName"/>
+                <xsl:value-of select="//tei:person[@xml:id = $pers-id]/tei:persName[1]"/>
+            </span>
+            <xsl:value-of select="node()"/>
+        </span>
+    </xsl:template>
+    <xsl:template match="tei:cit//tei:editor">
+        <xsl:variable name="pers-id">
+            <xsl:value-of select="substring-after(@ref, '#')"/>
+        </xsl:variable>
+        <span class="editor persName tooltip">
+            <xsl:apply-templates select="@*"/>
+            <span class="tooltiptext">
+                <xsl:value-of select="//tei:person[@xml:id = $pers-id]/tei:persName[1]"/>
             </span>
             <xsl:value-of select="node()"/>
         </span>
@@ -160,7 +173,7 @@
             </xsl:attribute>
             <xsl:apply-templates select="@* | node()"/>
         </span>
-        <xsl:if test="@n mod 2 = 0">
+        <!-- <xsl:if test="@n mod 2 = 0">
             <xsl:choose>
                 <xsl:when test="contains(@facs, 'v')">
                     <img class="thumbnail" src="{concat('/static/img/thumbnail/', substring-before(@facs, 'v'), '.jpg')}"/>
@@ -169,7 +182,7 @@
                     <img class="thumbnail" src="{concat('/static/img/thumbnail/', @facs, '.jpg')}"/>
                 </xsl:otherwise>
             </xsl:choose>
-        </xsl:if>
+        </xsl:if> -->
     </xsl:template>
     <xsl:template match="tei:choice">
         <span class="tooltip">

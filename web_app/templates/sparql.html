@@ -1,72 +1,73 @@
 $def with (active)
-$var mainjs = '/static/script/notebook.js'
-$var imgResizer = '/static/script/imageMapResizer.min.js'
-$var mapifyjs = '/static/script/jquery.mapify.js'
-$var fontawesome = '/static/script/fontawesome-all.js'
-$var i18n = '/static/script/jquery.i18n.properties.js'
-$var cookies = '/static/script/cookies.js'
-$var maincss = '/static/css/notebook.css'
-$var mapifycss = '/static/css/jquery.mapify.css'
-$var yasguicss = '/static/css/yasgui.css'
-      
-        <div class="container-fluid section_header" id="introContainer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 align_center">
-                        <h2 id="sparql_title">SPARQL endpoint</h2>
-                        <a href="#sparql_anchor"><i class="fas fa-chevron-down intro_go"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div id="sparql_anchor"></div>
-        
-        <div class="margin-bottom-50 margin-top-50">
-            <div id="yasqe"></div>
-            <div id="yasr"></div>
-        </div>
-        
-        <!-- footer -->
-        <div class="container-fluid background_red">
-            <div class="container footer">
-                <div class="row">
-                    <div class="col-md-5 col-sm-6 justify">
-                        <h4 class="text_light" id="footer_title_1"></h4>
-                        <p class="text_light footer_text"><a href="/sparql" target="_black" class="link_footer">SPARQL endpoint</a></p>
-                        <p class="text_light footer_text"><a href="/downloadDataset" target="_blank" class="link_footer" id="footer_download">Download the dataset</a></p>
-                    </br>
-                        <p class="text_light footer_text"><a href="/specifications" target="_blank" class="link_footer" id="footer_documentation_1">Technical specifications</a></p>
-                        <p class="text_light footer_text"><a href="/webApplication" target="_blank" class="link_footer" id="footer_web_app">Web applications</a></p>
-                        <!--<p class="text_light footer_text"><a href="/publications" target="_blank" class="link_footer" id="footer_pub"></a></p>-->
-                    </br>
-                        <p class="text_light footer_text"><a href="/credits" target="_blank" class="link_footer">Credits</a></p>
-                        <p class="text_light footer_text"><a href="/licences" target="_blank" class="link_footer" id="footer_licences">Licences</a></p>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
-                        <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
-                        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en" target="_black" alt="Dharc website" class="link_footer">About</a></p>
-                        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/research/projects-at-dh-arc" target="_black" alt="Dharc website" class="link_footer" id="dharc_projects_documentation">All /DH.arc projects</a></p>
-                        <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/contacts" target="_black" alt="Dharc website" class="link_footer" id="footer_contacts">Contacts</a></p>
-                    </br>
-                        <img src="/static/img-web-app/dharc_logo.png" class="img-xs" id="logo_dharc">
-                    </div>
-                </div>
-            </div>
-        </div>
+$var mainjs = 'static/script/notebook.js'
+$var imgResizer = 'static/script/imageMapResizer.min.js'
+$var mapifyjs = 'static/script/jquery.mapify.js'
+$var fontawesome = 'static/script/fontawesome-all.js'
+$var i18n = 'static/script/jquery.i18n.properties.js'
+$var cookies = 'static/script/cookies.js'
+$var maincss = 'static/css/notebook.css'
+$var mapifycss = 'static/css/jquery.mapify.css'
+$var yasguicss = 'static/css/yasgui.css'
 
-        <div class="container-fluid background_red_light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 justify">
-                    <p class="align_center footer_copyright text_light">© Copyright (c) 2020 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
-                    </div>
-                </div>
+$ yasr = 'static/script/yasr.bundled.min.js'
+$ yasqe = 'static/script/yasqe.bundled.min.js'
+$ sparqljs = "static/script/sparql.js"
+$ logo = "static/img-web-app/dharc_logo.png"
+<div class="container-fluid section_header" id="introContainer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 align_center">
+	    <!-- dont remove or change -->
+                <h2 id="sparql_title">SPARQL endpoint</h2>
             </div>
         </div>
-        <!-- SPARQL GUI -->
-        <script src='/static/script/yasr.bundled.min.js'></script>
-        <script src='/static/script/yasqe.bundled.min.js'></script>
-        <script src="/static/script/sparql.js"></script>
-    </body>
-</html>
+    </div>
+</div>
+
+<div id="sparql_anchor"></div>
+
+<div class="margin-bottom-50 margin-top-50">
+    <div id="yasqe"></div>
+    <div id="yasr"></div>
+</div>
+
+<!-- footer -->
+<div class="container-fluid background_red">
+    <div class="container footer">
+        <div class="row">
+            <div class="col-md-5 col-sm-6 justify">
+                <h4 class="text_light" id="footer_title_1"></h4>
+                <p class="text_light footer_text"><a href="sparql" class="link_footer">SPARQL endpoint</a></p>
+                <p class="text_light footer_text"><a href="downloadDataset" class="link_footer" id="footer_download">Download the dataset</a></p>
+            </br>
+                <p class="text_light footer_text"><a href="specifications" class="link_footer" id="footer_documentation_1">Technical specifications</a></p>
+                <p class="text_light footer_text"><a href="webApplication" class="link_footer" id="footer_web_app">Web applications</a></p>
+            </br>
+                <p class="text_light footer_text"><a href="credits" class="link_footer">Credits</a></p>
+                <p class="text_light footer_text"><a href="licences" class="link_footer" id="footer_licences">Licences</a></p>
+            </div>
+            <div class="col-md-6 col-sm-6 col-md-offset-1 justify">
+                <h4 class="text_light">/DH.arc - Digital Humanities Advanced Research Centre</h4>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en" target="_black" alt="Dharc website" class="link_footer">About</a></p>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/research/projects-at-dh-arc" target="_black" alt="Dharc website" class="link_footer" id="dharc_projects_documentation">All /DH.arc projects</a></p>
+                <p class="text_light footer_text"><a href="https://centri.unibo.it/dharc/en/contacts" target="_black" alt="Dharc website" class="link_footer" id="footer_contacts">Contacts</a></p>
+            </br>
+                <img src="$logo" class="img-xs" id="logo_dharc">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid background_red_light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 justify">
+            <p class="align_center footer_copyright text_light">© Copyright (c) 2021 by /DH.arc - Digital Humanities Advanced Research Centre.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- SPARQL GUI -->
+<script src="$yasr"></script>
+<script src="$yasqe"></script>
+<script src="$sparqljs"></script>

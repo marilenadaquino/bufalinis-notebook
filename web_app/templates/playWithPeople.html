@@ -3,35 +3,48 @@ $def with ()
 <section class="col-md-12 section_header" id="introContainer" style="display: none;">
   <div class="container">
       <div class="row">
-          <div class="col-md-12 align_center">
-              <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
-              <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+        <div class="col-md-12 align_center">
+			      <!-- dont remove or change -->
+            <h2 id="semantic_indexes_header_title">Index of Persons</h2>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <!-- change id -->
+              <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-play-people"><i class="fas fa-question"></i></button>
           </div>
       </div>
   </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- play with people -->
+<!-- intro js tutorial 1 -->
+<div class="col-md-12 col-sm-12 background_white" data-title="Play with data" data-intro="This chart is designed as an environment in which users can explore the data in a funny way and discover new relationships between them. Each person who mentions other persons is represented as a circle with a white margin, while persons who are mentioned as smaller circles with no margin. By hovering on each circle, the name of the person associated with the circle and the number of excerpts in which she is mentioned are displayed." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
           <ul class="nav nav-pills">
-              <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+              <!--<li role="presentation"><a href="./indexes" id="people_list">List</a></li>
               <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
               <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
               <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
               <li role="presentation"><a class="no-active-tab">|</a></li>
-              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>
-              <li role="presentation"><a class="info-vis padding-21" data-toggle="collapse" href="#collapsePlay" role="button" aria-expanded="false" aria-controls="collapsePlay"><i class="glyphicon glyphicon-info-sign"></i></a></li>
+              <li role="presentation" class="filters_category_title active"><a href="#" id="data_play">Play with data</a></li>-->
           </ul>
         </div>
         <div class="container-fluid">
           <div class="col-md-12">
             <div class="collapse" id="collapsePlay">
               <h3 class="text_black" id="explain_play_people_h3">Play with data</h3>
-              <p class="justify text_grey" id="explain_play_people_p">The chart below is designed as an environment in which users can <span class="bold"> explore the data in a funny way and discover new relationships between them</span>.<br>Each <span class="bold">person who mentions other people</span> is represented as a <span class="bold">circle with a white margin</span>, while <span class="bold">people who are mentioned</span> from that same person as <span class="bold">smaller circles with no margin</span>. By hovering on each circle, the name of the person associated with the circle and the number of excerpts in which she is cited are displayed.<br>The size of the circles is proportional to the number of extracts in which the person is mentioned.<br>People who are mentioned can be mentioned by several people at the same time. By exploring the chart, the user can search for <span class="bold">how many nodes are repeated</span>, discovering who mentions the person searched.<br>To facilitate the search, each node with a margin can be opened and closed. By closing all the nodes, whe user will find out who are all the people who mention other people in the notebook.</p>
+              <p class="justify text_grey" id="explain_play_people_p">The chart below is designed as an environment in which users can <span class="bold"> explore the data in a funny way and discover new relationships between them</span>.<br>Each <span class="bold">person who mentions other persons</span> is represented as a <span class="bold">circle with a white margin</span>, while <span class="bold">persons who are mentioned</span> from that same person as <span class="bold">smaller circles with no margin</span>. By hovering on each circle, the name of the person associated with the circle and the number of excerpts in which she is cited are displayed.<br>The size of the circles is proportional to the number of extracts in which the person is mentioned.<br>Persons who are mentioned can be mentioned by several persons at the same time. By exploring the chart, the user can search for <span class="bold">how many nodes are repeated</span>, discovering who mentions the person searched.<br>To facilitate the search, each node with a margin can be opened and closed. By closing all the nodes, the user will find out who are all the persons who mention other persons in the notebook.</p>
             </div>
           </div>
         </div>
@@ -45,7 +58,7 @@ $def with ()
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <!-- Chart code -->
-<script>
+<!--<script>
 am4core.ready(function() {
 
 // Themes begin
@@ -474,8 +487,18 @@ nodeTemplate.events.on("out", function (event) {
   networkSeries.links.template.strokeOpacity = 0;
   
   }); // end am4core.ready()
-  </script>
+  </script>-->
   
   <!-- HTML -->
-  <div id="chartdiv"></div>  
+  <!-- intro.js tutorial step 2 -->
+  <div id="chartdiv" data-title="Play with data" data-intro="The size of the circles is proportional to the number of excerpts in which the person is mentioned. Persons who are mentioned can be mentioned by several persons at the same time. By exploring the chart, the user can search for how many nodes are repeated, discovering who mentions the person searched. To facilitate the search, each node with a margin can be opened and closed. By closing all the nodes, the user will find out who are all the persons who mention other persons in the notebook." data-step="2"></div>  
 </div>
+
+  <!-- intro.js tutorial js -->
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <script>
+    $$("#intro-js-play-people").click(function () {
+      introJs().start();
+    });
+  </script>
+  

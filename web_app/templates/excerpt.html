@@ -5,30 +5,36 @@ $var mapifyjs = '/static/script/jquery.mapify.js'
 $var fontawesome = '/static/script/fontawesome-all.js'
 $var i18n = '/static/script/jquery.i18n.properties.js'
 $var cookies = '/static/script/cookies.js'
+$var bootstrapjs = '/static/script/bootstrap.min.js'
+$var zingchart = '/static/script/zingchart.js'
 $var maincss = '/static/css/notebook.css'
 $var mapifycss = '/static/css/jquery.mapify.css'
+$var yasguicss = '/static/css/yasgui.css'
+$var introjs = '/static/css/introjs.min.css'
+$var bootstrapcss = '/static/css/bootstrap.min.css'
+$var fontawesomecss = '/static/css/fontawesome.min.css'
+$var json = '/static/metadata.json'
 
 		<section class="col-md-12 section_header" id="introContainer" style="display: none;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 align_center">
+						<!-- dont remove or change -->
 						<h2 id="digital_edition_header_title">Digital Edition</h2>
-						<a href="#metadata_title"><i class="fas fa-chevron-down intro_go"></i></a>
 					</div>
 				</div>
 			</div>
 		</section>
-		
+
 		<section class="col-md-12 inline background_red_color">
 			<h2><i class="far fa-gem"></i></h2>
-			$if "verse" in biblRef:
-				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", verse")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
-			$elif 'Excerpt' in biblRef:
-				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", Excerpt")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
-			$elif 'page' in biblRef:
-				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef.split(", page")[0]</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
-			$else:
-				<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$:biblRef</h3><a href=$:source class="text_light">$:source</a><p>$motivation</p></section>
+			$ noPage = biblRef.split(', page')[0]
+			$ noEx = noPage.split(', Excerpt')[0]
+			$ noStruct = re.sub('act|canto|chapter|fragment|madrigale| sample,|scene|verse|volume', '', noEx, flags=re.IGNORECASE)
+			$ noSonn = re.sub('sonnet', '', noStruct)
+			$ bibRef = re.sub(', excerpt [0-9]+', '', noSonn)
+			$ creator = 'Paolo Bufalini' if len(creator) <3 else creator
+			<section id="uri" class="text_light"><h3 class="filters_category_title text_light">$bibRef, $creator</h3><a href="$:source" class="text_light">$:source</a><p>$motivation</p></section>
 		</section>
 		<section class="col-md-12 inline background_light" id="textContainer">
 			<h2><i class="fas fa-quote-left"></i></h2>
@@ -37,7 +43,7 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 		<section class="col-md-8 inline">
 			<h2 class="text_red"><i class="fas fa-bookmark"></i></h2>
 			<section>
-				<span class="notebook_title">Il quaderno di Paolo Bufalini</span> <a class="page_link">$page</a>
+				<span class="notebook_title">Il quaderno di Paolo Bufalini </span> <a class="page_link">$page</a>
 			</section>
 		</section>
 		$if len(workLabel) > 0:
@@ -49,7 +55,7 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 							$if work == result['s']['value']:
 								<li class="externalLink">
 									<i class="glyphicon glyphicon-new-window"></i>
-										<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
+										<a href="$result['externalURI']['value']" target="_blank">
 										$if 'dbpedia' in result['externalURI']['value']:
 											<span>dbpedia</span>
 										$elif 'viaf' in result['externalURI']['value']:
@@ -61,34 +67,37 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 									</a>
 								</li>
 					</ul>
-					
+
 				</section>
 			</section>
 		<section class="col-md-8 inline">
 			<h2></h2>
-			$if '-' in creator:
-				<section id="creator"><b id="i_author">autore</b> Bufalini, Paolo (1915–2001)
+			$if len(creator) <3:
+				<section id="creator"><b id="i_author">autore</b> Bufalini, Paolo
 			$else:
 				<section id="creator"><b id="i_author">autore</b> $:creator
 				<ul>
 					$for result in sameAs['results']['bindings']:
 						$if creatorID == result['s']['value']:
-							<li class="externalLinkLi">
-								<i class="glyphicon glyphicon-new-window"></i>
-									<a href=$result['externalURI']['value'] title=$result['externalURI']['value']>
-									$if 'dbpedia' in result['externalURI']['value']:
-										<span>dbpedia</span>
-									$elif 'viaf' in result['externalURI']['value']:
+							$if 'viaf' in result['externalURI']['value']:
+								<li class="externalLink">
+									<i class="glyphicon glyphicon-new-window"></i>
+									<a href="$result['externalURI']['value']" target="_blank">
 										<span>viaf</span>
-									$else:
-										<span>$result['externalURI']['value']</span>
-								</a>
-							</li>
+									</a>
+								</li>
+							$elif 'dbpedia' in result['externalURI']['value']:
+								<li class="externalLink">
+									<i class="glyphicon glyphicon-new-window"></i>
+									<a href="$result['externalURI']['value']" target="_blank">
+										<span>dbpedia</span>
+									</a>
+								</li>
 				</ul>
-				
+
 			</section>
 		</section>
-		$if len(translator) > 0:
+		$if len(translator) > 0 and motivation != 'comment':
 			<section class="col-md-8 inline">
 				<h2><i class="fas fa-align-left"></i></h2>
 				<section id="translator"><b id="i_translator">traduttore</b> $translator</section>
@@ -101,7 +110,7 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 					<section id="translator"><b id="related_text">testo collegato</b> $result['relatedBody']['value']</section>
 				</section>
 
-			
+
 		<script type="text/javascript">
 			// redirect from excerpts page (where the id of a single page number has to be substituted by an opening - 2 pages)
 			  $$('.page_link').each(function() {
@@ -109,41 +118,17 @@ $var mapifycss = '/static/css/jquery.mapify.css'
 			    var prevPage = parseInt(singlePage)-1;
 			    var nextPage = parseInt(singlePage)+1;
 			    if (singlePage % 2 === 0 && singlePage != parseInt(148) ) {
-				  $$(this).attr('href','../viewer_'+singlePage+'-'+nextPage);
+				  $$(this).attr('href','viewer#'+singlePage+'-'+nextPage);
 				  $$(this).attr('target','_blank');
 			    } else if (singlePage === parseInt(148) ) {
-			    	$$(this).attr('href','../viewer_148card');
+			    	$$(this).attr('href','viewer#148card');
 					$$(this).attr('target','_blank');
 			    } else if (singlePage === parseInt(149) ) {
-			    	$$(this).attr('href','../viewer_149');
+			    	$$(this).attr('href','viewer#149');
 					$$(this).attr('target','_blank');
 			    } else {
-			      $$(this).attr('href','../viewer_'+prevPage+'-'+singlePage);
+			      $$(this).attr('href','viewer#'+prevPage+'-'+singlePage);
 				  $$(this).attr('target','_blank');
 				}
 			  });
 		</script>
-		
-<!--
-		<script type="text/javascript">
-			// redirect from excerpts page (where the id of a single page number has to be substituted by an opening - 2 pages)
-			  $$('.page_link').each(function() {
-			    var singlePage = $$(this).text().substring($$(this).text().indexOf(" ") + 1);
-			    var prevPage = parseInt(singlePage)-1;
-			    var nextPage = parseInt(singlePage)+1;
-			    if (singlePage % 2 === 0 && singlePage != parseInt(148) ) {
-			      $$(this).attr('href','../viewer');
-			      $$(this).attr('target','_blank');
-			    } else if (singlePage === parseInt(148) ) {
-			    	$$(this).attr('href','../viewer');
-					$$(this).attr('target','_blank');
-			    } else if (singlePage === parseInt(149) ) {
-			    	$$(this).attr('href','../viewer');
-					$$(this).attr('target','_blank');
-			    } else {
-			      $$(this).attr('href','../viewer');
-			      $$(this).attr('target','_blank');
-			    }
-			  });
-		</script>
--->	

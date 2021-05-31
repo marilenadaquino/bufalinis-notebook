@@ -4,26 +4,38 @@ $def with ()
     <div class="container">
         <div class="row">
             <div class="col-md-12 align_center">
-                <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
-                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+				<!-- dont remove or change -->
+                <h2 id="works_indexes_header_title">Index of Works</h2>
             </div>
         </div>
     </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-treemap-works"><i class="fas fa-question"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- treemap works -->
+<!-- intro.js tutorial step 1 -->
+<div class="col-md-12 col-sm-12 background_white responsive-height-datavis" data-title="Treemap" data-intro="In this chart each block corresponds to an author cited in the notebook. The color and size of the blocks represent in a proportional way the frequency with which each author is cited. By hovering on each block corresponding to an author, the number of excerpts from works by the author is displayed." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
             <ul class="nav nav-pills tab-works">
-                <li role="presentation"><a href="./library" id="people_list">List</a></li>
+                <!--<li role="presentation"><a href="./library" id="people_list">List</a></li>
                 <li role="presentation" class="filters_category_title active"><a href="#" id="people_treemap">Treemap</a></li>
-                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseTreemap" role="button" aria-expanded="false" aria-controls="collapseTreemap"><i class="glyphicon glyphicon-info-sign"></i></a></li>
                 <li role="presentation"><a href="./setsWorks" id="people_sets">Sets</a></li>
                 <li role="presentation"><a class="no-active-tab">|</a></li>
-				<li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
+				<li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>-->
             </ul>
         </div>
         <div class="container-fluid">
@@ -35,10 +47,11 @@ $def with ()
             </div>
         </div>
     </div>
-    <div id="chart_div"></div>
+    <!-- intro.js tutorial step 2 -->
+    <div id="chart_div" data-title="Treemap" data-intro="By clicking on the same block, a series of sub-blocks are displayed, each of which corresponds to a work cited in the notebook. Also in this case the colors and dimensions of the blocks represent in a proportional way the frequency with which each work is cited. By hovering on each of them, you get the number of excerpts from that specific work cited in the notebook." data-step="2"></div>
 </div>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
     google.charts.load('current', {'packages':['treemap']});
     google.charts.setOnLoadCallback(drawChart);
@@ -232,4 +245,12 @@ tree.draw(data, options);
     }
 
 }
+</script>-->
+
+<!-- intro.js tutorial js -->
+<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+<script>
+    $$("#intro-js-treemap-works").click(function () {
+        introJs().start();
+    });
 </script>

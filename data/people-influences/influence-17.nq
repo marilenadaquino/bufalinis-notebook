@@ -1,5 +1,5 @@
+<https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a> <http://www.w3.org/2000/01/rdf-schema#label> "T. Mann sulla relazione fra F. Nietzsche e Julien Sorel, personaggio de 'Il rosso e il nero' di Stendhal" <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a-assertion/> .
 <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a> <http://www.w3.org/ns/prov#agent> <https://w3id.org/bufalinis-notebook/person/js> <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/js> <http://purl.org/spar/cito/citesAsRelated> <https://w3id.org/bufalinis-notebook/person/fn> <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a-assertion/> .
-<https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a> <http://www.w3.org/2000/01/rdf-schema#label> "T. Mann sulla relazione fra F. Nietzsche e Julien Sorel, personaggio de 'Il rosso e il nero' di Stendhal" <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a-assertion/> .
 <https://w3id.org/bufalinis-notebook/person/fn> <http://www.w3.org/ns/prov#qualifiedInfluence> <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a> <https://w3id.org/bufalinis-notebook/infl-js-citesAsRelated-fn-quot-056a-assertion/> .
 

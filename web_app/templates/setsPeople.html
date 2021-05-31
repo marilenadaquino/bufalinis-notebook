@@ -1,42 +1,57 @@
 $def with ()
+$var zingchart = '../static/script/zingchart.js'
 
 <section class="col-md-12 section_header" id="introContainer" style="display: none;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 align_center">
-                <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
-                <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+					      <!-- dont remove or change -->
+                <h2 id="semantic_indexes_header_title">Index of Persons</h2>
             </div>
         </div>
     </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <!-- change id -->
+              <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-sets-people"><i class="fas fa-question"></i></button>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- sets -->
+<!-- intro.js tutorial step 1 -->
+<div class="col-md-12 col-sm-12 background_white responsive-height-datavis" data-title="Sets" data-intro="In this chart the persons mentioned in the notebook are grouped according to the person who mentions them, who, in turn, is mentioned in the notebook. By hovering on each set you get the following information: name of the person who mentions other persons and number of excerpts in which that person mention other persons. By hovering/clicking on each subset you get the following information: names of the persons mentioned and number of excerpts in which they appear." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
           <ul class="nav nav-pills">
-            <li role="presentation"><a href="./indexes" id="people_list">List</a></li>
+            <!--<li role="presentation"><a href="./indexes" id="people_list">List</a></li>
             <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
             <li role="presentation" class="filters_category_title active"><a href="#" id="people_sets">Sets</a></li>
-            <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseSets" role="button" aria-expanded="false" aria-controls="collapseSets"><i class="glyphicon glyphicon-info-sign"></i></a></li>
             <li role="presentation"><a href="./graphPeople" id="people_graph">Graph</a></li>
             <li role="presentation"><a class="no-active-tab">|</a></li>
-            <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+            <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>-->
           </ul>
         </div>
         <div class="container-fluid">
           <div class="col-md-12">
             <div class="collapse" id="collapseSets">
               <h3 class="text_black" id="explain_sets_people_h3">Sets</h3>
-              <p class="justify text_grey" id="explain_sets_people_p">In the chart below all the people mentioned in the notebook are grouped according to the person who mentions them, who, in turn, is mentioned in the notebook. <br> By hovering on each <span class="bold"> set</span> you get the following information: <span class="bold">name of the person who mentions other people</span> and <span class="bold">number of extracts</span> in which that person mention other people.<br>By hovering/clicking on each <span class="bold">subset</span> you get the following information: <span class="bold">names of the people mentioned</span> and <span class="bold">number of extracts</span> in which they appear.</p>
+              <p class="justify text_grey" id="explain_sets_people_p">In the chart below the persons mentioned in the notebook are grouped according to the person who mentions them, who, in turn, is mentioned in the notebook. <br> By hovering on each <span class="bold"> set</span> you get the following information: <span class="bold">name of the person who mentions other persons</span> and <span class="bold">number of extracts</span> in which that person mention other persons.<br>By hovering/clicking on each <span class="bold">subset</span> you get the following information: <span class="bold">names of the persons mentioned</span> and <span class="bold">number of extracts</span> in which they appear.</p>
             </div>
           </div>
         </div>
     </div>
-    <div style="padding:10px">
+    <!-- intro.js tutorial step 2 -->
+    <div style="padding:10px" data-title="Set levels" data-intro="You can also view specific set levels." data-step="2">
         <span id="visualize_span"></span> <select id="minlevel">
         <option value="0" selected>0</option>
         <option value="1">1</option>
@@ -52,7 +67,7 @@ $def with ()
       </div>
       <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-8" style="padding-left: 90px;">
                 <div id="zc"></div>
             </div>
             <div class="col-md-2">     
@@ -60,7 +75,7 @@ $def with ()
       </div>
 </div>
 
-  <script>
+  <!--<script>
     var fsdata = [{
         "id": "Il quaderno di Paolo Bufalini",
         "text": "Il quaderno di Paolo Bufalini",
@@ -1089,4 +1104,13 @@ $def with ()
     render();
 
     btnrender.addEventListener('click', render);
-  </script>
+  </script>-->
+
+  <!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-sets-people").click(function () {
+			introJs().start();
+		});
+	</script>
+  

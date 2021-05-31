@@ -1,0 +1,5 @@
+The <span class="italic">People Semantic Index</span> section offers five different ways of accessing the list of all the people mentioned in the notebook.
+<br>
+In <span class="italic">List</span> mode, the index is represented in its traditional form: each mentioned person is associated with the person who mentions her and the excerpts in which the citation appears. By clicking on each excerpt, the user is redirected to the corresponding full-text.
+<br>
+In <span class="italic">Treemap</span>, <span class="italic">Sets</span>, <span class="italic">Graph</span> and <span class="italic">Play with data</span> modes the people mentioned and their relationships are graphically represented by means of different types of Data Visualization.

@@ -1,29 +1,41 @@
 $def with ()
+$var zingchart = '../static/script/zingchart.js'
 
 <section class="col-md-12 section_header" id="introContainer" style="display: none;">
   <div class="container">
     <div class="row">
       <div class="col-md-12 align_center">
-        <h2 id="works_indexes_header_title">Works Semantic Indexes</h2>
-        <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+		   <!-- dont remove or change -->
+         <h2 id="works_indexes_header_title">Index of Works</h2>
       </div>
     </div>
   </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_white">
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-12">
+               <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-sets-works"><i class="fas fa-question"></i></button>
+           </div>
+       </div>
+   </div>
+</section>
+
+<!-- intro.js tutorial step 1 -->
+<div class="col-md-12 col-sm-12 background_white responsive-height-datavis" data-title="Sets" data-intro="In this chart all the works cited in the notebook are grouped according to their author. By hovering on each set, the following information is obtained: name of the author and number of excerpts from works by that author cited in the notebook." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
           <ul class="nav nav-pills tab-works">
-              <li role="presentation"><a href="./library" id="people_list">List</a></li>
+              <!--<li role="presentation"><a href="./library" id="people_list">List</a></li>
               <li role="presentation"><a href="./treemapWorks" id="people_treemap">Treemap</a></li>
               <li role="presentation" class="filters_category_title active"><a href="#" id="people_sets">Sets</a></li>
-              <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseSets" role="button" aria-expanded="false" aria-controls="collapseSets"><i class="glyphicon glyphicon-info-sign"></i></a></li>
               <li role="presentation"><a class="no-active-tab">|</a></li>
-              <li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>
+              <li role="presentation"><a href="./playWithWorks" id="data_play">Play with data</a></li>-->
           </ul>
         </div>
         <div class="container-fluid">
@@ -35,31 +47,37 @@ $def with ()
           </div>
         </div>
     </div>
-    <div style="padding:10px">
-        <span id="visualize_span"></span> <select id="minlevel">
-        <option value="0" selected>0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-    </select> <span id="visualize_span_to"></span> <select id="maxlevel">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4" selected>4</option>
-    </select><button class="btnrender-works" id="btnrender" style="margin-left: 15px;">Visualizza i livelli</button>
-      </div>
-      <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8" style="padding-left: 70px;">
-                <div id="zc"></div>
-            </div>
-            <div class="col-md-2">     
-            </div>
-      </div>
+   <!-- intro.js tutorial step 3 -->   
+   <div style="padding:10px" data-title="Sets level" data-intro="You can also view specific set levels." data-step="3">
+      <span id="visualize_span"></span> 
+      <select id="minlevel">
+         <option value="0" selected>0</option>
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4">4</option>
+      </select> 
+      <span id="visualize_span_to"></span> 
+      <select id="maxlevel">
+         <option value="1">1</option>
+         <option value="2">2</option>
+         <option value="3">3</option>
+         <option value="4" selected>4</option>
+      </select>
+      <button class="btnrender-works" id="btnrender" style="margin-left: 15px;">Visualizza i livelli</button>
+   </div>
+   <!-- intro.js tutorial step 2 -->   
+   <div class="row" data-title="Sets" data-intro="By hovering/clicking on each subset the following information is obtained: name of the cited work and number of excerpts from that work cited in the notebook." data-step="2">
+         <div class="col-md-2"></div>
+         <div class="col-md-8" style="padding-left: 70px;">
+               <div id="zc"></div>
+         </div>
+         <div class="col-md-2">     
+         </div>
+   </div>
 </div>
 
-  <script>
+  <!--<script>
     var fsdata = [
    {
       "id":"Il quaderno di Paolo Bufalini",
@@ -911,4 +929,13 @@ $def with ()
     render();
 
     btnrender.addEventListener('click', render);
-  </script>
+  </script>-->
+
+  <!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-sets-works").click(function () {
+			introJs().start();
+		});
+	</script>
+   

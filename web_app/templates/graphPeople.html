@@ -3,28 +3,41 @@ $def with ()
 <section class="col-md-12 section_header" id="introContainer" style="display: none;">
   <div class="container">
       <div class="row">
-          <div class="col-md-12 align_center">
-              <h2 id="semantic_indexes_header_title">Semantic Indexes</h2>
-              <a href=""><i class="fas fa-chevron-down intro_go"></i></a>
+        <div class="col-md-12 align_center">
+          <!-- dont remove or change -->
+          <h2 id="semantic_indexes_header_title">Index of Persons</h2>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- intro js tutorial -->
+<section class="col-md-12" id="introContainer">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <!-- change id -->
+              <button class="button_snippet button_reset float-right margin-bottom-15 margin-top-15" id="intro-js-graph"><i class="fas fa-question"></i></button>
           </div>
       </div>
   </div>
 </section>
 
-<div class="col-md-12 col-sm-12 background_dark_gray panel_visualization_xl">
+<!-- graph -->
+<!-- intro.js tutorial step 1 -->
+<div class="col-md-12 col-sm-12 panel_visualization_xl background_white responsive-height-datavis" data-title="Graph" data-intro="In this chart all the persons mentioned in the notebook are represented as nodes. The relations between them correspond to the arcs of the graph. By hovering on each node, a tooltip shows the name of the corresponding mentioned person. If that person mentions other persons, the arcs that connect that person to all the persons she mentions are highlighted." data-step="1">
     <div class="media">
         <div class="media-left media-left-visualization">
             <button class="button_panel" id="expand-treemap" onclick="expandTreemap()"><i class="glyphicon glyphicon-fullscreen" role="resize-icon"></i></button>	
         </div>
         <div class="media-body">
             <ul class="nav nav-pills">
-                <li role="presentation"><a href="./indexes" id="people_list">Lista</a></li>
+                <!--<li role="presentation"><a href="./indexes" id="people_list">List</a></li>
                 <li role="presentation"><a href="./treemapPeople" id="people_treemap">Treemap</a></li>
                 <li role="presentation"><a href="./setsPeople" id="people_sets">Sets</a></li>
                 <li role="presentation" class="filters_category_title active"><a href="#" id="people_graph">Graph</a></li>
-                <li role="presentation"><a class="padding-21" data-toggle="collapse" href="#collapseGraph" role="button" aria-expanded="false" aria-controls="collapseGraph"><i class="glyphicon glyphicon-info-sign"></i></a></li>
                 <li role="presentation"><a class="no-active-tab">|</a></li>
-                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>
+                <li role="presentation"><a href="./playWithPeople" id="data_play">Play with data</a></li>-->
             </ul>
         </div>
         <div class="collapse" id="collapseGraph">
@@ -32,10 +45,7 @@ $def with ()
             <div class="col-md-12">
               <h3 class="text_light" id="explain_graph_people_h3">Graph</h3>
               <p class="justify text_light" id="explain_graph_people_p">
-                In the chart below all the people mentioned in the notebook are represented as nodes. The relations between them, on the other hand, correspond to the arcs of the graph.
-                By hovering on each node, a tooltip shows the name of the corresponding cited person.
-                If that person mentions other people, the arcs that connect that person to all the persons she mentions are highlighted.
-                By analyzing the arcs that connect the nodes, the user can discover the network of citations that characterizes Bufalini's text. Furthermore, from the proximity between different nodes we can deduce the interests in common to different people (e.g. Tacito and Giussani are very close nodes and both are connected to people belonging to the Latin world).
+                In the chart below all the persons mentioned in the notebook are represented as nodes. The relations between them, on the other hand, correspond to the arcs of the graph. By hovering on each node, a tooltip shows the name of the corresponding cited person. If that person mentions other persons, the arcs that connect that person to all the persons she mentions are highlighted. By analyzing the arcs that connect the nodes, the user can discover the network of citations that characterizes Bufalini's text. Furthermore, from the proximity between different nodes we can deduce the interests in common to different persons (e.g. Tacito and Giussani are very close nodes and both are connected to persons belonging to the Latin world).
               </p>
             </div>
           </div>
@@ -50,7 +60,7 @@ $def with ()
   <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
   
   <!-- Chart code -->
-  <script>
+  <!--<script>
   am4core.ready(function() {
   
   // Themes begin
@@ -884,8 +894,17 @@ $def with ()
     }
   ];
   }); // end am4core.ready()
-  </script>
+  </script>-->
   
   <!-- HTML -->
-  <div id="chartdiv"></div>
+   <!-- intro js tutorial 1 -->
+  <div id="chartdiv" data-title="Graph" data-intro="By analyzing the arcs that connect the nodes, the user can discover the network of citations that characterizes Bufalini's text. Furthermore, from the proximity between different nodes we can deduce the interests in common to different persons (e.g. Tacito and Giussani are very close nodes and both are connected to persons belonging to the Latin world)." data-step="2"></div>
+
+  <!-- intro.js tutorial js -->
+	<script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+	<script>
+		$$("#intro-js-graph").click(function () {
+			introJs().start();
+		});
+	</script>
   
