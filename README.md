@@ -1,5 +1,5 @@
 # Paolo Bufalini's notebook
-Web application of the digital edition of Paolo Bufalini's notebook.
+Code base of the web application of the digital edition of Paolo Bufalini's notebook.
 
 It requires:
 
